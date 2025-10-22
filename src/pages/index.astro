@@ -1,11 +1,84 @@
----
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Moveroo | Trusted Local & Interstate Movers">
+	<section class="relative overflow-hidden bg-slate-950 py-24">
+		<div class="mx-auto flex max-w-6xl flex-col gap-12 px-6 md:flex-row md:items-center">
+			<div class="max-w-xl">
+				<p class="text-sm font-semibold uppercase tracking-widest text-sky-400">Moveroo</p>
+				<h1 class="mt-6 text-4xl font-semibold tracking-tight text-white md:text-5xl">
+					Stress-free local & interstate moves across Australia
+				</h1>
+				<p class="mt-6 text-lg text-slate-300">
+					We are rebuilding the Moveroo experience. Check back soon for refreshed services, pricing guides and helpful resources tailored to your relocation.
+				</p>
+				<div class="mt-10 flex flex-wrap gap-4">
+					<a
+						class="rounded-full bg-sky-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-sky-500/30 transition hover:bg-sky-400"
+						href="/contact/"
+					>
+						Request a callback
+					</a>
+					<a
+						class="rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-slate-200 transition hover:border-white hover:text-white"
+						href="/services/"
+					>
+						View moving services
+					</a>
+				</div>
+			</div>
+			<div class="flex-1 space-y-6 rounded-3xl border border-white/10 bg-slate-900/60 p-8 shadow-2xl shadow-slate-950/40">
+				<h2 class="text-lg font-semibold text-white">What’s coming</h2>
+				<ul class="space-y-3 text-sm text-slate-300">
+					<li class="flex items-start gap-3">
+						<span class="mt-1 h-2 w-2 rounded-full bg-sky-400" aria-hidden="true"></span>
+						<span>Interactive route pricing and transit time estimates.</span>
+					</li>
+					<li class="flex items-start gap-3">
+						<span class="mt-1 h-2 w-2 rounded-full bg-sky-400" aria-hidden="true"></span>
+						<span>Guides for preparing vehicles, possessions and pets for transport.</span>
+					</li>
+					<li class="flex items-start gap-3">
+						<span class="mt-1 h-2 w-2 rounded-full bg-sky-400" aria-hidden="true"></span>
+						<span>Testimonials from homeowners, renters and fleet managers nationwide.</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="border-y border-white/10 bg-slate-900/40 py-16">
+		<div class="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-3">
+			<div>
+				<h2 class="text-2xl font-semibold text-white">Local expertise</h2>
+				<p class="mt-4 text-sm text-slate-300">
+					Moveroo connects expert removalists and vehicle carriers across major Australian cities and regional hubs. Legacy resources from the
+					previous site are being refreshed—content placeholders will be replaced as soon as the new copy is finalised.
+				</p>
+			</div>
+			<div>
+				<h3 class="text-lg font-semibold text-white">Customer focus</h3>
+				<p class="mt-4 text-sm text-slate-300">
+					Expect detailed checklists, transparent timelines and the same friendly customer support that helped thousands move with confidence.
+				</p>
+			</div>
+			<div>
+				<h3 class="text-lg font-semibold text-white">Tailored services</h3>
+				<p class="mt-4 text-sm text-slate-300">
+					From apartment moves to full household relocations, we’re curating packages that balance budget, speed and care for prized belongings.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-slate-950 py-16">
+		<div class="mx-auto max-w-6xl px-6">
+			<h2 class="text-2xl font-semibold text-white">Next steps</h2>
+			<ol class="mt-6 space-y-4 text-sm text-slate-300">
+				<li>Audit existing moveroo.com.au content to classify service descriptions, FAQs and compliance pages.</li>
+				<li>Draft updated copy and imagery aligned with the Fortify-inspired visual system.</li>
+				<li>Integrate booking and contact flows tailored to Moveroo’s preferred enquiry process.</li>
+			</ol>
+		</div>
+	</section>
 </Layout>
