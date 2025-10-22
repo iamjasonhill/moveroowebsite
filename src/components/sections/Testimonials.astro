@@ -1,0 +1,52 @@
+---
+interface Testimonial {
+  quote: string;
+  name: string;
+  role: string;
+}
+
+const testimonials: Testimonial[] = [
+  {
+    quote:
+      'Moveroo handled our interstate move with zero fuss. The new platform looks set to make booking even smoother when it launches.',
+    name: 'Samantha P.',
+    role: 'Gold Coast to Melbourne relocation'
+  },
+  {
+    quote:
+      'Coordinating company car relocations used to be a chore. I can’t wait to manage everything from the revamped Moveroo dashboard.',
+    name: 'Lewis R.',
+    role: 'Fleet manager, national supplier'
+  },
+  {
+    quote:
+      'We’ve trusted Moveroo for regional backloads for years. Their team keeps you informed every step of the way.',
+    name: 'Gina T.',
+    role: 'Small business owner'
+  }
+];
+---
+
+<section class="border-y border-white/10 bg-slate-900/30 py-24">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="max-w-2xl">
+      <p class="text-sm font-semibold uppercase tracking-[0.35em] text-sky-400">Testimonials</p>
+      <h2 class="mt-6 text-3xl font-semibold text-white md:text-4xl">What customers love about Moveroo</h2>
+      <p class="mt-6 text-base text-slate-300">
+        Real stories from the existing community, refreshed copy coming soon.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-8 md:grid-cols-3">
+      {testimonials.map((testimonial) => (
+        <article class="flex flex-col gap-4 rounded-3xl border border-white/10 bg-slate-950/60 p-8 shadow-lg shadow-slate-950/40">
+          <p class="text-sm leading-relaxed text-slate-200">“{testimonial.quote}”</p>
+          <div class="mt-auto text-xs uppercase tracking-[0.35em] text-slate-500">
+            <p class="font-semibold text-slate-200">{testimonial.name}</p>
+            <p>{testimonial.role}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

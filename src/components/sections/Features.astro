@@ -1,0 +1,54 @@
+---
+interface Feature {
+  eyebrow: string;
+  title: string;
+  description: string;
+}
+
+const features: Feature[] = [
+  {
+    eyebrow: 'Local expertise',
+    title: 'Moves tailored to metro and regional routes',
+    description:
+      'We align you with trusted carriers in every Australian state, ensuring the right vehicle, crew and schedule for your origin and destination.'
+  },
+  {
+    eyebrow: 'Customer focus',
+    title: 'Proactive support from enquiry to delivery',
+    description:
+      'Dedicated coordinators keep you updated with pickup windows, transit checkpoints and arrival notices so you always know what comes next.'
+  },
+  {
+    eyebrow: 'Flexible services',
+    title: 'Options for storage, packing and specialised care',
+    description:
+      'Add-ons cover packing assistance, secure storage and careful handling for antiques, instruments and other fragile belongings.'
+  }
+];
+---
+
+<section class="border-y border-white/10 bg-slate-900/40 py-24">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="md:grid md:grid-cols-[1.1fr_1fr] md:items-start md:gap-16">
+      <header>
+        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-sky-400">Moveroo advantage</p>
+        <h2 class="mt-6 text-3xl font-semibold text-white md:text-4xl">
+          Personalised moves with the reliability of a national network
+        </h2>
+        <p class="mt-6 text-base leading-relaxed text-slate-300">
+          Guided by the original Moveroo promise, we’re rebuilding our platform with streamlined booking, transparent pricing and tailored move planning. These pillars will anchor every new page as we migrate content from the historical site.
+        </p>
+      </header>
+
+      <div class="mt-12 grid gap-8 md:mt-0">
+        {features.map((feature) => (
+          <article class="space-y-3 rounded-3xl border border-white/10 bg-slate-950/60 p-8 shadow-lg shadow-slate-950/40">
+            <p class="text-xs font-semibold uppercase tracking-[0.35em] text-sky-400">{feature.eyebrow}</p>
+            <h3 class="text-xl font-semibold text-white">{feature.title}</h3>
+            <p class="text-sm leading-relaxed text-slate-300">{feature.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

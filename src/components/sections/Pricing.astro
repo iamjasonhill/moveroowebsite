@@ -1,0 +1,75 @@
+---
+interface Plan {
+  name: string;
+  price: string;
+  description: string;
+  highlights: string[];
+  cta: string;
+  href: string;
+}
+
+const plans: Plan[] = [
+  {
+    name: 'Standard move',
+    price: 'From $450',
+    description: 'Ideal for apartments and small homes with flexible pickup windows.',
+    highlights: ['Dedicated coordinator', 'Transit updates via SMS/email', 'Furniture disassembly & reassembly'],
+    cta: 'Request a quote',
+    href: '/contact/'
+  },
+  {
+    name: 'Premium move',
+    price: 'From $880',
+    description: 'Perfect for time-sensitive relocations or long distance moves.',
+    highlights: ['Priority scheduling', 'Packing & unpacking assistance', 'Short-term storage options'],
+    cta: 'Schedule a call',
+    href: '/contact/'
+  }
+];
+---
+
+<section class="bg-slate-950 py-24">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="text-center">
+      <p class="text-sm font-semibold uppercase tracking-[0.35em] text-sky-400">Moveroo plans</p>
+      <h2 class="mt-6 text-3xl font-semibold text-white md:text-4xl">Flexible packages for stress-free relocations</h2>
+      <p class="mx-auto mt-6 max-w-2xl text-base text-slate-300">
+        Pricing placeholders reflect current estimates. Detailed rate cards and calculators will be reintroduced once migration from the legacy platform is complete.
+      </p>
+    </div>
+
+    <div class="mt-16 grid gap-10 md:grid-cols-2">
+      {plans.map((plan, index) => (
+        <article
+          class={`relative flex h-full flex-col gap-6 rounded-3xl border border-white/10 bg-slate-900/50 p-10 shadow-2xl shadow-slate-950/40 ${
+            index === 1 ? 'border-sky-500/60 bg-slate-900' : ''
+          }`}
+        >
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold text-white">{plan.name}</h3>
+            <span class="text-sm font-semibold uppercase tracking-[0.35em] text-slate-400">{plan.price}</span>
+          </div>
+          <p class="text-sm text-slate-300">{plan.description}</p>
+          <ul class="space-y-3 text-sm text-slate-200">
+            {plan.highlights.map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="mt-1 h-2 w-2 rounded-full bg-sky-400" aria-hidden="true"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <a
+            class={`mt-auto inline-flex w-fit items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition ${
+              index === 1
+                ? 'bg-sky-500 text-white shadow-lg shadow-sky-500/30 hover:bg-sky-400'
+                : 'border border-white/20 text-slate-200 hover:border-white hover:text-white'
+            }`}
+            href={plan.href}
+          >
+            {plan.cta}
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
