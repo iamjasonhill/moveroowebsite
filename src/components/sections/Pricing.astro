@@ -31,7 +31,7 @@ const plans: Plan[] = [
 <section class="bg-white py-24">
   <div class="mx-auto max-w-6xl px-6">
     <div class="text-center">
-      <p class="text-sm font-semibold uppercase tracking-[0.35em] text-sky-500">Moveroo plans</p>
+      <p class="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-600">Moveroo plans</p>
       <h2 class="mt-6 text-3xl font-semibold text-slate-900 md:text-4xl">Flexible packages for stress-free relocations</h2>
       <p class="mx-auto mt-6 max-w-2xl text-base text-slate-600">
         Pricing placeholders reflect current estimates. Detailed rate cards and calculators will be reintroduced once migration from the legacy platform is complete.
@@ -42,7 +42,7 @@ const plans: Plan[] = [
       {plans.map((plan, index) => (
         <article
           class={`relative flex h-full flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-10 shadow-2xl shadow-slate-200/50 ${
-            index === 1 ? 'border-sky-500/60 bg-slate-50 shadow-sky-200/60' : ''
+            index === 1 ? 'border-emerald-500/60 bg-emerald-50 shadow-emerald-200/60' : ''
           }`}
         >
           <div class="flex items-center justify-between">
@@ -53,7 +53,7 @@ const plans: Plan[] = [
           <ul class="space-y-3 text-sm text-slate-600">
             {plan.highlights.map((item) => (
               <li class="flex items-start gap-3">
-                <span class="mt-1 h-2 w-2 rounded-full bg-sky-500" aria-hidden="true"></span>
+                <span class="mt-1 h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true"></span>
                 <span>{item}</span>
               </li>
             ))}
@@ -61,8 +61,8 @@ const plans: Plan[] = [
           <a
             class={`mt-auto inline-flex w-fit items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition ${
               index === 1
-                ? 'bg-sky-500 text-white shadow-lg shadow-sky-500/30 hover:bg-sky-400'
-                : 'border border-slate-200 text-slate-600 hover:border-slate-400 hover:text-slate-900'
+                ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/30 hover:bg-emerald-400'
+                : 'border border-emerald-200 text-emerald-700 hover:border-emerald-300 hover:text-emerald-900'
             }`}
             href={plan.href}
           >
