@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import QuoteCta from '../components/sections/QuoteCta.astro';
 import Hero from '../components/sections/Hero.astro';
 import Features from '../components/sections/Features.astro';
 import Pricing from '../components/sections/Pricing.astro';
@@ -65,14 +66,12 @@ import Testimonials from '../components/sections/Testimonials.astro';
 	<Features />
 	<Pricing />
 	<Testimonials />
-	<section class="bg-white py-20">
-		<div class="mx-auto max-w-6xl px-6">
-			<h2 class="text-2xl font-semibold text-slate-900">Coming next</h2>
-			<ol class="mt-6 space-y-4 text-sm text-slate-600">
-				<li>Prepare refreshed copy and imagery mapped to each Fortify-inspired section.</li>
-				<li>Integrate enquiry forms and booking CTAs so visitors can request quotes immediately.</li>
-				<li>Publish service detail pages aligned with legacy URLs to maintain SEO continuity.</li>
-			</ol>
-		</div>
-	</section>
+	<QuoteCta
+		title="Ready to secure the right removalists?"
+		subtitle="Share your move details and we’ll line up tailored quotes, dates and specialist services to suit your plans."
+		ctaPrimaryLabel="Grab your free quote today"
+		ctaPrimaryHref="https://removalists.moveroo.com.au/"
+		ctaSecondaryLabel="Book your move"
+		ctaSecondaryHref="https://removalists.moveroo.com.au/booking/create"
+	/>
 </Layout>
