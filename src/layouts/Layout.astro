@@ -9,7 +9,7 @@ const { title = 'Moveroo' } = Astro.props as Props;
 ---
 
 <!doctype html>
-<html lang="en" class="h-full bg-slate-950 text-slate-100">
+<html lang="en" class="h-full bg-slate-50 text-slate-900">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -17,22 +17,22 @@ const { title = 'Moveroo' } = Astro.props as Props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="flex min-h-screen flex-col">
-		<header class="border-b border-white/10 bg-slate-950/80 backdrop-blur">
+	<body class="flex min-h-screen flex-col bg-white">
+		<header class="border-b border-slate-200 bg-white/90 backdrop-blur">
 			<div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-				<a href="/" class="text-lg font-semibold tracking-tight">Moveroo</a>
-				<nav class="flex items-center gap-6 text-sm uppercase tracking-wide text-slate-300">
-					<a class="transition hover:text-white" href="/privacy-policy/">Privacy</a>
-					<a class="transition hover:text-white" href="/terms-of-use/">Terms of Use</a>
-					<a class="transition hover:text-white" href="/terms-and-conditions-transport/">Transport Terms</a>
+				<a href="/" class="text-lg font-semibold tracking-tight text-slate-900">Moveroo</a>
+				<nav class="flex items-center gap-6 text-sm font-medium uppercase tracking-wide text-slate-500">
+					<a class="transition hover:text-slate-900" href="/privacy-policy/">Privacy</a>
+					<a class="transition hover:text-slate-900" href="/terms-of-use/">Terms of Use</a>
+					<a class="transition hover:text-slate-900" href="/terms-and-conditions-transport/">Transport Terms</a>
 				</nav>
 			</div>
 		</header>
-		<main class="flex-1">
+		<main class="flex-1 bg-white">
 			<slot />
 		</main>
-		<footer class="border-t border-white/10 bg-slate-950/80">
-			<div class="mx-auto max-w-6xl px-6 py-8 text-sm text-slate-400">
+		<footer class="border-t border-slate-200 bg-slate-50">
+			<div class="mx-auto max-w-6xl px-6 py-8 text-sm text-slate-500">
 				© {new Date().getFullYear()} Moveroo. All rights reserved.
 			</div>
 		</footer>
