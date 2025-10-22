@@ -6,7 +6,61 @@ import Pricing from '../components/sections/Pricing.astro';
 import Testimonials from '../components/sections/Testimonials.astro';
 ---
 
-<Layout title="Moveroo | Trusted Local & Interstate Movers">
+<Layout
+	title="Moveroo: Your Trusted Partner for Moving & Transport Services in Australia"
+	description="Welcome to Moveroo, where we redefine the moving experience with dependable transport solutions for homes, vehicles and specialty freight across Australia."
+	canonical="https://moveroo.com.au/"
+>
+	<Fragment slot="head">
+		<meta property="og:updated_time" content="2024-09-10T15:36:30+10:00" />
+		<meta property="article:published_time" content="2024-01-22T03:43:43+10:00" />
+		<meta property="article:modified_time" content="2024-09-10T15:36:30+10:00" />
+		<meta name="twitter:label1" content="Written by" />
+		<meta name="twitter:data1" content="Moveroo Australia" />
+		<meta name="twitter:label2" content="Time to read" />
+		<meta name="twitter:data2" content="1 minute" />
+		<script type="application/ld+json">{JSON.stringify({
+			'@context': 'https://schema.org',
+			'@graph': [
+				{
+					'@type': 'Organization',
+					'@id': 'https://moveroo.com.au/#organization',
+					'name': 'Moveroo Australia',
+					'url': 'https://moveroo.com.au/',
+					'logo': {
+						'@type': 'ImageObject',
+						'@id': 'https://moveroo.com.au/#logo',
+						'url': 'https://moveroo.com.au/wp-content/uploads/2024/05/Move_Roo_Icon_circle.png',
+						'contentUrl': 'https://moveroo.com.au/wp-content/uploads/2024/05/Move_Roo_Icon_circle.png',
+						'caption': 'Moveroo Australia'
+					},
+					'contactPoint': [
+						{
+							'@type': 'ContactPoint',
+							'telephone': '+61 7 2143 2557',
+							'contactType': 'customer support',
+							'areaServed': 'AU'
+						}
+					]
+				},
+				{
+					'@type': 'WebSite',
+					'@id': 'https://moveroo.com.au/#website',
+					'url': 'https://moveroo.com.au/',
+					'name': 'Moveroo Australia',
+					'publisher': {
+						'@id': 'https://moveroo.com.au/#organization'
+					},
+					'inLanguage': 'en-AU',
+					'potentialAction': {
+						'@type': 'SearchAction',
+						'target': 'https://moveroo.com.au/?s={search_term_string}',
+						'query-input': 'required name=search_term_string'
+					}
+				}
+			]
+		})}</script>
+	</Fragment>
 	<Hero />
 	<Features />
 	<Pricing />
