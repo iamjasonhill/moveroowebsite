@@ -16,6 +16,14 @@ const {
 	robots = 'index, follow',
 	ogType = 'website'
 } = Astro.props as Props;
+
+const navItems = [
+	{ label: 'Home', href: '/', external: false, variant: 'link' },
+	{ label: 'Moving Quote', href: 'https://removalists.moveroo.com.au', external: true, variant: 'link' },
+	{ label: 'Vehicle Transport Quote', href: 'https://cars.moveroo.com.au', external: true, variant: 'link' },
+	{ label: 'Contact Us', href: 'https://moveroo.setmore.com/beta', external: true, variant: 'link' },
+	{ label: 'Book Your Move', href: 'https://removalists.moveroo.com.au/booking/create', external: true, variant: 'button' }
+];
 ---
 
 <!doctype html>
@@ -41,15 +49,56 @@ const {
 	</head>
 	<body class="flex min-h-screen flex-col bg-white">
 		<header class="border-b border-slate-200 bg-white/90 backdrop-blur">
-			<div class="mx-auto flex max-w-6xl items-center justify-between gap-10 px-6 py-5">
+			<div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-5">
 				<a href="/" class="text-lg font-semibold tracking-tight text-slate-900">Moveroo</a>
+				<button
+					class="inline-flex items-center justify-center rounded-full border border-slate-200 p-2 text-slate-700 transition hover:border-emerald-300 hover:text-emerald-700 md:hidden"
+					type="button"
+					aria-controls="mobile-nav"
+					aria-expanded="false"
+					data-mobile-nav-toggle
+				>
+					<span class="sr-only">Toggle navigation</span>
+					<svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M4 6h16M4 12h16M4 18h16" />
+					</svg>
+				</button>
 				<nav class="hidden items-center gap-6 text-sm font-semibold text-slate-700 md:flex">
-					<a class="transition hover:text-emerald-600" href="/">Home</a>
-					<a class="transition hover:text-emerald-600" href="https://removalists.moveroo.com.au" rel="noopener" target="_blank">Moving Quote</a>
-					<a class="transition hover:text-emerald-600" href="https://cars.moveroo.com.au" rel="noopener" target="_blank">Vehicle Transport Quote</a>
-					<a class="transition hover:text-emerald-600" href="https://moveroo.setmore.com/beta" rel="noopener" target="_blank">Contact Us</a>
-					<a class="rounded-full border border-emerald-200 px-4 py-2 text-emerald-700 transition hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-900" href="https://removalists.moveroo.com.au/booking/create" rel="noopener" target="_blank">Book Your Move</a>
+					{navItems.map((item) => (
+						<a
+							class={
+								item.variant === 'button'
+									? 'rounded-full border border-emerald-200 px-4 py-2 text-emerald-700 transition hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-900'
+								: 'transition hover:text-emerald-600'
+							}
+							href={item.href}
+							target={item.external ? '_blank' : undefined}
+							rel={item.external ? 'noopener' : undefined}
+						>
+							{item.label}
+						</a>
+					))}
 				</nav>
+			</div>
+			<div class="md:hidden" data-mobile-nav-panel hidden id="mobile-nav">
+				<div class="border-t border-slate-200 bg-white px-6 py-4 shadow-lg shadow-emerald-100/60">
+					<nav class="flex flex-col gap-4 text-sm font-semibold text-slate-700">
+						{navItems.map((item) => (
+							<a
+								class={
+									item.variant === 'button'
+										? 'inline-flex items-center justify-center rounded-full border border-emerald-200 px-4 py-2 text-emerald-700 transition hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-900'
+										: 'transition hover:text-emerald-600'
+								}
+								href={item.href}
+								target={item.external ? '_blank' : undefined}
+								rel={item.external ? 'noopener' : undefined}
+							>
+								{item.label}
+							</a>
+						))}
+					</nav>
+				</div>
 			</div>
 		</header>
 		<main class="flex-1 bg-white">
@@ -71,5 +120,22 @@ const {
 				<div class="mx-auto max-w-6xl px-6 py-6 text-xs uppercase tracking-[0.3em] text-slate-600">© {new Date().getFullYear()} Moveroo. All rights reserved.</div>
 			</div>
 		</footer>
+		<script is:inline>
+			const toggle = document.querySelector('[data-mobile-nav-toggle]');
+			const panel = document.querySelector('[data-mobile-nav-panel]');
+			if (toggle && panel) {
+				toggle.addEventListener('click', () => {
+					const expanded = toggle.getAttribute('aria-expanded') === 'true';
+					toggle.setAttribute('aria-expanded', String(!expanded));
+					panel.hidden = expanded;
+				});
+				panel.querySelectorAll('a').forEach((link) => {
+					link.addEventListener('click', () => {
+						toggle.setAttribute('aria-expanded', 'false');
+						panel.hidden = true;
+					});
+				});
+			}
+		</script>
 	</body>
 </html>
