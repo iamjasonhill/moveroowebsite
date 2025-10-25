@@ -45,22 +45,7 @@ const navItems = [
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		{description && <meta name="twitter:description" content={description} />}
-		<script is:inline>
-			var _paq = (window._paq = window._paq || []);
-			_paq.push(['trackPageView']);
-			_paq.push(['enableLinkTracking']);
-			(function () {
-				var u = '//stats.redirection.com.au/';
-				_paq.push(['setTrackerUrl', u + 'matomo.php']);
-				_paq.push(['setSiteId', '6']);
-				var d = document,
-					g = d.createElement('script'),
-					s = d.getElementsByTagName('script')[0];
-				g.async = true;
-				g.src = u + 'matomo.js';
-				s.parentNode.insertBefore(g, s);
-			})();
-		</script>
+		<script defer src="https://againanalytics.vercel.app/script.js" data-website-id="3004f4eb-2b2c-4d61-a2fc-2cd23e627f64"></script>
 		<slot name="head" />
 	</head>
 	<body class="flex min-h-screen flex-col bg-white">
