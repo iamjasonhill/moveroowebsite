@@ -45,6 +45,15 @@ const navItems = [
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		{description && <meta name="twitter:description" content={description} />}
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-4DN533CFGK"></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+			gtag('config', 'G-4DN533CFGK');
+		</script>
 		<script defer src="https://againanalytics.vercel.app/script.js" data-website-id="3004f4eb-2b2c-4d61-a2fc-2cd23e627f64"></script>
 		<slot name="head" />
 	</head>
