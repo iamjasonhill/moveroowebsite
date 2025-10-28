@@ -10,6 +10,47 @@ const publishedAt = new Date('2024-01-22T03:43:43+10:00');
 const buildTime = new Date();
 const publishedIso = publishedAt.toISOString();
 const updatedIso = buildTime.toISOString();
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'Organization',
+			'@id': 'https://moveroo.com.au/#organization',
+			'name': 'Moveroo Australia',
+			'url': 'https://moveroo.com.au/',
+			'logo': {
+				'@type': 'ImageObject',
+				'@id': 'https://moveroo.com.au/#logo',
+				'url': 'https://moveroo.com.au/wp-content/uploads/2024/05/Move_Roo_Icon_circle.png',
+				'contentUrl': 'https://moveroo.com.au/wp-content/uploads/2024/05/Move_Roo_Icon_circle.png',
+				'caption': 'Moveroo Australia'
+			},
+			'contactPoint': [
+				{
+					'@type': 'ContactPoint',
+					'telephone': '+61 7 2143 2557',
+					'contactType': 'customer support',
+					'areaServed': 'AU'
+				}
+			]
+		},
+		{
+			'@type': 'WebSite',
+			'@id': 'https://moveroo.com.au/#website',
+			'url': 'https://moveroo.com.au/',
+			'name': 'Moveroo Australia',
+			'publisher': {
+				'@id': 'https://moveroo.com.au/#organization'
+			},
+			'inLanguage': 'en-AU',
+			'potentialAction': {
+				'@type': 'SearchAction',
+				'target': 'https://moveroo.com.au/?s={search_term_string}',
+				'query-input': 'required name=search_term_string'
+			}
+		}
+	]
+};
 ---
 
 <Layout
@@ -25,47 +66,7 @@ const updatedIso = buildTime.toISOString();
 		<meta name="twitter:data1" content="Moveroo Australia" />
 		<meta name="twitter:label2" content="Time to read" />
 		<meta name="twitter:data2" content="1 minute" />
-		<script type="application/ld+json">{JSON.stringify({
-			'@context': 'https://schema.org',
-			'@graph': [
-				{
-					'@type': 'Organization',
-					'@id': 'https://moveroo.com.au/#organization',
-					'name': 'Moveroo Australia',
-					'url': 'https://moveroo.com.au/',
-					'logo': {
-						'@type': 'ImageObject',
-						'@id': 'https://moveroo.com.au/#logo',
-						'url': 'https://moveroo.com.au/wp-content/uploads/2024/05/Move_Roo_Icon_circle.png',
-						'contentUrl': 'https://moveroo.com.au/wp-content/uploads/2024/05/Move_Roo_Icon_circle.png',
-						'caption': 'Moveroo Australia'
-					},
-					'contactPoint': [
-						{
-							'@type': 'ContactPoint',
-							'telephone': '+61 7 2143 2557',
-							'contactType': 'customer support',
-							'areaServed': 'AU'
-						}
-					]
-				},
-				{
-					'@type': 'WebSite',
-					'@id': 'https://moveroo.com.au/#website',
-					'url': 'https://moveroo.com.au/',
-					'name': 'Moveroo Australia',
-					'publisher': {
-						'@id': 'https://moveroo.com.au/#organization'
-					},
-					'inLanguage': 'en-AU',
-					'potentialAction': {
-						'@type': 'SearchAction',
-						'target': 'https://moveroo.com.au/?s={search_term_string}',
-						'query-input': 'required name=search_term_string'
-					}
-				}
-			]
-		})}</script>
+		<script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
 	</Fragment>
 	<Hero />
 	<Features />
