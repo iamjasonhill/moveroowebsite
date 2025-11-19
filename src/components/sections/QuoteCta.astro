@@ -14,25 +14,43 @@ const {
 	ctaPrimaryLabel,
 	ctaPrimaryHref,
 	ctaSecondaryLabel,
-	ctaSecondaryHref
+	ctaSecondaryHref,
 } = Astro.props as Props;
 ---
 
 <section class="bg-white py-20">
-	<div class="mx-auto flex max-w-6xl flex-col gap-10 rounded-3xl border border-slate-200 bg-gradient-to-br from-emerald-50 via-white to-emerald-100/60 px-6 py-12 text-center shadow-xl shadow-emerald-200/60 md:flex-row md:items-center md:text-left">
+	<div
+		class="mx-auto flex max-w-6xl flex-col gap-10 rounded-3xl border border-slate-200 bg-gradient-to-br from-emerald-50 via-white to-emerald-100/60 px-6 py-12 text-center shadow-xl shadow-emerald-200/60 md:flex-row md:items-center md:text-left"
+	>
 		<div class="flex-1 space-y-4">
 			<h2 class="text-3xl font-semibold text-slate-900">{title}</h2>
 			<p class="text-base text-slate-600">{subtitle}</p>
 		</div>
 		<div class="flex flex-1 flex-col gap-4 md:items-end">
-			<a class="inline-flex items-center justify-center rounded-full bg-emerald-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-700/30 transition hover:bg-emerald-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800" href={ctaPrimaryHref}>
+			<a
+				class="inline-flex items-center justify-center rounded-full bg-emerald-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-700/30 transition hover:bg-emerald-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
+				href={ctaPrimaryHref}
+				aria-label={`${ctaPrimaryLabel} (opens in a new tab)`}
+			>
 				{ctaPrimaryLabel}
 			</a>
-			{ctaSecondaryLabel && ctaSecondaryHref && (
-				<a class="inline-flex items-center justify-center rounded-full border border-emerald-500 px-6 py-3 text-sm font-semibold text-emerald-700 transition hover:border-emerald-600 hover:bg-emerald-50 hover:text-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700" href={ctaSecondaryHref} rel="noopener" target={ctaSecondaryHref.startsWith('http') ? '_blank' : undefined}>
-					{ctaSecondaryLabel}
-				</a>
-			)}
+			{
+				ctaSecondaryLabel && ctaSecondaryHref && (
+					<a
+						class="inline-flex items-center justify-center rounded-full border border-emerald-500 px-6 py-3 text-sm font-semibold text-emerald-700 transition hover:border-emerald-600 hover:bg-emerald-50 hover:text-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
+						href={ctaSecondaryHref}
+						rel="noopener"
+						target={
+							ctaSecondaryHref.startsWith("http")
+								? "_blank"
+								: undefined
+						}
+						aria-label={ctaSecondaryLabel}
+					>
+						{ctaSecondaryLabel}
+					</a>
+				)
+			}
 		</div>
 	</div>
 </section>

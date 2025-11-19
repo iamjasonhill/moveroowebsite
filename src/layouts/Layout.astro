@@ -101,6 +101,11 @@ const navItems = [
 		<slot name="head" />
 	</head>
 	<body class="flex min-h-screen flex-col bg-white">
+		<a
+			href="#main-content"
+			class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-white focus:p-4 focus:text-emerald-700"
+			>Skip to content</a
+		>
 		<header class="border-b border-slate-200 bg-white/90 backdrop-blur">
 			<div
 				class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-5"
@@ -144,6 +149,11 @@ const navItems = [
 								href={item.href}
 								target={item.external ? "_blank" : undefined}
 								rel={item.external ? "noopener" : undefined}
+								aria-label={
+									item.external
+										? `${item.label} (opens in a new tab)`
+										: undefined
+								}
 							>
 								{item.label}
 							</a>
@@ -171,6 +181,11 @@ const navItems = [
 										item.external ? "_blank" : undefined
 									}
 									rel={item.external ? "noopener" : undefined}
+									aria-label={
+										item.external
+											? `${item.label} (opens in a new tab)`
+											: undefined
+									}
 								>
 									{item.label}
 								</a>
@@ -180,7 +195,7 @@ const navItems = [
 				</div>
 			</div>
 		</header>
-		<main class="flex-1 bg-white">
+		<main id="main-content" class="flex-1 bg-white">
 			<slot />
 		</main>
 		<footer class="border-t border-slate-200 bg-slate-50">
