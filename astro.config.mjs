@@ -4,6 +4,8 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
+import partytown from '@astrojs/partytown';
+
 /** @type {import('astro').AstroIntegration} */
 const duplicateSitemap = {
   name: 'duplicate-sitemap-index-underscore',
@@ -31,7 +33,15 @@ const duplicateSitemap = {
 // https://astro.build/config
 export default defineConfig({
   site: 'https://moveroo.com.au',
-  integrations: [sitemap(), duplicateSitemap],
+  integrations: [
+    sitemap(),
+    duplicateSitemap,
+    partytown({
+      config: {
+        forward: ['dataLayer.push']
+      }
+    })
+  ],
   vite: {
     plugins: [tailwindcss()]
   }

@@ -1,0 +1,16 @@
+{
+    "name": "Moveroo",
+    "short_name": "Moveroo",
+    "description": "Reimagining the relocation experience with transparent pricing, dependable partners and friendly support.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#10b981",
+    "icons": [
+        {
+            "src": "/favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        }
+    ]
+}
