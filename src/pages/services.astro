@@ -30,206 +30,266 @@ import Layout from "../layouts/Layout.astro";
 
 	<section class="bg-white py-24">
 		<div class="mx-auto max-w-6xl px-6">
-			<div class="grid gap-10 md:grid-cols-3">
+			<div class="grid gap-8 md:grid-cols-3">
+				<!-- Featured Card: Moving Cars -->
 				<article
-					class="flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-8 shadow-lg shadow-slate-200/40"
+					class="relative overflow-hidden rounded-3xl bg-emerald-900 p-8 shadow-2xl shadow-emerald-900/20 md:col-span-3 md:flex md:items-center md:gap-12 md:p-12"
 				>
-					<h2 class="text-2xl font-semibold text-slate-900">
-						Moving Cars merges with Moveroo
-					</h2>
-					<p class="text-sm leading-relaxed text-slate-600">
-						Our vehicle transport partners now operate directly
-						under the Moveroo brand, combining expert logistics with
-						coordinated household relocations so every asset arrives
-						together.
-					</p>
-					<ul class="space-y-3 text-sm text-slate-600">
-						<li class="flex items-start gap-3">
-							<span
-								class="mt-1 h-2 w-2 rounded-full bg-emerald-500"
-								aria-hidden="true"></span>
-							<span
-								>Unified booking for cars, motorcycles and
-								household inventory across Australia.</span
-							>
-						</li>
-						<li class="flex items-start gap-3">
-							<span
-								class="mt-1 h-2 w-2 rounded-full bg-emerald-500"
-								aria-hidden="true"></span>
-							<span
-								>Real-time updates with one coordination team
-								managing every milestone.</span
-							>
-						</li>
-						<li class="flex items-start gap-3">
-							<span
-								class="mt-1 h-2 w-2 rounded-full bg-emerald-500"
-								aria-hidden="true"></span>
-							<span
-								>Vehicle transport programs that integrate
-								storage, staging and specialty handling.</span
-							>
-						</li>
-					</ul>
-					<a
-						class="inline-flex w-fit items-center justify-center rounded-full border border-emerald-500 px-5 py-2 text-sm font-semibold text-emerald-700 transition hover:border-emerald-600 hover:text-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
-						href="/moving-cars/"
+					<div
+						class="absolute -right-20 -top-20 h-[400px] w-[400px] rounded-full bg-emerald-800/20 blur-3xl"
 					>
-						Learn about Moving Cars by Moveroo
-					</a>
+					</div>
+					<div
+						class="absolute bottom-0 right-0 h-[300px] w-[300px] rounded-full bg-emerald-500/10 blur-3xl"
+					>
+					</div>
+
+					<div class="relative flex-1 space-y-6">
+						<div
+							class="inline-flex items-center gap-2 rounded-full bg-emerald-800/50 px-3 py-1 text-xs font-medium text-emerald-200 ring-1 ring-inset ring-emerald-400/20"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 20 20"
+								fill="currentColor"
+								class="h-4 w-4"
+							>
+								<path
+									fill-rule="evenodd"
+									d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+									clip-rule="evenodd"></path>
+							</svg>
+							New Integration
+						</div>
+						<h2 class="text-3xl font-bold text-white md:text-4xl">
+							Moving Cars merges with Moveroo
+						</h2>
+						<p class="text-lg leading-relaxed text-emerald-100">
+							Our vehicle transport partners now operate directly
+							under the Moveroo brand, combining expert logistics
+							with coordinated household relocations so every
+							asset arrives together.
+						</p>
+						<ul class="space-y-3 text-emerald-100">
+							<li class="flex items-start gap-3">
+								<svg
+									class="mt-1 h-5 w-5 flex-none text-emerald-400"
+									viewBox="0 0 20 20"
+									fill="currentColor"
+									aria-hidden="true"
+								>
+									<path
+										fill-rule="evenodd"
+										d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+										clip-rule="evenodd"></path>
+								</svg>
+								<span
+									>Unified booking for cars, motorcycles and
+									household inventory across Australia.</span
+								>
+							</li>
+							<li class="flex items-start gap-3">
+								<svg
+									class="mt-1 h-5 w-5 flex-none text-emerald-400"
+									viewBox="0 0 20 20"
+									fill="currentColor"
+									aria-hidden="true"
+								>
+									<path
+										fill-rule="evenodd"
+										d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+										clip-rule="evenodd"></path>
+								</svg>
+								<span
+									>Real-time updates with one coordination
+									team managing every milestone.</span
+								>
+							</li>
+						</ul>
+						<div class="pt-4">
+							<a
+								class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-emerald-900 shadow-lg transition hover:bg-emerald-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+								href="/moving-cars/"
+							>
+								Learn about Moving Cars by Moveroo
+							</a>
+						</div>
+					</div>
+					<div class="hidden md:block md:w-1/3">
+						<!-- Decorative Icon/Illustration area -->
+						<svg
+							class="h-full w-full text-emerald-800/40"
+							viewBox="0 0 24 24"
+							fill="currentColor"
+						>
+							<path
+								d="M19 13C19.5523 13 20 13.4477 20 14V16C20 16.5523 19.5523 17 19 17H5C4.44772 17 4 16.5523 4 16V14C4 13.4477 4.44772 13 5 13H19ZM18 2H6C4.34315 2 3 3.34315 3 5V11C3 11.5523 3.44772 12 4 12H20C20.5523 12 21 11.5523 21 11V5C21 3.34315 19.6569 2 18 2ZM7 15.5C7 15.7761 6.77614 16 6.5 16C6.22386 16 6 15.7761 6 15.5C6 15.2239 6.22386 15 6.5 15C6.77614 15 7 15.2239 7 15.5ZM18 15.5C18 15.7761 17.7761 16 17.5 16C17.2239 16 17 15.7761 17 15.5C17 15.2239 17.2239 15 17.5 15C17.7761 15 18 15.2239 18 15.5Z"
+							></path>
+						</svg>
+					</div>
 				</article>
+
+				<!-- Service 1: Car & Bike -->
 				<article
-					class="flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-8 shadow-lg shadow-slate-200/40"
+					class="flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-8 shadow-lg shadow-slate-200/40 transition hover:shadow-xl hover:shadow-slate-200/60"
 				>
-					<h2 class="text-2xl font-semibold text-slate-900">
+					<div
+						class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 24 24"
+							fill="currentColor"
+							class="h-6 w-6"
+						>
+							<path
+								d="M3.375 4.5C2.339 4.5 1.5 5.34 1.5 6.375V13.5h12V6.375c0-1.036-.84-1.875-1.875-1.875h-8.25zM13.5 15h-12v2.625c0 1.035.84 1.875 1.875 1.875h.375a3 3 0 116 0h3a.75.75 0 00.75-.75V15z"
+							></path>
+							<path
+								d="M8.25 19.5a1.5 1.5 0 10-3 0 1.5 1.5 0 003 0zM15.75 6.75a.75.75 0 00-.75.75v11.25c0 .087.015.17.042.248a3 3 0 015.958.464c.853-.175 1.522-.935 1.464-1.821a.75.75 0 00-1.49.11 1.5 1.5 0 11-3 0c0-.966.784-1.75 1.75-1.75h.75V7.5a.75.75 0 00-.75-.75h-4.5z"
+							></path>
+						</svg>
+					</div>
+					<h2 class="text-xl font-bold text-slate-900">
 						Car & Motorcycle Transport
 					</h2>
 					<p class="text-sm leading-relaxed text-slate-600">
 						Door-to-door vehicle transport for cars, motorbikes,
 						project builds and classic collections. Running or
-						non-drivable options supported with winching and
-						enclosed trailers available.
+						non-drivable options supported.
 					</p>
 					<ul class="space-y-3 text-sm text-slate-600">
 						<li class="flex items-start gap-3">
 							<span
-								class="mt-1 h-2 w-2 rounded-full bg-emerald-500"
-								aria-hidden="true"></span>
-							<span
-								>Nationwide carrier network with metro and
-								regional coverage.</span
-							>
+								class="mt-1.5 h-1.5 w-1.5 rounded-full bg-emerald-500 flex-none"
+							></span>
+							<span>Nationwide carrier network</span>
 						</li>
 						<li class="flex items-start gap-3">
 							<span
-								class="mt-1 h-2 w-2 rounded-full bg-emerald-500"
-								aria-hidden="true"></span>
-							<span
-								>Condition reporting, insurance coordination and
-								transit updates.</span
-							>
-						</li>
-						<li class="flex items-start gap-3">
-							<span
-								class="mt-1 h-2 w-2 rounded-full bg-emerald-500"
-								aria-hidden="true"></span>
-							<span
-								>Flexible pickup windows plus expedited express
-								options.</span
-							>
+								class="mt-1.5 h-1.5 w-1.5 rounded-full bg-emerald-500 flex-none"
+							></span>
+							<span>Condition reporting & insurance</span>
 						</li>
 					</ul>
-					<a
-						class="inline-flex w-fit items-center justify-center rounded-full border border-emerald-500 px-5 py-2 text-sm font-semibold text-emerald-700 transition hover:border-emerald-600 hover:text-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
-						href="https://cars.moveroo.com.au"
-						rel="noopener"
-						target="_blank"
-					>
-						Get a free vehicle transport quote
-					</a>
+					<div class="mt-auto pt-4">
+						<a
+							class="inline-flex w-full items-center justify-center rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-emerald-500 hover:text-emerald-700"
+							href="https://cars.moveroo.com.au"
+							rel="noopener"
+							target="_blank"
+						>
+							Get a vehicle quote
+						</a>
+					</div>
 				</article>
 
+				<!-- Service 2: Furniture -->
 				<article
-					class="flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-8 shadow-lg shadow-slate-200/40"
+					class="flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-8 shadow-lg shadow-slate-200/40 transition hover:shadow-xl hover:shadow-slate-200/60"
 				>
-					<h2 class="text-2xl font-semibold text-slate-900">
-						Furniture Removalists & Backloading
+					<div
+						class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 24 24"
+							fill="currentColor"
+							class="h-6 w-6"
+						>
+							<path
+								d="M19.006 3.705a.75.75 0 00-.512-1.41L6 6.838V3a.75.75 0 00-.75-.75h-1.5A.75.75 0 003 3v4.93l-1.006.365a.75.75 0 00.512 1.41l16.5-6z"
+							></path>
+							<path
+								fill-rule="evenodd"
+								d="M3.019 11.115L18 5.667V9.09l-14.981 5.447a.75.75 0 00.512 1.41l16.5-6a.75.75 0 00.512-1.41l-16.5-6a.75.75 0 00-.512 1.41l1.488.54V10.5a.75.75 0 00.512.615zM3 13.25a.75.75 0 01.75-.75h1.5a.75.75 0 01.75.75v6.75a.75.75 0 01-.75.75h-1.5a.75.75 0 01-.75-.75v-6.75z"
+								clip-rule="evenodd"></path>
+						</svg>
+					</div>
+					<h2 class="text-xl font-bold text-slate-900">
+						Furniture Removalists
 					</h2>
 					<p class="text-sm leading-relaxed text-slate-600">
-						Full-service home moves managed end-to-end, from packing
-						and loading to optional storage and unpacking.
-						Backloading routes help optimise schedules and budgets
-						for flexible dates.
+						Full-service home moves managed end-to-end. Backloading
+						routes help optimise schedules and budgets for flexible
+						dates.
 					</p>
 					<ul class="space-y-3 text-sm text-slate-600">
 						<li class="flex items-start gap-3">
 							<span
-								class="mt-1 h-2 w-2 rounded-full bg-emerald-500"
-								aria-hidden="true"></span>
-							<span
-								>Experienced removalist crews with protective
-								materials supplied.</span
-							>
+								class="mt-1.5 h-1.5 w-1.5 rounded-full bg-emerald-500 flex-none"
+							></span>
+							<span>Experienced removalist crews</span>
 						</li>
 						<li class="flex items-start gap-3">
 							<span
-								class="mt-1 h-2 w-2 rounded-full bg-emerald-500"
-								aria-hidden="true"></span>
-							<span
-								>Inventory planning, staging and multi-stop
-								coordination.</span
-							>
-						</li>
-						<li class="flex items-start gap-3">
-							<span
-								class="mt-1 h-2 w-2 rounded-full bg-emerald-500"
-								aria-hidden="true"></span>
-							<span
-								>Backloading schedules for regional routes with
-								transparent timelines.</span
-							>
+								class="mt-1.5 h-1.5 w-1.5 rounded-full bg-emerald-500 flex-none"
+							></span>
+							<span>Inventory planning & staging</span>
 						</li>
 					</ul>
-					<a
-						class="inline-flex w-fit items-center justify-center rounded-full border border-emerald-500 px-5 py-2 text-sm font-semibold text-emerald-700 transition hover:border-emerald-600 hover:text-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
-						href="https://removalists.moveroo.com.au/quote/household"
-						rel="noopener"
-						target="_blank"
-					>
-						Get a furniture move quote
-					</a>
+					<div class="mt-auto pt-4">
+						<a
+							class="inline-flex w-full items-center justify-center rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-emerald-500 hover:text-emerald-700"
+							href="https://removalists.moveroo.com.au/quote/household"
+							rel="noopener"
+							target="_blank"
+						>
+							Get a furniture quote
+						</a>
+					</div>
 				</article>
 
+				<!-- Service 3: Specialty -->
 				<article
-					class="flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-8 shadow-lg shadow-slate-200/40"
+					class="flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-8 shadow-lg shadow-slate-200/40 transition hover:shadow-xl hover:shadow-slate-200/60"
 				>
-					<h2 class="text-2xl font-semibold text-slate-900">
-						Specialty & Oversized Transport
+					<div
+						class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 24 24"
+							fill="currentColor"
+							class="h-6 w-6"
+						>
+							<path
+								fill-rule="evenodd"
+								d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 000-1.5h-3.75V6z"
+								clip-rule="evenodd"></path>
+						</svg>
+					</div>
+					<h2 class="text-xl font-bold text-slate-900">
+						Specialty Transport
 					</h2>
 					<p class="text-sm leading-relaxed text-slate-600">
 						Boats, caravans, trailers, industrial machinery and
-						unique items that require bespoke handling. We match the
-						right equipment, permits and escort services for complex
-						moves.
+						unique items that require bespoke handling and permits.
 					</p>
 					<ul class="space-y-3 text-sm text-slate-600">
 						<li class="flex items-start gap-3">
 							<span
-								class="mt-1 h-2 w-2 rounded-full bg-emerald-500"
-								aria-hidden="true"></span>
-							<span
-								>Specialist towing and float solutions with full
-								compliance support.</span
-							>
+								class="mt-1.5 h-1.5 w-1.5 rounded-full bg-emerald-500 flex-none"
+							></span>
+							<span>Specialist towing & float solutions</span>
 						</li>
 						<li class="flex items-start gap-3">
 							<span
-								class="mt-1 h-2 w-2 rounded-full bg-emerald-500"
-								aria-hidden="true"></span>
-							<span
-								>Large network of regional partners for
-								agricultural and mining equipment.</span
-							>
-						</li>
-						<li class="flex items-start gap-3">
-							<span
-								class="mt-1 h-2 w-2 rounded-full bg-emerald-500"
-								aria-hidden="true"></span>
-							<span
-								>Route planning, escort coordination and risk
-								assessments handled by our team.</span
-							>
+								class="mt-1.5 h-1.5 w-1.5 rounded-full bg-emerald-500 flex-none"
+							></span>
+							<span>Route planning & escorts</span>
 						</li>
 					</ul>
-					<a
-						class="inline-flex w-fit items-center justify-center rounded-full border border-emerald-500 px-5 py-2 text-sm font-semibold text-emerald-700 transition hover:border-emerald-600 hover:text-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
-						href="https://cars.moveroo.com.au/quote-types"
-						rel="noopener"
-						target="_blank"
-					>
-						Get a specialty transport quote
-					</a>
+					<div class="mt-auto pt-4">
+						<a
+							class="inline-flex w-full items-center justify-center rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-emerald-500 hover:text-emerald-700"
+							href="https://cars.moveroo.com.au/quote-types"
+							rel="noopener"
+							target="_blank"
+						>
+							Get a specialty quote
+						</a>
+					</div>
 				</article>
 			</div>
 		</div>
