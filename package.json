@@ -6,7 +6,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "eslint . --ext .js,.ts,.astro",
+    "lint:fix": "eslint . --ext .js,.ts,.astro --fix",
+    "format": "prettier --write \"**/*.{js,ts,astro,json,md}\"",
+    "format:check": "prettier --check \"**/*.{js,ts,astro,json,md}\""
   },
   "dependencies": {
     "@astrojs/partytown": "^2.1.4",
@@ -14,5 +18,13 @@
     "@tailwindcss/vite": "^4.1.15",
     "astro": "^5.14.8",
     "tailwindcss": "^4.1.15"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.48.0",
+    "@typescript-eslint/parser": "^8.48.0",
+    "eslint": "^9.39.1",
+    "eslint-plugin-astro": "^1.5.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }

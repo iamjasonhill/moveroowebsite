@@ -16,8 +16,11 @@ const {
 	canonical,
 	robots = "index, follow",
 	ogType = "website",
-	ogImage = "https://moveroo.com.au/og-image.png",
+	ogImage = import.meta.env.PUBLIC_OG_IMAGE || "https://moveroo.com.au/og-image.png",
 } = Astro.props as Props;
+
+const GA_ID = import.meta.env.PUBLIC_GA_ID || 'G-4DN533CFGK';
+const ANALYTICS_WEBSITE_ID = import.meta.env.PUBLIC_ANALYTICS_WEBSITE_ID || '3004f4eb-2b2c-4d61-a2fc-2cd23e627f64';
 
 const navItems = [
 	{ label: "Home", href: "/", external: false, variant: "link" },
@@ -91,21 +94,21 @@ const navItems = [
 		<script
 			type="text/partytown"
 			async
-			src="https://www.googletagmanager.com/gtag/js?id=G-4DN533CFGK"
+			src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
 		></script>
-		<script type="text/partytown">
+		<script type="text/partytown" define:vars={{ GA_ID }}>
 			window.dataLayer = window.dataLayer || [];
 			function gtag() {
 				dataLayer.push(arguments);
 			}
 			gtag("js", new Date());
-			gtag("config", "G-4DN533CFGK");
+			gtag("config", GA_ID);
 		</script>
 		<script
 			type="text/partytown"
 			defer
 			src="https://againanalytics.vercel.app/script.js"
-			data-website-id="3004f4eb-2b2c-4d61-a2fc-2cd23e627f64"></script>
+			data-website-id={ANALYTICS_WEBSITE_ID}></script>
 		<slot name="head" />
 	</head>
 	<body class="flex min-h-screen flex-col bg-white">

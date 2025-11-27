@@ -32,7 +32,7 @@ const duplicateSitemap = {
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://moveroo.com.au',
+  site: process.env.PUBLIC_SITE_URL || 'https://moveroo.com.au',
   integrations: [
     sitemap(),
     duplicateSitemap,

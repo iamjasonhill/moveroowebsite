@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 
-const SITE_URL = 'https://moveroo.com.au';
+const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://moveroo.com.au';
 
 export const GET: APIRoute = () => {
 	const body = [`User-agent: *`, `Allow: /`, `Sitemap: ${SITE_URL}/sitemap-index.xml`].join('\n');
