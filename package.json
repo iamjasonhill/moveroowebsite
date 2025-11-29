@@ -2,6 +2,10 @@
   "name": "moveroo-astro",
   "type": "module",
   "version": "0.0.1",
+  "description": "Official website for Moveroo Australia - trusted moving and transport services nationwide",
+  "author": "Moveroo Australia",
+  "license": "UNLICENSED",
+  "private": true,
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

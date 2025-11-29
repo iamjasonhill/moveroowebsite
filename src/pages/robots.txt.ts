@@ -3,7 +3,7 @@ import type { APIRoute } from 'astro';
 const SITE_URL = 'https://moveroo.com.au';
 
 export const GET: APIRoute = () => {
-	const body = [`User-agent: *`, `Allow: /`, `Sitemap: ${SITE_URL}/sitemap.xml`].join('\n');
+	const body = [`User-agent: *`, `Allow: /`, `Sitemap: ${SITE_URL}/sitemap-index.xml`].join('\n');
 
 	return new Response(body, {
 		headers: {
