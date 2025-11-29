@@ -88,14 +88,7 @@ const navItems = [
 			async
 			src="https://www.googletagmanager.com/gtag/js?id=G-4DN533CFGK"
 		></script>
-		<script type="text/partytown">
-			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				dataLayer.push(arguments);
-			}
-			gtag("js", new Date());
-			gtag("config", "G-4DN533CFGK");
-		</script>
+		<script type="text/partytown" src="/scripts/analytics.js"></script>
 		<script
 			type="text/partytown"
 			defer
@@ -244,23 +237,6 @@ const navItems = [
 				</div>
 			</div>
 		</footer>
-		<script is:inline>
-			const toggle = document.querySelector("[data-mobile-nav-toggle]");
-			const panel = document.querySelector("[data-mobile-nav-panel]");
-			if (toggle && panel) {
-				toggle.addEventListener("click", () => {
-					const expanded =
-						toggle.getAttribute("aria-expanded") === "true";
-					toggle.setAttribute("aria-expanded", String(!expanded));
-					panel.hidden = expanded;
-				});
-				panel.querySelectorAll("a").forEach((link) => {
-					link.addEventListener("click", () => {
-						toggle.setAttribute("aria-expanded", "false");
-						panel.hidden = true;
-					});
-				});
-			}
-		</script>
+		<script is:inline src="/scripts/mobile-nav.js"></script>
 	</body>
 </html>
