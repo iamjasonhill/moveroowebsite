@@ -3,7 +3,6 @@ import { defineConfig } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
-import vercel from '@astrojs/vercel';
 
 import partytown from '@astrojs/partytown';
 
@@ -34,8 +33,6 @@ const duplicateSitemap = {
 // https://astro.build/config
 export default defineConfig({
   site: 'https://moveroo.com.au',
-  output: 'static', // Use static build - API routes handled separately by Vercel
-  adapter: vercel(),
   integrations: [
     sitemap(),
     duplicateSitemap,
