@@ -24,8 +24,8 @@ export const POST: APIRoute = async ({ request }) => {
 			);
 		}
 
-		// Get the recipient email from environment or use a default
-		const recipientEmail = import.meta.env.SENDGRID_TO_EMAIL || 'removals@moveroo.com.au';
+		// Always send to removals@moveroo.com.au
+		const recipientEmail = 'removals@moveroo.com.au';
 
 		// Parse form data
 		const data = await request.json();

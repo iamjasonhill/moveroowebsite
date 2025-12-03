@@ -127,12 +127,12 @@ import Layout from "../layouts/Layout.astro";
 
           <!-- Reference Number Field -->
           <div>
-            <label for="reference" class="block text-sm font-semibold text-slate-900">
+            <label for="bookingReference" class="block text-sm font-semibold text-slate-900">
               Booking Reference Number
             </label>
             <input
               type="text"
-              id="reference"
+              id="bookingReference"
               name="bookingReference"
               class="mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 transition focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/20"
               placeholder="MV-123456"
@@ -252,6 +252,8 @@ import Layout from "../layouts/Layout.astro";
       const formData = new FormData(form);
       const data = Object.fromEntries(formData);
 
+      console.log('Submitting form data:', data);
+
       try {
         const response = await fetch('/api/cancellation', {
           method: 'POST',
@@ -261,7 +263,9 @@ import Layout from "../layouts/Layout.astro";
           body: JSON.stringify(data),
         });
 
+        console.log('Response status:', response.status);
         const result = await response.json();
+        console.log('Response data:', result);
 
         if (response.ok) {
           messageDiv.classList.add('bg-emerald-50', 'text-emerald-700', 'border', 'border-emerald-200');
@@ -274,6 +278,7 @@ import Layout from "../layouts/Layout.astro";
           messageDiv.classList.remove('hidden');
         }
       } catch (error) {
+        console.error('Form submission error:', error);
         messageDiv.classList.add('bg-red-50', 'text-red-700', 'border', 'border-red-200');
         messageDiv.textContent = 'An error occurred. Please try again later.';
         messageDiv.classList.remove('hidden');
