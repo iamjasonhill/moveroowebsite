@@ -274,7 +274,16 @@ import Layout from "../layouts/Layout.astro";
 
         } catch (error) {
           console.error('Form submission error:', error);
-          alert('There was an error submitting your request. Please try again or contact us directly at +61 7 2143 2557.');
+
+          // Try to get more details from the error
+          let errorMessage = 'There was an error submitting your request. Please try again or contact us directly at +61 7 2143 2557.';
+
+          if (error instanceof Error) {
+            console.error('Error message:', error.message);
+            errorMessage = `Error: ${error.message}\n\n${errorMessage}`;
+          }
+
+          alert(errorMessage);
         } finally {
           if (submitButton) {
             submitButton.textContent = originalText;

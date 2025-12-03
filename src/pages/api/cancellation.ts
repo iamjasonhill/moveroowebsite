@@ -7,12 +7,22 @@ export const POST: APIRoute = async ({ request }) => {
   try {
     // Check if SendGrid API key is configured
     const apiKey = import.meta.env.SENDGRID_API_KEY;
+    const fromEmail = import.meta.env.SENDGRID_FROM_EMAIL || 'noreply@moveroo.com.au';
+    const toEmail = import.meta.env.SENDGRID_TO_EMAIL || 'info@moveroo.com.au';
+
+    console.log('[Cancellation API] Request received');
+    console.log('[Cancellation API] Environment check:', {
+      hasApiKey: !!apiKey,
+      fromEmail,
+      toEmail
+    });
+
     if (!apiKey) {
-      console.error('SENDGRID_API_KEY is not configured');
+      console.error('[Cancellation API] SENDGRID_API_KEY is not configured');
       return new Response(
         JSON.stringify({
           success: false,
-          message: 'Email service not configured'
+          message: 'Email service not configured - missing API key'
         }),
         { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
@@ -28,8 +38,16 @@ export const POST: APIRoute = async ({ request }) => {
     const reference = formData.get('reference')?.toString() || '';
     const reason = formData.get('reason')?.toString() || '';
 
+    console.log('[Cancellation API] Form data received:', {
+      name,
+      email,
+      reference,
+      reasonLength: reason.length
+    });
+
     // Validate required fields
     if (!name || !email || !reference || !reason) {
+      console.error('[Cancellation API] Missing required fields');
       return new Response(
         JSON.stringify({
           success: false,
@@ -39,13 +57,10 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    // Email to your team
-    const toEmail = import.meta.env.SENDGRID_TO_EMAIL || 'info@moveroo.com.au';
-
     // Email content
     const msg = {
       to: toEmail,
-      from: import.meta.env.SENDGRID_FROM_EMAIL || 'noreply@moveroo.com.au',
+      from: fromEmail,
       subject: `Cancellation Request - ${reference}`,
       text: `
 Cancellation Request Received
@@ -110,8 +125,20 @@ Please respond to the customer within 24 hours.
       `.trim(),
     };
 
+    console.log('[Cancellation API] Attempting to send email via SendGrid...');
+    console.log('[Cancellation API] Email details:', {
+      to: toEmail,
+      from: fromEmail,
+      subject: msg.subject
+    });
+
     // Send email
-    await sgMail.send(msg);
+    const response = await sgMail.send(msg);
+
+    console.log('[Cancellation API] SendGrid response:', {
+      statusCode: response[0]?.statusCode,
+      headers: response[0]?.headers
+    });
 
     // Return success response
     return new Response(
@@ -126,12 +153,24 @@ Please respond to the customer within 24 hours.
     );
 
   } catch (error) {
-    console.error('SendGrid error:', error);
+    console.error('[Cancellation API] Error occurred:', error);
+
+    // Log detailed error information
+    if (error && typeof error === 'object') {
+      console.error('[Cancellation API] Error details:', {
+        message: (error as Error).message,
+        // @ts-ignore - SendGrid error properties
+        code: error.code,
+        // @ts-ignore
+        response: error.response?.body
+      });
+    }
 
     return new Response(
       JSON.stringify({
         success: false,
-        message: 'Failed to submit cancellation request'
+        message: 'Failed to submit cancellation request',
+        error: error instanceof Error ? error.message : 'Unknown error'
       }),
       {
         status: 500,
