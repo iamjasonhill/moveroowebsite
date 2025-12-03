@@ -34,9 +34,8 @@ const duplicateSitemap = {
 // https://astro.build/config
 export default defineConfig({
   site: 'https://moveroo.com.au',
-  output: 'server', // Enable serverless functions for API routes
+  output: 'static', // Use static build - API routes handled separately by Vercel
   adapter: vercel(),
-  trailingSlash: 'never', // Prevent trailing slash redirects for API routes
   integrations: [
     sitemap(),
     duplicateSitemap,
