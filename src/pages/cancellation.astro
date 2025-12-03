@@ -1,0 +1,262 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Moveroo | Cancel Your Move"
+  description="Need to cancel your move? We understand plans change. Submit a cancellation request and our team will assist you promptly."
+  canonical="https://moveroo.com.au/cancellation/"
+>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-emerald-50 via-emerald-100 to-white py-24">
+    <div class="mx-auto max-w-3xl px-6 text-center">
+      <p class="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-600">
+        Cancellation Request
+      </p>
+      <h1 class="mt-6 text-4xl font-semibold text-slate-900 md:text-5xl">
+        Need to Cancel Your Move?
+      </h1>
+      <p class="mt-6 text-lg text-slate-600">
+        We understand that plans change. Submit your cancellation request below and our team will process it as quickly as possible.
+      </p>
+    </div>
+  </section>
+
+  <!-- Information Section -->
+  <section class="bg-white py-20">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="grid gap-8 md:grid-cols-3">
+        <!-- Card 1 -->
+        <div class="rounded-3xl border border-slate-200 bg-white p-8 shadow-lg shadow-slate-200/40">
+          <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100">
+            <svg class="h-6 w-6 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-slate-900">Quick Response</h3>
+          <p class="mt-3 text-slate-600">
+            Our team will review your cancellation request within 24 hours and contact you to confirm.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="rounded-3xl border border-slate-200 bg-white p-8 shadow-lg shadow-slate-200/40">
+          <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100">
+            <svg class="h-6 w-6 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-slate-900">Reference Number</h3>
+          <p class="mt-3 text-slate-600">
+            Please have your booking reference number ready. You can find this in your booking confirmation email.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="rounded-3xl border border-slate-200 bg-white p-8 shadow-lg shadow-slate-200/40">
+          <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100">
+            <svg class="h-6 w-6 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-slate-900">Email Confirmation</h3>
+          <p class="mt-3 text-slate-600">
+            You'll receive an email confirmation once your cancellation has been processed.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cancellation Form Section -->
+  <section class="bg-gradient-to-br from-slate-50 to-white py-20" id="cancellation-form">
+    <div class="mx-auto max-w-3xl px-6">
+      <div class="rounded-3xl border border-slate-200 bg-white p-8 shadow-xl shadow-slate-200/40 md:p-12">
+        <h2 class="text-2xl font-semibold text-slate-900 md:text-3xl">
+          Submit Cancellation Request
+        </h2>
+        <p class="mt-3 text-slate-600">
+          Please fill out the form below with your booking details. All fields are required.
+        </p>
+
+        <form class="mt-8 space-y-6" method="POST" action="/api/cancellation" id="cancellationForm">
+          <!-- Name Field -->
+          <div>
+            <label for="name" class="block text-sm font-semibold text-slate-900">
+              Full Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 transition focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/20"
+              placeholder="John Smith"
+            />
+          </div>
+
+          <!-- Email Field -->
+          <div>
+            <label for="email" class="block text-sm font-semibold text-slate-900">
+              Email Address
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 transition focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/20"
+              placeholder="john.smith@example.com"
+            />
+          </div>
+
+          <!-- Reference Number Field -->
+          <div>
+            <label for="reference" class="block text-sm font-semibold text-slate-900">
+              Booking Reference Number
+            </label>
+            <input
+              type="text"
+              id="reference"
+              name="reference"
+              required
+              class="mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 transition focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/20"
+              placeholder="MV-123456"
+            />
+            <p class="mt-1 text-sm text-slate-500">
+              Find this in your booking confirmation email
+            </p>
+          </div>
+
+          <!-- Reason for Cancellation Field -->
+          <div>
+            <label for="reason" class="block text-sm font-semibold text-slate-900">
+              Reason for Cancellation
+            </label>
+            <textarea
+              id="reason"
+              name="reason"
+              rows="5"
+              required
+              class="mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 transition focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/20"
+              placeholder="Please provide details about why you need to cancel your booking..."
+            ></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="pt-4">
+            <button
+              type="submit"
+              class="inline-flex w-full items-center justify-center rounded-full bg-emerald-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-700/30 transition hover:bg-emerald-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
+            >
+              Submit Cancellation Request
+            </button>
+          </div>
+
+          <!-- Help Text -->
+          <div class="rounded-lg border border-slate-200 bg-slate-50 p-4">
+            <p class="text-sm text-slate-600">
+              <strong class="font-semibold text-slate-900">Need immediate assistance?</strong>
+              Call us at <a href="tel:+61721432557" class="font-semibold text-emerald-700 hover:text-emerald-800">+61 7 2143 2557</a>
+              or email <a href="mailto:info@moveroo.com.au" class="font-semibold text-emerald-700 hover:text-emerald-800">info@moveroo.com.au</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cancellation Policy Section -->
+  <section class="bg-white py-20">
+    <div class="mx-auto max-w-4xl px-6">
+      <h2 class="text-2xl font-semibold text-slate-900 md:text-3xl">
+        Cancellation Policy
+      </h2>
+      <div class="mt-8 space-y-6 text-slate-600">
+        <div class="rounded-3xl border border-slate-200 bg-white p-6">
+          <h3 class="font-semibold text-slate-900">Before We Review Your Request</h3>
+          <p class="mt-2">
+            Please review our terms and conditions regarding cancellations. Fees may apply depending on how close to your scheduled move date the cancellation is requested.
+          </p>
+        </div>
+
+        <div class="rounded-3xl border border-slate-200 bg-white p-6">
+          <h3 class="font-semibold text-slate-900">What Happens Next?</h3>
+          <ul class="mt-2 space-y-2">
+            <li class="flex gap-2">
+              <span class="text-emerald-600">•</span>
+              <span>We'll review your cancellation request within 24 hours</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-emerald-600">•</span>
+              <span>A team member will contact you via email or phone to confirm</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-emerald-600">•</span>
+              <span>Any applicable refunds will be processed within 5-7 business days</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-emerald-600">•</span>
+              <span>You'll receive a final confirmation email once the cancellation is complete</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="rounded-3xl border border-emerald-200 bg-emerald-50 p-6">
+          <h3 class="font-semibold text-emerald-900">Still Have Questions?</h3>
+          <p class="mt-2 text-emerald-800">
+            Our customer service team is here to help. Visit our <a href="/contact/" class="font-semibold underline hover:text-emerald-700">contact page</a>
+            or call us directly at <a href="tel:+61721432557" class="font-semibold underline hover:text-emerald-700">+61 7 2143 2557</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form Submission Script -->
+  <script>
+    // Handle form submission - customize this based on your backend
+    const form = document.getElementById('cancellationForm');
+
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalText = submitButton?.textContent || '';
+
+        if (submitButton) {
+          submitButton.textContent = 'Submitting...';
+          submitButton.setAttribute('disabled', 'true');
+        }
+
+        // TODO: Replace this with your actual form submission endpoint
+        // For now, this is a placeholder that you'll need to configure
+        try {
+          const formData = new FormData(form);
+
+          // Example: Send to your API endpoint
+          // const response = await fetch('/api/cancellation', {
+          //   method: 'POST',
+          //   body: formData
+          // });
+
+          // For now, show an alert (replace with actual submission logic)
+          alert('Thank you for your cancellation request. Our team will contact you within 24 hours.\n\nNote: This is a demo form. Please configure the form submission endpoint.');
+
+          // Reset form
+          form.reset();
+
+        } catch (error) {
+          console.error('Form submission error:', error);
+          alert('There was an error submitting your request. Please try again or contact us directly.');
+        } finally {
+          if (submitButton) {
+            submitButton.textContent = originalText;
+            submitButton.removeAttribute('disabled');
+          }
+        }
+      });
+    }
+  </script>
+</Layout>
