@@ -36,6 +36,7 @@ export default defineConfig({
   site: 'https://moveroo.com.au',
   output: 'server', // Enable serverless functions for API routes
   adapter: vercel(),
+  trailingSlash: 'never', // Prevent trailing slash redirects for API routes
   integrations: [
     sitemap(),
     duplicateSitemap,
