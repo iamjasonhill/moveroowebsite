@@ -1,14 +1,23 @@
-import type { APIRoute } from 'astro';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 import sgMail from '@sendgrid/mail';
 
-export const prerender = false;
+export default async function handler(
+  req: VercelRequest,
+  res: VercelResponse
+) {
+  // Only allow POST requests
+  if (req.method !== 'POST') {
+    return res.status(405).json({
+      success: false,
+      message: 'Method not allowed'
+    });
+  }
 
-export const POST: APIRoute = async ({ request }) => {
   try {
     // Check if SendGrid API key is configured
-    const apiKey = import.meta.env.SENDGRID_API_KEY;
-    const fromEmail = import.meta.env.SENDGRID_FROM_EMAIL || 'noreply@moveroo.com.au';
-    const toEmail = import.meta.env.SENDGRID_TO_EMAIL || 'info@moveroo.com.au';
+    const apiKey = process.env.SENDGRID_API_KEY;
+    const fromEmail = process.env.SENDGRID_FROM_EMAIL || 'noreply@moveroo.com.au';
+    const toEmail = process.env.SENDGRID_TO_EMAIL || 'info@moveroo.com.au';
 
     console.log('[Cancellation API] Request received');
     console.log('[Cancellation API] Environment check:', {
@@ -19,42 +28,32 @@ export const POST: APIRoute = async ({ request }) => {
 
     if (!apiKey) {
       console.error('[Cancellation API] SENDGRID_API_KEY is not configured');
-      return new Response(
-        JSON.stringify({
-          success: false,
-          message: 'Email service not configured - missing API key'
-        }),
-        { status: 500, headers: { 'Content-Type': 'application/json' } }
-      );
+      return res.status(500).json({
+        success: false,
+        message: 'Email service not configured - missing API key'
+      });
     }
 
     // Initialize SendGrid with API key
     sgMail.setApiKey(apiKey);
 
-    // Parse form data
-    const formData = await request.formData();
-    const name = formData.get('name')?.toString() || '';
-    const email = formData.get('email')?.toString() || '';
-    const reference = formData.get('reference')?.toString() || '';
-    const reason = formData.get('reason')?.toString() || '';
+    // Parse form data from body
+    const { name, email, reference, reason } = req.body;
 
     console.log('[Cancellation API] Form data received:', {
       name,
       email,
       reference,
-      reasonLength: reason.length
+      reasonLength: reason?.length || 0
     });
 
     // Validate required fields
     if (!name || !email || !reference || !reason) {
       console.error('[Cancellation API] Missing required fields');
-      return new Response(
-        JSON.stringify({
-          success: false,
-          message: 'All fields are required'
-        }),
-        { status: 400, headers: { 'Content-Type': 'application/json' } }
-      );
+      return res.status(400).json({
+        success: false,
+        message: 'All fields are required'
+      });
     }
 
     // Email content
@@ -141,16 +140,10 @@ Please respond to the customer within 24 hours.
     });
 
     // Return success response
-    return new Response(
-      JSON.stringify({
-        success: true,
-        message: 'Cancellation request submitted successfully'
-      }),
-      {
-        status: 200,
-        headers: { 'Content-Type': 'application/json' }
-      }
-    );
+    return res.status(200).json({
+      success: true,
+      message: 'Cancellation request submitted successfully'
+    });
 
   } catch (error) {
     console.error('[Cancellation API] Error occurred:', error);
@@ -166,16 +159,10 @@ Please respond to the customer within 24 hours.
       });
     }
 
-    return new Response(
-      JSON.stringify({
-        success: false,
-        message: 'Failed to submit cancellation request',
-        error: error instanceof Error ? error.message : 'Unknown error'
-      }),
-      {
-        status: 500,
-        headers: { 'Content-Type': 'application/json' }
-      }
-    );
+    return res.status(500).json({
+      success: false,
+      message: 'Failed to submit cancellation request',
+      error: error instanceof Error ? error.message : 'Unknown error'
+    });
   }
-};
+}
