@@ -76,14 +76,14 @@ import Layout from "../layouts/Layout.astro";
           Submit Cancellation Request
         </h2>
         <p class="mt-3 text-slate-600">
-          Please fill out the form below with your booking details. All fields are required.
+          Please fill out the form below with your booking details. All fields marked with * are required.
         </p>
 
         <form class="mt-8 space-y-6" method="POST" action="/api/cancellation" id="cancellationForm">
           <!-- Name Field -->
           <div>
             <label for="name" class="block text-sm font-semibold text-slate-900">
-              Full Name
+              Full Name <span class="text-red-500">*</span>
             </label>
             <input
               type="text"
@@ -98,7 +98,7 @@ import Layout from "../layouts/Layout.astro";
           <!-- Email Field -->
           <div>
             <label for="email" class="block text-sm font-semibold text-slate-900">
-              Email Address
+              Email Address <span class="text-red-500">*</span>
             </label>
             <input
               type="email"
@@ -110,6 +110,21 @@ import Layout from "../layouts/Layout.astro";
             />
           </div>
 
+          <!-- Phone Field -->
+          <div>
+            <label for="phone" class="block text-sm font-semibold text-slate-900">
+              Phone Number <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              required
+              class="mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 transition focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/20"
+              placeholder="+61 4XX XXX XXX"
+            />
+          </div>
+
           <!-- Reference Number Field -->
           <div>
             <label for="reference" class="block text-sm font-semibold text-slate-900">
@@ -118,8 +133,7 @@ import Layout from "../layouts/Layout.astro";
             <input
               type="text"
               id="reference"
-              name="reference"
-              required
+              name="bookingReference"
               class="mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 transition focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/20"
               placeholder="MV-123456"
             />
@@ -131,7 +145,7 @@ import Layout from "../layouts/Layout.astro";
           <!-- Reason for Cancellation Field -->
           <div>
             <label for="reason" class="block text-sm font-semibold text-slate-900">
-              Reason for Cancellation
+              Reason for Cancellation <span class="text-red-500">*</span>
             </label>
             <textarea
               id="reason"
@@ -143,11 +157,15 @@ import Layout from "../layouts/Layout.astro";
             ></textarea>
           </div>
 
+          <!-- Message Display -->
+          <div id="form-message" class="hidden rounded-lg p-4 text-sm"></div>
+
           <!-- Submit Button -->
           <div class="pt-4">
             <button
               type="submit"
-              class="inline-flex w-full items-center justify-center rounded-full bg-emerald-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-700/30 transition hover:bg-emerald-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
+              id="submit-button"
+              class="inline-flex w-full items-center justify-center rounded-full bg-emerald-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-700/30 transition hover:bg-emerald-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700 disabled:cursor-not-allowed disabled:opacity-50"
             >
               Submit Cancellation Request
             </button>
@@ -158,7 +176,7 @@ import Layout from "../layouts/Layout.astro";
             <p class="text-sm text-slate-600">
               <strong class="font-semibold text-slate-900">Need immediate assistance?</strong>
               Call us at <a href="tel:+61721432557" class="font-semibold text-emerald-700 hover:text-emerald-800">+61 7 2143 2557</a>
-              or email <a href="mailto:info@moveroo.com.au" class="font-semibold text-emerald-700 hover:text-emerald-800">info@moveroo.com.au</a>
+              or email <a href="mailto:removals@moveroo.com.au" class="font-semibold text-emerald-700 hover:text-emerald-800">removals@moveroo.com.au</a>
             </p>
           </div>
         </form>
@@ -212,51 +230,57 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </div>
   </section>
-
-  <!-- Form Submission Script -->
-  <script>
-    // Handle form submission - customize this based on your backend
-    const form = document.getElementById('cancellationForm');
-
-    if (form) {
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const submitButton = form.querySelector('button[type="submit"]');
-        const originalText = submitButton?.textContent || '';
-
-        if (submitButton) {
-          submitButton.textContent = 'Submitting...';
-          submitButton.setAttribute('disabled', 'true');
-        }
-
-        // TODO: Replace this with your actual form submission endpoint
-        // For now, this is a placeholder that you'll need to configure
-        try {
-          const formData = new FormData(form);
-
-          // Example: Send to your API endpoint
-          // const response = await fetch('/api/cancellation', {
-          //   method: 'POST',
-          //   body: formData
-          // });
-
-          // For now, show an alert (replace with actual submission logic)
-          alert('Thank you for your cancellation request. Our team will contact you within 24 hours.\n\nNote: This is a demo form. Please configure the form submission endpoint.');
-
-          // Reset form
-          form.reset();
-
-        } catch (error) {
-          console.error('Form submission error:', error);
-          alert('There was an error submitting your request. Please try again or contact us directly.');
-        } finally {
-          if (submitButton) {
-            submitButton.textContent = originalText;
-            submitButton.removeAttribute('disabled');
-          }
-        }
-      });
-    }
-  </script>
 </Layout>
+
+<script>
+  const form = document.getElementById('cancellationForm') as HTMLFormElement;
+  const submitButton = document.getElementById('submit-button') as HTMLButtonElement;
+  const messageDiv = document.getElementById('form-message') as HTMLDivElement;
+
+  if (form && submitButton && messageDiv) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Disable submit button
+      submitButton.disabled = true;
+      submitButton.textContent = 'Submitting...';
+      
+      // Hide previous messages
+      messageDiv.classList.add('hidden');
+      messageDiv.classList.remove('bg-emerald-50', 'text-emerald-700', 'border-emerald-200', 'bg-red-50', 'text-red-700', 'border-red-200');
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+
+      try {
+        const response = await fetch('/api/cancellation', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          messageDiv.classList.add('bg-emerald-50', 'text-emerald-700', 'border', 'border-emerald-200');
+          messageDiv.textContent = result.message || 'Your cancellation request has been submitted successfully. We will process it shortly.';
+          messageDiv.classList.remove('hidden');
+          form.reset();
+        } else {
+          messageDiv.classList.add('bg-red-50', 'text-red-700', 'border', 'border-red-200');
+          messageDiv.textContent = result.error || 'An error occurred. Please try again later.';
+          messageDiv.classList.remove('hidden');
+        }
+      } catch (error) {
+        messageDiv.classList.add('bg-red-50', 'text-red-700', 'border', 'border-red-200');
+        messageDiv.textContent = 'An error occurred. Please try again later.';
+        messageDiv.classList.remove('hidden');
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Submit Cancellation Request';
+      }
+    });
+  }
+</script>
