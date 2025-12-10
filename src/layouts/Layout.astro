@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import DarkModeToggle from "../components/DarkModeToggle.astro";
 
 interface Props {
 	title?: string;
@@ -53,10 +54,26 @@ const navItems = [
 ---
 
 <!doctype html>
-<html lang="en" class="h-full bg-slate-50 text-slate-900">
+<html lang="en" class="h-full bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-white">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script is:inline>
+			(function() {
+				const getTheme = () => {
+					if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+						return localStorage.getItem('theme');
+					}
+					return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				};
+				const theme = getTheme();
+				if (theme === 'dark') {
+					document.documentElement.classList.add('dark');
+				} else {
+					document.documentElement.classList.remove('dark');
+				}
+			})();
+		</script>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -96,51 +113,56 @@ const navItems = [
 			data-website-id="3004f4eb-2b2c-4d61-a2fc-2cd23e627f64"></script>
 		<slot name="head" />
 	</head>
-	<body class="flex min-h-screen flex-col bg-white">
+	<body class="flex min-h-screen flex-col bg-white dark:bg-slate-900 transition-colors">
 		<a
 			href="#main-content"
-			class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-white focus:p-4 focus:text-emerald-700"
+			class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-white focus:p-4 focus:text-emerald-700 dark:focus:bg-slate-800 dark:focus:text-emerald-400"
 			>Skip to content</a
 		>
-		<header class="border-b border-slate-200 bg-white/90 backdrop-blur">
+		<header class="border-b border-slate-200 bg-white/90 backdrop-blur dark:border-slate-800 dark:bg-slate-900/90">
 			<div
 				class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-5"
 			>
 				<a
 					href="/"
-					class="text-lg font-semibold tracking-tight text-slate-900"
+					class="text-lg font-semibold tracking-tight text-slate-900 dark:text-white"
 					>Moveroo</a
 				>
-				<button
-					class="inline-flex items-center justify-center rounded-full border border-slate-200 p-2 text-slate-700 transition hover:border-emerald-300 hover:text-emerald-700 md:hidden"
-					type="button"
-					aria-controls="mobile-nav"
-					aria-expanded="false"
-					data-mobile-nav-toggle
-				>
-					<span class="sr-only">Toggle navigation</span>
-					<svg
-						class="h-5 w-5"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="1.5"
-						stroke-linecap="round"
-						stroke-linejoin="round"
+				<div class="flex items-center gap-4">
+					<div class="hidden md:block">
+						<DarkModeToggle />
+					</div>
+					<button
+						class="inline-flex items-center justify-center rounded-full border border-slate-200 p-2 text-slate-700 transition hover:border-emerald-300 hover:text-emerald-700 dark:border-slate-700 dark:text-slate-300 dark:hover:border-emerald-500 dark:hover:text-emerald-400 md:hidden"
+						type="button"
+						aria-controls="mobile-nav"
+						aria-expanded="false"
+						data-mobile-nav-toggle
 					>
-						<path d="M4 6h16M4 12h16M4 18h16"></path>
-					</svg>
-				</button>
+						<span class="sr-only">Toggle navigation</span>
+						<svg
+							class="h-5 w-5"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.5"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path d="M4 6h16M4 12h16M4 18h16"></path>
+						</svg>
+					</button>
+				</div>
 				<nav
-					class="hidden items-center gap-6 text-sm font-semibold text-slate-700 md:flex"
+					class="hidden items-center gap-6 text-sm font-semibold text-slate-700 dark:text-slate-300 md:flex"
 				>
 					{
 						navItems.map((item) => (
 							<a
 								class={
 									item.variant === "button"
-										? "rounded-full border border-emerald-200 px-4 py-2 text-emerald-700 transition hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-900"
-										: "transition hover:text-emerald-600"
+										? "rounded-full border border-emerald-200 px-4 py-2 text-emerald-700 transition hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-900 dark:border-emerald-500/50 dark:text-emerald-400 dark:hover:border-emerald-400 dark:hover:bg-emerald-500/10 dark:hover:text-emerald-300"
+										: "transition hover:text-emerald-600 dark:hover:text-emerald-400"
 								}
 								href={item.href}
 								target={item.external ? "_blank" : undefined}
@@ -159,18 +181,21 @@ const navItems = [
 			</div>
 			<div class="md:hidden" data-mobile-nav-panel hidden id="mobile-nav">
 				<div
-					class="border-t border-slate-200 bg-white px-6 py-4 shadow-lg shadow-emerald-100/60"
+					class="border-t border-slate-200 bg-white px-6 py-4 shadow-lg shadow-emerald-100/60 dark:border-slate-800 dark:bg-slate-900 dark:shadow-black/40"
 				>
+					<div class="mb-4 flex items-center justify-end">
+						<DarkModeToggle />
+					</div>
 					<nav
-						class="flex flex-col gap-4 text-sm font-semibold text-slate-700"
+						class="flex flex-col gap-4 text-sm font-semibold text-slate-700 dark:text-slate-300"
 					>
 						{
 							navItems.map((item) => (
 								<a
 									class={
 										item.variant === "button"
-											? "inline-flex items-center justify-center rounded-full border border-emerald-200 px-4 py-2 text-emerald-700 transition hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-900"
-											: "transition hover:text-emerald-600"
+											? "inline-flex items-center justify-center rounded-full border border-emerald-200 px-4 py-2 text-emerald-700 transition hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-900 dark:border-emerald-500/50 dark:text-emerald-400 dark:hover:border-emerald-400 dark:hover:bg-emerald-500/10 dark:hover:text-emerald-300"
+											: "transition hover:text-emerald-600 dark:hover:text-emerald-400"
 									}
 									href={item.href}
 									target={
@@ -191,52 +216,136 @@ const navItems = [
 				</div>
 			</div>
 		</header>
-		<main id="main-content" class="flex-1 bg-white">
+		<main id="main-content" class="flex-1 bg-white dark:bg-slate-900 transition-colors">
 			<slot />
 		</main>
-		<footer class="border-t border-slate-200 bg-slate-50">
+		<footer class="border-t border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900">
 			<div
-				class="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 text-sm text-slate-600 md:flex-row md:items-start md:justify-between"
+				class="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 text-sm text-slate-600 dark:text-slate-400 md:flex-row md:items-start md:justify-between"
 			>
 				<div>
-					<p class="text-base font-semibold text-slate-900">
+					<p class="text-base font-semibold text-slate-900 dark:text-white">
 						Moveroo
 					</p>
-					<p class="mt-2 max-w-sm text-sm text-slate-600">
+					<p class="mt-2 max-w-sm text-sm text-slate-600 dark:text-slate-400">
 						Reimagining the relocation experience with transparent
 						pricing, dependable partners and friendly support.
 					</p>
 				</div>
 				<nav
-					class="flex flex-col gap-2 text-sm font-medium text-slate-700"
+					class="flex flex-col gap-2 text-sm font-medium text-slate-700 dark:text-slate-300"
 				>
 					<a
-						class="transition hover:text-slate-900"
+						class="transition hover:text-slate-900 dark:hover:text-white"
 						href="/privacy-policy/">Privacy Policy</a
 					>
 					<a
-						class="transition hover:text-slate-900"
+						class="transition hover:text-slate-900 dark:hover:text-white"
 						href="/terms-of-use/">Terms of Use</a
 					>
 					<a
-						class="transition hover:text-slate-900"
+						class="transition hover:text-slate-900 dark:hover:text-white"
 						href="/terms-and-conditions-transport/"
 						>Transport Terms &amp; Conditions</a
 					>
 					<a
-						class="transition hover:text-slate-900"
+						class="transition hover:text-slate-900 dark:hover:text-white"
 						href="/sitemap-index.xml">Sitemap</a
 					>
 				</nav>
 			</div>
-			<div class="border-t border-slate-200 bg-slate-50">
+			<div class="border-t border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900">
 				<div
-					class="mx-auto max-w-6xl px-6 py-6 text-xs uppercase tracking-[0.3em] text-slate-600"
+					class="mx-auto max-w-6xl px-6 py-6 text-xs uppercase tracking-[0.3em] text-slate-600 dark:text-slate-500"
 				>
 					© {new Date().getFullYear()} Moveroo. All rights reserved.
 				</div>
 			</div>
 		</footer>
 		<script is:inline src="/scripts/mobile-nav.js"></script>
+		<script is:inline>
+			console.log('Dark mode script: Starting initialization');
+			(function () {
+				function initDarkMode() {
+					console.log('Dark mode script: initDarkMode called');
+					const toggles = document.querySelectorAll('[data-dark-mode-toggle]');
+					const html = document.documentElement;
+
+					console.log('Dark mode script: Found', toggles.length, 'toggle buttons');
+
+					if (toggles.length === 0) {
+						console.error('Dark mode script: No toggle buttons found!');
+						return;
+					}
+
+					const updateIcons = () => {
+						const isDark = html.classList.contains('dark');
+						console.log('Dark mode script: Updating icons, isDark =', isDark);
+						// When in dark mode, show sun icon (to switch to light)
+						// When in light mode, show moon icon (to switch to dark)
+						const sunIcons = document.querySelectorAll('[data-sun-icon]');
+						const moonIcons = document.querySelectorAll('[data-moon-icon]');
+						console.log('Dark mode script: Found', sunIcons.length, 'sun icons and', moonIcons.length, 'moon icons');
+						
+						sunIcons.forEach(icon => {
+							if (isDark) {
+								icon.classList.remove('hidden');
+							} else {
+								icon.classList.add('hidden');
+							}
+						});
+						moonIcons.forEach(icon => {
+							if (isDark) {
+								icon.classList.add('hidden');
+							} else {
+								icon.classList.remove('hidden');
+							}
+						});
+					};
+
+					const setTheme = (theme) => {
+						console.log('Dark mode script: Setting theme to', theme);
+						if (theme === 'dark') {
+							html.classList.add('dark');
+						} else {
+							html.classList.remove('dark');
+						}
+						console.log('Dark mode script: HTML element classes:', html.className);
+						console.log('Dark mode script: Has dark class?', html.classList.contains('dark'));
+						if (typeof localStorage !== 'undefined') {
+							localStorage.setItem('theme', theme);
+						}
+						updateIcons();
+					};
+
+					// Initialize icons based on current theme
+					updateIcons();
+
+					// Toggle theme on button click
+					toggles.forEach((toggle, index) => {
+						console.log('Dark mode script: Adding click listener to toggle', index);
+						toggle.addEventListener('click', (e) => {
+							console.log('Dark mode script: Toggle clicked!');
+							e.preventDefault();
+							e.stopPropagation();
+							const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
+							const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+							console.log('Dark mode script: Switching from', currentTheme, 'to', newTheme);
+							setTheme(newTheme);
+						});
+					});
+					console.log('Dark mode script: Initialization complete');
+				}
+
+				// Run when DOM is ready
+				if (document.readyState === 'loading') {
+					console.log('Dark mode script: Waiting for DOMContentLoaded');
+					document.addEventListener('DOMContentLoaded', initDarkMode);
+				} else {
+					console.log('Dark mode script: DOM already ready, running immediately');
+					initDarkMode();
+				}
+			})();
+		</script>
 	</body>
 </html>

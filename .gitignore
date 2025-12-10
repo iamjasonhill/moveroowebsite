@@ -23,3 +23,7 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 .vercel
+
+
+#Ignore cursor AI rules
+.cursor/rules/codacy.mdc
