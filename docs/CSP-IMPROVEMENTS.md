@@ -115,17 +115,17 @@ Security Grade: B
 
 ```
 default-src 'self';
-script-src 'self' 'unsafe-inline' 
-  https://www.googletagmanager.com 
-  https://againanalytics.vercel.app 
+script-src 'self' 'unsafe-inline'
+  https://www.googletagmanager.com
+  https://againanalytics.vercel.app
   https://cdn.jsdelivr.net;
 style-src 'self' 'unsafe-inline';
 img-src 'self' data: https:;
 font-src 'self' data:;
-connect-src 'self' 
-  https://www.google-analytics.com 
-  https://analytics.google.com 
-  https://againanalytics.vercel.app 
+connect-src 'self'
+  https://www.google-analytics.com
+  https://analytics.google.com
+  https://againanalytics.vercel.app
   https://*.google-analytics.com;
 frame-src 'self' https://moveroo.setmore.com;
 worker-src 'self' blob:;

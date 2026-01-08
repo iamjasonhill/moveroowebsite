@@ -145,7 +145,7 @@ Open browser DevTools and check for CORS errors:
 **Before CORS headers**:
 
 ```
-❌ Access to font at 'https://moveroo.com.au/fonts/inter.woff2' 
+❌ Access to font at 'https://moveroo.com.au/fonts/inter.woff2'
    from origin 'https://example.com' has been blocked by CORS policy
 ```
 
@@ -165,13 +165,13 @@ If you add new public assets, update `vercel.json`:
 
 ```json
 {
-    "source": "/images/(.*)",
-    "headers": [
-        {
-            "key": "Access-Control-Allow-Origin",
-            "value": "*"
-        }
-    ]
+	"source": "/images/(.*)",
+	"headers": [
+		{
+			"key": "Access-Control-Allow-Origin",
+			"value": "*"
+		}
+	]
 }
 ```
 
@@ -181,21 +181,21 @@ If you add API endpoints, be restrictive:
 
 ```json
 {
-    "source": "/api/(.*)",
-    "headers": [
-        {
-            "key": "Access-Control-Allow-Origin",
-            "value": "https://trusted-app.com"
-        },
-        {
-            "key": "Access-Control-Allow-Methods",
-            "value": "GET, POST, OPTIONS"
-        },
-        {
-            "key": "Access-Control-Allow-Headers",
-            "value": "Content-Type, Authorization"
-        }
-    ]
+	"source": "/api/(.*)",
+	"headers": [
+		{
+			"key": "Access-Control-Allow-Origin",
+			"value": "https://trusted-app.com"
+		},
+		{
+			"key": "Access-Control-Allow-Methods",
+			"value": "GET, POST, OPTIONS"
+		},
+		{
+			"key": "Access-Control-Allow-Headers",
+			"value": "Content-Type, Authorization"
+		}
+	]
 }
 ```
 
@@ -205,8 +205,8 @@ If you need subdomain access (e.g., `app.moveroo.com.au`):
 
 ```json
 {
-    "key": "Access-Control-Allow-Origin",
-    "value": "https://app.moveroo.com.au"
+	"key": "Access-Control-Allow-Origin",
+	"value": "https://app.moveroo.com.au"
 }
 ```
 
@@ -240,29 +240,25 @@ above)
 
 ```json
 {
-    "headers": [
-        {
-            "source": "/_astro/(.*)",
-            "headers": [
-                { "key": "Access-Control-Allow-Origin", "value": "*" }
-            ]
-        },
-        {
-            "source": "/fonts/(.*)",
-            "headers": [
-                { "key": "Access-Control-Allow-Origin", "value": "*" }
-            ]
-        },
-        {
-            "source": "/scripts/(.*)",
-            "headers": [
-                {
-                    "key": "Access-Control-Allow-Origin",
-                    "value": "https://moveroo.com.au"
-                }
-            ]
-        }
-    ]
+	"headers": [
+		{
+			"source": "/_astro/(.*)",
+			"headers": [{ "key": "Access-Control-Allow-Origin", "value": "*" }]
+		},
+		{
+			"source": "/fonts/(.*)",
+			"headers": [{ "key": "Access-Control-Allow-Origin", "value": "*" }]
+		},
+		{
+			"source": "/scripts/(.*)",
+			"headers": [
+				{
+					"key": "Access-Control-Allow-Origin",
+					"value": "https://moveroo.com.au"
+				}
+			]
+		}
+	]
 }
 ```
 
