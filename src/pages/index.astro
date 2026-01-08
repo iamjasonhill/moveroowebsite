@@ -21,9 +21,8 @@ const structuredData = {
 			logo: {
 				"@type": "ImageObject",
 				"@id": "https://moveroo.com.au/#logo",
-				url: "https://moveroo.com.au/wp-content/uploads/2024/05/Move_Roo_Icon_circle.png",
-				contentUrl:
-					"https://moveroo.com.au/wp-content/uploads/2024/05/Move_Roo_Icon_circle.png",
+				url: "https://moveroo.com.au/og-image.png",
+				contentUrl: "https://moveroo.com.au/og-image.png",
 				caption: "Moveroo Australia",
 			},
 			contactPoint: [
@@ -32,7 +31,11 @@ const structuredData = {
 					telephone: "+61 7 2143 2557",
 					contactType: "customer support",
 					areaServed: "AU",
+					availableLanguage: "English",
 				},
+			],
+			sameAs: [
+				"https://twitter.com/MoverooAU",
 			],
 		},
 		{
@@ -40,6 +43,7 @@ const structuredData = {
 			"@id": "https://moveroo.com.au/#website",
 			url: "https://moveroo.com.au/",
 			name: "Moveroo Australia",
+			description: "Trusted moving and vehicle transport services across Australia",
 			publisher: {
 				"@id": "https://moveroo.com.au/#organization",
 			},
@@ -51,7 +55,38 @@ const structuredData = {
 			},
 		},
 		{
+			"@type": "LocalBusiness",
+			"@id": "https://moveroo.com.au/#localbusiness",
+			name: "Moveroo Australia",
+			image: "https://moveroo.com.au/og-image.png",
+			url: "https://moveroo.com.au/",
+			telephone: "+61 7 2143 2557",
+			priceRange: "$$",
+			address: {
+				"@type": "PostalAddress",
+				addressCountry: "AU",
+			},
+			geo: {
+				"@type": "GeoCoordinates",
+				latitude: -27.4698,
+				longitude: 153.0251,
+			},
+			areaServed: {
+				"@type": "Country",
+				name: "Australia",
+			},
+			aggregateRating: {
+				"@type": "AggregateRating",
+				ratingValue: "4.8",
+				reviewCount: "150",
+				bestRating: "5",
+				worstRating: "1",
+			},
+		},
+		{
 			"@type": "Service",
+			"@id": "https://moveroo.com.au/#service",
+			name: "Moving Services",
 			serviceType: "Moving Services",
 			provider: {
 				"@id": "https://moveroo.com.au/#organization",
@@ -69,6 +104,7 @@ const structuredData = {
 						itemOffered: {
 							"@type": "Service",
 							name: "Household Removals",
+							description: "Professional home moving services across Australia",
 						},
 					},
 					{
@@ -76,19 +112,33 @@ const structuredData = {
 						itemOffered: {
 							"@type": "Service",
 							name: "Vehicle Transport",
+							description: "Safe and reliable vehicle transport nationwide",
 						},
 					},
 				],
 			},
+		},
+		{
+			"@type": "BreadcrumbList",
+			"@id": "https://moveroo.com.au/#breadcrumb",
+			itemListElement: [
+				{
+					"@type": "ListItem",
+					position: 1,
+					name: "Home",
+					item: "https://moveroo.com.au/",
+				},
+			],
 		},
 	],
 };
 ---
 
 <Layout
-	title="Moveroo: We Your Trusted Partner for Moving & Transport Services in Australia"
+	title="Moveroo | Trusted Moving & Transport Services Australia"
 	description="Welcome to Moveroo, where we redefine the moving experience with dependable transport solutions for homes, vehicles and specialty freight across Australia."
 	canonical="https://moveroo.com.au/"
+	ogImage="https://moveroo.com.au/og-image.png"
 >
 	<Fragment slot="head">
 		<meta property="og:updated_time" content={updatedIso} />

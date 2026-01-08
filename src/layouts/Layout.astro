@@ -8,6 +8,7 @@ interface Props {
 	canonical?: string;
 	robots?: string;
 	ogType?: string;
+	ogImage?: string;
 }
 
 const {
@@ -16,6 +17,7 @@ const {
 	canonical,
 	robots = "index, follow",
 	ogType = "website",
+	ogImage = "https://moveroo.com.au/og-image.png",
 } = Astro.props as Props;
 
 const navItems = [
@@ -94,12 +96,21 @@ const navItems = [
 		<meta property="og:type" content={ogType} />
 		<meta property="og:site_name" content="Moveroo Australia" />
 		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@MoverooAU" />
 		<meta name="twitter:title" content={title} />
 		{
 			description && (
 				<meta name="twitter:description" content={description} />
 			)
 		}
+		<meta name="twitter:image" content={ogImage} />
+		<meta property="og:image" content={ogImage} />
+		<!-- PWA / Mobile Web App Meta Tags -->
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+		<meta name="apple-mobile-web-app-title" content="Moveroo" />
+		<meta name="theme-color" content="#10b981" />
 		<script
 			type="text/partytown"
 			async
