@@ -1,41 +1,57 @@
 {
-  "name": "moveroo-astro",
-  "type": "module",
-  "version": "0.0.1",
-  "description": "Official website for Moveroo Australia - trusted moving and transport services nationwide",
-  "author": "Moveroo Australia",
-  "license": "UNLICENSED",
-  "private": true,
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "lint": "eslint . && astro check",
-    "lint:fix": "eslint . --fix",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "seo:audit": "node scripts/seo-audit.mjs",
-    "seo:audit:local": "node scripts/seo-audit.mjs http://localhost:4321",
-    "seo:audit:prod": "node scripts/seo-audit.mjs https://moveroo.com.au"
-  },
-  "dependencies": {
-    "@astrojs/check": "^0.9.6",
-    "@astrojs/partytown": "^2.1.4",
-    "@astrojs/sitemap": "^3.6.0",
-    "@astrojs/vercel": "^9.0.3",
-    "@sendgrid/mail": "^8.1.6",
-    "@tailwindcss/vite": "^4.1.15",
-    "astro": "^5.14.8",
-    "dotenv": "^17.2.3",
-    "tailwindcss": "^4.1.15",
-    "typescript": "^5.9.3"
-  },
-  "devDependencies": {
-    "@typescript-eslint/parser": "^8.52.0",
-    "eslint": "^9.39.2",
-    "eslint-plugin-astro": "^1.5.0",
-    "prettier": "^3.7.4",
-    "prettier-plugin-astro": "^0.14.1"
-  }
+	"name": "moveroo-astro",
+	"type": "module",
+	"version": "0.0.1",
+	"description": "Official website for Moveroo Australia - trusted moving and transport services nationwide",
+	"author": "Moveroo Australia",
+	"license": "UNLICENSED",
+	"private": true,
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"lint": "eslint . && astro check",
+		"lint:fix": "eslint . --fix",
+		"format": "prettier --write .",
+		"format:check": "prettier --check .",
+		"seo:audit": "node scripts/seo-audit.mjs",
+		"seo:audit:local": "node scripts/seo-audit.mjs http://localhost:4321",
+		"seo:audit:prod": "node scripts/seo-audit.mjs https://moveroo.com.au",
+		"prepare": "husky"
+	},
+	"dependencies": {
+		"@astrojs/check": "^0.9.6",
+		"@astrojs/partytown": "^2.1.4",
+		"@astrojs/sitemap": "^3.6.0",
+		"@astrojs/vercel": "^9.0.3",
+		"@sendgrid/mail": "^8.1.6",
+		"@tailwindcss/vite": "^4.1.15",
+		"astro": "^5.14.8",
+		"dotenv": "^17.2.3",
+		"tailwindcss": "^4.1.15",
+		"typescript": "^5.9.3"
+	},
+	"devDependencies": {
+		"@typescript-eslint/parser": "^8.52.0",
+		"eslint": "^9.39.2",
+		"eslint-plugin-astro": "^1.5.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.2.7",
+		"prettier": "^3.7.4",
+		"prettier-plugin-astro": "^0.14.1"
+	},
+	"lint-staged": {
+		"*.{js,mjs,ts}": [
+			"eslint --fix",
+			"prettier --write"
+		],
+		"*.astro": [
+			"eslint --fix",
+			"prettier --write"
+		],
+		"*.{json,md,css}": [
+			"prettier --write"
+		]
+	}
 }
