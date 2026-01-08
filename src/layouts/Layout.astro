@@ -2,6 +2,11 @@
 import "../styles/global.css";
 import DarkModeToggle from "../components/DarkModeToggle.astro";
 
+interface BreadcrumbItem {
+	name: string;
+	url: string;
+}
+
 interface Props {
 	title?: string;
 	description?: string;
@@ -9,6 +14,8 @@ interface Props {
 	robots?: string;
 	ogType?: string;
 	ogImage?: string;
+	breadcrumbs?: BreadcrumbItem[];
+	includeBaseSchema?: boolean;
 }
 
 const {
@@ -18,7 +25,89 @@ const {
 	robots = "index, follow",
 	ogType = "website",
 	ogImage = "https://moveroo.com.au/og-image.png",
+	breadcrumbs,
+	includeBaseSchema = true,
 } = Astro.props as Props;
+
+// Generate breadcrumbs from URL if not provided
+const currentPath = Astro.url.pathname;
+const generateBreadcrumbs = (): BreadcrumbItem[] => {
+	if (breadcrumbs) return breadcrumbs;
+	
+	const items: BreadcrumbItem[] = [{ name: "Home", url: "https://moveroo.com.au/" }];
+	
+	if (currentPath !== "/" && currentPath !== "") {
+		const segments = currentPath.split("/").filter(Boolean);
+		let accumulatedPath = "";
+		
+		segments.forEach((segment) => {
+			accumulatedPath += `/${segment}`;
+			const name = segment
+				.split("-")
+				.map(word => word.charAt(0).toUpperCase() + word.slice(1))
+				.join(" ");
+			items.push({
+				name,
+				url: `https://moveroo.com.au${accumulatedPath}/`
+			});
+		});
+	}
+	
+	return items;
+};
+
+// Base schema for Organization and WebSite (shared across all pages)
+const baseSchema = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "Organization",
+			"@id": "https://moveroo.com.au/#organization",
+			name: "Moveroo Australia",
+			url: "https://moveroo.com.au/",
+			logo: {
+				"@type": "ImageObject",
+				"@id": "https://moveroo.com.au/#logo",
+				url: "https://moveroo.com.au/og-image.png",
+				contentUrl: "https://moveroo.com.au/og-image.png",
+				caption: "Moveroo Australia",
+			},
+			contactPoint: [
+				{
+					"@type": "ContactPoint",
+					telephone: "+61 7 2143 2557",
+					contactType: "customer support",
+					areaServed: "AU",
+					availableLanguage: "English",
+				},
+			],
+			sameAs: [
+				"https://twitter.com/MoverooAU",
+			],
+		},
+		{
+			"@type": "WebSite",
+			"@id": "https://moveroo.com.au/#website",
+			url: "https://moveroo.com.au/",
+			name: "Moveroo Australia",
+			description: "Trusted moving and vehicle transport services across Australia",
+			publisher: {
+				"@id": "https://moveroo.com.au/#organization",
+			},
+			inLanguage: "en-AU",
+		},
+		{
+			"@type": "BreadcrumbList",
+			"@id": `https://moveroo.com.au${currentPath}#breadcrumb`,
+			itemListElement: generateBreadcrumbs().map((item, index) => ({
+				"@type": "ListItem",
+				position: index + 1,
+				name: item.name,
+				item: item.url,
+			})),
+		},
+	],
+};
 
 const navItems = [
 	{ label: "Home", href: "/", external: false, variant: "link" },
@@ -122,6 +211,12 @@ const navItems = [
 			defer
 			src="https://againanalytics.vercel.app/script.js"
 			data-website-id="3004f4eb-2b2c-4d61-a2fc-2cd23e627f64"></script>
+		{includeBaseSchema && (
+			<script
+				type="application/ld+json"
+				set:html={JSON.stringify(baseSchema)}
+			/>
+		)}
 		<slot name="head" />
 	</head>
 	<body class="flex min-h-screen flex-col bg-white dark:bg-slate-900 transition-colors">
