@@ -5,8 +5,37 @@ import Hero from "../components/sections/Hero.astro";
 import Features from "../components/sections/Features.astro";
 import Pricing from "../components/sections/Pricing.astro";
 import Testimonials from "../components/sections/Testimonials.astro";
+import FAQ from "../components/sections/FAQ.astro";
 
 const publishedAt = new Date("2024-01-22T03:43:43+10:00");
+
+// FAQ data for schema markup
+const faqItems = [
+	{
+		question: "How do I get a moving quote from Moveroo?",
+		answer: "Simply visit our quote page and enter your move details including pickup and delivery locations, move date, and inventory size. We'll connect you with multiple verified removalists who will provide competitive quotes within 24 hours."
+	},
+	{
+		question: "What areas does Moveroo service in Australia?",
+		answer: "Moveroo services all major cities and regional areas across Australia, including Sydney, Melbourne, Brisbane, Perth, Adelaide, Hobart, Darwin, and Canberra. We handle both local moves and interstate relocations."
+	},
+	{
+		question: "Are the removalists on Moveroo verified and insured?",
+		answer: "Yes, all removalists on our platform are thoroughly vetted for reliability, professionalism, and proper insurance coverage. We only partner with licensed operators who meet our strict quality standards."
+	},
+	{
+		question: "How much does it cost to move house in Australia?",
+		answer: "Moving costs vary based on distance, volume of items, and additional services required. Local moves typically start from $300-$500, while interstate moves can range from $1,500 to $5,000+. Get a free quote for an accurate estimate tailored to your specific move."
+	},
+	{
+		question: "Can Moveroo help with vehicle transport?",
+		answer: "Absolutely! We offer comprehensive vehicle transport services across Australia. Whether you're moving interstate, buying a car from another city, or need enclosed transport for a classic vehicle, we connect you with trusted car carriers."
+	},
+	{
+		question: "How far in advance should I book my move?",
+		answer: "We recommend booking at least 2-4 weeks in advance for local moves and 4-6 weeks for interstate relocations. During peak periods (end of month, holidays), booking earlier ensures better availability and pricing."
+	}
+];
 const buildTime = new Date();
 const publishedIso = publishedAt.toISOString();
 const updatedIso = buildTime.toISOString();
@@ -130,6 +159,18 @@ const structuredData = {
 				},
 			],
 		},
+		{
+			"@type": "FAQPage",
+			"@id": "https://moveroo.com.au/#faq",
+			mainEntity: faqItems.map(faq => ({
+				"@type": "Question",
+				name: faq.question,
+				acceptedAnswer: {
+					"@type": "Answer",
+					text: faq.answer,
+				},
+			})),
+		},
 	],
 };
 ---
@@ -157,6 +198,7 @@ const structuredData = {
 	<Features />
 	<Pricing />
 	<Testimonials />
+	<FAQ />
 	<QuoteCta
 		title="Ready to secure the right removalists?"
 		subtitle="Share your move details and we’ll line up tailored quotes, dates and specialist services to suit your plans."
