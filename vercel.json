@@ -9,8 +9,7 @@
 				}
 			],
 			"destination": "https://moveroo.com.au/:path*",
-			"permanent": true,
-			"statusCode": 308
+			"permanent": true
 		},
 		{
 			"source": "/:path*",
@@ -26,8 +25,7 @@
 				}
 			],
 			"destination": "https://moveroo.com.au/:path*",
-			"permanent": true,
-			"statusCode": 308
+			"permanent": true
 		}
 	],
 	"headers": [
