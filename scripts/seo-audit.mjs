@@ -304,6 +304,40 @@ function displayCrawlResults(crawl) {
 		console.log("✅ No issues detected! Your site looks great.");
 	}
 
+	// Display individual page scores if available
+	if (crawl.audits && crawl.audits.length > 0) {
+		console.log("");
+		console.log("📄 PAGE SCORES:");
+		console.log("─".repeat(60));
+		console.log("");
+		console.log("Score │ URL");
+		console.log("──────┼" + "─".repeat(52));
+
+		// Sort by score ascending (lowest first to highlight issues)
+		const sortedAudits = [...crawl.audits].sort((a, b) => (a.score || 0) - (b.score || 0));
+
+		sortedAudits.forEach((audit) => {
+			const score = audit.score !== null ? audit.score : "-";
+			const emoji = getScoreEmoji(audit.score || 0);
+			const scoreStr = String(score).padStart(3);
+			// Truncate URL if too long
+			const maxUrlLength = 48;
+			let url = audit.url.replace(/^https?:\/\/(www\.)?/, "");
+			if (url.length > maxUrlLength) {
+				url = url.substring(0, maxUrlLength - 3) + "...";
+			}
+			console.log(`${emoji} ${scoreStr} │ ${url}`);
+		});
+
+		// Calculate and show average
+		const scores = crawl.audits.filter((a) => a.score !== null).map((a) => a.score);
+		if (scores.length > 0) {
+			const avg = Math.round(scores.reduce((a, b) => a + b, 0) / scores.length);
+			console.log("──────┼" + "─".repeat(52));
+			console.log(`${getScoreEmoji(avg)} ${String(avg).padStart(3)} │ AVERAGE`);
+		}
+	}
+
 	if (crawl.timestamps) {
 		console.log("");
 		console.log("─".repeat(60));
