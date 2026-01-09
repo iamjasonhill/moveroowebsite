@@ -39,7 +39,8 @@ export default defineConfig({
 	build: {
 		// Inline smaller stylesheets to reduce number of external CSS files
 		// This improves performance by reducing HTTP requests
-		inlineStylesheets: "auto", // Inlines stylesheets < 4KB, larger ones remain external
+		// Using "always" to inline all CSS and reduce external stylesheet count
+		inlineStylesheets: "always", // Inline all CSS to minimize external stylesheet requests
 	},
 	integrations: [
 		sitemap({
@@ -55,8 +56,9 @@ export default defineConfig({
 	vite: {
 		plugins: [tailwindcss()],
 		build: {
-			// Increase inline threshold to 8KB to inline more CSS and reduce external stylesheets
-			assetsInlineLimit: 8192, // 8KB - balances inlining vs caching
+			// Set high inline limit since we're using inlineStylesheets: "always"
+			// This ensures all CSS is inlined regardless of size
+			assetsInlineLimit: 0, // Not used when inlineStylesheets: "always", but set for clarity
 		},
 	},
 });

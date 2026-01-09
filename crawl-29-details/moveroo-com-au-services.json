@@ -1,0 +1,123 @@
+{
+	"audit_id": 262,
+	"target_url": "https://moveroo.com.au/services",
+	"overall_score": 94,
+	"generated_at": "2026-01-09T22:49:08+00:00",
+	"summary": "The audit for https://moveroo.com.au/services scored 94/100. Below is the list of issues requiring attention.",
+	"action_items": [
+		{
+			"category": "Meta Tags",
+			"category_score": 94,
+			"issues": [
+				{
+					"check_name": "Content Freshness",
+					"status": "warning",
+					"issue_detected": "No content date detected",
+					"remediation": "Add article:modified_time meta tag or include dateModified in your Schema.org markup."
+				}
+			]
+		},
+		{
+			"category": "Content Quality",
+			"category_score": 85,
+			"issues": [
+				{
+					"check_name": "Heading Structure",
+					"status": "warning",
+					"issue_detected": "Heading structure could be improved",
+					"remediation": "Ensure you use headings in order (H1 -> H2 -> H3). Don't skip levels."
+				},
+				{
+					"check_name": "Author Attribution (E-E-A-T)",
+					"status": "warning",
+					"issue_detected": "No author attribution found",
+					"remediation": "Add author bylines with links to author bio pages. Use schema.org/Person markup for best results."
+				},
+				{
+					"check_name": "Reading Level",
+					"status": "warning",
+					"issue_detected": "Reading score: 22 (Graduate level) - may be too difficult",
+					"remediation": "Simplify sentences, use shorter words, and break up complex paragraphs. Aim for a score of 60+."
+				}
+			]
+		},
+		{
+			"category": "Social Media",
+			"category_score": 92,
+			"issues": [
+				{
+					"check_name": "OG Image Dimensions",
+					"status": "warning",
+					"issue_detected": "OG image found but dimensions could not be verified",
+					"remediation": "Ensure og:image is accessible and at least 1200x630."
+				}
+			]
+		},
+		{
+			"category": "Performance Hints",
+			"category_score": 80,
+			"issues": [
+				{
+					"check_name": "External Stylesheets",
+					"status": "fail",
+					"issue_detected": "7 external stylesheets - too many",
+					"remediation": "Critical: Use a build tool (like Vite or Mix) to combine all CSS into one or two files."
+				},
+				{
+					"check_name": "Third-Party Scripts",
+					"status": "warning",
+					"issue_detected": "2 third-party script source(s)",
+					"remediation": "Audit your third-party scripts. Remove unused ones and defer others."
+				},
+				{
+					"check_name": "Critical CSS",
+					"status": "warning",
+					"issue_detected": "No inline critical CSS detected",
+					"remediation": "Consider inlining above-the-fold CSS to improve First Contentful Paint."
+				}
+			]
+		},
+		{
+			"category": "Advanced SEO",
+			"category_score": 92,
+			"issues": [
+				{
+					"check_name": "Hreflang Tags",
+					"status": "warning",
+					"issue_detected": "No hreflang tags detected",
+					"remediation": "If you have multiple language or regional versions of your site, add `<link rel=\"alternate\" hreflang=\"x\" href=\"y\" />` tags."
+				}
+			]
+		},
+		{
+			"category": "Structured Data",
+			"category_score": 89,
+			"issues": [
+				{
+					"check_name": "Review/Rating Markup",
+					"status": "warning",
+					"issue_detected": "No review/rating markup",
+					"remediation": "If this page represents a product or local business, add `aggregateRating` schema to be eligible for star snippets."
+				},
+				{
+					"check_name": "FAQ & HowTo Schema Opportunities",
+					"status": "warning",
+					"issue_detected": "FAQ content detected (2 Q&A pairs) - add FAQPage schema; Step-by-step content detected (10 steps) - add HowTo schema",
+					"remediation": "Add structured data to get rich snippets in search results."
+				}
+			]
+		},
+		{
+			"category": "AI Readiness",
+			"category_score": 90,
+			"issues": [
+				{
+					"check_name": "Question Headings",
+					"status": "warning",
+					"issue_detected": "No question-based headings",
+					"remediation": "Try parsing your content into Q&A format using H2 and H3 tags."
+				}
+			]
+		}
+	]
+}
