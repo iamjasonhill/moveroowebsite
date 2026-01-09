@@ -16,8 +16,10 @@
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
 		"seo:audit": "node scripts/seo-audit.mjs",
-		"seo:audit:local": "node scripts/seo-audit.mjs http://localhost:4321",
-		"seo:audit:prod": "node scripts/seo-audit.mjs https://moveroo.com.au",
+		"seo:page": "node scripts/seo-audit.mjs page",
+		"seo:crawl": "node scripts/seo-audit.mjs crawl",
+		"seo:status": "node scripts/seo-audit.mjs status",
+		"seo:list": "node scripts/seo-audit.mjs list",
 		"prepare": "husky"
 	},
 	"dependencies": {
