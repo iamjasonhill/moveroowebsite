@@ -4,36 +4,82 @@ import QuoteCta from "../components/sections/QuoteCta.astro";
 
 const publishedAt = new Date("2024-10-01T03:00:00+10:00");
 const updatedAt = new Date();
+
+// FAQ data for schema markup
+const faqItems = [
+	{
+		question: "What happened to Moving Cars?",
+		answer:
+			"Moving Cars has merged with Moveroo to create a single destination for coordinated vehicle transport and relocation services across Australia. Customers now benefit from one unified platform for all moving needs.",
+	},
+	{
+		question: "Why did Moving Cars merge with Moveroo?",
+		answer:
+			"By combining forces, Moving Cars and Moveroo removed the hassle of coordinating multiple providers. Customers can now arrange vehicle transport, household removals and specialist freight with one enquiry, one support team and a single source of transparent updates.",
+	},
+	{
+		question: "What's in it for Moving Cars customers?",
+		answer:
+			"The strengthened Moveroo platform delivers faster turnarounds, sharper pricing and a personalised experience. With one experienced team coordinating both your move and your vehicles, you save time and reduce risk across the entire event.",
+	},
+	{
+		question: "What technology improvements come with the merger?",
+		answer:
+			"The new Moveroo platform introduces upgraded tracking, smarter notifications and round-the-clock support. Real-time status updates keep you informed of each vehicle and household shipment, while an intuitive customer portal simplifies bookings, documentation and approvals.",
+	},
+	{
+		question: "What's next for Moving Cars customers?",
+		answer:
+			"Moving Cars customers can continue to expect the same trusted drivers and careful handling, now strengthened with Moveroo's national partner network. You can plan a local move, an interstate relocation or a complex multi-vehicle shipment with the confidence that one aligned team is on your side.",
+	},
+];
+
 const structuredData = {
 	"@context": "https://schema.org",
-	"@type": "Article",
-	headline: "Moving Cars Joins Moveroo to Deliver End-to-End Moving Confidence",
-	description:
-		"Moving Cars and Moveroo have merged to create a single destination for coordinated vehicle transport and relocation services across Australia.",
-	datePublished: publishedAt.toISOString(),
-	dateModified: updatedAt.toISOString(),
-	author: {
-		"@type": "Organization",
-		name: "Moveroo Australia",
-	},
-	publisher: {
-		"@type": "Organization",
-		name: "Moveroo Australia",
-		logo: {
-			"@type": "ImageObject",
-			url: "https://moveroo.com.au/wp-content/uploads/2024/05/Move_Roo_Icon_circle.png",
+	"@graph": [
+		{
+			"@type": "Article",
+			headline: "Moving Cars Joins Moveroo to Deliver End-to-End Moving Confidence",
+			description:
+				"Moving Cars and Moveroo have merged to create a single destination for coordinated vehicle transport and relocation services across Australia.",
+			datePublished: publishedAt.toISOString(),
+			dateModified: updatedAt.toISOString(),
+			author: {
+				"@type": "Organization",
+				name: "Moveroo Australia",
+			},
+			publisher: {
+				"@type": "Organization",
+				name: "Moveroo Australia",
+				logo: {
+					"@type": "ImageObject",
+					url: "https://moveroo.com.au/wp-content/uploads/2024/05/Move_Roo_Icon_circle.png",
+				},
+			},
+			mainEntityOfPage: {
+				"@type": "WebPage",
+				"@id": "https://moveroo.com.au/moving-cars/",
+			},
 		},
-	},
-	mainEntityOfPage: {
-		"@type": "WebPage",
-		"@id": "https://moveroo.com.au/moving-cars/",
-	},
+		{
+			"@type": "FAQPage",
+			"@id": "https://moveroo.com.au/moving-cars/#faq",
+			mainEntity: faqItems.map((faq) => ({
+				"@type": "Question",
+				name: faq.question,
+				acceptedAnswer: {
+					"@type": "Answer",
+					text: faq.answer,
+				},
+			})),
+		},
+	],
 };
 ---
 
 <Layout
 	title="Moving Cars by Moveroo | Vehicle Transport Australia"
-	description="Moving Cars is now part of Moveroo. Get coordinated vehicle transport and moving services with technology-backed support across Australia."
+	description="Moving Cars is now part of Moveroo. Get coordinated vehicle transport and moving services with technology-backed support across Australia. Book today!"
 	canonical="https://moveroo.com.au/moving-cars/"
 >
 	<Fragment slot="head">

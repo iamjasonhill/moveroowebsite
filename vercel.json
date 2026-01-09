@@ -73,7 +73,7 @@
 			"headers": [
 				{
 					"key": "Cache-Control",
-					"value": "no-cache,must-revalidate"
+					"value": "public,max-age=3600,must-revalidate"
 				},
 				{
 					"key": "X-Frame-Options",

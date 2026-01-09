@@ -168,6 +168,11 @@ const navItems = [
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 		<link rel="manifest" href="/manifest.json" />
+		<!-- Resource Hints for Performance -->
+		<link rel="preconnect" href="https://www.googletagmanager.com" />
+		<link rel="preconnect" href="https://againanalytics.vercel.app" />
+		<link rel="dns-prefetch" href="https://www.google-analytics.com" />
+		<link rel="dns-prefetch" href="https://analytics.google.com" />
 		<meta name="generator" content={Astro.generator} />
 		{robots && <meta name="robots" content={robots} />}
 		<title>{title}</title>
@@ -330,10 +335,34 @@ const navItems = [
 				</nav>
 			</div>
 			<div class="border-t border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900">
-				<div
-					class="mx-auto max-w-6xl px-6 py-6 text-xs uppercase tracking-[0.3em] text-slate-600 dark:text-slate-500"
-				>
-					© {new Date().getFullYear()} Moveroo. All rights reserved.
+				<div class="mx-auto max-w-6xl px-6 py-6">
+					<div class="flex flex-col items-center justify-between gap-4 md:flex-row">
+						<div class="text-xs uppercase tracking-[0.3em] text-slate-600 dark:text-slate-500">
+							© {new Date().getFullYear()} Moveroo. All rights reserved.
+						</div>
+						<div
+							class="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-500 dark:text-slate-400"
+						>
+							<span class="flex items-center gap-1.5">
+								<svg
+									class="h-4 w-4 text-emerald-600 dark:text-emerald-400"
+									fill="currentColor"
+									viewBox="0 0 20 20"
+									aria-hidden="true"
+								>
+									<path
+										fill-rule="evenodd"
+										d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+										clip-rule="evenodd"></path>
+								</svg>
+								<span>Secure SSL</span>
+							</span>
+							<span class="text-slate-300 dark:text-slate-600">|</span>
+							<span>Licensed & Insured</span>
+							<span class="text-slate-300 dark:text-slate-600">|</span>
+							<span>Australian Owned</span>
+						</div>
+					</div>
 				</div>
 			</div>
 		</footer>
