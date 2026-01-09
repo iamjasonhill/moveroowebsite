@@ -36,6 +36,11 @@ export default defineConfig({
 	site: "https://moveroo.com.au",
 	output: "server",
 	adapter: vercel(),
+	build: {
+		// Inline smaller stylesheets to reduce number of external CSS files
+		// This improves performance by reducing HTTP requests
+		inlineStylesheets: "auto", // Inlines stylesheets < 4KB, larger ones remain external
+	},
 	integrations: [
 		sitemap({
 			filter: (page) => !page.includes("/template-dark") && !page.includes("/template-light"),
@@ -49,5 +54,9 @@ export default defineConfig({
 	],
 	vite: {
 		plugins: [tailwindcss()],
+		build: {
+			// Increase inline threshold to 8KB to inline more CSS and reduce external stylesheets
+			assetsInlineLimit: 8192, // 8KB - balances inlining vs caching
+		},
 	},
 });

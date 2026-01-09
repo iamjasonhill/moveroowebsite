@@ -1,0 +1,74 @@
+[
+	{
+		"url": "https://moveroo.com.au",
+		"auditId": 245,
+		"score": 95,
+		"failCount": 2,
+		"warningCount": 7,
+		"categoryScores": {}
+	},
+	{
+		"url": "https://moveroo.com.au/sitemap-index.xml",
+		"auditId": 253,
+		"score": 60,
+		"failCount": 25,
+		"warningCount": 22,
+		"categoryScores": {}
+	},
+	{
+		"url": "https://moveroo.com.au/services",
+		"auditId": 249,
+		"score": 94,
+		"failCount": 2,
+		"warningCount": 12,
+		"categoryScores": {}
+	},
+	{
+		"url": "https://moveroo.com.au/moving-cars",
+		"auditId": 246,
+		"score": 94,
+		"failCount": 3,
+		"warningCount": 10,
+		"categoryScores": {}
+	},
+	{
+		"url": "https://moveroo.com.au/terms-of-use",
+		"auditId": 247,
+		"score": 93,
+		"failCount": 2,
+		"warningCount": 12,
+		"categoryScores": {}
+	},
+	{
+		"url": "https://moveroo.com.au/terms-and-conditions-transport",
+		"auditId": 248,
+		"score": 94,
+		"failCount": 2,
+		"warningCount": 11,
+		"categoryScores": {}
+	},
+	{
+		"url": "https://moveroo.com.au/privacy-policy",
+		"auditId": 250,
+		"score": 93,
+		"failCount": 2,
+		"warningCount": 12,
+		"categoryScores": {}
+	},
+	{
+		"url": "https://moveroo.com.au/cancellation",
+		"auditId": 251,
+		"score": 93,
+		"failCount": 2,
+		"warningCount": 12,
+		"categoryScores": {}
+	},
+	{
+		"url": "https://moveroo.com.au/contact",
+		"auditId": 252,
+		"score": 94,
+		"failCount": 2,
+		"warningCount": 10,
+		"categoryScores": {}
+	}
+]

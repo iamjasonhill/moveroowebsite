@@ -38,7 +38,7 @@ const structuredData = {
 	"@context": "https://schema.org",
 	"@graph": [
 		{
-			"@type": "Article",
+			"@type": "NewsArticle",
 			headline: "Moving Cars Joins Moveroo to Deliver End-to-End Moving Confidence",
 			description:
 				"Moving Cars and Moveroo have merged to create a single destination for coordinated vehicle transport and relocation services across Australia.",
@@ -87,6 +87,7 @@ const structuredData = {
 		<meta property="article:published_time" content={publishedAt.toISOString()} />
 		<meta property="article:modified_time" content={updatedAt.toISOString()} />
 		<meta property="og:type" content="article" />
+		<meta property="article:type" content="news" />
 		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 	</Fragment>
 
