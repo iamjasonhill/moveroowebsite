@@ -25,6 +25,7 @@ Thumbs.db
 
 # IDE/Editor
 .idea/
+.cursor/
 *.swp
 *.swo
 *~
@@ -34,6 +35,3 @@ Thumbs.db
 
 # TypeScript cache
 *.tsbuildinfo
-
-# Cursor AI
-.cursor/rules/codacy.mdc
