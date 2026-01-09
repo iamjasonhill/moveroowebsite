@@ -1,143 +1,191 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import QuoteCta from '../components/sections/QuoteCta.astro';
+import Layout from "../layouts/Layout.astro";
+import QuoteCta from "../components/sections/QuoteCta.astro";
 
-const publishedAt = new Date('2024-10-01T03:00:00+10:00');
+const publishedAt = new Date("2024-10-01T03:00:00+10:00");
 const updatedAt = new Date();
 const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: 'Moving Cars Joins Moveroo to Deliver End-to-End Moving Confidence',
-  description:
-    'Moving Cars and Moveroo have merged to create a single destination for coordinated vehicle transport and relocation services across Australia.',
-  datePublished: publishedAt.toISOString(),
-  dateModified: updatedAt.toISOString(),
-  author: {
-    '@type': 'Organization',
-    name: 'Moveroo Australia'
-  },
-  publisher: {
-    '@type': 'Organization',
-    name: 'Moveroo Australia',
-    logo: {
-      '@type': 'ImageObject',
-      url: 'https://moveroo.com.au/wp-content/uploads/2024/05/Move_Roo_Icon_circle.png'
-    }
-  },
-  mainEntityOfPage: {
-    '@type': 'WebPage',
-    '@id': 'https://moveroo.com.au/moving-cars/'
-  }
+	"@context": "https://schema.org",
+	"@type": "Article",
+	headline: "Moving Cars Joins Moveroo to Deliver End-to-End Moving Confidence",
+	description:
+		"Moving Cars and Moveroo have merged to create a single destination for coordinated vehicle transport and relocation services across Australia.",
+	datePublished: publishedAt.toISOString(),
+	dateModified: updatedAt.toISOString(),
+	author: {
+		"@type": "Organization",
+		name: "Moveroo Australia",
+	},
+	publisher: {
+		"@type": "Organization",
+		name: "Moveroo Australia",
+		logo: {
+			"@type": "ImageObject",
+			url: "https://moveroo.com.au/wp-content/uploads/2024/05/Move_Roo_Icon_circle.png",
+		},
+	},
+	mainEntityOfPage: {
+		"@type": "WebPage",
+		"@id": "https://moveroo.com.au/moving-cars/",
+	},
 };
 ---
 
 <Layout
-  title="Moving Cars by Moveroo | Seamless Vehicle Transport & Relocation Support"
-  description="Moving Cars is now part of Moveroo. Discover how the combined teams deliver coordinated vehicle transport, moving services and technology-backed support Australia-wide."
-  canonical="https://moveroo.com.au/moving-cars/"
+	title="Moving Cars by Moveroo | Vehicle Transport Australia"
+	description="Moving Cars is now part of Moveroo. Get coordinated vehicle transport and moving services with technology-backed support across Australia."
+	canonical="https://moveroo.com.au/moving-cars/"
 >
-  <Fragment slot="head">
-    <meta property="og:updated_time" content={updatedAt.toISOString()} />
-    <meta property="article:published_time" content={publishedAt.toISOString()} />
-    <meta property="article:modified_time" content={updatedAt.toISOString()} />
-    <meta property="og:type" content="article" />
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
-  </Fragment>
+	<Fragment slot="head">
+		<meta property="og:updated_time" content={updatedAt.toISOString()} />
+		<meta property="article:published_time" content={publishedAt.toISOString()} />
+		<meta property="article:modified_time" content={updatedAt.toISOString()} />
+		<meta property="og:type" content="article" />
+		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+	</Fragment>
 
-  <section class="relative overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-emerald-100 py-24 dark:from-slate-900 dark:via-slate-800 dark:to-emerald-900/20">
-    <div class="pointer-events-none absolute inset-0">
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(16,185,129,0.12),_transparent_55%)] dark:bg-[radial-gradient(circle_at_top_right,_rgba(16,185,129,0.15),_transparent_55%)]" aria-hidden="true"></div>
-    </div>
-    <div class="relative mx-auto flex max-w-5xl flex-col gap-10 px-6 text-center md:text-left">
-      <div class="space-y-6">
-        <p class="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-700 dark:text-emerald-400">Moveroo news</p>
-        <h1 class="text-4xl font-semibold leading-tight text-slate-900 dark:text-white md:text-5xl">
-          Moving Cars joins Moveroo to deliver end-to-end moving confidence
-        </h1>
-        <p class="text-lg text-slate-600 dark:text-slate-300">
-          Moving Cars, Australia’s trusted vehicle transport specialist, has merged with Moveroo. Together we now offer a single destination for coordinating vehicle logistics, household relocations and bespoke transport programs nationwide.
-        </p>
-      </div>
-      <div class="flex flex-wrap items-center justify-center gap-4 md:justify-start">
-        <a
-          class="inline-flex items-center justify-center rounded-full bg-emerald-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-700/30 transition hover:bg-emerald-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 dark:bg-emerald-600 dark:shadow-emerald-600/30 dark:hover:bg-emerald-500 dark:focus-visible:outline-emerald-500"
-          href="https://cars.moveroo.com.au/"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          Book vehicle transport
-        </a>
-        <a
-          class="inline-flex items-center justify-center rounded-full border border-emerald-500 px-6 py-3 text-sm font-semibold text-emerald-700 transition hover:border-emerald-600 hover:text-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700 dark:border-emerald-500/50 dark:text-emerald-400 dark:hover:border-emerald-400 dark:hover:bg-emerald-500/10 dark:hover:text-emerald-300 dark:focus-visible:outline-emerald-400"
-          href="/contact/#contact-form"
-        >
-          Talk to the Moveroo team
-        </a>
-      </div>
-    </div>
-  </section>
+	<section
+		class="relative overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-emerald-100 py-24 dark:from-slate-900 dark:via-slate-800 dark:to-emerald-900/20"
+	>
+		<div class="pointer-events-none absolute inset-0">
+			<div
+				class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(16,185,129,0.12),_transparent_55%)] dark:bg-[radial-gradient(circle_at_top_right,_rgba(16,185,129,0.15),_transparent_55%)]"
+				aria-hidden="true"
+			>
+			</div>
+		</div>
+		<div class="relative mx-auto flex max-w-5xl flex-col gap-10 px-6 text-center md:text-left">
+			<div class="space-y-6">
+				<p
+					class="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-700 dark:text-emerald-400"
+				>
+					Moveroo news
+				</p>
+				<h1 class="text-4xl font-semibold leading-tight text-slate-900 dark:text-white md:text-5xl">
+					Moving Cars joins Moveroo to deliver end-to-end moving confidence
+				</h1>
+				<p class="text-lg text-slate-600 dark:text-slate-300">
+					Moving Cars, Australia’s trusted vehicle transport specialist, has merged with Moveroo.
+					Together we now offer a single destination for coordinating vehicle logistics, household
+					relocations and bespoke transport programs nationwide.
+				</p>
+			</div>
+			<div class="flex flex-wrap items-center justify-center gap-4 md:justify-start">
+				<a
+					class="inline-flex items-center justify-center rounded-full bg-emerald-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-700/30 transition hover:bg-emerald-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 dark:bg-emerald-600 dark:shadow-emerald-600/30 dark:hover:bg-emerald-500 dark:focus-visible:outline-emerald-500"
+					href="https://cars.moveroo.com.au/"
+					rel="noopener noreferrer"
+					target="_blank"
+				>
+					Book vehicle transport
+				</a>
+				<a
+					class="inline-flex items-center justify-center rounded-full border border-emerald-500 px-6 py-3 text-sm font-semibold text-emerald-700 transition hover:border-emerald-600 hover:text-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700 dark:border-emerald-500/50 dark:text-emerald-400 dark:hover:border-emerald-400 dark:hover:bg-emerald-500/10 dark:hover:text-emerald-300 dark:focus-visible:outline-emerald-400"
+					href="/contact/#contact-form"
+				>
+					Talk to the Moveroo team
+				</a>
+			</div>
+		</div>
+	</section>
 
-  <section class="bg-white py-24 dark:bg-slate-900">
-    <div class="mx-auto flex max-w-5xl flex-col gap-16 px-6">
-      <article class="space-y-8 text-slate-700 dark:text-slate-300">
-        <h2 class="text-3xl font-semibold text-slate-900 dark:text-white">Why this merger matters</h2>
-        <p>
-          By combining forces, Moving Cars and Moveroo have removed the hassle of coordinating multiple providers. Customers can now arrange vehicle transport, household removals and specialist freight with one enquiry, one support team and a single source of transparent updates.
-        </p>
-        <p>
-          Whether you are relocating interstate, balancing corporate fleet schedules or planning a bespoke logistics project, the merged team aligns carriers, schedules and communication to keep every milestone on track.
-        </p>
-      </article>
+	<section class="bg-white py-24 dark:bg-slate-900">
+		<div class="mx-auto flex max-w-5xl flex-col gap-16 px-6">
+			<article class="space-y-8 text-slate-700 dark:text-slate-300">
+				<h2 class="text-3xl font-semibold text-slate-900 dark:text-white">
+					Why this merger matters
+				</h2>
+				<p>
+					By combining forces, Moving Cars and Moveroo have removed the hassle of coordinating
+					multiple providers. Customers can now arrange vehicle transport, household removals and
+					specialist freight with one enquiry, one support team and a single source of transparent
+					updates.
+				</p>
+				<p>
+					Whether you are relocating interstate, balancing corporate fleet schedules or planning a
+					bespoke logistics project, the merged team aligns carriers, schedules and communication to
+					keep every milestone on track.
+				</p>
+			</article>
 
-      <article class="space-y-8 text-slate-700 dark:text-slate-300">
-        <h2 class="text-3xl font-semibold text-slate-900 dark:text-white">What's in it for you?</h2>
-        <p>
-          The strengthened Moveroo platform delivers faster turnarounds, sharper pricing and a personalised experience. With one experienced team coordinating both your move and your vehicles, you save time and reduce risk across the entire event.
-        </p>
-        <ul class="space-y-4 text-sm leading-relaxed">
-          <li class="flex items-start gap-3">
-            <span class="mt-1 h-2 w-2 rounded-full bg-emerald-500 dark:bg-emerald-400" aria-hidden="true"></span>
-            <span>Streamlined booking process covering vehicles, household inventory and specialty freight.</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="mt-1 h-2 w-2 rounded-full bg-emerald-500 dark:bg-emerald-400" aria-hidden="true"></span>
-            <span>Coordinated scheduling that keeps your timelines aligned from pickup to delivery.</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="mt-1 h-2 w-2 rounded-full bg-emerald-500 dark:bg-emerald-400" aria-hidden="true"></span>
-            <span>Dedicated move coordinators who understand both removalist and vehicle transport logistics.</span>
-          </li>
-        </ul>
-      </article>
+			<article class="space-y-8 text-slate-700 dark:text-slate-300">
+				<h2 class="text-3xl font-semibold text-slate-900 dark:text-white">What's in it for you?</h2>
+				<p>
+					The strengthened Moveroo platform delivers faster turnarounds, sharper pricing and a
+					personalised experience. With one experienced team coordinating both your move and your
+					vehicles, you save time and reduce risk across the entire event.
+				</p>
+				<ul class="space-y-4 text-sm leading-relaxed">
+					<li class="flex items-start gap-3">
+						<span
+							class="mt-1 h-2 w-2 rounded-full bg-emerald-500 dark:bg-emerald-400"
+							aria-hidden="true"></span>
+						<span
+							>Streamlined booking process covering vehicles, household inventory and specialty
+							freight.</span
+						>
+					</li>
+					<li class="flex items-start gap-3">
+						<span
+							class="mt-1 h-2 w-2 rounded-full bg-emerald-500 dark:bg-emerald-400"
+							aria-hidden="true"></span>
+						<span
+							>Coordinated scheduling that keeps your timelines aligned from pickup to delivery.</span
+						>
+					</li>
+					<li class="flex items-start gap-3">
+						<span
+							class="mt-1 h-2 w-2 rounded-full bg-emerald-500 dark:bg-emerald-400"
+							aria-hidden="true"></span>
+						<span
+							>Dedicated move coordinators who understand both removalist and vehicle transport
+							logistics.</span
+						>
+					</li>
+				</ul>
+			</article>
 
-      <article class="space-y-8 text-slate-700 dark:text-slate-300">
-        <h2 class="text-3xl font-semibold text-slate-900 dark:text-white">Better tech, better visibility</h2>
-        <p>
-          The new Moveroo platform introduces upgraded tracking, smarter notifications and round-the-clock support. Real-time status updates keep you informed of each vehicle and household shipment, while an intuitive customer portal simplifies bookings, documentation and approvals.
-        </p>
-        <p>
-          From first quote to final delivery you’ll know exactly where your assets are and who to contact, with proactive communication at every step.
-        </p>
-      </article>
+			<article class="space-y-8 text-slate-700 dark:text-slate-300">
+				<h2 class="text-3xl font-semibold text-slate-900 dark:text-white">
+					Better tech, better visibility
+				</h2>
+				<p>
+					The new Moveroo platform introduces upgraded tracking, smarter notifications and
+					round-the-clock support. Real-time status updates keep you informed of each vehicle and
+					household shipment, while an intuitive customer portal simplifies bookings, documentation
+					and approvals.
+				</p>
+				<p>
+					From first quote to final delivery you’ll know exactly where your assets are and who to
+					contact, with proactive communication at every step.
+				</p>
+			</article>
 
-      <article class="space-y-8 text-slate-700 dark:text-slate-300">
-        <h2 class="text-3xl font-semibold text-slate-900 dark:text-white">What's next for Moving Cars customers?</h2>
-        <p>
-          Moving Cars customers can continue to expect the same trusted drivers and careful handling, now strengthened with Moveroo’s national partner network. You can plan a local move, an interstate relocation or a complex multi-vehicle shipment with the confidence that one aligned team is on your side.
-        </p>
-        <p>
-          Moving has never been simpler. Ready to plan your next move with the combined Moving Cars and Moveroo team? Reach out and we’ll prepare a tailored strategy that keeps everything moving smoothly.
-        </p>
-      </article>
-    </div>
-  </section>
+			<article class="space-y-8 text-slate-700 dark:text-slate-300">
+				<h2 class="text-3xl font-semibold text-slate-900 dark:text-white">
+					What's next for Moving Cars customers?
+				</h2>
+				<p>
+					Moving Cars customers can continue to expect the same trusted drivers and careful
+					handling, now strengthened with Moveroo’s national partner network. You can plan a local
+					move, an interstate relocation or a complex multi-vehicle shipment with the confidence
+					that one aligned team is on your side.
+				</p>
+				<p>
+					Moving has never been simpler. Ready to plan your next move with the combined Moving Cars
+					and Moveroo team? Reach out and we’ll prepare a tailored strategy that keeps everything
+					moving smoothly.
+				</p>
+			</article>
+		</div>
+	</section>
 
-  <QuoteCta
-    title="Need vehicle transport with your next move?"
-    subtitle="Share your routes, timing and inventory so we can coordinate carriers, removalists and specialist services in one aligned plan."
-    ctaPrimaryLabel="Start a combined move quote"
-    ctaPrimaryHref="https://removalists.moveroo.com.au/quote/household"
-    ctaSecondaryLabel="Chat with a coordinator"
-    ctaSecondaryHref="/contact/#contact-form"
-  />
+	<QuoteCta
+		title="Need vehicle transport with your next move?"
+		subtitle="Share your routes, timing and inventory so we can coordinate carriers, removalists and specialist services in one aligned plan."
+		ctaPrimaryLabel="Start a combined move quote"
+		ctaPrimaryHref="https://removalists.moveroo.com.au/quote/household"
+		ctaSecondaryLabel="Chat with a coordinator"
+		ctaSecondaryHref="/contact/#contact-form"
+	/>
 </Layout>
