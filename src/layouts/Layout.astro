@@ -33,26 +33,26 @@ const {
 const currentPath = Astro.url.pathname;
 const generateBreadcrumbs = (): BreadcrumbItem[] => {
 	if (breadcrumbs) return breadcrumbs;
-	
+
 	const items: BreadcrumbItem[] = [{ name: "Home", url: "https://moveroo.com.au/" }];
-	
+
 	if (currentPath !== "/" && currentPath !== "") {
 		const segments = currentPath.split("/").filter(Boolean);
 		let accumulatedPath = "";
-		
+
 		segments.forEach((segment) => {
 			accumulatedPath += `/${segment}`;
 			const name = segment
 				.split("-")
-				.map(word => word.charAt(0).toUpperCase() + word.slice(1))
+				.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
 				.join(" ");
 			items.push({
 				name,
-				url: `https://moveroo.com.au${accumulatedPath}/`
+				url: `https://moveroo.com.au${accumulatedPath}/`,
 			});
 		});
 	}
-	
+
 	return items;
 };
 
@@ -81,9 +81,7 @@ const baseSchema = {
 					availableLanguage: "English",
 				},
 			],
-			sameAs: [
-				"https://twitter.com/MoverooAU",
-			],
+			sameAs: ["https://twitter.com/MoverooAU"],
 		},
 		{
 			"@type": "WebSite",
@@ -150,18 +148,18 @@ const navItems = [
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<script is:inline>
-			(function() {
+			(function () {
 				const getTheme = () => {
-					if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-						return localStorage.getItem('theme');
+					if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+						return localStorage.getItem("theme");
 					}
-					return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+					return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 				};
 				const theme = getTheme();
-				if (theme === 'dark') {
-					document.documentElement.classList.add('dark');
+				if (theme === "dark") {
+					document.documentElement.classList.add("dark");
 				} else {
-					document.documentElement.classList.remove('dark');
+					document.documentElement.classList.remove("dark");
 				}
 			})();
 		</script>
@@ -176,22 +174,14 @@ const navItems = [
 		{description && <meta name="description" content={description} />}
 		{canonical && <link rel="canonical" href={canonical} />}
 		<meta property="og:title" content={title} />
-		{
-			description && (
-				<meta property="og:description" content={description} />
-			)
-		}
+		{description && <meta property="og:description" content={description} />}
 		{canonical && <meta property="og:url" content={canonical} />}
 		<meta property="og:type" content={ogType} />
 		<meta property="og:site_name" content="Moveroo Australia" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:site" content="@MoverooAU" />
 		<meta name="twitter:title" content={title} />
-		{
-			description && (
-				<meta name="twitter:description" content={description} />
-			)
-		}
+		{description && <meta name="twitter:description" content={description} />}
 		<meta name="twitter:image" content={ogImage} />
 		<meta property="og:image" content={ogImage} />
 		<!-- PWA / Mobile Web App Meta Tags -->
@@ -203,20 +193,18 @@ const navItems = [
 		<script
 			type="text/partytown"
 			async
-			src="https://www.googletagmanager.com/gtag/js?id=G-4DN533CFGK"
-		></script>
+			src="https://www.googletagmanager.com/gtag/js?id=G-4DN533CFGK"></script>
 		<script type="text/partytown" src="/scripts/analytics.js"></script>
 		<script
 			type="text/partytown"
 			defer
 			src="https://againanalytics.vercel.app/script.js"
 			data-website-id="3004f4eb-2b2c-4d61-a2fc-2cd23e627f64"></script>
-		{includeBaseSchema && (
-			<script
-				type="application/ld+json"
-				set:html={JSON.stringify(baseSchema)}
-			/>
-		)}
+		{
+			includeBaseSchema && (
+				<script type="application/ld+json" set:html={JSON.stringify(baseSchema)} />
+			)
+		}
 		<slot name="head" />
 	</head>
 	<body class="flex min-h-screen flex-col bg-white dark:bg-slate-900 transition-colors">
@@ -225,13 +213,11 @@ const navItems = [
 			class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-white focus:p-4 focus:text-emerald-700 dark:focus:bg-slate-800 dark:focus:text-emerald-400"
 			>Skip to content</a
 		>
-		<header class="border-b border-slate-200 bg-white/90 backdrop-blur dark:border-slate-800 dark:bg-slate-900/90">
-			<div
-				class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-5"
-			>
-				<a
-					href="/"
-					class="text-lg font-semibold tracking-tight text-slate-900 dark:text-white"
+		<header
+			class="border-b border-slate-200 bg-white/90 backdrop-blur dark:border-slate-800 dark:bg-slate-900/90"
+		>
+			<div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-5">
+				<a href="/" class="text-lg font-semibold tracking-tight text-slate-900 dark:text-white"
 					>Moveroo</a
 				>
 				<div class="flex items-center gap-4">
@@ -273,11 +259,7 @@ const navItems = [
 								href={item.href}
 								target={item.external ? "_blank" : undefined}
 								rel={item.external ? "noopener" : undefined}
-								aria-label={
-									item.external
-										? `${item.label} (opens in a new tab)`
-										: undefined
-								}
+								aria-label={item.external ? `${item.label} (opens in a new tab)` : undefined}
 							>
 								{item.label}
 							</a>
@@ -292,9 +274,7 @@ const navItems = [
 					<div class="mb-4 flex items-center justify-end">
 						<DarkModeToggle />
 					</div>
-					<nav
-						class="flex flex-col gap-4 text-sm font-semibold text-slate-700 dark:text-slate-300"
-					>
+					<nav class="flex flex-col gap-4 text-sm font-semibold text-slate-700 dark:text-slate-300">
 						{
 							navItems.map((item) => (
 								<a
@@ -304,15 +284,9 @@ const navItems = [
 											: "transition hover:text-emerald-600 dark:hover:text-emerald-400"
 									}
 									href={item.href}
-									target={
-										item.external ? "_blank" : undefined
-									}
+									target={item.external ? "_blank" : undefined}
 									rel={item.external ? "noopener" : undefined}
-									aria-label={
-										item.external
-											? `${item.label} (opens in a new tab)`
-											: undefined
-									}
+									aria-label={item.external ? `${item.label} (opens in a new tab)` : undefined}
 								>
 									{item.label}
 								</a>
@@ -330,33 +304,28 @@ const navItems = [
 				class="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 text-sm text-slate-600 dark:text-slate-400 md:flex-row md:items-start md:justify-between"
 			>
 				<div>
-					<p class="text-base font-semibold text-slate-900 dark:text-white">
-						Moveroo
-					</p>
+					<p class="text-base font-semibold text-slate-900 dark:text-white">Moveroo</p>
 					<p class="mt-2 max-w-sm text-sm text-slate-600 dark:text-slate-400">
-						Reimagining the relocation experience with transparent
-						pricing, dependable partners and friendly support.
+						Reimagining the relocation experience with transparent pricing, dependable partners and
+						friendly support.
 					</p>
 				</div>
-				<nav
-					class="flex flex-col gap-2 text-sm font-medium text-slate-700 dark:text-slate-300"
-				>
-					<a
-						class="transition hover:text-slate-900 dark:hover:text-white"
-						href="/privacy-policy/">Privacy Policy</a
+				<nav class="flex flex-col gap-2 text-sm font-medium text-slate-700 dark:text-slate-300">
+					<a class="transition hover:text-slate-900 dark:hover:text-white" href="/privacy-policy/"
+						>Privacy Policy</a
+					>
+					<a class="transition hover:text-slate-900 dark:hover:text-white" href="/terms-of-use/"
+						>Terms of Use</a
 					>
 					<a
 						class="transition hover:text-slate-900 dark:hover:text-white"
-						href="/terms-of-use/">Terms of Use</a
+						href="/terms-and-conditions-transport/">Transport Terms &amp; Conditions</a
 					>
-					<a
-						class="transition hover:text-slate-900 dark:hover:text-white"
-						href="/terms-and-conditions-transport/"
-						>Transport Terms &amp; Conditions</a
+					<a class="transition hover:text-slate-900 dark:hover:text-white" href="/cancellation/"
+						>Cancellation Policy</a
 					>
-					<a
-						class="transition hover:text-slate-900 dark:hover:text-white"
-						href="/sitemap-index.xml">Sitemap</a
+					<a class="transition hover:text-slate-900 dark:hover:text-white" href="/sitemap-index.xml"
+						>Sitemap</a
 					>
 				</nav>
 			</div>
@@ -370,56 +339,62 @@ const navItems = [
 		</footer>
 		<script is:inline src="/scripts/mobile-nav.js"></script>
 		<script is:inline>
-			console.log('Dark mode script: Starting initialization');
+			console.log("Dark mode script: Starting initialization");
 			(function () {
 				function initDarkMode() {
-					console.log('Dark mode script: initDarkMode called');
-					const toggles = document.querySelectorAll('[data-dark-mode-toggle]');
+					console.log("Dark mode script: initDarkMode called");
+					const toggles = document.querySelectorAll("[data-dark-mode-toggle]");
 					const html = document.documentElement;
 
-					console.log('Dark mode script: Found', toggles.length, 'toggle buttons');
+					console.log("Dark mode script: Found", toggles.length, "toggle buttons");
 
 					if (toggles.length === 0) {
-						console.error('Dark mode script: No toggle buttons found!');
+						console.error("Dark mode script: No toggle buttons found!");
 						return;
 					}
 
 					const updateIcons = () => {
-						const isDark = html.classList.contains('dark');
-						console.log('Dark mode script: Updating icons, isDark =', isDark);
+						const isDark = html.classList.contains("dark");
+						console.log("Dark mode script: Updating icons, isDark =", isDark);
 						// When in dark mode, show sun icon (to switch to light)
 						// When in light mode, show moon icon (to switch to dark)
-						const sunIcons = document.querySelectorAll('[data-sun-icon]');
-						const moonIcons = document.querySelectorAll('[data-moon-icon]');
-						console.log('Dark mode script: Found', sunIcons.length, 'sun icons and', moonIcons.length, 'moon icons');
-						
-						sunIcons.forEach(icon => {
+						const sunIcons = document.querySelectorAll("[data-sun-icon]");
+						const moonIcons = document.querySelectorAll("[data-moon-icon]");
+						console.log(
+							"Dark mode script: Found",
+							sunIcons.length,
+							"sun icons and",
+							moonIcons.length,
+							"moon icons"
+						);
+
+						sunIcons.forEach((icon) => {
 							if (isDark) {
-								icon.classList.remove('hidden');
+								icon.classList.remove("hidden");
 							} else {
-								icon.classList.add('hidden');
+								icon.classList.add("hidden");
 							}
 						});
-						moonIcons.forEach(icon => {
+						moonIcons.forEach((icon) => {
 							if (isDark) {
-								icon.classList.add('hidden');
+								icon.classList.add("hidden");
 							} else {
-								icon.classList.remove('hidden');
+								icon.classList.remove("hidden");
 							}
 						});
 					};
 
 					const setTheme = (theme) => {
-						console.log('Dark mode script: Setting theme to', theme);
-						if (theme === 'dark') {
-							html.classList.add('dark');
+						console.log("Dark mode script: Setting theme to", theme);
+						if (theme === "dark") {
+							html.classList.add("dark");
 						} else {
-							html.classList.remove('dark');
+							html.classList.remove("dark");
 						}
-						console.log('Dark mode script: HTML element classes:', html.className);
-						console.log('Dark mode script: Has dark class?', html.classList.contains('dark'));
-						if (typeof localStorage !== 'undefined') {
-							localStorage.setItem('theme', theme);
+						console.log("Dark mode script: HTML element classes:", html.className);
+						console.log("Dark mode script: Has dark class?", html.classList.contains("dark"));
+						if (typeof localStorage !== "undefined") {
+							localStorage.setItem("theme", theme);
 						}
 						updateIcons();
 					};
@@ -429,26 +404,26 @@ const navItems = [
 
 					// Toggle theme on button click
 					toggles.forEach((toggle, index) => {
-						console.log('Dark mode script: Adding click listener to toggle', index);
-						toggle.addEventListener('click', (e) => {
-							console.log('Dark mode script: Toggle clicked!');
+						console.log("Dark mode script: Adding click listener to toggle", index);
+						toggle.addEventListener("click", (e) => {
+							console.log("Dark mode script: Toggle clicked!");
 							e.preventDefault();
 							e.stopPropagation();
-							const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
-							const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-							console.log('Dark mode script: Switching from', currentTheme, 'to', newTheme);
+							const currentTheme = html.classList.contains("dark") ? "dark" : "light";
+							const newTheme = currentTheme === "dark" ? "light" : "dark";
+							console.log("Dark mode script: Switching from", currentTheme, "to", newTheme);
 							setTheme(newTheme);
 						});
 					});
-					console.log('Dark mode script: Initialization complete');
+					console.log("Dark mode script: Initialization complete");
 				}
 
 				// Run when DOM is ready
-				if (document.readyState === 'loading') {
-					console.log('Dark mode script: Waiting for DOMContentLoaded');
-					document.addEventListener('DOMContentLoaded', initDarkMode);
+				if (document.readyState === "loading") {
+					console.log("Dark mode script: Waiting for DOMContentLoaded");
+					document.addEventListener("DOMContentLoaded", initDarkMode);
 				} else {
-					console.log('Dark mode script: DOM already ready, running immediately');
+					console.log("Dark mode script: DOM already ready, running immediately");
 					initDarkMode();
 				}
 			})();
