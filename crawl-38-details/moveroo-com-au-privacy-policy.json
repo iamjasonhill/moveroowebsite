@@ -1,0 +1,63 @@
+{
+	"audit_id": 341,
+	"target_url": "https://moveroo.com.au/privacy-policy",
+	"overall_score": 97,
+	"generated_at": "2026-01-10T01:52:06+00:00",
+	"summary": "The audit for https://moveroo.com.au/privacy-policy scored 97/100. Below is the list of issues requiring attention.",
+	"action_items": [
+		{
+			"category": "Content Quality",
+			"category_score": 90,
+			"issues": [
+				{
+					"check_name": "Author Attribution (E-E-A-T)",
+					"status": "warning",
+					"issue_detected": "No author attribution found",
+					"remediation": "Add author bylines with links to author bio pages. Use schema.org/Person markup for best results."
+				},
+				{
+					"check_name": "Reading Level",
+					"status": "warning",
+					"issue_detected": "Reading score: 36 (College level) - may be too difficult",
+					"remediation": "Simplify sentences, use shorter words, and break up complex paragraphs. Aim for a score of 60+."
+				}
+			]
+		},
+		{
+			"category": "Performance Hints",
+			"category_score": 95,
+			"issues": [
+				{
+					"check_name": "Third-Party Scripts",
+					"status": "warning",
+					"issue_detected": "2 third-party script source(s)",
+					"remediation": "Audit your third-party scripts. Remove unused ones and defer others."
+				}
+			]
+		},
+		{
+			"category": "Structured Data",
+			"category_score": 94,
+			"issues": [
+				{
+					"check_name": "Review/Rating Markup",
+					"status": "warning",
+					"issue_detected": "No review/rating markup",
+					"remediation": "If this page represents a product or local business, add `aggregateRating` schema to be eligible for star snippets."
+				}
+			]
+		},
+		{
+			"category": "AI Readiness",
+			"category_score": 90,
+			"issues": [
+				{
+					"check_name": "Question Headings",
+					"status": "warning",
+					"issue_detected": "Only 2 question heading(s)",
+					"remediation": "Rephrase some of your subheadings as questions that your content answers (e.g., \"Why choose us?\" instead of \"Benefits\")."
+				}
+			]
+		}
+	]
+}

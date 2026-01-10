@@ -1,0 +1,39 @@
+{
+	"audit_id": 335,
+	"target_url": "https://moveroo.com.au",
+	"overall_score": 98,
+	"generated_at": "2026-01-10T01:51:54+00:00",
+	"summary": "The audit for https://moveroo.com.au scored 98/100. Below is the list of issues requiring attention.",
+	"action_items": [
+		{
+			"category": "Content Quality",
+			"category_score": 90,
+			"issues": [
+				{
+					"check_name": "Author Attribution (E-E-A-T)",
+					"status": "warning",
+					"issue_detected": "No author attribution found",
+					"remediation": "Add author bylines with links to author bio pages. Use schema.org/Person markup for best results."
+				},
+				{
+					"check_name": "Reading Level",
+					"status": "warning",
+					"issue_detected": "Reading score: 33 (College level) - may be too difficult",
+					"remediation": "Simplify sentences, use shorter words, and break up complex paragraphs. Aim for a score of 60+."
+				}
+			]
+		},
+		{
+			"category": "Performance Hints",
+			"category_score": 95,
+			"issues": [
+				{
+					"check_name": "Third-Party Scripts",
+					"status": "warning",
+					"issue_detected": "2 third-party script source(s)",
+					"remediation": "Audit your third-party scripts. Remove unused ones and defer others."
+				}
+			]
+		}
+	]
+}

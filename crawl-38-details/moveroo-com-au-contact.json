@@ -1,0 +1,39 @@
+{
+	"audit_id": 343,
+	"target_url": "https://moveroo.com.au/contact",
+	"overall_score": 99,
+	"generated_at": "2026-01-10T01:53:42+00:00",
+	"summary": "The audit for https://moveroo.com.au/contact scored 99/100. Below is the list of issues requiring attention.",
+	"action_items": [
+		{
+			"category": "Performance Hints",
+			"category_score": 95,
+			"issues": [
+				{
+					"check_name": "Third-Party Scripts",
+					"status": "warning",
+					"issue_detected": "2 third-party script source(s)",
+					"remediation": "Audit your third-party scripts. Remove unused ones and defer others."
+				}
+			]
+		},
+		{
+			"category": "Structured Data",
+			"category_score": 89,
+			"issues": [
+				{
+					"check_name": "Review/Rating Markup",
+					"status": "warning",
+					"issue_detected": "No review/rating markup",
+					"remediation": "If this page represents a product or local business, add `aggregateRating` schema to be eligible for star snippets."
+				},
+				{
+					"check_name": "FAQ & HowTo Schema Opportunities",
+					"status": "warning",
+					"issue_detected": "FAQ content detected (3 Q&A pairs) - add FAQPage schema",
+					"remediation": "Add structured data to get rich snippets in search results."
+				}
+			]
+		}
+	]
+}
