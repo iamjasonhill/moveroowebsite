@@ -1,0 +1,45 @@
+{
+	"audit_id": 345,
+	"target_url": "https://moveroo.com.au/services",
+	"overall_score": 98,
+	"generated_at": "2026-01-10T02:12:16+00:00",
+	"summary": "The audit for https://moveroo.com.au/services scored 98/100. Below is the list of issues requiring attention.",
+	"action_items": [
+		{
+			"category": "Content Quality",
+			"category_score": 95,
+			"issues": [
+				{
+					"check_name": "Reading Level",
+					"status": "warning",
+					"issue_detected": "Reading score: 35 (College level) - may be too difficult",
+					"remediation": "Simplify sentences, use shorter words, and break up complex paragraphs. Aim for a score of 60+."
+				}
+			]
+		},
+		{
+			"category": "Performance Hints",
+			"category_score": 95,
+			"issues": [
+				{
+					"check_name": "Third-Party Scripts",
+					"status": "warning",
+					"issue_detected": "2 third-party script source(s)",
+					"remediation": "Audit your third-party scripts. Remove unused ones and defer others."
+				}
+			]
+		},
+		{
+			"category": "Structured Data",
+			"category_score": 94,
+			"issues": [
+				{
+					"check_name": "Review/Rating Markup",
+					"status": "warning",
+					"issue_detected": "No review/rating markup",
+					"remediation": "If this page represents a product or local business, add `aggregateRating` schema to be eligible for star snippets."
+				}
+			]
+		}
+	]
+}

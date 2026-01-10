@@ -3,6 +3,25 @@ import Layout from "../layouts/Layout.astro";
 
 const lastModified = new Date("2026-01-10T00:00:00.000Z");
 
+// FAQ data for schema markup
+const faqItems = [
+	{
+		question: "How can I request a callback?",
+		answer:
+			"Complete our Setmore booking form to choose a convenient time for a move specialist to call you back. We'll confirm your brief, line up the right partners and supply tailored pricing options.",
+	},
+	{
+		question: "What are other ways to reach us?",
+		answer:
+			"You can reach us by phone at +61 7 2143 2557, email at removals@moveroo.com.au, or through our moving quote portal. We respond within one business day.",
+	},
+	{
+		question: "What happens after you contact us?",
+		answer:
+			"A dedicated move coordinator reviews your requirements and matches you with vetted partners from our nationwide network. Expect a response within one business day. For callback bookings, your coordinator will phone at your chosen time to discuss logistics, answer questions and provide transparent pricing.",
+	},
+];
+
 const structuredData = {
 	"@context": "https://schema.org",
 	"@graph": [
@@ -19,6 +38,18 @@ const structuredData = {
 				name: "Moveroo Editorial Team",
 				url: "https://moveroo.com.au/",
 			},
+		},
+		{
+			"@type": "FAQPage",
+			"@id": "https://moveroo.com.au/contact/#faq",
+			mainEntity: faqItems.map((faq) => ({
+				"@type": "Question",
+				name: faq.question,
+				acceptedAnswer: {
+					"@type": "Answer",
+					text: faq.answer,
+				},
+			})),
 		},
 	],
 };
@@ -168,5 +199,4 @@ const structuredData = {
 </Layout>
 
 <meta property="article:modified_time" content={lastModified.toISOString()} />
-<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

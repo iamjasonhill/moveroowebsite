@@ -1,0 +1,81 @@
+{
+	"audit_id": 349,
+	"target_url": "https://moveroo.com.au/cancellation",
+	"overall_score": 97,
+	"generated_at": "2026-01-10T02:12:30+00:00",
+	"summary": "The audit for https://moveroo.com.au/cancellation scored 97/100. Below is the list of issues requiring attention.",
+	"action_items": [
+		{
+			"category": "Content Quality",
+			"category_score": 90,
+			"issues": [
+				{
+					"check_name": "Content Length",
+					"status": "warning",
+					"issue_detected": "295 words - could be longer",
+					"remediation": "Expand your content to provide more depth and value. Aim for at least 300 words."
+				},
+				{
+					"check_name": "Author Attribution (E-E-A-T)",
+					"status": "warning",
+					"issue_detected": "No author attribution found",
+					"remediation": "Add author bylines with links to author bio pages. Use schema.org/Person markup for best results."
+				}
+			]
+		},
+		{
+			"category": "Mobile Optimization",
+			"category_score": 92,
+			"issues": [
+				{
+					"check_name": "Mobile Input Types",
+					"status": "warning",
+					"issue_detected": "Only 2/4 inputs optimized",
+					"remediation": "Review your forms and change `type=\"text\"` to `email`, `tel`, or `url` where appropriate."
+				}
+			]
+		},
+		{
+			"category": "Performance Hints",
+			"category_score": 95,
+			"issues": [
+				{
+					"check_name": "Third-Party Scripts",
+					"status": "warning",
+					"issue_detected": "2 third-party script source(s)",
+					"remediation": "Audit your third-party scripts. Remove unused ones and defer others."
+				}
+			]
+		},
+		{
+			"category": "Structured Data",
+			"category_score": 89,
+			"issues": [
+				{
+					"check_name": "Review/Rating Markup",
+					"status": "warning",
+					"issue_detected": "No review/rating markup",
+					"remediation": "If this page represents a product or local business, add `aggregateRating` schema to be eligible for star snippets."
+				},
+				{
+					"check_name": "FAQ & HowTo Schema Opportunities",
+					"status": "warning",
+					"issue_detected": "FAQ content detected (4 Q&A pairs) - add FAQPage schema",
+					"remediation": "Add structured data to get rich snippets in search results."
+				}
+			]
+		},
+		{
+			"category": "AI Readiness",
+			"category_score": 90,
+			"issues": [
+				{
+					"check_name": "Question Headings",
+					"status": "warning",
+					"issue_detected": "Only 1 question heading(s)",
+					"remediation": "Rephrase some of your subheadings as questions that your content answers (e.g., \"Why choose us?\" instead of \"Benefits\")."
+				}
+			]
+		}
+	]
+}
