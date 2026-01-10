@@ -1,5 +1,81 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const lastModified = new Date("2026-01-10T00:00:00.000Z");
+
+// FAQ data for schema markup
+const faqItems = [
+	{
+		question: "What services does Moveroo offer?",
+		answer:
+			"Moveroo coordinates trusted carriers, removalists and logistics specialists across Australia. We handle household relocations, vehicle transport (cars, motorcycles, specialty vehicles), and customised transport plans for boats, caravans, trailers, and industrial machinery.",
+	},
+	{
+		question: "How does the Moveroo moving process work?",
+		answer:
+			"Our process has three stages: Discovery (coordinators capture timelines, inventory, and requirements), Tailored Plan (we curate the right partners and provide clear quotes), and Managed Delivery (status updates at each milestone with proactive support).",
+	},
+];
+
+// HowTo schema for the 3-step process
+const howToSteps = [
+	{
+		name: "Discovery",
+		text: "Dedicated coordinators capture timelines, inventory, access requirements and any specialist handling instructions.",
+	},
+	{
+		name: "Tailored plan",
+		text: "We curate the right partners, vehicles and team members, then provide a clear quote and itinerary.",
+	},
+	{
+		name: "Managed delivery",
+		text: "Status updates at each milestone with proactive problem solving and post-move check-ins.",
+	},
+];
+
+const structuredData = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "WebPage",
+			"@id": "https://moveroo.com.au/services/",
+			url: "https://moveroo.com.au/services/",
+			name: "Moving & Transport Services Across Australia | Moveroo",
+			description:
+				"Comprehensive moving and transport services across Australia. Household removals, vehicle transport, and specialty freight coordinated by one trusted team.",
+			dateModified: lastModified.toISOString(),
+			author: {
+				"@type": "Person",
+				name: "Moveroo Editorial Team",
+				url: "https://moveroo.com.au/",
+			},
+		},
+		{
+			"@type": "FAQPage",
+			"@id": "https://moveroo.com.au/services/#faq",
+			mainEntity: faqItems.map((faq) => ({
+				"@type": "Question",
+				name: faq.question,
+				acceptedAnswer: {
+					"@type": "Answer",
+					text: faq.answer,
+				},
+			})),
+		},
+		{
+			"@type": "HowTo",
+			"@id": "https://moveroo.com.au/services/#howto",
+			name: "How to plan your move with Moveroo",
+			description: "A guided process from enquiry to delivery with Moveroo's moving services",
+			step: howToSteps.map((step, index) => ({
+				"@type": "HowToStep",
+				position: index + 1,
+				name: step.name,
+				text: step.text,
+			})),
+		},
+	],
+};
 ---
 
 <Layout
@@ -23,6 +99,23 @@ import Layout from "../layouts/Layout.astro";
 				Moveroo coordinates trusted carriers, removalists and logistics specialists across
 				Australia. Whether you’re relocating a family home, moving vehicles, or need a customised
 				transport plan, we tailor the service mix, schedule and communications around your needs.
+			</p>
+			<p class="mt-4 text-sm text-slate-500 dark:text-slate-400">
+				Published by{" "}
+				<a
+					href="https://moveroo.com.au/"
+					class="font-semibold text-emerald-700 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300"
+				>
+					Moveroo Editorial Team
+				</a>
+				{" "}on{" "}
+				{
+					lastModified.toLocaleDateString("en-AU", {
+						year: "numeric",
+						month: "long",
+						day: "numeric",
+					})
+				}
 			</p>
 		</div>
 	</section>
@@ -286,7 +379,7 @@ import Layout from "../layouts/Layout.astro";
 			<div class="md:grid md:grid-cols-[1.25fr_1fr] md:items-center md:gap-16">
 				<div>
 					<h2 class="text-3xl font-semibold text-slate-900 dark:text-white">
-						A guided process from enquiry to delivery
+						How does the Moveroo moving process work?
 					</h2>
 					<p class="mt-6 text-base leading-relaxed text-slate-600 dark:text-slate-400">
 						Every move is different. We apply industry experience and regional knowledge to build a
@@ -370,3 +463,6 @@ import Layout from "../layouts/Layout.astro";
 		</div>
 	</section>
 </Layout>
+
+<meta property="article:modified_time" content={lastModified.toISOString()} />
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

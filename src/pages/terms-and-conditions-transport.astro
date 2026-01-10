@@ -1,10 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const lastModified = new Date("2026-01-10T00:00:00.000Z");
 ---
 
 <Layout
 	title="Vehicle Transport Terms & Conditions | Moveroo Australia"
-	description="Understand the terms governing vehicle and freight transport services with Moveroo. Review responsibilities, charges, liability and booking policies."
+	description="Understand the terms governing vehicle and freight transport services with Moveroo. Review responsibilities, charges, liability and booking policies here."
 	canonical="https://moveroo.com.au/terms-and-conditions-transport/"
 >
 	<section
@@ -150,3 +152,5 @@ import Layout from "../layouts/Layout.astro";
 		</div>
 	</section>
 </Layout>
+
+<meta property="article:modified_time" content={lastModified.toISOString()} />

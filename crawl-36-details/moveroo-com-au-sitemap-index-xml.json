@@ -1,0 +1,369 @@
+{
+	"audit_id": 325,
+	"target_url": "https://moveroo.com.au/sitemap-index.xml",
+	"overall_score": 62,
+	"generated_at": "2026-01-10T01:22:39+00:00",
+	"summary": "The audit for https://moveroo.com.au/sitemap-index.xml scored 62/100. Below is the list of issues requiring attention.",
+	"action_items": [
+		{
+			"category": "Meta Tags",
+			"category_score": 19,
+			"issues": [
+				{
+					"check_name": "Title Tag",
+					"status": "fail",
+					"issue_detected": "No title tag found",
+					"remediation": "Add a `<title>` tag inside the `<head>` section of your HTML."
+				},
+				{
+					"check_name": "Meta Description",
+					"status": "fail",
+					"issue_detected": "No meta description found",
+					"remediation": "Add a `<meta name=\"description\" content=\"...\">` tag to the `<head>`."
+				},
+				{
+					"check_name": "OG Title",
+					"status": "fail",
+					"issue_detected": "Not found",
+					"remediation": "Add `<meta property=\"og:title\" content=\"...\">` for social sharing optimization."
+				},
+				{
+					"check_name": "OG Description",
+					"status": "fail",
+					"issue_detected": "Not found",
+					"remediation": "Add `<meta property=\"og:description\" content=\"...\">`."
+				},
+				{
+					"check_name": "Canonical Tag",
+					"status": "warning",
+					"issue_detected": "Not found",
+					"remediation": "Add `<link rel=\"canonical\" href=\"...\">` to prevent duplicate content issues."
+				},
+				{
+					"check_name": "Viewport Tag",
+					"status": "fail",
+					"issue_detected": "Not found",
+					"remediation": "Add `<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">` to the `<head>`."
+				},
+				{
+					"check_name": "H1 Tag",
+					"status": "fail",
+					"issue_detected": "No H1 tag found",
+					"remediation": "Add a single `<h1>` tag containing the main topic of the page."
+				}
+			]
+		},
+		{
+			"category": "Schema Markup",
+			"category_score": 25,
+			"issues": [
+				{
+					"check_name": "Schema Markup Present",
+					"status": "fail",
+					"issue_detected": "No schema markup found",
+					"remediation": "Add JSON-LD structured data to your page. Use a generator or code it manually."
+				},
+				{
+					"check_name": "Valid JSON",
+					"status": "fail",
+					"issue_detected": "Schema markup contains invalid JSON",
+					"remediation": "Your schema markup is completely broken. Use a JSON validator to find syntax errors."
+				},
+				{
+					"check_name": "Schema Types",
+					"status": "warning",
+					"issue_detected": "No @type property found in schemas",
+					"remediation": "Ensure every schema block has a `@type` property defining what it is."
+				},
+				{
+					"check_name": "Required Properties",
+					"status": "warning",
+					"issue_detected": "Missing common properties (name, headline, url)",
+					"remediation": "Add the basic properties like `name`, `headline` (for articles), or `url` to your schema."
+				}
+			]
+		},
+		{
+			"category": "Robots & Sitemap",
+			"category_score": 90,
+			"issues": [
+				{
+					"check_name": "Sitemap Inclusion",
+					"status": "warning",
+					"issue_detected": "Page not found in sitemap",
+					"remediation": "Add this URL to your `sitemap.xml` file. If using a generator, ensure this page is not excluded."
+				}
+			]
+		},
+		{
+			"category": "Content Quality",
+			"category_score": 25,
+			"issues": [
+				{
+					"check_name": "Content Length",
+					"status": "fail",
+					"issue_detected": "6 words - thin content",
+					"remediation": "Your content is too short. Google may consider this \"thin content\". Add meaningful text, explanations, or details."
+				},
+				{
+					"check_name": "Heading Structure",
+					"status": "fail",
+					"issue_detected": "Poor heading structure",
+					"remediation": "Your heading structure is broken (e.g., missing H1, or jumping from H2 to H5). Fix the hierarchy."
+				},
+				{
+					"check_name": "Content Organization",
+					"status": "fail",
+					"issue_detected": "No paragraphs found",
+					"remediation": "Wrap your text content in `<p>` tags."
+				},
+				{
+					"check_name": "Internal Linking",
+					"status": "fail",
+					"issue_detected": "No internal links found",
+					"remediation": "Add internal links pointing to other pages on your site."
+				},
+				{
+					"check_name": "Trust Pages (E-E-A-T)",
+					"status": "fail",
+					"issue_detected": "No trust pages linked",
+					"remediation": "Critical for E-E-A-T: Add links to Privacy Policy, Terms of Service, and About page."
+				},
+				{
+					"check_name": "Author Attribution (E-E-A-T)",
+					"status": "warning",
+					"issue_detected": "No author attribution found",
+					"remediation": "Add author bylines with links to author bio pages. Use schema.org/Person markup for best results."
+				},
+				{
+					"check_name": "Content Depth for Page Type",
+					"status": "fail",
+					"issue_detected": "6 words is too thin for general page (recommended: 300+)",
+					"remediation": "This general needs significantly more content. Aim for at least 300 words."
+				},
+				{
+					"check_name": "Trust Signals",
+					"status": "fail",
+					"issue_detected": "Weak: Only 0/3 trust dimensions detected",
+					"remediation": "Add signals across all 3 dimensions: 1. Security (SSL), 2. Legitimacy (Licenses/Awards), 3. Transparency (Reviews/Contact Info)."
+				}
+			]
+		},
+		{
+			"category": "Accessibility",
+			"category_score": 70,
+			"issues": [
+				{
+					"check_name": "HTML Lang Attribute",
+					"status": "warning",
+					"issue_detected": "Could not detect HTML tag",
+					"remediation": "Ensure your document starts with an `<html>` tag."
+				},
+				{
+					"check_name": "ARIA Attributes",
+					"status": "warning",
+					"issue_detected": "No ARIA attributes found",
+					"remediation": "We could not detect any ARIA attributes. Review your interactive elements to ensure they are accessible."
+				},
+				{
+					"check_name": "Skip Navigation",
+					"status": "warning",
+					"issue_detected": "No skip navigation link detected",
+					"remediation": "Add a link at the very top of your `<body>` that links to your main content id, e.g., `<a href=\"#main-content\" class=\"sr-only focus:not-sr-only\">Skip to content</a>`."
+				}
+			]
+		},
+		{
+			"category": "Social Media",
+			"category_score": 33,
+			"issues": [
+				{
+					"check_name": "Twitter Card Type",
+					"status": "fail",
+					"issue_detected": "Twitter card meta tag missing",
+					"remediation": "Add `<meta name=\"twitter:card\" content=\"summary_large_image\">` to your page head."
+				},
+				{
+					"check_name": "Twitter Content",
+					"status": "warning",
+					"issue_detected": "Twitter title and description missing",
+					"remediation": "Add `twitter:title` and `twitter:description` meta tags."
+				},
+				{
+					"check_name": "Twitter Image",
+					"status": "warning",
+					"issue_detected": "Twitter image not set",
+					"remediation": "Add `<meta name=\"twitter:image\" content=\"...\">` to your page."
+				},
+				{
+					"check_name": "Twitter Attribution",
+					"status": "warning",
+					"issue_detected": "No Twitter account attribution",
+					"remediation": "Add `<meta name=\"twitter:site\" content=\"@username\">` for the site account."
+				},
+				{
+					"check_name": "LinkedIn/Article Tags",
+					"status": "warning",
+					"issue_detected": "Open Graph type not specified",
+					"remediation": "Add `<meta property=\"og:type\" content=\"website\">` (or article, etc)."
+				},
+				{
+					"check_name": "OG Image Dimensions",
+					"status": "fail",
+					"issue_detected": "No og:image found",
+					"remediation": "Add `<meta property=\"og:image\" content=\"...\">` with a 1200x630 image."
+				}
+			]
+		},
+		{
+			"category": "Mobile Optimization",
+			"category_score": 67,
+			"issues": [
+				{
+					"check_name": "Viewport Configuration",
+					"status": "fail",
+					"issue_detected": "No viewport meta tag found",
+					"remediation": "Add `<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">` to your `<head>`."
+				},
+				{
+					"check_name": "Apple Touch Icon",
+					"status": "warning",
+					"issue_detected": "No Apple touch icon found",
+					"remediation": "Add `<link rel=\"apple-touch-icon\" href=\"/apple-touch-icon.png\">` to supports users adding your site to their home screen."
+				},
+				{
+					"check_name": "Mobile Web App Meta",
+					"status": "warning",
+					"issue_detected": "No mobile web app meta tags",
+					"remediation": "If you want PWA features, add standard mobile web app meta tags."
+				}
+			]
+		},
+		{
+			"category": "Performance Hints",
+			"category_score": 80,
+			"issues": [
+				{
+					"check_name": "Response Compression",
+					"status": "fail",
+					"issue_detected": "No compression detected - HTML sent uncompressed",
+					"remediation": "Enable Gzip or Brotli compression on your web server. For Nginx: `gzip on;`. For Apache: enable mod_deflate."
+				},
+				{
+					"check_name": "Resource Hints",
+					"status": "warning",
+					"issue_detected": "No resource hints detected",
+					"remediation": "Add resource hints: `<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">` for third-party origins."
+				},
+				{
+					"check_name": "Critical CSS",
+					"status": "warning",
+					"issue_detected": "No inline critical CSS detected",
+					"remediation": "Consider inlining above-the-fold CSS to improve First Contentful Paint."
+				}
+			]
+		},
+		{
+			"category": "Advanced SEO",
+			"category_score": 58,
+			"issues": [
+				{
+					"check_name": "Hreflang Tags",
+					"status": "warning",
+					"issue_detected": "No hreflang tags detected",
+					"remediation": "If you have multiple language or regional versions of your site, add `<link rel=\"alternate\" hreflang=\"x\" href=\"y\" />` tags."
+				},
+				{
+					"check_name": "Single H1 Tag",
+					"status": "fail",
+					"issue_detected": "No H1 tag found",
+					"remediation": "Add an `<h1>` tag containing the main title of the page."
+				},
+				{
+					"check_name": "Canonical URL",
+					"status": "warning",
+					"issue_detected": "No canonical tag found",
+					"remediation": "Add a `<link rel=\"canonical\" href=\"...\">` tag to the `<head>`."
+				},
+				{
+					"check_name": "Canonical Chain",
+					"status": "warning",
+					"issue_detected": "Cannot check chain - no absolute canonical URL",
+					"remediation": "Add an absolute canonical URL first."
+				}
+			]
+		},
+		{
+			"category": "HTML Quality",
+			"category_score": 42,
+			"issues": [
+				{
+					"check_name": "DOCTYPE Declaration",
+					"status": "fail",
+					"issue_detected": "Missing DOCTYPE declaration",
+					"remediation": "Add `<!DOCTYPE html>` as the very first line of your HTML document."
+				},
+				{
+					"check_name": "Character Encoding",
+					"status": "fail",
+					"issue_detected": "Missing charset declaration",
+					"remediation": "Add `<meta charset=\"utf-8\">` inside the `<head>` section of your HTML."
+				},
+				{
+					"check_name": "HTML5 Semantic Tags",
+					"status": "fail",
+					"issue_detected": "Very few semantic tags",
+					"remediation": "Your page relies heavily on generic `<div>` tags. Refactor your layout to use semantic HTML5 elements like `<header>`, `<nav>`, `<main>`, `<article>`, and `<footer>`."
+				},
+				{
+					"check_name": "HTML Structure",
+					"status": "warning",
+					"issue_detected": "HTML structure may have issues",
+					"remediation": "Ensure your document contains `<html>`, `<head>`, and `<body>` tags properly nested. The `<html>` tag should wrap everything, `<head>` contains metadata, and `<body>` contains visible content."
+				}
+			]
+		},
+		{
+			"category": "Structured Data",
+			"category_score": 0,
+			"issues": [
+				{
+					"check_name": "Schema Presence",
+					"status": "fail",
+					"issue_detected": "No structured data found",
+					"remediation": "Add a `<script type=\"application/ld+json\">` block to your page containing your Schema.org data."
+				}
+			]
+		},
+		{
+			"category": "AI Readiness",
+			"category_score": 40,
+			"issues": [
+				{
+					"check_name": "Snippet Readiness",
+					"status": "fail",
+					"issue_detected": "Very brief opening content",
+					"remediation": "Add a clear introduction or \"TL;DR\" at the top of the page."
+				},
+				{
+					"check_name": "Entity Definition",
+					"status": "warning",
+					"issue_detected": "No entity schema found",
+					"remediation": "Add `Organization` or `Person` schema markup to your home page."
+				},
+				{
+					"check_name": "Semantic HTML5",
+					"status": "fail",
+					"issue_detected": "Very few semantic tags",
+					"remediation": "Refactor your HTML to use semantic tags. Wrapping your main content in `<main>` and blog posts in `<article>` is a good start."
+				},
+				{
+					"check_name": "Question Headings",
+					"status": "warning",
+					"issue_detected": "No question-based headings",
+					"remediation": "Try parsing your content into Q&A format using H2 and H3 tags."
+				}
+			]
+		}
+	]
+}

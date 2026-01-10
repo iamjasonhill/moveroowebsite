@@ -1,0 +1,57 @@
+{
+	"audit_id": 318,
+	"target_url": "https://moveroo.com.au/moving-cars",
+	"overall_score": 98,
+	"generated_at": "2026-01-10T01:22:40+00:00",
+	"summary": "The audit for https://moveroo.com.au/moving-cars scored 98/100. Below is the list of issues requiring attention.",
+	"action_items": [
+		{
+			"category": "Content Quality",
+			"category_score": 95,
+			"issues": [
+				{
+					"check_name": "Reading Level",
+					"status": "warning",
+					"issue_detected": "Reading score: 31 (College level) - may be too difficult",
+					"remediation": "Simplify sentences, use shorter words, and break up complex paragraphs. Aim for a score of 60+."
+				}
+			]
+		},
+		{
+			"category": "Social Media",
+			"category_score": 92,
+			"issues": [
+				{
+					"check_name": "OG Image Dimensions",
+					"status": "warning",
+					"issue_detected": "OG image found but dimensions could not be verified",
+					"remediation": "Ensure og:image is accessible and at least 1200x630."
+				}
+			]
+		},
+		{
+			"category": "Performance Hints",
+			"category_score": 95,
+			"issues": [
+				{
+					"check_name": "Third-Party Scripts",
+					"status": "warning",
+					"issue_detected": "2 third-party script source(s)",
+					"remediation": "Audit your third-party scripts. Remove unused ones and defer others."
+				}
+			]
+		},
+		{
+			"category": "Structured Data",
+			"category_score": 94,
+			"issues": [
+				{
+					"check_name": "Review/Rating Markup",
+					"status": "warning",
+					"issue_detected": "No review/rating markup",
+					"remediation": "If this page represents a product or local business, add `aggregateRating` schema to be eligible for star snippets."
+				}
+			]
+		}
+	]
+}

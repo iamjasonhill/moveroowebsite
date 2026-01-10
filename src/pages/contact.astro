@@ -1,5 +1,27 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const lastModified = new Date("2026-01-10T00:00:00.000Z");
+
+const structuredData = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "WebPage",
+			"@id": "https://moveroo.com.au/contact/",
+			url: "https://moveroo.com.au/contact/",
+			name: "Contact Moveroo | Get Help Planning Your Australian Move",
+			description:
+				"Talk with Moveroo to plan your next relocation. Request a callback, book a consultation or reach our friendly support team directly by phone or email.",
+			dateModified: lastModified.toISOString(),
+			author: {
+				"@type": "Person",
+				name: "Moveroo Editorial Team",
+				url: "https://moveroo.com.au/",
+			},
+		},
+	],
+};
 ---
 
 <Layout
@@ -29,7 +51,9 @@ import Layout from "../layouts/Layout.astro";
 	<section class="bg-white py-20 dark:bg-slate-900" id="contact-form">
 		<div class="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-[1.1fr_1fr]">
 			<div class="space-y-8">
-				<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">Request a callback</h2>
+				<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">
+					How can I request a callback?
+				</h2>
 				<p class="text-base text-slate-600 dark:text-slate-400">
 					Complete our Setmore booking form to choose a convenient time for a move specialist to
 					call you back. We’ll confirm your brief, line up the right partners and supply tailored
@@ -57,7 +81,7 @@ import Layout from "../layouts/Layout.astro";
 			</div>
 			<div class="space-y-8">
 				<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">
-					Other ways to reach us
+					What are other ways to reach us?
 				</h2>
 				<div class="space-y-4 text-sm text-slate-600 dark:text-slate-400">
 					<div
@@ -142,3 +166,7 @@ import Layout from "../layouts/Layout.astro";
 		</div>
 	</section>
 </Layout>
+
+<meta property="article:modified_time" content={lastModified.toISOString()} />
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

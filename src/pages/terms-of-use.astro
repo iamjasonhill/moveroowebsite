@@ -1,5 +1,48 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const lastModified = new Date("2026-01-10T00:00:00.000Z");
+
+// FAQ data for schema markup
+const faqItems = [
+	{
+		question: "What are the terms of use for the Moveroo website?",
+		answer:
+			"The Terms of Use govern your access to moveroo.com.au and outline rights, responsibilities and limitations when using our services. By browsing or interacting with the site, you agree to abide by these conditions, including prohibitions on illegal activities, intellectual property restrictions, and liability limitations.",
+	},
+	{
+		question: "Can I reproduce content from the Moveroo website?",
+		answer:
+			"All site content including design, text, images and logos is owned or licensed by Moveroo. You may view or temporarily print content for personal reference only. Reproducing, modifying, framing or redistributing materials for commercial purposes requires written approval from Moveroo.",
+	},
+];
+
+const structuredData = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "WebPage",
+			"@id": "https://moveroo.com.au/terms-of-use/",
+			url: "https://moveroo.com.au/terms-of-use/",
+			name: "Terms of Use | Moveroo Australia Website Conditions",
+			description:
+				"Review the terms and conditions governing your use of the Moveroo website and our moving services across Australia. Understand your rights and responsibilities.",
+			dateModified: lastModified.toISOString(),
+		},
+		{
+			"@type": "FAQPage",
+			"@id": "https://moveroo.com.au/terms-of-use/#faq",
+			mainEntity: faqItems.map((faq) => ({
+				"@type": "Question",
+				name: faq.question,
+				acceptedAnswer: {
+					"@type": "Answer",
+					text: faq.answer,
+				},
+			})),
+		},
+	],
+};
 ---
 
 <Layout
@@ -30,7 +73,9 @@ import Layout from "../layouts/Layout.astro";
 	<section class="bg-white py-20 dark:bg-slate-900">
 		<div class="mx-auto max-w-3xl space-y-12 px-6 text-slate-600 dark:text-slate-400">
 			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">Our services</h2>
+				<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">
+					How do our services work?
+				</h2>
 				<p>
 					We work to ensure the website runs smoothly; however, temporary interruptions or changes
 					to features may occur without notice. At times we may modify or discontinue portions of
@@ -39,7 +84,7 @@ import Layout from "../layouts/Layout.astro";
 			</section>
 
 			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900">Prohibited conduct</h2>
+				<h2 class="text-2xl font-semibold text-slate-900">What conduct is prohibited?</h2>
 				<p>Avoid activities that:</p>
 				<ul class="ml-6 list-disc space-y-2">
 					<li>Break laws or infringe on third-party rights.</li>
@@ -129,3 +174,6 @@ import Layout from "../layouts/Layout.astro";
 		</div>
 	</section>
 </Layout>
+
+<meta property="article:modified_time" content={lastModified.toISOString()} />
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

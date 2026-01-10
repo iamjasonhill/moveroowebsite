@@ -1,5 +1,48 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const lastModified = new Date("2026-01-10T00:00:00.000Z");
+
+// FAQ data for schema markup
+const faqItems = [
+	{
+		question: "How does Moveroo protect my personal information?",
+		answer:
+			"Moveroo Australia is committed to safeguarding your privacy and managing personal information responsibly. We collect, use, store and protect your data in line with the Privacy Act 1988 (Cth). We take reasonable steps to keep information accurate, current and secure, and never sell your personal information.",
+	},
+	{
+		question: "Can I access or correct my personal information held by Moveroo?",
+		answer:
+			"Yes, you may request access to personal information we hold about you by emailing removals@moveroo.com.au. If any details are inaccurate or incomplete, we will correct them promptly. We'll respond quickly and confirm once updates are complete.",
+	},
+];
+
+const structuredData = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "WebPage",
+			"@id": "https://moveroo.com.au/privacy-policy/",
+			url: "https://moveroo.com.au/privacy-policy/",
+			name: "Privacy Policy | How Moveroo Australia Protects Your Data",
+			description:
+				"Learn how Moveroo Australia protects your personal information and manages data responsibly in accordance with the Privacy Act 1988. Your privacy matters to us.",
+			dateModified: lastModified.toISOString(),
+		},
+		{
+			"@type": "FAQPage",
+			"@id": "https://moveroo.com.au/privacy-policy/#faq",
+			mainEntity: faqItems.map((faq) => ({
+				"@type": "Question",
+				name: faq.question,
+				acceptedAnswer: {
+					"@type": "Answer",
+					text: faq.answer,
+				},
+			})),
+		},
+	],
+};
 ---
 
 <Layout
@@ -31,7 +74,7 @@ import Layout from "../layouts/Layout.astro";
 		<div class="mx-auto max-w-3xl space-y-12 px-6 text-slate-600 dark:text-slate-400">
 			<section class="space-y-4">
 				<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">
-					Information we collect
+					What information do we collect?
 				</h2>
 				<p>
 					We may request basic identifying details—such as your name, email address, phone number or
@@ -79,7 +122,7 @@ import Layout from "../layouts/Layout.astro";
 
 			<section class="space-y-4">
 				<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">
-					How we use and disclose information
+					How do we use and disclose information?
 				</h2>
 				<p>
 					Personal details you provide may include your full name, phone number, email address and
@@ -183,3 +226,6 @@ import Layout from "../layouts/Layout.astro";
 		</div>
 	</section>
 </Layout>
+
+<meta property="article:modified_time" content={lastModified.toISOString()} />
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
