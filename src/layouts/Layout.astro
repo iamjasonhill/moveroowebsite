@@ -107,6 +107,9 @@ const baseSchema = {
 	],
 };
 
+// Google Analytics: set PUBLIC_GA_MEASUREMENT_ID in .env to enable or use a different ID
+const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || "G-4DN533CFGK";
+
 const navItems = [
 	{ label: "Home", href: "/", external: false, variant: "link" },
 	{
@@ -201,11 +204,22 @@ const navItems = [
 		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
 		<meta name="apple-mobile-web-app-title" content="Moveroo" />
 		<meta name="theme-color" content="#10b981" />
-		<script
-			type="text/partytown"
-			async
-			src="https://www.googletagmanager.com/gtag/js?id=G-4DN533CFGK"></script>
-		<script type="text/partytown" src="/scripts/analytics.js"></script>
+		{
+			gaMeasurementId && (
+				<>
+					<script
+						type="text/partytown"
+						async
+						src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+					/>
+					{/* Inline config so Partytown worker gets the correct ID (window.__GA_MEASUREMENT_ID__ is not visible in worker) */}
+					<script
+						type="text/partytown"
+						set:html={`window.dataLayer = window.dataLayer || []; function gtag(){ dataLayer.push(arguments); } gtag("js", new Date()); var hostname = window.location.hostname; var gaConfig = { cookie_domain: hostname === "localhost" || hostname === "127.0.0.1" ? hostname : "auto" }; gtag("config", "${gaMeasurementId}", gaConfig);`}
+					/>
+				</>
+			)
+		}
 		<script
 			type="text/partytown"
 			defer
