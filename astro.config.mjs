@@ -45,6 +45,25 @@ export default defineConfig({
 	integrations: [
 		sitemap({
 			filter: (page) => !page.includes("/template-dark") && !page.includes("/template-light"),
+			serialize: (item) => {
+				// Map URLs to their lastmod dates
+				const dateMap = {
+					"https://moveroo.com.au/": new Date("2024-01-22T03:43:43+10:00"),
+					"https://moveroo.com.au/contact/": new Date("2026-01-10T00:00:00.000Z"),
+					"https://moveroo.com.au/privacy-policy/": new Date("2026-01-10T00:00:00.000Z"),
+					"https://moveroo.com.au/services/": new Date("2026-01-10T00:00:00.000Z"),
+					"https://moveroo.com.au/terms-and-conditions-transport/": new Date("2026-01-10T00:00:00.000Z"),
+					"https://moveroo.com.au/terms-of-use/": new Date("2026-01-10T00:00:00.000Z"),
+					"https://moveroo.com.au/cancellation/": new Date("2026-01-10T00:00:00.000Z"),
+					"https://moveroo.com.au/moving-cars/": new Date("2024-10-01T03:00:00+10:00"),
+				};
+
+				const lastmod = dateMap[item.url];
+				if (lastmod) {
+					item.lastmod = lastmod;
+				}
+				return item;
+			},
 		}),
 		duplicateSitemap,
 		partytown({
