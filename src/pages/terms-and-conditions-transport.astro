@@ -9,9 +9,11 @@ const lastModified = new Date("2026-01-10T00:00:00.000Z");
 	description="Understand the terms governing vehicle and freight transport services with Moveroo. Review responsibilities, charges, liability and booking policies here."
 	canonical="https://moveroo.com.au/terms-and-conditions-transport/"
 >
-	<section
-		class="bg-gradient-to-br from-white via-slate-50 to-slate-100 py-24 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"
-	>
+	<Fragment slot="head">
+		<meta property="article:modified_time" content={lastModified.toISOString()} />
+	</Fragment>
+
+	<section class="page-hero page-hero--quiet">
 		<div class="mx-auto max-w-3xl px-6">
 			<p
 				class="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-700 dark:text-emerald-400"
@@ -152,5 +154,3 @@ const lastModified = new Date("2026-01-10T00:00:00.000Z");
 		</div>
 	</section>
 </Layout>
-
-<meta property="article:modified_time" content={lastModified.toISOString()} />

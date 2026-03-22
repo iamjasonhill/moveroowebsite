@@ -9,10 +9,12 @@ const lastModified = new Date("2026-01-10T00:00:00.000Z");
 	description="Need to cancel your move? We understand plans change. Submit a cancellation request and our team will assist you promptly. View our refund policy here."
 	canonical="https://moveroo.com.au/cancellation/"
 >
+	<Fragment slot="head">
+		<meta property="article:modified_time" content={lastModified.toISOString()} />
+	</Fragment>
+
 	<!-- Hero Section -->
-	<section
-		class="bg-gradient-to-br from-emerald-50 via-emerald-100 to-white py-24 dark:from-slate-900 dark:via-slate-800 dark:to-emerald-900/20"
-	>
+	<section class="page-hero page-hero--brand">
 		<div class="mx-auto max-w-3xl px-6 text-center">
 			<p
 				class="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-700 dark:text-emerald-400"
@@ -322,78 +324,68 @@ const lastModified = new Date("2026-01-10T00:00:00.000Z");
 			</div>
 		</div>
 	</section>
-</Layout>
+	<script>
+		const form = document.getElementById("cancellationForm") as HTMLFormElement;
+		const submitButton = document.getElementById("submit-button") as HTMLButtonElement;
+		const messageDiv = document.getElementById("form-message") as HTMLDivElement;
 
-<meta property="article:modified_time" content={lastModified.toISOString()} />
+		if (form && submitButton && messageDiv) {
+			form.addEventListener("submit", async (e) => {
+				e.preventDefault();
 
-<script>
-	const form = document.getElementById("cancellationForm") as HTMLFormElement;
-	const submitButton = document.getElementById("submit-button") as HTMLButtonElement;
-	const messageDiv = document.getElementById("form-message") as HTMLDivElement;
+				submitButton.disabled = true;
+				submitButton.textContent = "Submitting...";
 
-	if (form && submitButton && messageDiv) {
-		form.addEventListener("submit", async (e) => {
-			e.preventDefault();
+				messageDiv.classList.add("hidden");
+				messageDiv.classList.remove(
+					"bg-emerald-50",
+					"text-emerald-700",
+					"border-emerald-200",
+					"bg-red-50",
+					"text-red-700",
+					"border-red-200"
+				);
 
-			// Disable submit button
-			submitButton.disabled = true;
-			submitButton.textContent = "Submitting...";
+				const formData = new FormData(form);
+				const data = Object.fromEntries(formData);
 
-			// Hide previous messages
-			messageDiv.classList.add("hidden");
-			messageDiv.classList.remove(
-				"bg-emerald-50",
-				"text-emerald-700",
-				"border-emerald-200",
-				"bg-red-50",
-				"text-red-700",
-				"border-red-200"
-			);
+				try {
+					const response = await fetch("/api/cancellation", {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify(data),
+					});
 
-			const formData = new FormData(form);
-			const data = Object.fromEntries(formData);
+					const result = await response.json();
 
-			console.log("Submitting form data:", data);
-
-			try {
-				const response = await fetch("/api/cancellation", {
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify(data),
-				});
-
-				console.log("Response status:", response.status);
-				const result = await response.json();
-				console.log("Response data:", result);
-
-				if (response.ok) {
-					messageDiv.classList.add(
-						"bg-emerald-50",
-						"text-emerald-700",
-						"border",
-						"border-emerald-200"
-					);
-					messageDiv.textContent =
-						result.message ||
-						"Your cancellation request has been submitted successfully. We will process it shortly.";
-					messageDiv.classList.remove("hidden");
-					form.reset();
-				} else {
+					if (response.ok) {
+						messageDiv.classList.add(
+							"bg-emerald-50",
+							"text-emerald-700",
+							"border",
+							"border-emerald-200"
+						);
+						messageDiv.textContent =
+							result.message ||
+							"Your cancellation request has been submitted successfully. We will process it shortly.";
+						messageDiv.classList.remove("hidden");
+						form.reset();
+					} else {
+						messageDiv.classList.add("bg-red-50", "text-red-700", "border", "border-red-200");
+						messageDiv.textContent = result.error || "An error occurred. Please try again later.";
+						messageDiv.classList.remove("hidden");
+					}
+				} catch {
 					messageDiv.classList.add("bg-red-50", "text-red-700", "border", "border-red-200");
-					messageDiv.textContent = result.error || "An error occurred. Please try again later.";
+					messageDiv.textContent = "An error occurred. Please try again later.";
 					messageDiv.classList.remove("hidden");
+				} finally {
+					submitButton.disabled = false;
+					submitButton.textContent = "Submit Cancellation Request";
 				}
-			} catch (error) {
-				console.error("Form submission error:", error);
-				messageDiv.classList.add("bg-red-50", "text-red-700", "border", "border-red-200");
-				messageDiv.textContent = "An error occurred. Please try again later.";
-				messageDiv.classList.remove("hidden");
-			} finally {
-				submitButton.disabled = false;
-				submitButton.textContent = "Submit Cancellation Request";
-			}
-		});
-	}
-</script>
+			});
+		}
+	</script>
+</Layout>

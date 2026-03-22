@@ -60,9 +60,12 @@ const structuredData = {
 	description="Talk with Moveroo to plan your next relocation. Request a callback, book a consultation or reach our friendly support team directly by phone or email."
 	canonical="https://moveroo.com.au/contact/"
 >
-	<section
-		class="bg-gradient-to-br from-emerald-50 via-emerald-100 to-white py-24 dark:from-slate-900 dark:via-slate-800 dark:to-emerald-900/20"
-	>
+	<Fragment slot="head">
+		<meta property="article:modified_time" content={lastModified.toISOString()} />
+		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+	</Fragment>
+
+	<section class="page-hero page-hero--brand">
 		<div class="mx-auto max-w-3xl px-6 text-center md:text-left">
 			<p
 				class="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-700 dark:text-emerald-400"
@@ -197,6 +200,3 @@ const structuredData = {
 		</div>
 	</section>
 </Layout>
-
-<meta property="article:modified_time" content={lastModified.toISOString()} />
-<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

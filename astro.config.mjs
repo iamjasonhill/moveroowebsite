@@ -44,7 +44,10 @@ export default defineConfig({
 	},
 	integrations: [
 		sitemap({
-			filter: (page) => !page.includes("/template-dark") && !page.includes("/template-light"),
+			filter: (page) =>
+				!page.includes("/template-dark") &&
+				!page.includes("/template-light") &&
+				!page.includes("/design"),
 		}),
 		duplicateSitemap,
 		partytown({

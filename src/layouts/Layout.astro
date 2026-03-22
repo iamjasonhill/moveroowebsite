@@ -232,17 +232,17 @@ const navItems = [
 		}
 		<slot name="head" />
 	</head>
-	<body class="flex min-h-screen flex-col bg-white dark:bg-slate-900 transition-colors">
+	<body class="site-shell flex min-h-screen flex-col transition-colors">
 		<a
 			href="#main-content"
 			class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-white focus:p-4 focus:text-emerald-700 dark:focus:bg-slate-800 dark:focus:text-emerald-400"
 			>Skip to content</a
 		>
-		<header
-			class="border-b border-slate-200 bg-white/90 backdrop-blur dark:border-slate-800 dark:bg-slate-900/90"
-		>
+		<header class="site-header border-b backdrop-blur">
 			<div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-5">
-				<a href="/" class="text-lg font-semibold tracking-tight text-slate-900 dark:text-white"
+				<a
+					href="/"
+					class="site-wordmark text-lg font-semibold tracking-tight text-slate-900 dark:text-white"
 					>Moveroo</a
 				>
 				<div class="flex items-center gap-4">
@@ -324,7 +324,7 @@ const navItems = [
 		<main id="main-content" class="flex-1 bg-white dark:bg-slate-900 transition-colors">
 			<slot />
 		</main>
-		<footer class="border-t border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900">
+		<footer class="site-footer border-t">
 			<div
 				class="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 text-sm text-slate-600 dark:text-slate-400 md:flex-row md:items-start md:justify-between"
 			>
@@ -354,7 +354,7 @@ const navItems = [
 					>
 				</nav>
 			</div>
-			<div class="border-t border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900">
+			<div class="site-footer-meta border-t">
 				<div class="mx-auto max-w-6xl px-6 py-6">
 					<div class="flex flex-col items-center justify-between gap-4 md:flex-row">
 						<div class="text-xs uppercase tracking-[0.3em] text-slate-600 dark:text-slate-500">
@@ -388,34 +388,19 @@ const navItems = [
 		</footer>
 		<script is:inline src="/scripts/mobile-nav.js"></script>
 		<script is:inline>
-			console.log("Dark mode script: Starting initialization");
 			(function () {
 				function initDarkMode() {
-					console.log("Dark mode script: initDarkMode called");
 					const toggles = document.querySelectorAll("[data-dark-mode-toggle]");
 					const html = document.documentElement;
 
-					console.log("Dark mode script: Found", toggles.length, "toggle buttons");
-
 					if (toggles.length === 0) {
-						console.error("Dark mode script: No toggle buttons found!");
 						return;
 					}
 
 					const updateIcons = () => {
 						const isDark = html.classList.contains("dark");
-						console.log("Dark mode script: Updating icons, isDark =", isDark);
-						// When in dark mode, show sun icon (to switch to light)
-						// When in light mode, show moon icon (to switch to dark)
 						const sunIcons = document.querySelectorAll("[data-sun-icon]");
 						const moonIcons = document.querySelectorAll("[data-moon-icon]");
-						console.log(
-							"Dark mode script: Found",
-							sunIcons.length,
-							"sun icons and",
-							moonIcons.length,
-							"moon icons"
-						);
 
 						sunIcons.forEach((icon) => {
 							if (isDark) {
@@ -434,45 +419,33 @@ const navItems = [
 					};
 
 					const setTheme = (theme) => {
-						console.log("Dark mode script: Setting theme to", theme);
 						if (theme === "dark") {
 							html.classList.add("dark");
 						} else {
 							html.classList.remove("dark");
 						}
-						console.log("Dark mode script: HTML element classes:", html.className);
-						console.log("Dark mode script: Has dark class?", html.classList.contains("dark"));
 						if (typeof localStorage !== "undefined") {
 							localStorage.setItem("theme", theme);
 						}
 						updateIcons();
 					};
 
-					// Initialize icons based on current theme
 					updateIcons();
 
-					// Toggle theme on button click
-					toggles.forEach((toggle, index) => {
-						console.log("Dark mode script: Adding click listener to toggle", index);
+					toggles.forEach((toggle) => {
 						toggle.addEventListener("click", (e) => {
-							console.log("Dark mode script: Toggle clicked!");
 							e.preventDefault();
 							e.stopPropagation();
 							const currentTheme = html.classList.contains("dark") ? "dark" : "light";
 							const newTheme = currentTheme === "dark" ? "light" : "dark";
-							console.log("Dark mode script: Switching from", currentTheme, "to", newTheme);
 							setTheme(newTheme);
 						});
 					});
-					console.log("Dark mode script: Initialization complete");
 				}
 
-				// Run when DOM is ready
 				if (document.readyState === "loading") {
-					console.log("Dark mode script: Waiting for DOMContentLoaded");
-					document.addEventListener("DOMContentLoaded", initDarkMode);
+					document.addEventListener("DOMContentLoaded", initDarkMode, { once: true });
 				} else {
-					console.log("Dark mode script: DOM already ready, running immediately");
 					initDarkMode();
 				}
 			})();

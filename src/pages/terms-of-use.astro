@@ -50,9 +50,12 @@ const structuredData = {
 	description="Review the terms and conditions governing your use of the Moveroo website and our moving services across Australia. Understand your rights and responsibilities."
 	canonical="https://moveroo.com.au/terms-of-use/"
 >
-	<section
-		class="bg-gradient-to-br from-white via-slate-50 to-slate-100 py-24 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"
-	>
+	<Fragment slot="head">
+		<meta property="article:modified_time" content={lastModified.toISOString()} />
+		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+	</Fragment>
+
+	<section class="page-hero page-hero--quiet">
 		<div class="mx-auto max-w-3xl px-6">
 			<p
 				class="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-700 dark:text-emerald-400"
@@ -174,6 +177,3 @@ const structuredData = {
 		</div>
 	</section>
 </Layout>
-
-<meta property="article:modified_time" content={lastModified.toISOString()} />
-<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

@@ -1,0 +1,105 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/sections/Hero.astro";
+import Features from "../components/sections/Features.astro";
+import Pricing from "../components/sections/Pricing.astro";
+import Testimonials from "../components/sections/Testimonials.astro";
+import FAQ from "../components/sections/FAQ.astro";
+import QuoteCta from "../components/sections/QuoteCta.astro";
+
+const sectionLinks = [
+	{ label: "Hero", href: "#hero" },
+	{ label: "Features", href: "#features" },
+	{ label: "Pricing", href: "#pricing" },
+	{ label: "Testimonials", href: "#testimonials" },
+	{ label: "FAQ", href: "#faq-review" },
+	{ label: "CTA", href: "#quote-cta" },
+];
+---
+
+<Layout
+	title="Design Review | Moveroo"
+	description="Internal design review page for shared homepage sections."
+	canonical="https://moveroo.com.au/design/"
+	robots="noindex, nofollow"
+	includeBaseSchema={false}
+>
+	<section class="page-hero page-hero--quiet">
+		<div class="mx-auto max-w-6xl px-6">
+			<div class="max-w-3xl">
+				<p
+					class="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-700 dark:text-emerald-400"
+				>
+					Internal review
+				</p>
+				<h1 class="mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl">
+					Design system review surface
+				</h1>
+				<p class="mt-6 text-lg text-slate-600 dark:text-slate-300">
+					Use this page to review the shared brand-led sections in one place before we roll larger
+					redesign changes onto the homepage and supporting pages.
+				</p>
+			</div>
+
+			<div class="page-panel page-panel-soft mt-10 p-6 md:p-8">
+				<div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+					<div class="max-w-2xl">
+						<h2 class="text-xl font-semibold text-slate-900 dark:text-white">What to review</h2>
+						<p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+							Focus on hierarchy, card usage, hero composition, typography rhythm, and whether the
+							sections feel like one system instead of isolated page blocks.
+						</p>
+					</div>
+					<nav
+						aria-label="Design review sections"
+						class="flex flex-wrap gap-3 text-sm font-semibold text-slate-700 dark:text-slate-300"
+					>
+						{
+							sectionLinks.map((item) => (
+								<a
+									class="rounded-full border border-slate-200 bg-white/80 px-4 py-2 transition hover:border-emerald-300 hover:text-emerald-700 dark:border-slate-700 dark:bg-slate-900/60 dark:hover:border-emerald-500 dark:hover:text-emerald-400"
+									href={item.href}
+								>
+									{item.label}
+								</a>
+							))
+						}
+					</nav>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div class="bg-white dark:bg-slate-900">
+		<section id="hero" aria-label="Hero section review">
+			<Hero />
+		</section>
+
+		<section id="features" aria-label="Features section review">
+			<Features />
+		</section>
+
+		<section id="pricing" aria-label="Pricing section review">
+			<Pricing />
+		</section>
+
+		<section id="testimonials" aria-label="Testimonials section review">
+			<Testimonials />
+		</section>
+
+		<section id="faq-review" aria-label="FAQ section review">
+			<FAQ />
+		</section>
+
+		<section id="quote-cta" aria-label="Quote CTA section review">
+			<QuoteCta
+				title="Ready to secure the right removalists?"
+				subtitle="Share your move details and we’ll line up tailored quotes, dates and specialist services to suit your plans."
+				ctaPrimaryLabel="Grab your free quote today"
+				ctaPrimaryHref="https://removalists.moveroo.com.au/quote/household"
+				ctaSecondaryLabel="Book your move"
+				ctaSecondaryHref="https://removalists.moveroo.com.au/booking/create"
+			/>
+		</section>
+	</div>
+</Layout>
