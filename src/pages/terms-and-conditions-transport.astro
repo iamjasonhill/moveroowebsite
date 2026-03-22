@@ -1,12 +1,60 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const lastModified = new Date("2026-01-10T00:00:00.000Z");
+const lastModified = new Date("2026-03-23T00:00:00.000Z");
+
+const jumpLinks = [
+	{ id: "definitions", label: "1. Definitions" },
+	{ id: "application", label: "2. Application" },
+	{ id: "obligations", label: "4. Your obligations" },
+	{ id: "charges", label: "7. Charges" },
+	{ id: "payment", label: "8. Payment" },
+	{ id: "liability", label: "10. Liability" },
+	{ id: "insurance", label: "12. Insurance" },
+	{ id: "general", label: "15. General terms" },
+];
+
+const definitions = [
+	{
+		term: "Charge Rate",
+		definition:
+			"$55.00 excluding GST per 15 minutes, or part thereof, for a two-person crew unless a different rate is stated in a written quote.",
+	},
+	{
+		term: "Goods",
+		definition: "Any item, vehicle, freight or other property you ask us to move, store or handle.",
+	},
+	{
+		term: "Quote",
+		definition:
+			"A written estimate, proposal or booking summary issued by Moveroo for the requested services.",
+	},
+	{
+		term: "Services",
+		definition:
+			"The transport, handling, storage, coordination and related work supplied by Moveroo in connection with the goods.",
+	},
+	{
+		term: "Subcontractor",
+		definition:
+			"Any carrier, removalist, contractor, depot operator or service provider we engage to perform all or part of the services.",
+	},
+	{
+		term: "Special Items",
+		definition:
+			"Fragile, high-value, precision, collectible, irreplaceable or unusually sensitive goods that need additional disclosure or handling.",
+	},
+	{
+		term: "You",
+		definition:
+			"The person or entity requesting or accepting the services, including anyone acting with their authority.",
+	},
+];
 ---
 
 <Layout
-	title="Vehicle Transport Terms & Conditions | Moveroo Australia"
-	description="Understand the terms governing vehicle and freight transport services with Moveroo. Review responsibilities, charges, liability and booking policies here."
+	title="Transport Terms & Conditions | Moveroo Australia"
+	description="Review Moveroo's transport terms and conditions for vehicle, freight and related transport services across Australia."
 	canonical="https://moveroo.com.au/terms-and-conditions-transport/"
 >
 	<Fragment slot="head">
@@ -14,143 +62,415 @@ const lastModified = new Date("2026-01-10T00:00:00.000Z");
 	</Fragment>
 
 	<section class="page-hero page-hero--quiet">
-		<div class="mx-auto max-w-3xl px-6">
-			<p
-				class="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-700 dark:text-emerald-400"
-			>
-				Transport Terms
-			</p>
-			<h1 class="mt-6 text-4xl font-semibold text-slate-900 dark:text-white">
-				Understanding our transport agreement
-			</h1>
-			<p class="mt-6 text-base text-slate-600 dark:text-slate-400">
-				These terms outline how Moveroo delivers vehicle and freight transport services across
-				Australia. Review them carefully—they clarify responsibilities, charges, liability and how
-				we manage bookings.
-			</p>
+		<div class="mx-auto max-w-5xl px-6">
+			<div class="grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start">
+				<div>
+					<p
+						class="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-700 dark:text-emerald-400"
+					>
+						Transport Terms
+					</p>
+					<h1 class="mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl">
+						Terms and conditions for booking transport services with Moveroo
+					</h1>
+					<p class="mt-6 max-w-3xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						These terms explain how Moveroo handles transport, freight, storage and related booking
+						services across Australia. They should be read together with your written quote, booking
+						confirmation and our <a
+							class="text-emerald-700 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300"
+							href="/cancellation/">cancellation policy</a
+						>, where applicable.
+					</p>
+					<p class="mt-4 max-w-3xl text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+						Last updated {
+							lastModified.toLocaleDateString("en-AU", {
+								day: "numeric",
+								month: "long",
+								year: "numeric",
+							})
+						}
+					</p>
+				</div>
+
+				<nav
+					aria-label="Transport terms sections"
+					class="rounded-[1.75rem] border border-slate-200 bg-white/85 p-5 text-sm shadow-[0_24px_60px_-40px_rgba(15,23,42,0.28)] dark:border-slate-800 dark:bg-slate-900/75"
+				>
+					<p
+						class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400"
+					>
+						On this page
+					</p>
+					<ul class="mt-4 space-y-3">
+						{
+							jumpLinks.map((link) => (
+								<li>
+									<a
+										href={`#${link.id}`}
+										class="text-slate-600 transition hover:text-emerald-700 dark:text-slate-300 dark:hover:text-emerald-300"
+									>
+										{link.label}
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</nav>
+			</div>
 		</div>
 	</section>
 
 	<section class="bg-white py-20 dark:bg-slate-900">
-		<div class="mx-auto max-w-3xl space-y-12 px-6 text-slate-600 dark:text-slate-400">
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">Key definitions</h2>
-				<ul class="ml-6 list-disc space-y-2">
-					<li>
-						<strong>Charge Rate</strong>: $55 (ex GST) per 15 minutes for a two-person crew, unless
-						otherwise quoted.
-					</li>
-					<li><strong>Goods</strong>: Items you ask us to transport.</li>
-					<li><strong>Quote</strong>: The written estimate we supply.</li>
-					<li><strong>Services</strong>: Any transport or ancillary work we perform for you.</li>
-					<li>
-						<strong>Subcontractor</strong>: Partners appointed by Moveroo to assist with your move.
-					</li>
-				</ul>
-			</section>
-
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900">Application of these terms</h2>
-				<p>
-					These terms apply whenever you engage Moveroo, once you have had reasonable opportunity to
-					review them. Proceeding with a booking confirms your acceptance.
+		<div class="mx-auto max-w-5xl px-6">
+			<div
+				class="rounded-[2rem] border border-slate-200 bg-slate-50/80 p-6 shadow-[0_24px_60px_-40px_rgba(15,23,42,0.22)] dark:border-slate-800 dark:bg-slate-950/45"
+			>
+				<p
+					class="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-700 dark:text-emerald-400"
+				>
+					Important notice
 				</p>
-			</section>
-
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900">Not common carriers</h2>
-				<p>
-					Moveroo is not a common carrier and may refuse to transport particular items or classes of
-					goods at its discretion.
+				<p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+					Nothing on this page excludes rights you may have under the Australian Consumer Law where
+					those rights cannot legally be excluded. If your quote includes service-specific terms,
+					access constraints or route conditions, those details also form part of the booking.
 				</p>
-			</section>
+			</div>
 
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900">Your obligations & warranties</h2>
-				<ul class="ml-6 list-disc space-y-2">
-					<li>Provide accurate information when requesting a quote or booking.</li>
-					<li>Confirm you own the goods or are authorised to act on behalf of the owner.</li>
-					<li>
-						Disclose dangerous, fragile or high-value goods; we may refuse items that pose risks.
-					</li>
-					<li>
-						Ensure all goods intended for transport are ready and you (or a representative) are
-						present at loading and unloading.
-					</li>
-				</ul>
-			</section>
+			<div class="mt-12 space-y-12 text-slate-600 dark:text-slate-400">
+				<section id="definitions" class="scroll-mt-32 space-y-5">
+					<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">1. Definitions</h2>
+					<ul class="space-y-3">
+						{
+							definitions.map((item) => (
+								<li class="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 dark:border-slate-800 dark:bg-slate-950/40">
+									<p class="font-semibold text-slate-900 dark:text-white">{item.term}</p>
+									<p class="mt-2 text-sm leading-relaxed">{item.definition}</p>
+								</li>
+							))
+						}
+					</ul>
+				</section>
 
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900">Method of carriage</h2>
-				<p>
-					We may choose the route, vehicle type and subcontractors used. Any liability limits within
-					these terms extend to our subcontractors and personnel.
-				</p>
-			</section>
+				<section id="application" class="scroll-mt-32 space-y-4">
+					<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">
+						2. Application of these terms
+					</h2>
+					<p>
+						These terms apply to any agreement between you and Moveroo for the carriage, storage,
+						handling or coordination of goods after you have had a reasonable opportunity to review
+						them.
+					</p>
+					<p>
+						You are bound by these terms when you accept a quote, pay a deposit, confirm a booking
+						or otherwise instruct us to begin providing the services.
+					</p>
+				</section>
 
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900">Delivery</h2>
-				<ul class="ml-6 list-disc space-y-2">
-					<li>Goods are delivered only to you or someone you nominate in writing.</li>
-					<li>If delivery cannot proceed, storage fees and re-delivery charges may apply.</li>
-					<li>We are not liable for delays caused by factors beyond our control.</li>
-					<li>A week’s notice is required to retrieve goods from storage.</li>
-				</ul>
-			</section>
+				<section class="scroll-mt-32 space-y-4" id="common-carrier">
+					<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">
+						3. Not common carriers
+					</h2>
+					<p>
+						Moveroo is not a common carrier. We may refuse to quote, accept, carry, store or handle
+						particular goods or booking requests at our discretion, including where the goods,
+						location, timing or risk profile are not suitable for our network.
+					</p>
+				</section>
 
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900">Charges & rescheduling</h2>
-				<ul class="ml-6 list-disc space-y-2">
-					<li>
-						Fees follow the accepted Quote. Changes to the scope or inaccurate information may incur
-						adjustments.
-					</li>
-					<li>Storage is charged weekly and payable monthly in advance.</li>
-					<li>Delays beyond 30 minutes outside our control may attract additional charges.</li>
-					<li>
+				<section id="obligations" class="scroll-mt-32 space-y-4">
+					<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">
+						4. Your obligations and warranties
+					</h2>
+					<div class="space-y-4">
+						<p>
+							You warrant that all information provided to obtain a quote or booking is accurate,
+							complete and not misleading, including collection and delivery addresses, vehicle
+							condition, dimensions, quantities, access limitations, timing constraints and any
+							required permits.
+						</p>
+						<p>
+							You warrant that you own the goods or are authorised by the owner to arrange the
+							services on their behalf.
+						</p>
+						<p>
+							You must disclose in writing any dangerous, corrosive, combustible, explosive,
+							illegal, biosecurity-sensitive or otherwise hazardous goods before collection. We may
+							refuse such goods, and if undisclosed dangerous goods are discovered after collection
+							we may take reasonable protective action, including disposal, without liability to
+							you.
+						</p>
+						<p>
+							You must notify us before collection if the booking includes special items, fragile
+							items, non-drivable vehicles, modified vehicles, valuables, collections, artworks,
+							precision equipment or goods requiring unusual handling.
+						</p>
+						<p>
+							You must ensure the correct goods are available for collection and that goods not
+							intended for transport are clearly separated. You, or your authorised representative,
+							must be present at loading and unloading unless we agree otherwise in writing.
+						</p>
+					</div>
+				</section>
+
+				<section class="scroll-mt-32 space-y-4" id="carriage">
+					<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">
+						5. Method of carriage
+					</h2>
+					<p>
+						We may determine the route, timing, loading sequence, depot handling, transport mode,
+						vehicle type and reasonable delivery method used to perform the services.
+					</p>
+					<p>
+						We may engage subcontractors to carry out all or part of the services. Any limitation,
+						exclusion or protection in these terms that applies to Moveroo also applies to our
+						subcontractors, employees, agents and depot operators.
+					</p>
+				</section>
+
+				<section class="scroll-mt-32 space-y-4" id="delivery">
+					<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">6. Delivery</h2>
+					<p>
+						We will deliver goods only to you or to a person you authorise in writing to receive
+						them.
+					</p>
+					<p>
+						If delivery cannot proceed because no authorised person is available, access is
+						unavailable, the receiving premises are unsafe, or another circumstance outside our
+						control prevents completion, we may place the goods into storage and charge additional
+						storage, handling and re-delivery fees.
+					</p>
+					<p>
+						We are not liable for delays caused by matters outside our control, including weather,
+						road incidents, industrial action, depot congestion, authority directions, access
+						restrictions or force majeure events.
+					</p>
+					<p>
+						Where goods are held in storage, at least seven days' notice may be required before
+						release or re-delivery, depending on the storage arrangement and location.
+					</p>
+				</section>
+
+				<section id="charges" class="scroll-mt-32 space-y-4">
+					<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">
+						7. Charges, variations and cancellations
+					</h2>
+					<p>
+						Charges are based on the accepted quote and on the booking information supplied by you.
+						If your information is incomplete, inaccurate or later changes, we may revise pricing to
+						reflect the actual goods, access requirements, route, labour, equipment, permits or time
+						required.
+					</p>
+					<p>
+						Unless your quote states otherwise, pricing assumes we can safely and lawfully access
+						both collection and delivery using the vehicle type nominated in the quote. Additional
+						shuttle vehicles, depot handling, labour, waiting time or access solutions may result in
+						additional charges.
+					</p>
+					<p>
+						Storage charges are generally calculated weekly and may be payable in advance depending
+						on the storage service used.
+					</p>
+					<p>
+						If loading or unloading is delayed by more than 30 minutes due to factors outside our
+						control, including customer delay or site access issues, we may charge additional time
+						at the applicable charge rate.
+					</p>
+					<p>
+						Deposit and refund treatment is governed by our <a
+							class="text-emerald-700 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300"
+							href="/cancellation/">cancellation policy</a
+						>. In addition, where a cancellation occurs close to collection or after operational
+						resources have been committed, we may recover reasonable administration, allocation,
+						travel and lost-time costs up to the value of the accepted quote.
+					</p>
+					<p>
+						You must reimburse us for customs, quarantine, import, export, biosecurity, permit or
+						similar third-party charges incurred in connection with the services unless your quote
+						explicitly states otherwise.
+					</p>
+				</section>
+
+				<section id="payment" class="scroll-mt-32 space-y-4">
+					<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">8. Payment</h2>
+					<p>
+						We may require payment of deposits, progress payments, balance invoices or additional
+						charges at the times stated in your quote, booking confirmation or invoice.
+					</p>
+					<p>
+						Additional charges arising during or after the services, including access issues,
+						storage fees, waiting time, re-delivery or scope changes, are payable when invoiced.
+					</p>
+					<p>
+						We may assign or appoint a third party to collect debts, payments or overdue amounts
+						arising under these terms.
+					</p>
+				</section>
+
+				<section class="scroll-mt-32 space-y-4" id="lien">
+					<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">9. Lien on goods</h2>
+					<p>
+						We hold a general lien over goods in our possession for any amount owed to Moveroo under
+						these terms or any prior agreement with you.
+					</p>
+					<p>
+						If an amount remains unpaid for 28 days or more, we may give written notice of our
+						intention to sell some or all of the goods. If payment is not made within the notice
+						period, we may sell the goods by auction or private sale and apply the proceeds toward
+						sale costs, storage charges, outstanding invoices and other amounts lawfully due to us,
+						with any remaining balance returned to you.
+					</p>
+				</section>
+
+				<section id="liability" class="scroll-mt-32 space-y-6">
+					<div class="space-y-4">
+						<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">
+							10. Loss or damage for consumer services
+						</h2>
+						<p>
+							Where the services are acquired for personal, domestic or household use and cannot be
+							excluded by law, statutory guarantees under the Australian Consumer Law may apply.
+						</p>
+						<p>
+							Subject to those non-excludable rights, we are not liable for loss, delay or damage
+							caused by matters outside our control, inadequate packing by you, or the inherent
+							fragility, mechanical condition or vulnerability of the goods.
+						</p>
+						<p>
+							Certain goods are especially susceptible to movement-related wear or failure. We are
+							not liable for that type of deterioration unless it results from our failure to
+							exercise due care and skill.
+						</p>
+					</div>
+
+					<div class="space-y-4">
+						<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">
+							11. Loss or damage for business services
+						</h2>
+						<p>
+							If the services are acquired for business, trade, professional or commercial purposes,
+							our liability is limited to loss or damage caused by our negligence and, to the
+							maximum extent permitted by law, is capped at the lesser of $100 per item or $1,000
+							for all goods carried under the booking.
+						</p>
+						<p>
+							For commercial services, we are not liable for consequential loss, downtime, lost
+							profits, loss arising from inadequate or improper packing not performed by us, or loss
+							relating to special items unless expressly agreed in writing.
+						</p>
+						<p>
+							Any claim should be made in writing as soon as reasonably possible and, where
+							possible, within 14 days after delivery or the date delivery should have occurred.
+						</p>
+					</div>
+				</section>
+
+				<section id="insurance" class="scroll-mt-32 space-y-4">
+					<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">12. Insurance</h2>
+					<p>
+						Moveroo does not automatically insure your goods against loss, theft, delay or damage
+						unless your quote or booking confirmation states that specific cover has been arranged.
+					</p>
+					<p>
+						Any transit cover available through carriers or contractors may be limited in scope and
+						should not be assumed to provide comprehensive protection. It is your responsibility to
+						arrange appropriate insurance for the goods and for any consequential losses you wish to
+						cover.
+					</p>
+					<p>
+						We recommend that you review your insurance position before collection, especially for
+						high-value, fragile, non-standard or irreplaceable goods.
+					</p>
+				</section>
+
+				<section class="scroll-mt-32 space-y-4" id="privacy">
+					<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">13. Privacy</h2>
+					<p>
+						Personal information we collect in connection with the services is handled in accordance
+						with our <a
+							class="text-emerald-700 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300"
+							href="/privacy-policy/">privacy policy</a
+						>.
+					</p>
+				</section>
+
+				<section class="scroll-mt-32 space-y-4" id="gst">
+					<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">14. GST</h2>
+					<p>Unless expressly stated otherwise, quoted and payable amounts are exclusive of GST.</p>
+				</section>
+
+				<section id="general" class="scroll-mt-32 space-y-4">
+					<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">15. General terms</h2>
+					<p>
+						If any provision of these terms is invalid or unenforceable, that provision will be read
+						down or severed to the extent necessary without affecting the remainder of the terms.
+					</p>
+					<p>
+						Any special terms in your quote, booking confirmation or service schedule apply together
+						with these terms. If there is an inconsistency, the written service-specific document
+						prevails to the extent of the inconsistency.
+					</p>
+				</section>
+
+				<section class="scroll-mt-32 space-y-4" id="variation">
+					<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">
+						16. Variation and waiver
+					</h2>
+					<p>
+						These terms may only be varied by a written document or written approval issued by
+						Moveroo.
+					</p>
+					<p>
+						A failure by either party to enforce a right or requirement under these terms is not a
+						waiver of that right unless the waiver is given in writing.
+					</p>
+				</section>
+
+				<section class="scroll-mt-32 space-y-4" id="disputes">
+					<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">17. Disputes</h2>
+					<p>
+						If a dispute arises under these terms, the parties will first attempt to resolve it in
+						good faith. If it cannot be resolved directly, the dispute may be referred to an
+						independent mediator appointed through the Queensland Law Society or another mutually
+						agreed mediator.
+					</p>
+				</section>
+
+				<section class="scroll-mt-32 space-y-4" id="governing-law">
+					<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">18. Governing law</h2>
+					<p>These terms are governed by the laws of Queensland, Australia.</p>
+				</section>
+
+				<section
+					class="rounded-[2rem] border border-slate-200 bg-slate-50 p-6 dark:border-slate-800 dark:bg-slate-950/45"
+				>
+					<p
+						class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400"
+					>
+						Related policies
+					</p>
+					<div class="mt-4 flex flex-wrap gap-3 text-sm">
 						<a
-							class="text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
-							href="/cancellation/">Cancellation</a
-						> is fully refundable within 2 days of paying the deposit. After that, deposits are non-refundable
-						but transferable within 12 months.
-					</li>
-					<li>
-						Rescheduling within 7 days of the move date incurs a 50% administrative fee of the
-						deposit.
-					</li>
-				</ul>
-			</section>
-
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900">Additional costs & lien</h2>
-				<ul class="ml-6 list-disc space-y-2">
-					<li>You must reimburse any customs, quarantine or similar charges.</li>
-					<li>
-						We retain a lien over goods until all amounts owed are paid. After 28 days of
-						non-payment, we may sell goods following notice.
-					</li>
-				</ul>
-			</section>
-
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900">Loss, damage & insurance</h2>
-				<p>
-					Guarantees under Australian Consumer Law may apply unless the services are for business
-					purposes. We are not responsible for losses from events outside our control or inadequate
-					packaging. You are responsible for arranging insurance cover for your goods.
-				</p>
-			</section>
-
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900">Privacy & general terms</h2>
-				<p>
-					Personal information is handled per our <a
-						class="text-emerald-600 hover:text-emerald-700"
-						href="/privacy-policy/">Privacy Policy</a
-					>. These terms are governed by Queensland law, with disputes referred to mediation under
-					Queensland Law Society guidance.
-				</p>
-			</section>
+							class="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-slate-700 transition hover:border-emerald-300 hover:text-emerald-800 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-emerald-500/40 dark:hover:text-emerald-300"
+							href="/terms-of-use/"
+						>
+							Website Terms of Use
+						</a>
+						<a
+							class="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-slate-700 transition hover:border-emerald-300 hover:text-emerald-800 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-emerald-500/40 dark:hover:text-emerald-300"
+							href="/privacy-policy/"
+						>
+							Privacy Policy
+						</a>
+						<a
+							class="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-slate-700 transition hover:border-emerald-300 hover:text-emerald-800 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-emerald-500/40 dark:hover:text-emerald-300"
+							href="/cancellation/"
+						>
+							Cancellation Policy
+						</a>
+					</div>
+				</section>
+			</div>
 		</div>
 	</section>
 </Layout>
