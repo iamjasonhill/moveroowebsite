@@ -7,34 +7,95 @@ import Pricing from "../components/sections/Pricing.astro";
 import Testimonials from "../components/sections/Testimonials.astro";
 import FAQ from "../components/sections/FAQ.astro";
 
+const homepageTracks = [
+	{
+		eyebrow: "01 Household relocations",
+		title: "Home moves planned around access, timing and inventory.",
+		description:
+			"From apartments and family homes to interstate relocations, Moveroo keeps the quote path and partner matching clear from the start.",
+		href: "https://removalists.moveroo.com.au/quote/household",
+		linkLabel: "Request a household quote",
+	},
+	{
+		eyebrow: "02 Vehicle transport",
+		title: "Vehicle transport handled with the same calm handoff.",
+		description:
+			"Use Moveroo when the move includes vehicle logistics, dealership transfers, auction purchases or a single car heading interstate.",
+		href: "https://cars.moveroo.com.au/quote/v2",
+		linkLabel: "Request a vehicle quote",
+	},
+	{
+		eyebrow: "03 Added complexity",
+		title: "Storage, specialist freight and fragile items kept in the same plan.",
+		description:
+			"When a move needs packing help, storage, bulky freight or careful handling, Moveroo keeps those extras inside one coordinated brief.",
+		href: "/services/",
+		linkLabel: "See supported services",
+	},
+];
+
+const homepageFlow = [
+	{
+		step: "01",
+		title: "Share the move brief once",
+		description:
+			"Tell us the route, timing, inventory and any extra requirements so we can match the right carriers without repeated back-and-forth.",
+	},
+	{
+		step: "02",
+		title: "We line up the right transport mix",
+		description:
+			"Household crews, vehicle carriers, storage partners and special handling are coordinated around one plan rather than separate jobs.",
+	},
+	{
+		step: "03",
+		title: "You get one clearer path to delivery",
+		description:
+			"From quote through booking and updates, Moveroo keeps the next step visible so the move feels managed instead of improvised.",
+	},
+];
+
+const homepageSignals = [
+	"Households and apartments",
+	"Cars and motorcycles",
+	"Regional and interstate routes",
+	"Storage and specialty handling",
+];
+
 const publishedAt = new Date("2024-01-22T03:43:43+10:00");
 
 // FAQ data for schema markup
 const faqItems = [
 	{
 		question: "How do I get a moving quote from Moveroo?",
-		answer: "Simply visit our quote page and enter your move details including pickup and delivery locations, move date, and inventory size. We'll connect you with multiple verified removalists who will provide competitive quotes within 24 hours."
+		answer:
+			"Simply visit our quote page and enter your move details including pickup and delivery locations, move date, and inventory size. We'll connect you with multiple verified removalists who will provide competitive quotes within 24 hours.",
 	},
 	{
 		question: "What areas does Moveroo service in Australia?",
-		answer: "Moveroo services all major cities and regional areas across Australia, including Sydney, Melbourne, Brisbane, Perth, Adelaide, Hobart, Darwin, and Canberra. We handle both local moves and interstate relocations."
+		answer:
+			"Moveroo services all major cities and regional areas across Australia, including Sydney, Melbourne, Brisbane, Perth, Adelaide, Hobart, Darwin, and Canberra. We handle both local moves and interstate relocations.",
 	},
 	{
 		question: "Are the removalists on Moveroo verified and insured?",
-		answer: "Yes, all removalists on our platform are thoroughly vetted for reliability, professionalism, and proper insurance coverage. We only partner with licensed operators who meet our strict quality standards."
+		answer:
+			"Yes, all removalists on our platform are thoroughly vetted for reliability, professionalism, and proper insurance coverage. We only partner with licensed operators who meet our strict quality standards.",
 	},
 	{
 		question: "How much does it cost to move house in Australia?",
-		answer: "Moving costs vary based on distance, volume of items, and additional services required. Local moves typically start from $300-$500, while interstate moves can range from $1,500 to $5,000+. Get a free quote for an accurate estimate tailored to your specific move."
+		answer:
+			"Moving costs vary based on distance, volume of items, and additional services required. Local moves typically start from $300-$500, while interstate moves can range from $1,500 to $5,000+. Get a free quote for an accurate estimate tailored to your specific move.",
 	},
 	{
 		question: "Can Moveroo help with vehicle transport?",
-		answer: "Absolutely! We offer comprehensive vehicle transport services across Australia. Whether you're moving interstate, buying a car from another city, or need enclosed transport for a classic vehicle, we connect you with trusted car carriers."
+		answer:
+			"Absolutely! We offer comprehensive vehicle transport services across Australia. Whether you're moving interstate, buying a car from another city, or need enclosed transport for a classic vehicle, we connect you with trusted car carriers.",
 	},
 	{
 		question: "How far in advance should I book my move?",
-		answer: "We recommend booking at least 2-4 weeks in advance for local moves and 4-6 weeks for interstate relocations. During peak periods (end of month, holidays), booking earlier ensures better availability and pricing."
-	}
+		answer:
+			"We recommend booking at least 2-4 weeks in advance for local moves and 4-6 weeks for interstate relocations. During peak periods (end of month, holidays), booking earlier ensures better availability and pricing.",
+	},
 ];
 const buildTime = new Date();
 const publishedIso = publishedAt.toISOString();
@@ -63,9 +124,7 @@ const structuredData = {
 					availableLanguage: "English",
 				},
 			],
-			sameAs: [
-				"https://twitter.com/MoverooAU",
-			],
+			sameAs: ["https://twitter.com/MoverooAU"],
 		},
 		{
 			"@type": "WebSite",
@@ -162,7 +221,7 @@ const structuredData = {
 		{
 			"@type": "FAQPage",
 			"@id": "https://moveroo.com.au/#faq",
-			mainEntity: faqItems.map(faq => ({
+			mainEntity: faqItems.map((faq) => ({
 				"@type": "Question",
 				name: faq.question,
 				acceptedAnswer: {
@@ -190,14 +249,130 @@ const structuredData = {
 		<meta name="twitter:data1" content="Moveroo Australia" />
 		<meta name="twitter:label2" content="Time to read" />
 		<meta name="twitter:data2" content="1 minute" />
-		<script
-			type="application/ld+json"
-			set:html={JSON.stringify(structuredData)}
-		/>
+		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 	</Fragment>
 	<Hero />
+
+	<section
+		class="relative overflow-hidden border-b border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900"
+	>
+		<div
+			class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-400/60 to-transparent"
+			aria-hidden="true"
+		>
+		</div>
+		<div
+			class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.08),_transparent_34%)]"
+			aria-hidden="true"
+		>
+		</div>
+		<div class="relative mx-auto max-w-6xl px-6">
+			<div class="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
+				<div class="motion-rise">
+					<p class="section-kicker">What Moveroo Coordinates</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						Most Australian moves do not fit one neat category.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						Real jobs often include a route, a deadline, tricky access, a vehicle, storage or some
+						other moving part. Moveroo works best when those details are organised into one clear
+						path instead of split across separate providers.
+					</p>
+					<div class="mt-8 flex flex-wrap gap-3">
+						{
+							homepageSignals.map((signal) => (
+								<span class="site-footer-signal text-sm font-semibold text-slate-700 dark:text-slate-300">
+									{signal}
+								</span>
+							))
+						}
+					</div>
+				</div>
+
+				<div
+					class="motion-rise motion-rise-delay-1 overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50 shadow-[0_28px_80px_-48px_rgba(15,23,42,0.22)] dark:border-slate-800 dark:bg-slate-950/35 dark:shadow-black/40"
+				>
+					{
+						homepageTracks.map((track) => (
+							<article class="grid gap-4 border-b border-slate-200 px-6 py-7 last:border-b-0 dark:border-slate-800 md:grid-cols-[8.25rem_1fr] md:px-8">
+								<p class="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-700 dark:text-emerald-400">
+									{track.eyebrow}
+								</p>
+								<div>
+									<h3 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
+										{track.title}
+									</h3>
+									<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+										{track.description}
+									</p>
+									<a
+										href={track.href}
+										class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 transition hover:text-emerald-900 dark:text-emerald-400 dark:hover:text-emerald-300"
+										target={track.href.startsWith("http") ? "_blank" : undefined}
+										rel={track.href.startsWith("http") ? "noopener noreferrer" : undefined}
+									>
+										<span>{track.linkLabel}</span>
+										<span aria-hidden="true">→</span>
+									</a>
+								</div>
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<Features />
 	<Pricing />
+
+	<section
+		class="overflow-hidden border-y border-slate-200 bg-slate-50 py-24 dark:border-slate-800 dark:bg-slate-950/40"
+	>
+		<div class="mx-auto max-w-6xl px-6">
+			<div
+				class="grid gap-12 rounded-[2rem] border border-slate-200 bg-white px-6 py-8 shadow-[0_28px_80px_-48px_rgba(15,23,42,0.28)] dark:border-slate-800 dark:bg-slate-900/75 md:px-8 md:py-10 xl:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] xl:items-start"
+			>
+				<div class="motion-rise xl:sticky xl:top-28">
+					<p class="section-kicker">How Moveroo Works</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						The move feels lighter when each handoff is already clear.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						This is the part many moving sites skip. The route, quote, transport mix and support
+						model need to line up clearly enough that you always know what happens next.
+					</p>
+				</div>
+
+				<div class="motion-rise motion-rise-delay-1 grid gap-6">
+					{
+						homepageFlow.map((item) => (
+							<article class="route-grid rounded-[1.75rem] border border-slate-200 bg-slate-50/80 px-6 py-6 dark:border-slate-800 dark:bg-slate-950/45">
+								<div class="grid gap-4 md:grid-cols-[5rem_1fr] md:items-start">
+									<p class="text-sm font-semibold uppercase tracking-[0.28em] text-emerald-700 dark:text-emerald-400">
+										{item.step}
+									</p>
+									<div>
+										<h3 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
+											{item.title}
+										</h3>
+										<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+											{item.description}
+										</p>
+									</div>
+								</div>
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<Testimonials />
 	<FAQ />
 	<QuoteCta
