@@ -143,6 +143,31 @@ const navItems = [
 		variant: "button",
 	},
 ];
+
+const footerServiceLinks = [
+	{
+		label: "Household Moving Quote",
+		href: "https://removalists.moveroo.com.au/quote/household",
+		external: true,
+	},
+	{
+		label: "Vehicle Transport Quote",
+		href: "https://cars.moveroo.com.au/quote/v2",
+		external: true,
+	},
+	{ label: "Moving Cars", href: "/moving-cars/", external: false },
+	{ label: "Contact Team", href: "/contact/", external: false },
+];
+
+const footerLegalLinks = [
+	{ label: "Privacy Policy", href: "/privacy-policy/" },
+	{ label: "Terms of Use", href: "/terms-of-use/" },
+	{ label: "Transport Terms", href: "/terms-and-conditions-transport/" },
+	{ label: "Cancellation Policy", href: "/cancellation/" },
+	{ label: "Sitemap", href: "/sitemap-index.xml" },
+];
+
+const footerSignals = ["Household relocations", "Vehicle transport", "Nationwide coordination"];
 ---
 
 <!doctype html>
@@ -238,76 +263,31 @@ const navItems = [
 			class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-white focus:p-4 focus:text-emerald-700 dark:focus:bg-slate-800 dark:focus:text-emerald-400"
 			>Skip to content</a
 		>
-		<header class="site-header border-b backdrop-blur">
-			<div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-5">
-				<a
-					href="/"
-					class="site-wordmark text-lg font-semibold tracking-tight text-slate-900 dark:text-white"
-					>Moveroo</a
-				>
-				<div class="flex items-center gap-4">
-					<div class="hidden md:block">
-						<DarkModeToggle />
-					</div>
-					<button
-						class="inline-flex items-center justify-center rounded-full border border-slate-200 p-2 text-slate-700 transition hover:border-emerald-300 hover:text-emerald-700 dark:border-slate-700 dark:text-slate-300 dark:hover:border-emerald-500 dark:hover:text-emerald-400 md:hidden"
-						type="button"
-						aria-controls="mobile-nav"
-						aria-expanded="false"
-						data-mobile-nav-toggle
-					>
-						<span class="sr-only">Toggle navigation</span>
-						<svg
-							class="h-5 w-5"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="1.5"
-							stroke-linecap="round"
-							stroke-linejoin="round"
+		<header class="site-header sticky top-0 z-40 border-b backdrop-blur">
+			<div class="mx-auto max-w-6xl px-6">
+				<div class="flex items-center justify-between gap-6 py-4">
+					<a href="/" class="group flex min-w-0 items-center gap-4">
+						<span
+							class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl border border-emerald-200/80 bg-emerald-600 text-white shadow-[0_14px_36px_-18px_rgba(5,150,105,0.7)] transition group-hover:bg-emerald-700 dark:border-emerald-400/20 dark:bg-emerald-500 dark:text-slate-950 dark:group-hover:bg-emerald-400"
+							aria-hidden="true"
 						>
-							<path d="M4 6h16M4 12h16M4 18h16"></path>
-						</svg>
-					</button>
-				</div>
-				<nav
-					class="hidden items-center gap-6 text-sm font-semibold text-slate-700 dark:text-slate-300 md:flex"
-				>
-					{
-						navItems.map((item) => (
-							<a
-								class={
-									item.variant === "button"
-										? "rounded-full border border-emerald-200 px-4 py-2 text-emerald-700 transition hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-900 dark:border-emerald-500/50 dark:text-emerald-400 dark:hover:border-emerald-400 dark:hover:bg-emerald-500/10 dark:hover:text-emerald-300"
-										: "transition hover:text-emerald-600 dark:hover:text-emerald-400"
-								}
-								href={item.href}
-								target={item.external ? "_blank" : undefined}
-								rel={item.external ? "noopener" : undefined}
-								aria-label={item.external ? `${item.label} (opens in a new tab)` : undefined}
-							>
-								{item.label}
-							</a>
-						))
-					}
-				</nav>
-			</div>
-			<div class="md:hidden" data-mobile-nav-panel hidden id="mobile-nav">
-				<div
-					class="border-t border-slate-200 bg-white px-6 py-4 shadow-lg shadow-emerald-100/60 dark:border-slate-800 dark:bg-slate-900 dark:shadow-black/40"
-				>
-					<div class="mb-4 flex items-center justify-end">
-						<DarkModeToggle />
-					</div>
-					<nav class="flex flex-col gap-4 text-sm font-semibold text-slate-700 dark:text-slate-300">
+							<span class="text-lg font-semibold tracking-[-0.08em]">M</span>
+						</span>
+						<span class="flex min-w-0 flex-col">
+							<span class="site-wordmark-kicker">Australia move network</span>
+							<span class="site-wordmark text-xl font-semibold text-slate-900 dark:text-white">
+								Moveroo
+							</span>
+						</span>
+					</a>
+
+					<nav
+						class="hidden items-center gap-6 text-sm font-semibold text-slate-700 dark:text-slate-300 xl:flex"
+					>
 						{
 							navItems.map((item) => (
 								<a
-									class={
-										item.variant === "button"
-											? "inline-flex items-center justify-center rounded-full border border-emerald-200 px-4 py-2 text-emerald-700 transition hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-900 dark:border-emerald-500/50 dark:text-emerald-400 dark:hover:border-emerald-400 dark:hover:bg-emerald-500/10 dark:hover:text-emerald-300"
-											: "transition hover:text-emerald-600 dark:hover:text-emerald-400"
-									}
+									class={item.variant === "button" ? "site-nav-button" : "site-nav-link"}
 									href={item.href}
 									target={item.external ? "_blank" : undefined}
 									rel={item.external ? "noopener" : undefined}
@@ -318,6 +298,84 @@ const navItems = [
 							))
 						}
 					</nav>
+
+					<div class="flex items-center gap-3">
+						<a
+							href="tel:+61721432557"
+							class="site-contact-chip hidden lg:inline-flex"
+							aria-label="Call Moveroo on +61 7 2143 2557"
+						>
+							<span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+							<span>07 2143 2557</span>
+						</a>
+						<div class="hidden md:block">
+							<DarkModeToggle />
+						</div>
+						<button
+							class="site-mobile-toggle inline-flex items-center justify-center rounded-full border p-2 text-slate-700 transition dark:text-slate-300 xl:hidden"
+							type="button"
+							aria-controls="mobile-nav"
+							aria-expanded="false"
+							data-mobile-nav-toggle
+						>
+							<span class="sr-only">Toggle navigation</span>
+							<svg
+								class="h-5 w-5"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.5"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<path d="M4 6h16M4 12h16M4 18h16"></path>
+							</svg>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="xl:hidden" data-mobile-nav-panel hidden id="mobile-nav">
+				<div class="site-mobile-panel border-t px-6 py-5 shadow-lg">
+					<div class="flex flex-col gap-5">
+						<div class="flex items-start justify-between gap-4">
+							<div class="max-w-xs">
+								<p class="site-wordmark-kicker">Plan with Moveroo</p>
+								<p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+									Household moves, vehicle transport and interstate coordination from one team.
+								</p>
+							</div>
+							<DarkModeToggle />
+						</div>
+						<nav
+							class="flex flex-col gap-3 text-sm font-semibold text-slate-700 dark:text-slate-300"
+						>
+							{
+								navItems.map((item) => (
+									<a
+										class={
+											item.variant === "button"
+												? "site-nav-button justify-center"
+												: "site-mobile-link"
+										}
+										href={item.href}
+										target={item.external ? "_blank" : undefined}
+										rel={item.external ? "noopener" : undefined}
+										aria-label={item.external ? `${item.label} (opens in a new tab)` : undefined}
+									>
+										{item.label}
+									</a>
+								))
+							}
+						</nav>
+						<a
+							href="tel:+61721432557"
+							class="site-contact-chip w-full justify-center"
+							aria-label="Call Moveroo on +61 7 2143 2557"
+						>
+							<span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+							<span>Call 07 2143 2557</span>
+						</a>
+					</div>
 				</div>
 			</div>
 		</header>
@@ -325,34 +383,102 @@ const navItems = [
 			<slot />
 		</main>
 		<footer class="site-footer border-t">
-			<div
-				class="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 text-sm text-slate-600 dark:text-slate-400 md:flex-row md:items-start md:justify-between"
-			>
-				<div>
-					<p class="text-base font-semibold text-slate-900 dark:text-white">Moveroo</p>
-					<p class="mt-2 max-w-sm text-sm text-slate-600 dark:text-slate-400">
-						Reimagining the relocation experience with transparent pricing, dependable partners and
-						friendly support.
-					</p>
+			<div class="mx-auto max-w-6xl px-6 py-14 md:py-16">
+				<div class="grid gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-16">
+					<div class="max-w-xl">
+						<p class="site-wordmark-kicker">Moveroo Australia</p>
+						<h2
+							class="mt-5 text-4xl font-semibold tracking-[-0.05em] text-slate-900 dark:text-white"
+						>
+							One nationwide desk for moves, vehicles and freight.
+						</h2>
+						<p class="mt-5 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+							We connect households, businesses and vehicle owners with vetted transport partners
+							across Australia, then help keep the plan clear from quote through delivery.
+						</p>
+						<div
+							class="mt-8 flex flex-wrap gap-3 text-sm font-semibold text-slate-700 dark:text-slate-300"
+						>
+							{footerSignals.map((item) => <span class="site-footer-signal">{item}</span>)}
+						</div>
+						<div class="mt-8 flex flex-wrap gap-4">
+							<a
+								href="https://removalists.moveroo.com.au/quote/household"
+								target="_blank"
+								rel="noopener"
+								class="site-nav-button"
+							>
+								Get a moving quote
+							</a>
+							<a
+								href="https://removalists.moveroo.com.au/booking/create"
+								target="_blank"
+								rel="noopener"
+								class="inline-flex items-center justify-center rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:text-slate-950 dark:border-slate-700 dark:text-slate-300 dark:hover:border-slate-500 dark:hover:text-white"
+							>
+								Book your move
+							</a>
+						</div>
+					</div>
+
+					<div class="grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
+						<div>
+							<p class="site-footer-heading">Services</p>
+							<nav class="mt-4 flex flex-col gap-3">
+								{
+									footerServiceLinks.map((item) => (
+										<a
+											class="site-footer-link"
+											href={item.href}
+											target={item.external ? "_blank" : undefined}
+											rel={item.external ? "noopener" : undefined}
+										>
+											{item.label}
+										</a>
+									))
+								}
+							</nav>
+						</div>
+
+						<div>
+							<p class="site-footer-heading">Contact</p>
+							<div class="mt-4 flex flex-col gap-4 text-sm text-slate-600 dark:text-slate-400">
+								<div>
+									<p class="font-semibold text-slate-900 dark:text-white">Phone</p>
+									<a class="site-footer-link mt-1 inline-flex" href="tel:+61721432557">
+										+61 7 2143 2557
+									</a>
+								</div>
+								<div>
+									<p class="font-semibold text-slate-900 dark:text-white">Email</p>
+									<a
+										class="site-footer-link mt-1 inline-flex"
+										href="mailto:removals@moveroo.com.au"
+									>
+										removals@moveroo.com.au
+									</a>
+								</div>
+								<div>
+									<p class="font-semibold text-slate-900 dark:text-white">Response window</p>
+									<p class="mt-1">Typically within one business day.</p>
+								</div>
+							</div>
+						</div>
+
+						<div>
+							<p class="site-footer-heading">Legal</p>
+							<nav class="mt-4 flex flex-col gap-3">
+								{
+									footerLegalLinks.map((item) => (
+										<a class="site-footer-link" href={item.href}>
+											{item.label}
+										</a>
+									))
+								}
+							</nav>
+						</div>
+					</div>
 				</div>
-				<nav class="flex flex-col gap-2 text-sm font-medium text-slate-700 dark:text-slate-300">
-					<a class="transition hover:text-slate-900 dark:hover:text-white" href="/privacy-policy/"
-						>Privacy Policy</a
-					>
-					<a class="transition hover:text-slate-900 dark:hover:text-white" href="/terms-of-use/"
-						>Terms of Use</a
-					>
-					<a
-						class="transition hover:text-slate-900 dark:hover:text-white"
-						href="/terms-and-conditions-transport/">Transport Terms &amp; Conditions</a
-					>
-					<a class="transition hover:text-slate-900 dark:hover:text-white" href="/cancellation/"
-						>Cancellation Policy</a
-					>
-					<a class="transition hover:text-slate-900 dark:hover:text-white" href="/sitemap-index.xml"
-						>Sitemap</a
-					>
-				</nav>
 			</div>
 			<div class="site-footer-meta border-t">
 				<div class="mx-auto max-w-6xl px-6 py-6">
@@ -361,26 +487,14 @@ const navItems = [
 							© {new Date().getFullYear()} Moveroo. All rights reserved.
 						</div>
 						<div
-							class="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-500 dark:text-slate-400"
+							class="flex flex-wrap items-center justify-center gap-3 text-xs text-slate-500 dark:text-slate-400"
 						>
-							<span class="flex items-center gap-1.5">
-								<svg
-									class="h-4 w-4 text-emerald-600 dark:text-emerald-400"
-									fill="currentColor"
-									viewBox="0 0 20 20"
-									aria-hidden="true"
-								>
-									<path
-										fill-rule="evenodd"
-										d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-										clip-rule="evenodd"></path>
-								</svg>
+							<span class="site-footer-meta-pill">
+								<span class="h-2 w-2 rounded-full bg-emerald-500"></span>
 								<span>Secure SSL</span>
 							</span>
-							<span class="text-slate-300 dark:text-slate-600">|</span>
-							<span>Licensed & Insured</span>
-							<span class="text-slate-300 dark:text-slate-600">|</span>
-							<span>Australian Owned</span>
+							<span class="site-footer-meta-pill">Licensed partners</span>
+							<span class="site-footer-meta-pill">Australian owned</span>
 						</div>
 					</div>
 				</div>
