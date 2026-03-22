@@ -1,9 +1,24 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const lastModified = new Date("2026-01-10T00:00:00.000Z");
+const lastModified = new Date("2026-03-23T00:00:00.000Z");
 
-// FAQ data for schema markup
+const jumpLinks = [
+	{ id: "collection", label: "Information we collect" },
+	{ id: "cookies", label: "Cookies" },
+	{ id: "use", label: "Use and disclosure" },
+	{ id: "security", label: "Security" },
+	{ id: "access", label: "Access and correction" },
+	{ id: "contact", label: "Contact" },
+];
+
+const summarySignals = [
+	"Personal and booking data",
+	"Cookies and site usage",
+	"Access and correction rights",
+	"Privacy Act 1988 (Cth)",
+];
+
 const faqItems = [
 	{
 		question: "How does Moveroo protect my personal information?",
@@ -55,177 +70,274 @@ const structuredData = {
 		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 	</Fragment>
 
-	<section class="page-hero page-hero--quiet">
-		<div class="mx-auto max-w-3xl px-6">
-			<p
-				class="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-700 dark:text-emerald-400"
-			>
-				Privacy Policy
-			</p>
-			<h1 class="mt-6 text-4xl font-semibold text-slate-900 dark:text-white">
-				Protecting your personal information
-			</h1>
-			<p class="mt-6 text-base text-slate-600 dark:text-slate-400">
-				Moveroo Australia is committed to safeguarding your privacy and managing your personal
-				information responsibly. The policy below summarises how we collect, use, store and protect
-				your data in line with the <em>Privacy Act 1988 (Cth)</em>.
-			</p>
+	<section class="relative overflow-hidden bg-slate-950 py-24 text-white md:py-28">
+		<div
+			class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.22),_transparent_26%),linear-gradient(135deg,_#052e2b_0%,_#0f172a_48%,_#0f172a_100%)]"
+		>
+		</div>
+		<div class="route-grid absolute inset-0 opacity-25"></div>
+		<div
+			class="motion-drift absolute right-[-9rem] top-[-7rem] h-[20rem] w-[20rem] rounded-full bg-emerald-400/10 blur-3xl"
+		>
+		</div>
+
+		<div class="mx-auto max-w-5xl px-6">
+			<div class="relative grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start">
+				<div class="motion-rise">
+					<p class="section-kicker text-emerald-300">Privacy Policy</p>
+					<h1 class="section-title mt-6 text-4xl font-semibold text-white md:text-6xl">
+						How Moveroo collects, uses and protects personal information
+					</h1>
+					<p class="mt-6 max-w-3xl text-base leading-relaxed text-slate-300 md:text-lg">
+						This policy explains what information Moveroo collects, how it is used, when it may be
+						disclosed and the steps we take to protect it in line with the <em
+							>Privacy Act 1988 (Cth)</em
+						>.
+					</p>
+					<p class="mt-4 text-sm leading-relaxed text-slate-400">
+						Last updated {
+							lastModified.toLocaleDateString("en-AU", {
+								day: "numeric",
+								month: "long",
+								year: "numeric",
+							})
+						}
+					</p>
+
+					<div class="motion-rise motion-rise-delay-1 mt-8 flex flex-wrap gap-3">
+						{
+							summarySignals.map((signal) => (
+								<span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium uppercase tracking-[0.22em] text-slate-200">
+									{signal}
+								</span>
+							))
+						}
+					</div>
+				</div>
+
+				<nav
+					aria-label="Privacy policy sections"
+					class="motion-rise motion-rise-delay-2 rounded-[1.75rem] border border-white/10 bg-white/8 p-5 text-sm shadow-[0_30px_80px_-40px_rgba(2,6,23,0.8)] backdrop-blur-sm"
+				>
+					<p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">
+						On this page
+					</p>
+					<ul class="mt-4 space-y-3">
+						{
+							jumpLinks.map((link) => (
+								<li>
+									<a href={`#${link.id}`} class="text-slate-200 transition hover:text-emerald-300">
+										{link.label}
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</nav>
+			</div>
 		</div>
 	</section>
 
-	<section class="bg-white py-20 dark:bg-slate-900">
-		<div class="mx-auto max-w-3xl space-y-12 px-6 text-slate-600 dark:text-slate-400">
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">
-					What information do we collect?
-				</h2>
-				<p>
-					We may request basic identifying details—such as your name, email address, phone number or
-					postal address—when you submit enquiries, request quotes or participate in promotions. We
-					do <strong>not</strong> seek sensitive information like your religious beliefs, health details,
-					or criminal history.
-				</p>
-				<p>
-					From time to time, we may run surveys or gather feedback to improve our services.
-					Participation is optional.
-				</p>
-			</section>
+	<section class="bg-slate-50 py-20 dark:bg-slate-950/40">
+		<div class="mx-auto max-w-5xl px-6">
+			<div class="grid gap-10 xl:grid-cols-[16rem_minmax(0,1fr)] xl:items-start">
+				<aside class="space-y-6 xl:sticky xl:top-28">
+					<div class="page-panel page-panel-soft p-6">
+						<p class="section-kicker">Important notice</p>
+						<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+							We only collect information that helps us provide quotes, coordinate bookings, support
+							customers and meet legal obligations.
+						</p>
+					</div>
 
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">
-					Cookies and website usage
-				</h2>
-				<p>
-					Moveroo uses cookies to remember preferences and streamline your browsing experience.
-					Cookies do not identify you personally but can make return visits more convenient. You can
-					disable cookies in your browser settings; however, this may limit certain website
-					features.
-				</p>
-			</section>
+					<div class="page-panel p-6">
+						<p
+							class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400"
+						>
+							Related pages
+						</p>
+						<div class="mt-4 flex flex-col gap-3 text-sm">
+							<a
+								class="text-slate-700 transition hover:text-emerald-800 dark:text-slate-200 dark:hover:text-emerald-300"
+								href="/terms-of-use/"
+							>
+								Website Terms of Use
+							</a>
+							<a
+								class="text-slate-700 transition hover:text-emerald-800 dark:text-slate-200 dark:hover:text-emerald-300"
+								href="/terms-and-conditions-transport/"
+							>
+								Transport Terms
+							</a>
+							<a
+								class="text-slate-700 transition hover:text-emerald-800 dark:text-slate-200 dark:hover:text-emerald-300"
+								href="/contact/"
+							>
+								Contact Team
+							</a>
+						</div>
+					</div>
+				</aside>
 
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">
-					Providing personal information
-				</h2>
-				<p>
-					Sharing your personal information with us is voluntary. When you do, you consent to
-					Moveroo collecting, storing and using it according to this policy. If you choose not to
-					provide requested details, we may be unable to deliver the full benefits of offers,
-					competitions or services.
-				</p>
-				<p>
-					If you no longer wish to receive marketing communications, you can unsubscribe by clicking
-					the link in the email or emailing
-					<a
-						class="text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
-						href="mailto:removals@moveroo.com.au">removals@moveroo.com.au</a
-					>. These requests are processed promptly.
-				</p>
-			</section>
+				<div class="space-y-8 text-slate-600 dark:text-slate-400">
+					<section id="collection" class="page-panel scroll-mt-32 p-6 md:p-8">
+						<p class="section-kicker">Section 1</p>
+						<h2 class="section-title mt-5 text-2xl font-semibold text-slate-900 dark:text-white">
+							What information do we collect?
+						</h2>
+						<div class="mt-6 space-y-4">
+							<p>
+								We may request personal details such as your name, email address, phone number,
+								postal address and booking-related information when you submit an enquiry, request a
+								quote, make a booking or contact our team.
+							</p>
+							<p>
+								We may also collect logistics details such as pickup and delivery locations, vehicle
+								details, access notes, inventory information and scheduling preferences where those
+								details are needed to provide our services.
+							</p>
+							<p>
+								From time to time we may invite you to complete surveys or provide feedback to help
+								improve our services. Participation is optional.
+							</p>
+						</div>
+					</section>
 
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">
-					How do we use and disclose information?
-				</h2>
-				<p>
-					Personal details you provide may include your full name, phone number, email address and
-					service location. We also collect logistical information such as pickup & delivery
-					addresses, vehicle details, access notes and scheduling preferences. Where relevant, we’ll
-					ask for payment details or authorisations to complete the service.
-				</p>
-				<ul class="ml-6 list-disc space-y-2">
-					<li>Support the functioning of the website or Moveroo business operations.</li>
-					<li>Provide marketing or special offers you have opted to receive.</li>
-					<li>Meet legal or regulatory obligations.</li>
-					<li>Act with your express consent.</li>
-				</ul>
-				<p>We never sell your personal information.</p>
-			</section>
+					<section id="cookies" class="page-panel scroll-mt-32 p-6 md:p-8">
+						<p class="section-kicker">Section 2</p>
+						<h2 class="section-title mt-5 text-2xl font-semibold text-slate-900 dark:text-white">
+							Cookies and website usage
+						</h2>
+						<div class="mt-6 space-y-4">
+							<p>
+								Moveroo uses cookies and similar tools to remember preferences, improve site
+								performance and understand how visitors use the website.
+							</p>
+							<p>
+								Cookies do not automatically identify you personally, but they may improve your
+								browsing experience and make return visits more convenient. You can disable cookies
+								in your browser settings, although some features may not work as intended.
+							</p>
+						</div>
+					</section>
 
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">
-					Security and retention
-				</h2>
-				<p>
-					We take reasonable steps to keep your personal information accurate, current and secure.
-					While no internet transmission can be guaranteed as risk-free, we actively monitor and
-					protect the systems that store your data. When personal information is no longer required,
-					we securely destroy or de-identify it unless the law requires us to retain it.
-				</p>
-			</section>
+					<section id="use" class="page-panel scroll-mt-32 p-6 md:p-8">
+						<p class="section-kicker">Section 3</p>
+						<h2 class="section-title mt-5 text-2xl font-semibold text-slate-900 dark:text-white">
+							How do we use and disclose information?
+						</h2>
+						<div class="mt-6 space-y-4">
+							<p>We may use personal information to:</p>
+							<ul class="grid gap-3 text-sm md:grid-cols-2">
+								<li
+									class="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 dark:border-slate-800 dark:bg-slate-950/40"
+								>
+									Support quote, booking and customer service processes.
+								</li>
+								<li
+									class="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 dark:border-slate-800 dark:bg-slate-950/40"
+								>
+									Coordinate logistics, scheduling and service delivery.
+								</li>
+								<li
+									class="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 dark:border-slate-800 dark:bg-slate-950/40"
+								>
+									Send service updates or marketing you have opted in to receive.
+								</li>
+								<li
+									class="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 dark:border-slate-800 dark:bg-slate-950/40"
+								>
+									Meet legal, compliance or regulatory obligations.
+								</li>
+							</ul>
+							<p>
+								Sharing personal information with us is voluntary, but if you choose not to provide
+								requested details we may be unable to deliver the full benefits of our services or
+								offers.
+							</p>
+							<p>We do not sell your personal information.</p>
+						</div>
+					</section>
 
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">
-					Access and corrections
-				</h2>
-				<p>
-					You may request access to the personal information we hold about you by emailing
-					<a
-						class="text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
-						href="mailto:removals@moveroo.com.au">removals@moveroo.com.au</a
-					>. If any details are inaccurate or incomplete, we will correct them promptly.
-				</p>
-				<p>
-					If you need to correct or update your information, contact
-					<a
-						class="text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
-						href="mailto:removals@moveroo.com.au">removals@moveroo.com.au</a
-					>. We'll respond quickly and confirm once updates are complete.
-				</p>
-			</section>
+					<section id="security" class="page-panel scroll-mt-32 p-6 md:p-8">
+						<p class="section-kicker">Section 4</p>
+						<h2 class="section-title mt-5 text-2xl font-semibold text-slate-900 dark:text-white">
+							Security and retention
+						</h2>
+						<div class="mt-6 space-y-4">
+							<p>
+								We take reasonable steps to keep personal information accurate, current and secure.
+								While no internet transmission can be guaranteed as completely risk-free, we use
+								reasonable safeguards to protect the systems that store your data.
+							</p>
+							<p>
+								When personal information is no longer required, we securely destroy or de-identify
+								it unless we are required by law to keep it for a longer period.
+							</p>
+						</div>
+					</section>
 
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">Unsubscribing</h2>
-				<p>
-					To opt out of promotional emails, send a message to
-					<a
-						class="text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
-						href="mailto:removals@moveroo.com.au">removals@moveroo.com.au</a
-					>
-					with "UNSUBSCRIBE" in the subject line.
-				</p>
-			</section>
+					<section id="access" class="page-panel scroll-mt-32 p-6 md:p-8">
+						<p class="section-kicker">Section 5</p>
+						<h2 class="section-title mt-5 text-2xl font-semibold text-slate-900 dark:text-white">
+							Access, corrections and unsubscribing
+						</h2>
+						<div class="mt-6 space-y-4">
+							<p>
+								You may request access to personal information we hold about you by emailing <a
+									class="text-emerald-700 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300"
+									href="mailto:removals@moveroo.com.au">removals@moveroo.com.au</a
+								>.
+							</p>
+							<p>
+								If any information we hold is inaccurate, incomplete or out of date, we will take
+								reasonable steps to correct it once notified.
+							</p>
+							<p>
+								If you no longer wish to receive marketing communications, you can unsubscribe using
+								the link in the email or contact us directly at the address above.
+							</p>
+						</div>
+					</section>
 
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">
-					Updates to this policy
-				</h2>
-				<p>
-					We may update this policy to reflect operational changes or regulatory updates. When
-					material changes occur, we’ll note the revision date on this page and communicate updates
-					through relevant channels. 14 days before taking effect, where practical. Continuing to
-					use the site after changes are published indicates acceptance of the updates.
-				</p>
-			</section>
+					<section class="page-panel scroll-mt-32 p-6 md:p-8" id="updates">
+						<p class="section-kicker">Section 6</p>
+						<h2 class="section-title mt-5 text-2xl font-semibold text-slate-900 dark:text-white">
+							Updates to this policy
+						</h2>
+						<div class="mt-6 space-y-4">
+							<p>
+								We may update this policy from time to time to reflect operational, legal or
+								regulatory changes. Where practical, significant changes will be communicated
+								through appropriate channels and the revision date on this page will be updated.
+							</p>
+						</div>
+					</section>
 
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">Contact</h2>
-				<p>
-					Questions about this Privacy Policy can be directed to <a
-						class="text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
-						href="mailto:removals@moveroo.com.au">removals@moveroo.com.au</a
-					>.
-				</p>
-				<p class="mt-6 text-base text-slate-600 dark:text-slate-400">
-					Moveroo collects personal information that helps us provide transport estimates,
-					coordinate logistics, comply with legal obligations and deliver services. We only request
-					what is necessary for your booking and we handle it in accordance with the <a
-						class="text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
-						href="https://www.legislation.gov.au/Details/C2020C00146"
-						rel="noopener noreferrer"
-						target="_blank">Privacy Act 1988 (Cth)</a
-					>.
-				</p>
-				<p>
-					To learn more about privacy rights in Australia, visit the
-					<a
-						class="text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
-						href="https://www.oaic.gov.au"
-						rel="noopener noreferrer"
-						target="_blank">Office of the Australian Information Commissioner</a
-					>.
-				</p>
-			</section>
+					<section class="page-panel scroll-mt-32 p-6 md:p-8" id="contact">
+						<p class="section-kicker">Section 7</p>
+						<h2 class="section-title mt-5 text-2xl font-semibold text-slate-900 dark:text-white">
+							Contact and further information
+						</h2>
+						<div class="mt-6 space-y-4">
+							<p>
+								Questions about this policy can be directed to <a
+									class="text-emerald-700 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300"
+									href="mailto:removals@moveroo.com.au">removals@moveroo.com.au</a
+								>.
+							</p>
+							<p>
+								To learn more about privacy rights in Australia, visit the <a
+									class="text-emerald-700 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300"
+									href="https://www.oaic.gov.au"
+									rel="noopener noreferrer"
+									target="_blank">Office of the Australian Information Commissioner</a
+								>.
+							</p>
+						</div>
+					</section>
+				</div>
+			</div>
 		</div>
 	</section>
 </Layout>

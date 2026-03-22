@@ -1,9 +1,24 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const lastModified = new Date("2026-01-10T00:00:00.000Z");
+const lastModified = new Date("2026-03-23T00:00:00.000Z");
 
-// FAQ data for schema markup
+const jumpLinks = [
+	{ id: "services", label: "Website availability" },
+	{ id: "conduct", label: "Prohibited conduct" },
+	{ id: "ip", label: "Intellectual property" },
+	{ id: "links", label: "Third-party sites" },
+	{ id: "liability", label: "Liability" },
+	{ id: "contact", label: "Contact" },
+];
+
+const summarySignals = [
+	"Use of moveroo.com.au",
+	"Content and IP rights",
+	"Third-party link limits",
+	"Queensland jurisdiction",
+];
+
 const faqItems = [
 	{
 		question: "What are the terms of use for the Moveroo website?",
@@ -55,125 +70,278 @@ const structuredData = {
 		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 	</Fragment>
 
-	<section class="page-hero page-hero--quiet">
-		<div class="mx-auto max-w-3xl px-6">
-			<p
-				class="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-700 dark:text-emerald-400"
-			>
-				Terms of Use
-			</p>
-			<h1 class="mt-6 text-4xl font-semibold text-slate-900 dark:text-white">
-				Using the Moveroo website
-			</h1>
-			<p class="mt-6 text-base text-slate-600 dark:text-slate-400">
-				These Terms govern your access to moveroo.com.au and outline the rights, responsibilities
-				and limitations that apply when you use our services. By continuing to browse or interact
-				with the site, you agree to abide by these conditions.
-			</p>
+	<section class="relative overflow-hidden bg-slate-950 py-24 text-white md:py-28">
+		<div
+			class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.22),_transparent_26%),linear-gradient(135deg,_#052e2b_0%,_#0f172a_48%,_#0f172a_100%)]"
+		>
+		</div>
+		<div class="route-grid absolute inset-0 opacity-25"></div>
+		<div
+			class="motion-drift absolute right-[-9rem] top-[-7rem] h-[20rem] w-[20rem] rounded-full bg-emerald-400/10 blur-3xl"
+		>
+		</div>
+
+		<div class="mx-auto max-w-5xl px-6">
+			<div class="relative grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start">
+				<div class="motion-rise">
+					<p class="section-kicker text-emerald-300">Terms of Use</p>
+					<h1 class="section-title mt-6 text-4xl font-semibold text-white md:text-6xl">
+						Conditions that apply when using the Moveroo website
+					</h1>
+					<p class="mt-6 max-w-3xl text-base leading-relaxed text-slate-300 md:text-lg">
+						These terms govern your access to moveroo.com.au and explain the rights,
+						responsibilities and limitations that apply when you browse, enquire or interact with
+						the site.
+					</p>
+					<p class="mt-4 text-sm leading-relaxed text-slate-400">
+						Last updated {
+							lastModified.toLocaleDateString("en-AU", {
+								day: "numeric",
+								month: "long",
+								year: "numeric",
+							})
+						}
+					</p>
+
+					<div class="motion-rise motion-rise-delay-1 mt-8 flex flex-wrap gap-3">
+						{
+							summarySignals.map((signal) => (
+								<span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium uppercase tracking-[0.22em] text-slate-200">
+									{signal}
+								</span>
+							))
+						}
+					</div>
+				</div>
+
+				<nav
+					aria-label="Terms of use sections"
+					class="motion-rise motion-rise-delay-2 rounded-[1.75rem] border border-white/10 bg-white/8 p-5 text-sm shadow-[0_30px_80px_-40px_rgba(2,6,23,0.8)] backdrop-blur-sm"
+				>
+					<p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">
+						On this page
+					</p>
+					<ul class="mt-4 space-y-3">
+						{
+							jumpLinks.map((link) => (
+								<li>
+									<a href={`#${link.id}`} class="text-slate-200 transition hover:text-emerald-300">
+										{link.label}
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</nav>
+			</div>
 		</div>
 	</section>
 
-	<section class="bg-white py-20 dark:bg-slate-900">
-		<div class="mx-auto max-w-3xl space-y-12 px-6 text-slate-600 dark:text-slate-400">
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900 dark:text-white">
-					How do our services work?
-				</h2>
-				<p>
-					We work to ensure the website runs smoothly; however, temporary interruptions or changes
-					to features may occur without notice. At times we may modify or discontinue portions of
-					the site. We are not liable for any downtime or delays outside our control.
-				</p>
-			</section>
+	<section class="bg-slate-50 py-20 dark:bg-slate-950/40">
+		<div class="mx-auto max-w-5xl px-6">
+			<div class="grid gap-10 xl:grid-cols-[16rem_minmax(0,1fr)] xl:items-start">
+				<aside class="space-y-6 xl:sticky xl:top-28">
+					<div class="page-panel page-panel-soft p-6">
+						<p class="section-kicker">Important notice</p>
+						<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+							Use of the website is subject to these terms, plus any service-specific terms that may
+							apply once you request a quote or make a booking.
+						</p>
+					</div>
 
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900">What conduct is prohibited?</h2>
-				<p>Avoid activities that:</p>
-				<ul class="ml-6 list-disc space-y-2">
-					<li>Break laws or infringe on third-party rights.</li>
-					<li>Harass, defame or interfere with other users.</li>
-					<li>Send unsolicited communications or attempt to disrupt the site.</li>
-					<li>Introduce viruses, malicious code or assist others in doing so.</li>
-				</ul>
-			</section>
+					<div class="page-panel p-6">
+						<p
+							class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400"
+						>
+							Related pages
+						</p>
+						<div class="mt-4 flex flex-col gap-3 text-sm">
+							<a
+								class="text-slate-700 transition hover:text-emerald-800 dark:text-slate-200 dark:hover:text-emerald-300"
+								href="/privacy-policy/"
+							>
+								Privacy Policy
+							</a>
+							<a
+								class="text-slate-700 transition hover:text-emerald-800 dark:text-slate-200 dark:hover:text-emerald-300"
+								href="/terms-and-conditions-transport/"
+							>
+								Transport Terms
+							</a>
+							<a
+								class="text-slate-700 transition hover:text-emerald-800 dark:text-slate-200 dark:hover:text-emerald-300"
+								href="/contact/"
+							>
+								Contact Team
+							</a>
+						</div>
+					</div>
+				</aside>
 
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900">Intellectual property</h2>
-				<p>
-					All site content—including design, text, images and logos—is owned or licensed by Moveroo.
-					You may view or temporarily print content for personal reference only. Reproducing,
-					modifying, framing or redistributing materials for commercial purposes is not permitted
-					without written approval.
-				</p>
-			</section>
+				<div class="space-y-8 text-slate-600 dark:text-slate-400">
+					<section id="services" class="page-panel scroll-mt-32 p-6 md:p-8">
+						<p class="section-kicker">Section 1</p>
+						<h2 class="section-title mt-5 text-2xl font-semibold text-slate-900 dark:text-white">
+							Website availability and service changes
+						</h2>
+						<div class="mt-6 space-y-4">
+							<p>
+								We aim to keep moveroo.com.au operating smoothly, but temporary interruptions,
+								maintenance, outages or feature changes may occur without notice.
+							</p>
+							<p>
+								We may update, suspend or discontinue parts of the website at any time. To the
+								maximum extent permitted by law, we are not liable for downtime or delays outside
+								our control.
+							</p>
+						</div>
+					</section>
 
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900">Third-party websites</h2>
-				<p>
-					We occasionally link to external websites for convenience. Moveroo does not control these
-					third-party sites and is not responsible for their content, policies or availability. You
-					interact with linked sites at your own risk.
-				</p>
-			</section>
+					<section id="conduct" class="page-panel scroll-mt-32 p-6 md:p-8">
+						<p class="section-kicker">Section 2</p>
+						<h2 class="section-title mt-5 text-2xl font-semibold text-slate-900 dark:text-white">
+							Prohibited conduct
+						</h2>
+						<div class="mt-6 space-y-4">
+							<p>You must not use the website in a way that:</p>
+							<ul class="grid gap-3 text-sm md:grid-cols-2">
+								<li
+									class="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 dark:border-slate-800 dark:bg-slate-950/40"
+								>
+									Breaks the law or infringes the rights of others.
+								</li>
+								<li
+									class="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 dark:border-slate-800 dark:bg-slate-950/40"
+								>
+									Harasses, defames or interferes with other users or our business.
+								</li>
+								<li
+									class="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 dark:border-slate-800 dark:bg-slate-950/40"
+								>
+									Sends unsolicited communications or attempts to disrupt the site.
+								</li>
+								<li
+									class="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 dark:border-slate-800 dark:bg-slate-950/40"
+								>
+									Introduces malicious code, viruses or similar harmful material.
+								</li>
+							</ul>
+						</div>
+					</section>
 
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900">Indemnity</h2>
-				<p>
-					You agree to indemnify and hold Moveroo harmless from any claims, costs or liabilities
-					resulting from your misuse of the site or breach of these Terms.
-				</p>
-			</section>
+					<section id="ip" class="page-panel scroll-mt-32 p-6 md:p-8">
+						<p class="section-kicker">Section 3</p>
+						<h2 class="section-title mt-5 text-2xl font-semibold text-slate-900 dark:text-white">
+							Intellectual property
+						</h2>
+						<div class="mt-6 space-y-4">
+							<p>
+								All content on the website, including design, copy, images, logos and layout, is
+								owned by or licensed to Moveroo unless stated otherwise.
+							</p>
+							<p>
+								You may view or temporarily print material for personal reference only. You must not
+								reproduce, modify, frame, republish or distribute site content for commercial
+								purposes without written approval.
+							</p>
+						</div>
+					</section>
 
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900">Disclaimer & limitation of liability</h2>
-				<p>
-					We provide the site “as is” and do not warrant uninterrupted access or absence of errors.
-					To the maximum extent allowed by law, Moveroo disclaims responsibility for any loss
-					arising from site usage. Where guarantees cannot be excluded, our liability is limited to
-					resupply of services or reimbursement of their cost.
-				</p>
-			</section>
+					<section id="links" class="page-panel scroll-mt-32 p-6 md:p-8">
+						<p class="section-kicker">Section 4</p>
+						<h2 class="section-title mt-5 text-2xl font-semibold text-slate-900 dark:text-white">
+							Third-party websites and content
+						</h2>
+						<div class="mt-6 space-y-4">
+							<p>
+								The website may include links to external sites for convenience. Moveroo does not
+								control those sites and is not responsible for their content, policies, availability
+								or security.
+							</p>
+							<p>You access third-party websites at your own risk.</p>
+						</div>
+					</section>
 
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900">Privacy</h2>
-				<p>
-					Your use of the site is also governed by the <a
-						class="text-emerald-600 hover:text-emerald-700"
-						href="/privacy-policy/">Privacy Policy</a
-					>, which explains how we collect and manage personal information.
-				</p>
-			</section>
+					<section id="indemnity" class="page-panel scroll-mt-32 p-6 md:p-8">
+						<p class="section-kicker">Section 5</p>
+						<h2 class="section-title mt-5 text-2xl font-semibold text-slate-900 dark:text-white">
+							Indemnity
+						</h2>
+						<p class="mt-6">
+							You agree to indemnify and hold Moveroo harmless against claims, costs, losses or
+							liabilities arising from your misuse of the website or breach of these terms, to the
+							extent permitted by law.
+						</p>
+					</section>
 
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900">Termination</h2>
-				<p>
-					Moveroo may suspend or terminate access to the site at any time. Even after termination,
-					provisions relating to intellectual property, liability and indemnity remain in effect.
-				</p>
-			</section>
+					<section id="liability" class="page-panel scroll-mt-32 p-6 md:p-8">
+						<p class="section-kicker">Section 6</p>
+						<h2 class="section-title mt-5 text-2xl font-semibold text-slate-900 dark:text-white">
+							Disclaimer and limitation of liability
+						</h2>
+						<div class="mt-6 space-y-4">
+							<p>
+								The website is provided on an "as is" basis. We do not guarantee uninterrupted
+								access, error-free performance or that all content is always current or complete.
+							</p>
+							<p>
+								To the maximum extent allowed by law, Moveroo disclaims liability for loss arising
+								from your use of the website. Where statutory guarantees cannot be excluded, our
+								liability is limited to resupply of the services or reimbursement of the cost of
+								resupply.
+							</p>
+						</div>
+					</section>
 
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900">Miscellaneous</h2>
-				<p>
-					If any clause of these Terms is deemed unenforceable, the remaining clauses stay in
-					effect. Our decision not to act on a breach does not waive our right to enforce these
-					Terms in the future.
-				</p>
-				<p>
-					These Terms are governed by the laws of Queensland, Australia, and disputes are subject to
-					the non-exclusive jurisdiction of Queensland courts.
-				</p>
-			</section>
+					<section id="privacy" class="page-panel scroll-mt-32 p-6 md:p-8">
+						<p class="section-kicker">Section 7</p>
+						<h2 class="section-title mt-5 text-2xl font-semibold text-slate-900 dark:text-white">
+							Privacy
+						</h2>
+						<p class="mt-6">
+							Your use of the site is also governed by our <a
+								class="text-emerald-700 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300"
+								href="/privacy-policy/">privacy policy</a
+							>, which explains how we collect and manage personal information.
+						</p>
+					</section>
 
-			<section class="space-y-4">
-				<h2 class="text-2xl font-semibold text-slate-900">Contact</h2>
-				<p>
-					Questions can be directed to <a
-						class="text-emerald-600 hover:text-emerald-700"
-						href="mailto:removals@moveroo.com.au">removals@moveroo.com.au</a
-					>.
-				</p>
-			</section>
+					<section id="termination" class="page-panel scroll-mt-32 p-6 md:p-8">
+						<p class="section-kicker">Section 8</p>
+						<h2 class="section-title mt-5 text-2xl font-semibold text-slate-900 dark:text-white">
+							Termination and general matters
+						</h2>
+						<div class="mt-6 space-y-4">
+							<p>
+								Moveroo may suspend or terminate access to the website at any time. Provisions
+								relating to intellectual property, liability and indemnity continue to apply after
+								termination where relevant.
+							</p>
+							<p>
+								If any clause of these terms is unenforceable, the remaining clauses continue in
+								effect. A delay in enforcing a right does not waive that right.
+							</p>
+							<p>
+								These terms are governed by the laws of Queensland, Australia, and disputes are
+								subject to the non-exclusive jurisdiction of Queensland courts.
+							</p>
+						</div>
+					</section>
+
+					<section id="contact" class="page-panel scroll-mt-32 p-6 md:p-8">
+						<p class="section-kicker">Section 9</p>
+						<h2 class="section-title mt-5 text-2xl font-semibold text-slate-900 dark:text-white">
+							Contact
+						</h2>
+						<p class="mt-6">
+							Questions about these terms can be directed to <a
+								class="text-emerald-700 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300"
+								href="mailto:removals@moveroo.com.au">removals@moveroo.com.au</a
+							>.
+						</p>
+					</section>
+				</div>
+			</div>
 		</div>
 	</section>
 </Layout>
