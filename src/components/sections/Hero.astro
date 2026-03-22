@@ -1,64 +1,149 @@
 ---
 const primaryCta = {
-  label: 'Request a callback',
-  href: '/contact/#contact-form'
+	label: "Request a callback",
+	href: "/contact/#contact-form",
 };
 
 const secondaryCta = {
-  label: 'Explore moving services',
-  href: '/services/'
+	label: "Explore moving services",
+	href: "/services/",
 };
+
+const serviceLanes = [
+	{
+		label: "Households",
+		route: "Metro moves to interstate relocations",
+	},
+	{
+		label: "Vehicles",
+		route: "Cars, motorcycles, classics and fleet transfers",
+	},
+	{
+		label: "Specialist freight",
+		route: "Storage, oversized items and fragile collections",
+	},
+];
+
+const trustSignals = [
+	"Australia-wide coverage",
+	"Coordinated move support",
+	"Clear quote pathways",
+];
 ---
 
-<section class="relative overflow-hidden bg-gradient-to-br from-emerald-50 via-emerald-100 to-white py-24 dark:from-slate-900 dark:via-slate-800 dark:to-emerald-900/20">
-  <div class="pointer-events-none absolute inset-0">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(16,185,129,0.12),_transparent_55%)] dark:bg-[radial-gradient(circle_at_top_right,_rgba(16,185,129,0.15),_transparent_55%)]" aria-hidden="true"></div>
-  </div>
+<section class="relative overflow-hidden bg-slate-950 py-24 text-white md:py-32">
+	<div
+		class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.28),_transparent_30%),linear-gradient(135deg,_#042f2e_0%,_#0f172a_44%,_#0f172a_100%)]"
+	>
+	</div>
+	<div class="route-grid absolute inset-0 opacity-30"></div>
+	<div
+		class="motion-drift absolute right-[-10rem] top-[-7rem] h-[24rem] w-[24rem] rounded-full bg-emerald-400/10 blur-3xl"
+	>
+	</div>
+	<div
+		class="absolute bottom-[-12rem] left-[-8rem] h-[26rem] w-[26rem] rounded-full bg-emerald-300/10 blur-3xl"
+	>
+	</div>
 
-  <div class="relative mx-auto flex max-w-6xl flex-col gap-12 px-6 md:flex-row md:items-center">
-    <div class="max-w-xl">
-      <p class="text-sm font-semibold uppercase tracking-[0.4em] text-emerald-700 dark:text-emerald-400">Moveroo</p>
-      <h1 class="mt-6 text-4xl font-semibold leading-tight text-slate-900 dark:text-white md:text-5xl">
-        We match every move with the right removalists across Australia
-      </h1>
-      <p class="mt-6 text-lg text-slate-600 dark:text-slate-300">
-        Tell us about your relocation and we'll shortlist trusted removalists, vehicle carriers and storage partners tailored to your timelines, inventory and budget.
-      </p>
-      <div class="mt-10 flex flex-wrap gap-4">
-        <a
-          class="inline-flex items-center justify-center rounded-full bg-emerald-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-700/40 transition hover:bg-emerald-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 dark:bg-emerald-600 dark:shadow-emerald-600/30 dark:hover:bg-emerald-500 dark:focus-visible:outline-emerald-500"
-          href={primaryCta.href}
-        >
-          {primaryCta.label}
-        </a>
-        <a
-          class="rounded-full border border-emerald-500 px-6 py-3 text-sm font-semibold text-emerald-700 transition hover:border-emerald-600 hover:text-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700 dark:border-emerald-500/50 dark:text-emerald-400 dark:hover:border-emerald-400 dark:hover:bg-emerald-500/10 dark:hover:text-emerald-300 dark:focus-visible:outline-emerald-400"
-          href={secondaryCta.href}
-        >
-          {secondaryCta.label}
-        </a>
-      </div>
-      <div class="mt-12 flex flex-wrap items-center gap-6 text-xs uppercase tracking-[0.35em] text-slate-500 dark:text-slate-400">
-        <span class="text-slate-700 dark:text-slate-300">Trusted by families, fleet managers &amp; small businesses nationwide</span>
-      </div>
-    </div>
+	<div class="relative mx-auto max-w-6xl px-6">
+		<div class="grid gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(22rem,0.95fr)] lg:items-center">
+			<div class="motion-rise">
+				<p class="section-kicker">Moveroo Australia</p>
+				<h1
+					class="section-title mt-6 max-w-3xl text-5xl font-semibold leading-[0.95] text-balance md:text-7xl"
+				>
+					One coordinated move for homes, vehicles and everything in between.
+				</h1>
+				<p class="mt-7 max-w-2xl text-lg leading-relaxed text-slate-300 md:text-xl">
+					Moveroo helps you line up the right removalists, transport partners and support team
+					without stitching the whole plan together yourself. One brief. One timeline. One calmer
+					move across Australia.
+				</p>
 
-    <div class="flex-1 space-y-6 rounded-2xl border border-slate-200 bg-white p-8 shadow-xl shadow-slate-200/50 dark:border-slate-800 dark:bg-slate-800/50 dark:shadow-black/20">
-      <h2 class="text-lg font-semibold text-slate-900 dark:text-white">What we handle</h2>
-      <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400">
-        <li class="flex items-start gap-3">
-          <span class="mt-1 h-2 w-2 rounded-full bg-emerald-500 dark:bg-emerald-400" aria-hidden="true"></span>
-          <span>Household removals with packing, storage and staged delivery options.</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="mt-1 h-2 w-2 rounded-full bg-emerald-500 dark:bg-emerald-400" aria-hidden="true"></span>
-          <span>Specialty transport for vehicles, oversized items and fragile collections.</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="mt-1 h-2 w-2 rounded-full bg-emerald-500 dark:bg-emerald-400" aria-hidden="true"></span>
-          <span>Coordinated support for corporate relocations and repeat move programs.</span>
-        </li>
-      </ul>
-    </div>
-  </div>
+				<div class="motion-rise motion-rise-delay-1 mt-10 flex flex-wrap gap-4">
+					<a
+						class="inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-950/30 transition hover:bg-emerald-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
+						href={primaryCta.href}
+					>
+						{primaryCta.label}
+					</a>
+					<a
+						class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-emerald-300 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
+						href={secondaryCta.href}
+					>
+						{secondaryCta.label}
+					</a>
+				</div>
+
+				<ul class="motion-rise motion-rise-delay-2 mt-12 flex flex-wrap gap-3">
+					{
+						trustSignals.map((signal) => (
+							<li class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium uppercase tracking-[0.24em] text-slate-200">
+								{signal}
+							</li>
+						))
+					}
+				</ul>
+			</div>
+
+			<div class="motion-rise motion-rise-delay-2">
+				<div
+					class="overflow-hidden rounded-[2rem] border border-white/10 bg-white/6 shadow-[0_30px_80px_-40px_rgba(15,23,42,0.9)] backdrop-blur-sm"
+				>
+					<div class="border-b border-white/10 px-6 py-5 md:px-8">
+						<div class="flex items-center justify-between gap-4">
+							<div>
+								<p class="section-kicker text-emerald-300">National move board</p>
+								<p class="mt-2 text-sm text-slate-300">
+									A clearer way to see the services Moveroo keeps aligned.
+								</p>
+							</div>
+							<div class="text-right">
+								<p class="text-xs uppercase tracking-[0.26em] text-slate-400">Coverage</p>
+								<p class="mt-1 text-lg font-semibold text-white">Australia-wide</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="route-grid px-6 py-6 md:px-8 md:py-8">
+						<div class="grid gap-5">
+							{
+								serviceLanes.map((lane, index) => (
+									<article class="grid gap-3 border-b border-white/10 pb-5 last:border-b-0 last:pb-0 md:grid-cols-[8rem_1fr] md:items-start">
+										<div class="flex items-center gap-3">
+											<span class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-emerald-400/40 bg-emerald-400/10 text-sm font-semibold text-emerald-200">
+												0{index + 1}
+											</span>
+											<p class="text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">
+												{lane.label}
+											</p>
+										</div>
+										<p class="text-base leading-relaxed text-slate-100 md:pt-1">{lane.route}</p>
+									</article>
+								))
+							}
+						</div>
+					</div>
+
+					<div
+						class="grid gap-6 border-t border-white/10 bg-slate-950/30 px-6 py-5 md:grid-cols-3 md:px-8"
+					>
+						<div>
+							<p class="text-xs uppercase tracking-[0.22em] text-slate-400">Response window</p>
+							<p class="mt-2 text-xl font-semibold text-white">Within 24 hrs</p>
+						</div>
+						<div>
+							<p class="text-xs uppercase tracking-[0.22em] text-slate-400">Move types</p>
+							<p class="mt-2 text-xl font-semibold text-white">Local to interstate</p>
+						</div>
+						<div>
+							<p class="text-xs uppercase tracking-[0.22em] text-slate-400">Support model</p>
+							<p class="mt-2 text-xl font-semibold text-white">One coordination team</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>

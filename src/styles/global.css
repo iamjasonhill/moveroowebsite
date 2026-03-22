@@ -136,4 +136,84 @@
 		background: var(--site-bg-panel-soft);
 		box-shadow: var(--site-shadow-lift);
 	}
+
+	.section-kicker {
+		font-size: 0.76rem;
+		font-weight: 700;
+		letter-spacing: 0.32em;
+		text-transform: uppercase;
+		color: var(--site-brand);
+	}
+
+	.section-title {
+		letter-spacing: -0.04em;
+		text-wrap: balance;
+	}
+
+	.route-grid {
+		background-image:
+			linear-gradient(rgba(148, 163, 184, 0.14) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(148, 163, 184, 0.14) 1px, transparent 1px);
+		background-position: center;
+		background-size: 32px 32px;
+	}
+
+	.motion-rise {
+		animation: motion-rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+	}
+
+	.motion-rise-delay-1 {
+		animation-delay: 0.08s;
+	}
+
+	.motion-rise-delay-2 {
+		animation-delay: 0.16s;
+	}
+
+	.motion-rise-delay-3 {
+		animation-delay: 0.24s;
+	}
+
+	.motion-drift {
+		animation: motion-drift 14s ease-in-out infinite;
+	}
+}
+
+@layer utilities {
+	.text-balance {
+		text-wrap: balance;
+	}
+}
+
+@keyframes motion-rise {
+	from {
+		opacity: 0;
+		transform: translateY(22px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes motion-drift {
+	0%,
+	100% {
+		transform: translate3d(0, 0, 0);
+	}
+
+	50% {
+		transform: translate3d(0, -10px, 0);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.motion-rise,
+	.motion-rise-delay-1,
+	.motion-rise-delay-2,
+	.motion-rise-delay-3,
+	.motion-drift {
+		animation: none !important;
+	}
 }

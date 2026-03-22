@@ -8,49 +8,51 @@ interface Props {
 	ctaSecondaryHref?: string;
 }
 
-const {
-	title,
-	subtitle,
-	ctaPrimaryLabel,
-	ctaPrimaryHref,
-	ctaSecondaryLabel,
-	ctaSecondaryHref,
-} = Astro.props as Props;
+const { title, subtitle, ctaPrimaryLabel, ctaPrimaryHref, ctaSecondaryLabel, ctaSecondaryHref } =
+	Astro.props as Props;
 ---
 
 <section class="bg-white py-20 dark:bg-slate-900">
-	<div
-		class="mx-auto flex max-w-6xl flex-col gap-10 rounded-2xl border border-slate-200 bg-gradient-to-br from-emerald-50 via-white to-emerald-100/60 px-6 py-12 text-center shadow-xl shadow-emerald-200/60 dark:border-slate-800 dark:from-slate-800/50 dark:via-slate-900 dark:to-emerald-900/20 dark:shadow-black/40 md:flex-row md:items-center md:text-left"
-	>
-		<div class="flex-1 space-y-4">
-			<h2 class="text-3xl font-semibold text-slate-900 dark:text-white">{title}</h2>
-			<p class="text-base text-slate-600 dark:text-slate-400">{subtitle}</p>
-		</div>
-		<div class="flex flex-1 flex-col gap-4 md:items-end">
-			<a
-				class="inline-flex items-center justify-center rounded-full bg-emerald-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-700/30 transition hover:bg-emerald-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 dark:bg-emerald-600 dark:shadow-emerald-600/30 dark:hover:bg-emerald-500 dark:focus-visible:outline-emerald-500"
-				href={ctaPrimaryHref}
-				aria-label={`${ctaPrimaryLabel} (opens in a new tab)`}
+	<div class="mx-auto max-w-6xl px-6">
+		<div
+			class="motion-rise overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-950 text-white shadow-[0_28px_90px_-48px_rgba(15,23,42,0.7)] dark:border-slate-800"
+		>
+			<div
+				class="bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.28),_transparent_26%),linear-gradient(135deg,_#052e2b_0%,_#0f172a_44%,_#111827_100%)] px-6 py-10 md:px-8 md:py-12"
 			>
-				{ctaPrimaryLabel}
-			</a>
-			{
-				ctaSecondaryLabel && ctaSecondaryHref && (
-					<a
-						class="inline-flex items-center justify-center rounded-full border border-emerald-500 px-6 py-3 text-sm font-semibold text-emerald-700 transition hover:border-emerald-600 hover:bg-emerald-50 hover:text-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700 dark:border-emerald-500/50 dark:text-emerald-400 dark:hover:border-emerald-400 dark:hover:bg-emerald-500/10 dark:hover:text-emerald-300 dark:focus-visible:outline-emerald-400"
-						href={ctaSecondaryHref}
-						rel="noopener noreferrer"
-						target={
-							ctaSecondaryHref.startsWith("http")
-								? "_blank"
-								: undefined
+				<div class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+					<div class="max-w-2xl">
+						<p class="section-kicker text-emerald-300">Next step</p>
+						<h2 class="section-title mt-5 text-4xl font-semibold text-white md:text-5xl">
+							{title}
+						</h2>
+						<p class="mt-5 text-base leading-relaxed text-slate-300 md:text-lg">{subtitle}</p>
+					</div>
+
+					<div class="motion-rise motion-rise-delay-1 flex flex-col gap-4 lg:items-end">
+						<a
+							class="inline-flex items-center justify-center rounded-full bg-emerald-400 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-950/30 transition hover:bg-emerald-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
+							href={ctaPrimaryHref}
+							target={ctaPrimaryHref.startsWith("http") ? "_blank" : undefined}
+							rel={ctaPrimaryHref.startsWith("http") ? "noopener noreferrer" : undefined}
+						>
+							{ctaPrimaryLabel}
+						</a>
+						{
+							ctaSecondaryLabel && ctaSecondaryHref && (
+								<a
+									class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-emerald-300 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
+									href={ctaSecondaryHref}
+									rel={ctaSecondaryHref.startsWith("http") ? "noopener noreferrer" : undefined}
+									target={ctaSecondaryHref.startsWith("http") ? "_blank" : undefined}
+								>
+									{ctaSecondaryLabel}
+								</a>
+							)
 						}
-						aria-label={ctaSecondaryLabel}
-					>
-						{ctaSecondaryLabel}
-					</a>
-				)
-			}
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>
