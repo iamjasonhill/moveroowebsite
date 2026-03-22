@@ -1,43 +1,113 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import QuoteCta from "../components/sections/QuoteCta.astro";
 
 const lastModified = new Date("2026-01-10T00:00:00.000Z");
 
-// FAQ data for schema markup
+const serviceSignals = [
+	"Household relocations",
+	"Vehicle transport",
+	"Storage and specialty freight",
+	"Australia-wide coordination",
+];
+
+const serviceTracks = [
+	{
+		eyebrow: "01 Household moves",
+		title: "Home relocations shaped around access, timing and inventory.",
+		description:
+			"Moveroo coordinates local, regional and interstate household moves with the right removalist crews, route plan and communication rhythm for the job.",
+		highlights: [
+			"Apartments, family homes and interstate relocations",
+			"Backloading or dedicated move pathways",
+			"Inventory planning, loading access and timeline support",
+		],
+		ctaLabel: "Request a household quote",
+		href: "https://removalists.moveroo.com.au/quote/household",
+		external: true,
+	},
+	{
+		eyebrow: "02 Vehicle transport",
+		title: "Cars, motorcycles and fleet vehicles moved inside the same plan.",
+		description:
+			"Our Moving Cars operation now sits within Moveroo, giving you one coordination layer for household inventory, vehicle transport and milestone updates.",
+		highlights: [
+			"Door-to-door transport for running and non-running vehicles",
+			"Dealer, auction, relocation and fleet movement support",
+			"Condition reporting, insurance options and national carrier coverage",
+		],
+		ctaLabel: "Request a vehicle quote",
+		href: "https://cars.moveroo.com.au/quote/v2",
+		external: true,
+	},
+	{
+		eyebrow: "03 Added complexity",
+		title: "Storage, specialist freight and fragile handling kept in one brief.",
+		description:
+			"When the move includes boats, caravans, trailers, oversized freight, storage or delicate items, Moveroo builds those requirements into the same delivery plan.",
+		highlights: [
+			"Boats, caravans, trailers and industrial machinery",
+			"Storage links, permit-sensitive routes and specialist handling",
+			"Fragile, bulky or high-attention inventory support",
+		],
+		ctaLabel: "See supported services",
+		href: "/moving-cars/",
+		external: false,
+	},
+];
+
+const serviceUseCases = [
+	{
+		label: "One move, multiple categories",
+		text: "Best when the job spans home contents, vehicles and added logistics instead of just one isolated transport task.",
+	},
+	{
+		label: "Interstate timing pressure",
+		text: "Useful when pickup windows, delivery dates and route handoffs need to stay visible and coordinated.",
+	},
+	{
+		label: "Regional or complex access",
+		text: "Helpful when access, staging, non-running vehicles or storage requirements make provider matching more important.",
+	},
+	{
+		label: "Need for calmer communication",
+		text: "Ideal when you want one team to keep the quote path, booking milestones and support updates clearer from the start.",
+	},
+];
+
 const faqItems = [
 	{
 		question: "What services does Moveroo offer?",
 		answer:
-			"Moveroo works with trusted carriers, removalists and logistics experts across Australia. We help with home moves, vehicle transport (cars, motorcycles, specialty vehicles), and custom transport plans for boats, caravans, trailers, and industrial machinery.",
+			"Moveroo works with trusted carriers, removalists and logistics experts across Australia. We help with home moves, vehicle transport, and custom transport plans for boats, caravans, trailers and industrial machinery.",
 	},
 	{
 		question: "How does the Moveroo moving process work?",
 		answer:
-			"Our process has three stages: Discovery (coordinators capture timelines, inventory, and requirements), Tailored Plan (we find the right partners and provide clear quotes), and Managed Delivery (status updates at each milestone with proactive support).",
+			"Our process has three stages: Discovery (coordinators capture timelines, inventory and requirements), Tailored Plan (we find the right partners and provide clear quotes), and Managed Delivery (status updates at each milestone with proactive support).",
 	},
 	{
 		question: "How much does moving cost?",
 		answer:
-			"Moving costs vary based on distance, volume, and service type. We provide free quotes tailored to your specific needs. Contact us for a detailed estimate.",
+			"Moving costs vary based on distance, volume and service type. We provide free quotes tailored to your route, timing and service mix, so the final price reflects the actual job rather than a generic estimate.",
 	},
 	{
 		question: "How far in advance should I book?",
 		answer:
-			"We recommend booking 2-4 weeks in advance for best availability. However, we can often accommodate shorter timelines depending on your route and dates.",
+			"We recommend booking 2-4 weeks in advance for best availability. Shorter timelines can often still be accommodated, especially when route flexibility or staged planning is possible.",
 	},
 	{
 		question: "Do you provide insurance coverage?",
 		answer:
-			"Yes, we coordinate insurance coverage for all moves. Our partners provide comprehensive insurance options to protect your belongings during transport.",
+			"Yes, we coordinate insurance coverage options for moves and vehicle transport. The exact cover depends on the service mix and the partners matched to your job.",
 	},
 	{
 		question: "What areas do you service?",
 		answer:
-			"We service all of Australia, including major cities and regional areas. Our network of trusted carriers covers the entire country.",
+			"We service all of Australia, including major cities and regional areas. Our partner network supports local, regional and interstate transport nationwide.",
 	},
 ];
 
-// HowTo schema for the 3-step process
 const howToSteps = [
 	{
 		name: "Discovery",
@@ -108,384 +178,349 @@ const structuredData = {
 		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 	</Fragment>
 
-	<section class="page-hero page-hero--brand">
-		<div class="mx-auto max-w-4xl px-6 text-center">
-			<p
-				class="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-700 dark:text-emerald-400"
-			>
-				Services
-			</p>
-			<h1 class="mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl">
-				Comprehensive solutions for every move
-			</h1>
-			<p class="mt-6 text-lg text-slate-600 dark:text-slate-300">
-				Moveroo coordinates trusted carriers, removalists and logistics specialists across
-				Australia. Whether you’re relocating a family home, moving vehicles, or need a customised
-				transport plan, we tailor the service mix, schedule and communications around your needs.
-			</p>
-			<p class="mt-4 text-sm text-slate-500 dark:text-slate-400">
-				Published by{" "}
-				<a
-					href="https://moveroo.com.au/"
-					class="font-semibold text-emerald-700 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300"
-				>
-					Moveroo Editorial Team
-				</a>
-				{" "}on{" "}
-				{
-					lastModified.toLocaleDateString("en-AU", {
-						year: "numeric",
-						month: "long",
-						day: "numeric",
-					})
-				}
-			</p>
+	<section class="relative overflow-hidden bg-slate-950 py-24 text-white md:py-32">
+		<div
+			class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.26),_transparent_30%),linear-gradient(135deg,_#052e2b_0%,_#0f172a_46%,_#0f172a_100%)]"
+		>
 		</div>
-	</section>
+		<div class="route-grid absolute inset-0 opacity-30"></div>
+		<div
+			class="motion-drift absolute right-[-10rem] top-[-8rem] h-[22rem] w-[22rem] rounded-full bg-emerald-300/10 blur-3xl"
+		>
+		</div>
+		<div
+			class="absolute bottom-[-10rem] left-[-10rem] h-[24rem] w-[24rem] rounded-full bg-emerald-500/10 blur-3xl"
+		>
+		</div>
 
-	<section class="bg-white py-24 dark:bg-slate-900">
-		<div class="mx-auto max-w-6xl px-6">
-			<div class="grid gap-8 md:grid-cols-3">
-				<!-- Featured Card: Moving Cars -->
-				<article
-					class="relative overflow-hidden rounded-2xl bg-emerald-900 p-8 shadow-2xl shadow-emerald-900/20 dark:bg-emerald-950 dark:shadow-emerald-900/40 md:col-span-3 md:flex md:items-center md:gap-12 md:p-12"
-				>
-					<div
-						class="absolute -right-20 -top-20 h-[400px] w-[400px] rounded-full bg-emerald-800/20 blur-3xl"
+		<div class="relative mx-auto max-w-6xl px-6">
+			<div class="grid gap-14 lg:grid-cols-[minmax(0,1.04fr)_minmax(22rem,0.96fr)] lg:items-center">
+				<div class="motion-rise">
+					<p class="section-kicker">Services</p>
+					<h1
+						class="section-title mt-6 max-w-3xl text-5xl font-semibold leading-[0.95] text-balance md:text-7xl"
 					>
-					</div>
-					<div
-						class="absolute bottom-0 right-0 h-[300px] w-[300px] rounded-full bg-emerald-500/10 blur-3xl"
-					>
-					</div>
-
-					<div class="relative flex-1 space-y-6">
-						<div
-							class="inline-flex items-center gap-2 rounded-full bg-emerald-800/50 px-3 py-1 text-xs font-medium text-emerald-200 ring-1 ring-inset ring-emerald-400/20"
-						>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								viewBox="0 0 20 20"
-								fill="currentColor"
-								class="h-4 w-4"
-							>
-								<path
-									fill-rule="evenodd"
-									d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-									clip-rule="evenodd"></path>
-							</svg>
-							New Integration
-						</div>
-						<h2 class="text-3xl font-bold text-white md:text-4xl">
-							Moving Cars merges with Moveroo
-						</h2>
-						<p class="text-lg leading-relaxed text-emerald-100">
-							Our vehicle transport partners now work under the Moveroo brand. We combine expert
-							logistics with home moves so everything arrives together.
-						</p>
-						<ul class="space-y-3 text-emerald-100">
-							<li class="flex items-start gap-3">
-								<svg
-									class="mt-1 h-5 w-5 flex-none text-emerald-400"
-									viewBox="0 0 20 20"
-									fill="currentColor"
-									aria-hidden="true"
-								>
-									<path
-										fill-rule="evenodd"
-										d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-										clip-rule="evenodd"></path>
-								</svg>
-								<span
-									>Unified booking for cars, motorcycles and household inventory across Australia.</span
-								>
-							</li>
-							<li class="flex items-start gap-3">
-								<svg
-									class="mt-1 h-5 w-5 flex-none text-emerald-400"
-									viewBox="0 0 20 20"
-									fill="currentColor"
-									aria-hidden="true"
-								>
-									<path
-										fill-rule="evenodd"
-										d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-										clip-rule="evenodd"></path>
-								</svg>
-								<span>Real-time updates with one coordination team managing every milestone.</span>
-							</li>
-						</ul>
-						<div class="pt-4">
-							<a
-								class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-emerald-900 shadow-lg transition hover:bg-emerald-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-								href="/moving-cars/"
-							>
-								Learn about Moving Cars by Moveroo
-							</a>
-						</div>
-					</div>
-					<div class="hidden md:block md:w-1/3">
-						<!-- Decorative Icon/Illustration area -->
-						<svg class="h-full w-full text-emerald-800/40" viewBox="0 0 24 24" fill="currentColor">
-							<path
-								d="M19 13C19.5523 13 20 13.4477 20 14V16C20 16.5523 19.5523 17 19 17H5C4.44772 17 4 16.5523 4 16V14C4 13.4477 4.44772 13 5 13H19ZM18 2H6C4.34315 2 3 3.34315 3 5V11C3 11.5523 3.44772 12 4 12H20C20.5523 12 21 11.5523 21 11V5C21 3.34315 19.6569 2 18 2ZM7 15.5C7 15.7761 6.77614 16 6.5 16C6.22386 16 6 15.7761 6 15.5C6 15.2239 6.22386 15 6.5 15C6.77614 15 7 15.2239 7 15.5ZM18 15.5C18 15.7761 17.7761 16 17.5 16C17.2239 16 17 15.7761 17 15.5C17 15.2239 17.2239 15 17.5 15C17.7761 15 18 15.2239 18 15.5Z"
-							></path>
-						</svg>
-					</div>
-				</article>
-
-				<!-- Service 1: Car & Bike -->
-				<article
-					class="flex flex-col gap-6 rounded-2xl border border-slate-200 bg-white p-8 shadow-lg shadow-slate-200/40 transition hover:shadow-xl hover:shadow-slate-200/60 dark:border-slate-800 dark:bg-slate-800/50 dark:shadow-black/20 dark:hover:border-slate-700"
-				>
-					<div
-						class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-400"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							viewBox="0 0 24 24"
-							fill="currentColor"
-							class="h-6 w-6"
-						>
-							<path
-								d="M3.375 4.5C2.339 4.5 1.5 5.34 1.5 6.375V13.5h12V6.375c0-1.036-.84-1.875-1.875-1.875h-8.25zM13.5 15h-12v2.625c0 1.035.84 1.875 1.875 1.875h.375a3 3 0 116 0h3a.75.75 0 00.75-.75V15z"
-							></path>
-							<path
-								d="M8.25 19.5a1.5 1.5 0 10-3 0 1.5 1.5 0 003 0zM15.75 6.75a.75.75 0 00-.75.75v11.25c0 .087.015.17.042.248a3 3 0 015.958.464c.853-.175 1.522-.935 1.464-1.821a.75.75 0 00-1.49.11 1.5 1.5 0 11-3 0c0-.966.784-1.75 1.75-1.75h.75V7.5a.75.75 0 00-.75-.75h-4.5z"
-							></path>
-						</svg>
-					</div>
-					<h2 class="text-xl font-bold text-slate-900 dark:text-white">
-						What vehicle transport services do you offer?
-					</h2>
-					<p class="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-						We transport vehicles from door to door. We handle cars, motorbikes, project builds and
-						classic cars. We can move vehicles that run or don't run.
+						One service map for homes, vehicles and harder-to-place freight.
+					</h1>
+					<p class="mt-7 max-w-2xl text-lg leading-relaxed text-slate-300 md:text-xl">
+						Moveroo coordinates household removals, vehicle transport and specialist logistics
+						through one calmer planning path. Instead of chasing separate providers, you get one
+						brief, one support rhythm and a clearer view of what happens next.
 					</p>
-					<ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400">
-						<li class="flex items-start gap-3">
-							<span
-								class="mt-1.5 h-1.5 w-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 flex-none"
-							></span>
-							<span>Nationwide carrier network</span>
-						</li>
-						<li class="flex items-start gap-3">
-							<span
-								class="mt-1.5 h-1.5 w-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 flex-none"
-							></span>
-							<span>Condition reporting & insurance</span>
-						</li>
-					</ul>
-					<div class="mt-auto pt-4">
-						<a
-							class="inline-flex w-full items-center justify-center rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-emerald-500 hover:text-emerald-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:border-emerald-500 dark:hover:text-emerald-400"
-							href="https://cars.moveroo.com.au"
-							rel="noopener noreferrer"
-							target="_blank"
-						>
-							Get a vehicle quote
-						</a>
-					</div>
-				</article>
 
-				<!-- Service 2: Furniture -->
-				<article
-					class="flex flex-col gap-6 rounded-2xl border border-slate-200 bg-white p-8 shadow-lg shadow-slate-200/40 transition hover:shadow-xl hover:shadow-slate-200/60 dark:border-slate-800 dark:bg-slate-800/50 dark:shadow-black/20 dark:hover:border-slate-700"
-				>
-					<div
-						class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-400"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							viewBox="0 0 24 24"
-							fill="currentColor"
-							class="h-6 w-6"
-						>
-							<path
-								d="M19.006 3.705a.75.75 0 00-.512-1.41L6 6.838V3a.75.75 0 00-.75-.75h-1.5A.75.75 0 003 3v4.93l-1.006.365a.75.75 0 00.512 1.41l16.5-6z"
-							></path>
-							<path
-								fill-rule="evenodd"
-								d="M3.019 11.115L18 5.667V9.09l-14.981 5.447a.75.75 0 00.512 1.41l16.5-6a.75.75 0 00.512-1.41l-16.5-6a.75.75 0 00-.512 1.41l1.488.54V10.5a.75.75 0 00.512.615zM3 13.25a.75.75 0 01.75-.75h1.5a.75.75 0 01.75.75v6.75a.75.75 0 01-.75.75h-1.5a.75.75 0 01-.75-.75v-6.75z"
-								clip-rule="evenodd"></path>
-						</svg>
-					</div>
-					<h2 class="text-xl font-bold text-slate-900 dark:text-white">
-						How do your furniture removal services work?
-					</h2>
-					<p class="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-						We manage home moves from start to finish. Backloading routes help save money and offer
-						flexible dates.
-					</p>
-					<ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400">
-						<li class="flex items-start gap-3">
-							<span
-								class="mt-1.5 h-1.5 w-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 flex-none"
-							></span>
-							<span>Experienced removalist crews</span>
-						</li>
-						<li class="flex items-start gap-3">
-							<span
-								class="mt-1.5 h-1.5 w-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 flex-none"
-							></span>
-							<span>Inventory planning & staging</span>
-						</li>
-					</ul>
-					<div class="mt-auto pt-4">
+					<div class="motion-rise motion-rise-delay-1 mt-10 flex flex-wrap gap-4">
 						<a
-							class="inline-flex w-full items-center justify-center rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-emerald-500 hover:text-emerald-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:border-emerald-500 dark:hover:text-emerald-400"
+							class="inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-950/30 transition hover:bg-emerald-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
 							href="https://removalists.moveroo.com.au/quote/household"
-							rel="noopener noreferrer"
 							target="_blank"
+							rel="noopener noreferrer"
 						>
-							Get a furniture quote
+							Request a moving quote
 						</a>
-					</div>
-				</article>
-
-				<!-- Service 3: Specialty -->
-				<article
-					class="flex flex-col gap-6 rounded-2xl border border-slate-200 bg-white p-8 shadow-lg shadow-slate-200/40 transition hover:shadow-xl hover:shadow-slate-200/60 dark:border-slate-800 dark:bg-slate-800/50 dark:shadow-black/20 dark:hover:border-slate-700"
-				>
-					<div
-						class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-400"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							viewBox="0 0 24 24"
-							fill="currentColor"
-							class="h-6 w-6"
-						>
-							<path
-								fill-rule="evenodd"
-								d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 000-1.5h-3.75V6z"
-								clip-rule="evenodd"></path>
-						</svg>
-					</div>
-					<h2 class="text-xl font-bold text-slate-900 dark:text-white">
-						What specialty transport options are available?
-					</h2>
-					<p class="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-						We transport boats, caravans, trailers, industrial machinery and unique items. We handle
-						special requirements and permits.
-					</p>
-					<ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400">
-						<li class="flex items-start gap-3">
-							<span
-								class="mt-1.5 h-1.5 w-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 flex-none"
-							></span>
-							<span>Specialist towing & float solutions</span>
-						</li>
-						<li class="flex items-start gap-3">
-							<span
-								class="mt-1.5 h-1.5 w-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 flex-none"
-							></span>
-							<span>Route planning & escorts</span>
-						</li>
-					</ul>
-					<div class="mt-auto pt-4">
 						<a
-							class="inline-flex w-full items-center justify-center rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-emerald-500 hover:text-emerald-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:border-emerald-500 dark:hover:text-emerald-400"
-							href="https://cars.moveroo.com.au/quote-types"
-							rel="noopener noreferrer"
-							target="_blank"
+							class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-emerald-300 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
+							href="/contact/#contact-form"
 						>
-							Get a specialty quote
+							Request a callback
 						</a>
 					</div>
-				</article>
+
+					<div class="motion-rise motion-rise-delay-2 mt-12 flex flex-wrap gap-3">
+						{
+							serviceSignals.map((signal) => (
+								<span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium uppercase tracking-[0.24em] text-slate-200">
+									{signal}
+								</span>
+							))
+						}
+					</div>
+				</div>
+
+				<div class="motion-rise motion-rise-delay-2">
+					<div
+						class="overflow-hidden rounded-[2rem] border border-white/10 bg-white/6 shadow-[0_30px_80px_-40px_rgba(15,23,42,0.9)] backdrop-blur-sm"
+					>
+						<div class="border-b border-white/10 px-6 py-5 md:px-8">
+							<div class="flex items-center justify-between gap-4">
+								<div>
+									<p class="section-kicker text-emerald-300">Service map</p>
+									<p class="mt-2 text-sm text-slate-300">
+										How Moveroo groups the moving parts before the quote becomes a plan.
+									</p>
+								</div>
+								<div class="text-right">
+									<p class="text-xs uppercase tracking-[0.26em] text-slate-400">Coverage</p>
+									<p class="mt-1 text-lg font-semibold text-white">Australia-wide</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="route-grid px-6 py-6 md:px-8 md:py-8">
+							<div class="grid gap-5">
+								{
+									serviceTracks.map((track, index) => (
+										<article class="grid gap-3 border-b border-white/10 pb-5 last:border-b-0 last:pb-0 lg:grid-cols-[8rem_1fr] lg:items-start">
+											<div class="flex items-center gap-3 lg:block">
+												<span class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-emerald-400/40 bg-emerald-400/10 text-sm font-semibold text-emerald-200">
+													0{index + 1}
+												</span>
+												<p class="text-xs font-semibold uppercase tracking-[0.22em] text-slate-400 lg:mt-3">
+													{track.eyebrow.replace(/^\d+\s/, "")}
+												</p>
+											</div>
+											<p class="text-base leading-relaxed text-slate-100 lg:pt-1">{track.title}</p>
+										</article>
+									))
+								}
+							</div>
+						</div>
+
+						<div
+							class="grid gap-6 border-t border-white/10 bg-slate-950/30 px-6 py-5 sm:grid-cols-2 md:px-8"
+						>
+							<div>
+								<p class="text-xs uppercase tracking-[0.22em] text-slate-400">Support model</p>
+								<p class="mt-2 text-xl font-semibold text-white">One coordination team</p>
+							</div>
+							<div>
+								<p class="text-xs uppercase tracking-[0.22em] text-slate-400">Best for</p>
+								<p class="mt-2 text-xl font-semibold text-white">Multi-part or interstate moves</p>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
 
-	<section
-		class="border-y border-slate-200 bg-emerald-50/60 py-24 dark:border-slate-800 dark:bg-emerald-900/10"
-	>
+	<section class="border-b border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900">
 		<div class="mx-auto max-w-6xl px-6">
-			<div class="md:grid md:grid-cols-[1.25fr_1fr] md:items-center md:gap-16">
-				<div>
-					<h2 class="text-3xl font-semibold text-slate-900 dark:text-white">
-						How does the Moveroo moving process work?
+			<div
+				class="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-16"
+			>
+				<div class="motion-rise lg:sticky lg:top-28">
+					<p class="section-kicker">Service Tracks</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						Use Moveroo when the move needs clearer coordination, not just a basic booking form.
 					</h2>
-					<p class="mt-6 text-base leading-relaxed text-slate-600 dark:text-slate-400">
-						Every move is different. We use our experience and local knowledge to create a plan that
-						fits your schedule.
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						Some jobs are simple. Others include vehicles, backloading, storage, regional routes or
+						items that need careful handling. This page is where those service paths are kept
+						together.
 					</p>
 				</div>
-				<ol class="mt-10 space-y-6 text-sm text-slate-600 dark:text-slate-400 md:mt-0">
-					<li
-						class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-800/50"
-					>
-						<p
-							class="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-700 dark:text-emerald-400"
-						>
-							1. Discovery
-						</p>
-						<p class="mt-3 text-slate-700 dark:text-slate-300">
-							Our coordinators gather timelines, inventory, access requirements and any special
-							handling instructions.
-						</p>
-					</li>
-					<li
-						class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-800/50"
-					>
-						<p
-							class="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-700 dark:text-emerald-400"
-						>
-							2. Tailored plan
-						</p>
-						<p class="mt-3 text-slate-700 dark:text-slate-300">
-							We find the right partners, vehicles and team members, then provide a clear quote and
-							itinerary.
-						</p>
-					</li>
-					<li
-						class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-800/50"
-					>
-						<p
-							class="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-700 dark:text-emerald-400"
-						>
-							3. Managed delivery
-						</p>
-						<p class="mt-3 text-slate-700 dark:text-slate-300">
-							We provide status updates at each milestone with proactive problem solving and
-							post-move check-ins.
-						</p>
-					</li>
-				</ol>
+
+				<div class="motion-rise motion-rise-delay-1 grid gap-6">
+					{
+						serviceTracks.map((track) => (
+							<article class="overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50 shadow-[0_28px_80px_-48px_rgba(15,23,42,0.24)] dark:border-slate-800 dark:bg-slate-950/40 dark:shadow-black/40">
+								<div class="grid gap-6 px-6 py-7 md:px-8 md:py-8 lg:grid-cols-[8rem_1fr]">
+									<p class="text-xs font-semibold uppercase tracking-[0.28em] text-emerald-700 dark:text-emerald-400">
+										{track.eyebrow}
+									</p>
+									<div>
+										<h3 class="text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">
+											{track.title}
+										</h3>
+										<p class="mt-5 max-w-2xl text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+											{track.description}
+										</p>
+										<ul class="mt-6 grid gap-3 text-sm text-slate-600 dark:text-slate-400">
+											{track.highlights.map((item) => (
+												<li class="flex items-start gap-3">
+													<span
+														class="mt-1.5 h-2.5 w-2.5 rounded-full bg-emerald-500 dark:bg-emerald-400"
+														aria-hidden="true"
+													/>
+													<span>{item}</span>
+												</li>
+											))}
+										</ul>
+										<a
+											class="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 transition hover:text-emerald-900 dark:text-emerald-400 dark:hover:text-emerald-300"
+											href={track.href}
+											target={track.external ? "_blank" : undefined}
+											rel={track.external ? "noopener noreferrer" : undefined}
+										>
+											<span>{track.ctaLabel}</span>
+											<span aria-hidden="true">→</span>
+										</a>
+									</div>
+								</div>
+							</article>
+						))
+					}
+				</div>
 			</div>
 		</div>
 	</section>
 
-	<section class="bg-white py-20 dark:bg-slate-900">
-		<div
-			class="mx-auto flex max-w-6xl flex-col gap-10 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 via-white to-slate-100 px-6 py-12 text-center shadow-xl shadow-slate-200/60 dark:border-slate-800 dark:from-slate-800/50 dark:via-slate-900 dark:to-slate-800 dark:shadow-black/40 md:flex-row md:items-center md:text-left"
-		>
-			<div class="flex-1">
-				<h2 class="text-3xl font-semibold text-slate-900 dark:text-white">
-					Ready to plan your move?
-				</h2>
-				<p class="mt-4 text-sm text-slate-600 dark:text-slate-400">
-					Share the basics and we’ll align the right service mix, provide timelines and coordinate
-					the next steps with you.
-				</p>
-			</div>
-			<div class="flex flex-1 flex-col gap-4 md:items-end">
-				<a
-					class="inline-flex items-center justify-center rounded-full bg-emerald-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-700/30 transition hover:bg-emerald-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 dark:bg-emerald-600 dark:shadow-emerald-600/30 dark:hover:bg-emerald-500 dark:focus-visible:outline-emerald-500"
-					href="/contact/#contact-form"
-				>
-					Request a callback
-				</a>
-				<a
-					class="inline-flex items-center justify-center rounded-full border border-emerald-500 px-6 py-3 text-sm font-semibold text-emerald-700 transition hover:border-emerald-600 hover:text-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700 dark:border-emerald-500/50 dark:text-emerald-400 dark:hover:border-emerald-400 dark:hover:bg-emerald-500/10 dark:hover:text-emerald-300 dark:focus-visible:outline-emerald-400"
-					href="https://removalists.moveroo.com.au/quote/household"
-					rel="noopener noreferrer"
-					target="_blank"
-				>
-					Book a moving quote
-				</a>
+	<section class="bg-slate-50 py-24 dark:bg-slate-950/40">
+		<div class="mx-auto max-w-6xl px-6">
+			<div
+				class="grid gap-12 rounded-[2rem] border border-slate-200 bg-white px-6 py-8 shadow-[0_28px_80px_-48px_rgba(15,23,42,0.28)] dark:border-slate-800 dark:bg-slate-900/75 md:px-8 md:py-10 xl:grid-cols-[minmax(0,0.84fr)_minmax(0,1.16fr)] xl:items-start"
+			>
+				<div class="motion-rise xl:sticky xl:top-28">
+					<p class="section-kicker">How Moveroo Works</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						The service feels lighter when the handoffs are already visible before move day.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						Moveroo adds the most value when the route, quote, service mix and updates need to stay
+						clear enough that you always know what happens next.
+					</p>
+				</div>
+
+				<div class="motion-rise motion-rise-delay-1 grid gap-6">
+					{
+						howToSteps.map((step, index) => (
+							<article class="route-grid rounded-[1.75rem] border border-slate-200 bg-slate-50/80 px-6 py-6 dark:border-slate-800 dark:bg-slate-950/45">
+								<div class="grid gap-4 md:grid-cols-[5rem_1fr] md:items-start">
+									<p class="text-sm font-semibold uppercase tracking-[0.28em] text-emerald-700 dark:text-emerald-400">
+										0{index + 1}
+									</p>
+									<div>
+										<h3 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
+											{step.name}
+										</h3>
+										<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+											{step.text}
+										</p>
+									</div>
+								</div>
+							</article>
+						))
+					}
+				</div>
 			</div>
 		</div>
 	</section>
+
+	<section class="border-y border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900">
+		<div class="mx-auto max-w-6xl px-6">
+			<div
+				class="grid gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-start lg:gap-16"
+			>
+				<div class="motion-rise">
+					<p class="section-kicker">Best Fit</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						Where Moveroo usually adds the most value.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						If the move has layered logistics, tighter timing or multiple service categories, this
+						is where one coordination desk tends to remove the most friction.
+					</p>
+				</div>
+
+				<div
+					class="motion-rise motion-rise-delay-1 overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50 shadow-[0_28px_80px_-48px_rgba(15,23,42,0.24)] dark:border-slate-800 dark:bg-slate-950/35 dark:shadow-black/40"
+				>
+					{
+						serviceUseCases.map((item) => (
+							<article class="grid gap-4 border-b border-slate-200 px-6 py-7 last:border-b-0 dark:border-slate-800 md:grid-cols-[12rem_1fr] md:px-8">
+								<p class="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-700 dark:text-emerald-400">
+									{item.label}
+								</p>
+								<p class="text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+									{item.text}
+								</p>
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-slate-50 py-24 dark:bg-slate-900" id="faq">
+		<div class="mx-auto max-w-6xl px-6">
+			<div
+				class="grid gap-12 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-start lg:gap-16"
+			>
+				<div class="motion-rise lg:sticky lg:top-28">
+					<p class="section-kicker">FAQ</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						Common service questions, answered before you even request the quote.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						These are the questions people usually ask once they realise the move includes more than
+						one simple booking path.
+					</p>
+
+					<div class="page-panel page-panel-soft mt-8 p-6 md:p-7">
+						<p
+							class="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-700 dark:text-emerald-400"
+						>
+							Need a tailored answer?
+						</p>
+						<p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+							Use the callback form if your job includes household inventory, vehicle transport,
+							storage or freight that needs to stay under one plan.
+						</p>
+						<a
+							href="/contact/#contact-form"
+							class="mt-5 inline-flex items-center justify-center rounded-full border border-emerald-500 px-5 py-2.5 text-sm font-semibold text-emerald-700 transition hover:border-emerald-600 hover:bg-emerald-50 hover:text-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700 dark:border-emerald-500/50 dark:text-emerald-400 dark:hover:border-emerald-400 dark:hover:bg-emerald-500/10 dark:hover:text-emerald-300 dark:focus-visible:outline-emerald-400"
+						>
+							Request a callback
+						</a>
+					</div>
+				</div>
+
+				<div
+					class="motion-rise motion-rise-delay-1 overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_28px_80px_-48px_rgba(15,23,42,0.28)] dark:border-slate-800 dark:bg-slate-950/45 dark:shadow-black/40"
+				>
+					{
+						faqItems.map((faq, index) => (
+							<details
+								class="group border-b border-slate-200 px-6 py-6 last:border-b-0 dark:border-slate-800 md:px-8"
+								open={index === 0}
+							>
+								<summary class="flex cursor-pointer items-start justify-between gap-5 list-none">
+									<div class="pr-2">
+										<p class="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-700 dark:text-emerald-400">
+											0{index + 1}
+										</p>
+										<h3 class="mt-3 text-xl font-semibold tracking-tight text-slate-900 dark:text-white md:text-2xl">
+											{faq.question}
+										</h3>
+									</div>
+									<span class="mt-1 inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-600 transition group-open:rotate-180 group-open:border-emerald-200 group-open:bg-emerald-50 group-open:text-emerald-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:group-open:border-emerald-500/40 dark:group-open:bg-emerald-500/10 dark:group-open:text-emerald-300">
+										<svg
+											class="h-5 w-5"
+											fill="none"
+											viewBox="0 0 24 24"
+											stroke="currentColor"
+											stroke-width="2"
+										>
+											<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+										</svg>
+									</span>
+								</summary>
+								<p class="mt-5 max-w-3xl text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+									{faq.answer}
+								</p>
+							</details>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<QuoteCta
+		title="Ready to line up the right service mix?"
+		subtitle="Share the route, timing and moving parts, and Moveroo will help align the right household, vehicle and specialist support around one clearer plan."
+		ctaPrimaryLabel="Request your quote"
+		ctaPrimaryHref="https://removalists.moveroo.com.au/quote/household"
+		ctaSecondaryLabel="Request a callback"
+		ctaSecondaryHref="/contact/#contact-form"
+	/>
 </Layout>
