@@ -1,43 +1,5 @@
 ---
-interface FAQItem {
-	question: string;
-	answer: string;
-}
-
-const faqs: FAQItem[] = [
-	{
-		question: "How do I get a moving quote from Moveroo?",
-		answer:
-			"Simply visit our quote page and enter your move details including pickup and delivery locations, move date, and inventory size. We'll connect you with multiple verified removalists who will provide competitive quotes within 24 hours.",
-	},
-	{
-		question: "What areas does Moveroo service in Australia?",
-		answer:
-			"Moveroo services all major cities and regional areas across Australia, including Sydney, Melbourne, Brisbane, Perth, Adelaide, Hobart, Darwin, and Canberra. We handle both local moves and interstate relocations.",
-	},
-	{
-		question: "Are the removalists on Moveroo verified and insured?",
-		answer:
-			"Yes, all removalists on our platform are thoroughly vetted for reliability, professionalism, and proper insurance coverage. We only partner with licensed operators who meet our strict quality standards.",
-	},
-	{
-		question: "How much does it cost to move house in Australia?",
-		answer:
-			"Moving costs vary based on distance, volume of items, and additional services required. Local moves typically start from $300-$500, while interstate moves can range from $1,500 to $5,000+. Get a free quote for an accurate estimate tailored to your specific move.",
-	},
-	{
-		question: "Can Moveroo help with vehicle transport?",
-		answer:
-			"Absolutely! We offer comprehensive vehicle transport services across Australia. Whether you're moving interstate, buying a car from another city, or need enclosed transport for a classic vehicle, we connect you with trusted car carriers.",
-	},
-	{
-		question: "How far in advance should I book my move?",
-		answer:
-			"We recommend booking at least 2-4 weeks in advance for local moves and 4-6 weeks for interstate relocations. During peak periods (end of month, holidays), booking earlier ensures better availability and pricing.",
-	},
-];
-
-export { faqs };
+import { faqs } from "../../data/faqs";
 ---
 
 <section class="bg-slate-50 py-24 dark:bg-slate-900" id="faq">
@@ -50,11 +12,11 @@ export { faqs };
 				<h2
 					class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
 				>
-					Common planning questions, answered before you even start the quote.
+					Common planning questions, answered up front.
 				</h2>
 				<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
-					Most people want clarity on timing, coverage, verification and how pricing works before
-					they commit to anything. This section should feel calm, direct and easy to scan.
+					Most people want quick answers on timing, coverage, pricing and where to start. This
+					section should feel calm, direct and easy to scan.
 				</p>
 
 				<div class="page-panel page-panel-soft mt-8 p-6 md:p-7">
@@ -65,7 +27,7 @@ export { faqs };
 					</p>
 					<p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
 						If your move has multiple drop-offs, vehicle transport, storage or tight timing, our
-						coordinators can talk through the setup with you directly.
+						team can talk through the setup with you directly.
 					</p>
 					<a
 						href="/contact/"

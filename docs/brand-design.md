@@ -214,6 +214,42 @@ Avoid:
 - abstract graphics that could belong to any industry
 - cluttered collage treatments
 
+## Asset Backlog
+
+The current site has very little real imagery beyond the social share image and favicon set.
+The next visual improvement should focus on adding a small number of strong, reusable brand assets rather than lots of weak ones.
+
+Priority order:
+
+1. Homepage hero asset
+   Use a strong transport-led image or illustration that can support the broader Moveroo promise across household, vehicle and specialty work.
+
+2. Household move asset
+   Add one image set that supports home and apartment moves without feeling like generic removals stock.
+
+3. Vehicle transport asset
+   Add one image set for cars, motorcycles and carrier-led transport work so `moving-cars` has a clearer visual anchor.
+
+4. Specialty and storage asset
+   Add one image set for boats, caravans, oversized freight, storage or careful handling so the complexity lane feels real.
+
+5. Refined social share assets
+   Review `og-image.png` and any future share images so they align with the newer site system.
+
+Image direction:
+
+- real transport and moving context
+- clear routes, vehicles, loading or handoff moments
+- simple, readable compositions
+- believable Australian context where possible
+
+Avoid:
+
+- obvious stock-photo smiles
+- generic office or SaaS-style imagery
+- overly busy warehouse shots
+- images that fight the copy or layout
+
 ## Page Roles
 
 ### Homepage
