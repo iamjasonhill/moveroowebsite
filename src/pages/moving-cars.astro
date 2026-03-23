@@ -15,40 +15,40 @@ const transportSignals = [
 const transportBenefits = [
 	{
 		eyebrow: "01 Vehicle-first planning",
-		title: "The quote flow now starts from the vehicle job itself.",
+		title: "Vehicle jobs start in a dedicated quote flow.",
 		description:
-			"Instead of treating car transport as an add-on, Moveroo now routes vehicle bookings through a dedicated transport path backed by the former Moving Cars operation.",
+			"If the main item being moved is a car, motorcycle or fleet vehicle, you start with the vehicle form instead of a general moving quote.",
 	},
 	{
 		eyebrow: "02 Better coordination",
-		title: "Household, vehicle and freight timing can sit inside one plan.",
+		title: "Extra services can be added around the same move.",
 		description:
-			"When the move includes more than the vehicle, Moveroo can line up handoffs, storage, removalists and delivery milestones without making you manage separate providers.",
+			"If the job also needs removalists, storage or freight, Moveroo can coordinate those around the vehicle booking.",
 	},
 	{
 		eyebrow: "03 Clearer support",
-		title: "One support desk keeps the next step visible.",
+		title: "One team keeps the plan clear.",
 		description:
-			"You get one communication rhythm for quoting, booking and delivery updates, with national carrier matching already built into the process.",
+			"You get clearer handoffs between quoting, booking and delivery, without chasing separate providers for each part of the move.",
 	},
 ];
 
 const transportUseCases = [
 	{
 		label: "Relocating interstate",
-		text: "Useful when the vehicle needs to move alongside a household relocation, employee transfer or staged move.",
+		text: "Useful when the vehicle needs to move alongside a household relocation, staff move or staged move.",
 	},
 	{
 		label: "Buying or selling remotely",
-		text: "Helpful for auction, dealership and private-sale handoffs where timing and condition visibility matter.",
+		text: "Helpful for auction, dealership and private-sale handoffs where timing and condition updates matter.",
 	},
 	{
 		label: "Fleet or multi-vehicle work",
-		text: "Supports business, dealership and project work where more than one vehicle needs routing at once.",
+		text: "Supports business, dealership and project work where more than one vehicle needs moving at once.",
 	},
 	{
 		label: "Complex move mix",
-		text: "Best when the vehicle transport is only one part of a larger move involving freight, storage or household inventory.",
+		text: "Best when the vehicle move is one part of a larger job involving freight, storage or household goods.",
 	},
 ];
 
@@ -56,27 +56,27 @@ const faqItems = [
 	{
 		question: "What happened to Moving Cars?",
 		answer:
-			"Moving Cars has merged with Moveroo to create a single destination for coordinated vehicle transport and relocation services across Australia. Customers now benefit from one unified platform for all moving needs.",
+			"Moving Cars is now part of Moveroo. The vehicle service continues under Moveroo, with one team handling vehicle transport and wider move support when needed.",
 	},
 	{
 		question: "Why did Moving Cars merge with Moveroo?",
 		answer:
-			"By combining forces, Moving Cars and Moveroo removed the hassle of coordinating multiple providers. Customers can now arrange vehicle transport, household removals and specialist freight with one enquiry, one support team and a single source of transparent updates.",
+			"The move brings vehicle transport into the wider Moveroo service map. If you need more than vehicle transport, you can now arrange it through one team instead of starting again with separate providers.",
 	},
 	{
 		question: "What's in it for Moving Cars customers?",
 		answer:
-			"The strengthened Moveroo platform delivers faster turnarounds, sharper pricing and a personalised experience. With one experienced team coordinating both your move and your vehicles, you save time and reduce risk across the entire event.",
+			"You still get specialist vehicle transport, now with simpler support if the move also includes storage, household items or other logistics.",
 	},
 	{
-		question: "What technology improvements come with the merger?",
+		question: "Will the booking experience change?",
 		answer:
-			"The new Moveroo platform introduces upgraded tracking, smarter notifications and round-the-clock support. Real-time status updates keep you informed of each vehicle and household shipment, while an intuitive customer portal simplifies bookings, documentation and approvals.",
+			"The quote path is still vehicle-first, but the wider Moveroo system gives you clearer updates, easier handoffs and one place to ask for extra support.",
 	},
 	{
 		question: "What's next for Moving Cars customers?",
 		answer:
-			"Moving Cars customers can continue to expect the same trusted drivers and careful handling, now strengthened with Moveroo's national partner network. You can plan a local move, an interstate relocation or a complex multi-vehicle shipment with the confidence that one aligned team is on your side.",
+			"Use the vehicle quote path for new jobs. If the move includes more than the vehicle, Moveroo can help coordinate the wider plan as well.",
 	},
 ];
 
@@ -88,7 +88,7 @@ const structuredData = {
 			"@id": "https://moveroo.com.au/moving-cars/",
 			name: "Moving Cars by Moveroo | Vehicle Transport Australia",
 			description:
-				"Moving Cars is now part of Moveroo. Get coordinated vehicle transport and moving services with technology-backed support across Australia.",
+				"Moving Cars is now part of Moveroo. Get vehicle transport across Australia, with support for household moves, storage and wider relocation planning when needed.",
 			url: "https://moveroo.com.au/moving-cars/",
 			inLanguage: "en-AU",
 			isPartOf: {
@@ -117,7 +117,7 @@ const structuredData = {
 
 <Layout
 	title="Moving Cars by Moveroo | Vehicle Transport Australia"
-	description="Moving Cars is now part of Moveroo. Get coordinated vehicle transport and moving services with technology-backed support across Australia. Book today!"
+	description="Moving Cars is now part of Moveroo. Get vehicle transport across Australia, with support for household moves, storage and wider relocation planning when needed."
 	canonical="https://moveroo.com.au/moving-cars/"
 >
 	<Fragment slot="head">
@@ -147,12 +147,12 @@ const structuredData = {
 					<h1
 						class="section-title mt-6 max-w-3xl text-5xl font-semibold leading-[0.95] text-balance md:text-7xl"
 					>
-						Vehicle transport now lives inside the broader Moveroo move network.
+						Moving Cars is now Moveroo's vehicle transport lane.
 					</h1>
 					<p class="mt-7 max-w-2xl text-lg leading-relaxed text-slate-300 md:text-xl">
-						Moving Cars has become Moveroo's dedicated transport lane for cars, motorcycles and
-						multi-vehicle moves. You still get specialist vehicle coordination, now backed by one
-						wider support system for relocations, storage and more complex logistics.
+						If the main job is moving a car, motorcycle or multiple vehicles, start here. You still
+						get specialist vehicle transport, with extra support if the move also includes household
+						goods, storage or other logistics.
 					</p>
 
 					<div class="motion-rise motion-rise-delay-1 mt-10 flex flex-wrap gap-4">
@@ -192,7 +192,7 @@ const structuredData = {
 								<div>
 									<p class="section-kicker text-emerald-300">Transport lane</p>
 									<p class="mt-2 text-sm text-slate-300">
-										How vehicle moves now sit inside the Moveroo service map.
+										How vehicle jobs now fit inside the wider Moveroo service map.
 									</p>
 								</div>
 								<div class="text-right">
@@ -257,11 +257,11 @@ const structuredData = {
 					<h2
 						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
 					>
-						Use this lane when the vehicle is the main thing being moved.
+						Start here when the vehicle is the main part of the move.
 					</h2>
 					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
-						Start here if the job centres on a car, motorcycle or multi-vehicle movement, even when
-						the wider move also includes household items, storage or added logistics.
+						This path is built for car, motorcycle and multi-vehicle jobs. Use it even if the wider
+						move also includes household goods, storage or freight.
 					</p>
 				</div>
 
@@ -295,11 +295,11 @@ const structuredData = {
 					<h2
 						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
 					>
-						The specialist vehicle experience stays, but the support system is wider now.
+						The vehicle service stays the same. The support around it is wider now.
 					</h2>
 					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
-						Moving Cars customers still enter through a vehicle-focused quote path, but now benefit
-						from Moveroo's broader coordination model when the job expands beyond the car itself.
+						You still start with a vehicle quote. The difference is that Moveroo can now coordinate
+						extra services around the same move when needed.
 					</p>
 				</div>
 
@@ -315,13 +315,13 @@ const structuredData = {
 							</p>
 							<div>
 								<h3 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
-									Vehicle bookings are still the front door
+									Vehicle quotes still start in the right place
 								</h3>
 								<p
 									class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base"
 								>
-									If you are moving a car, motorcycle or multiple vehicles, you should still start
-									with the dedicated vehicle quote flow rather than a general household quote.
+									If you are moving a car, motorcycle or several vehicles, begin with the vehicle
+									quote form rather than a household quote.
 								</p>
 							</div>
 						</div>
@@ -338,14 +338,13 @@ const structuredData = {
 							</p>
 							<div>
 								<h3 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
-									The handoffs are easier when the move grows
+									The plan can grow without starting again
 								</h3>
 								<p
 									class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base"
 								>
-									If the job later needs removalists, storage or specialist freight, Moveroo can
-									route those services around the existing vehicle plan instead of restarting the
-									process somewhere else.
+									If the move later needs storage, removalists or freight, those services can be
+									added around the same job.
 								</p>
 							</div>
 						</div>
@@ -362,13 +361,13 @@ const structuredData = {
 							</p>
 							<div>
 								<h3 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
-									One team can now keep the broader move visible
+									One team can keep the move in view
 								</h3>
 								<p
 									class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base"
 								>
-									That means fewer split updates, less duplicated briefing and a clearer support
-									model when timing, delivery and route dependencies matter.
+									That means fewer handoffs, less repeated briefing and clearer updates when timing
+									matters.
 								</p>
 							</div>
 						</div>
@@ -391,7 +390,7 @@ const structuredData = {
 						Common questions from Moving Cars customers.
 					</h2>
 					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
-						If you already know the Moving Cars brand, these are the key questions about what
+						If you know the Moving Cars brand already, these are the main questions about what
 						changed and what stayed the same.
 					</p>
 
@@ -459,7 +458,7 @@ const structuredData = {
 
 	<QuoteCta
 		title="Ready to move a vehicle with the Moveroo transport lane?"
-		subtitle="Share the route, timing and vehicle details so we can match the right carrier and coordinate any wider move requirements around it."
+		subtitle="Share the route, timing and vehicle details so we can match the right carrier and coordinate any extra move support around it if needed."
 		ctaPrimaryLabel="Start a vehicle quote"
 		ctaPrimaryHref="https://cars.moveroo.com.au/quote/v2"
 		ctaSecondaryLabel="Talk to a coordinator"
