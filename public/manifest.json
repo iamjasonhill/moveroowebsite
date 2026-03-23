@@ -1,16 +1,32 @@
 {
-    "name": "Moveroo",
-    "short_name": "Moveroo",
-    "description": "Reimagining the relocation experience with transparent pricing, dependable partners and friendly support.",
-    "start_url": "/",
-    "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#10b981",
-    "icons": [
-        {
-            "src": "/favicon.svg",
-            "sizes": "any",
-            "type": "image/svg+xml"
-        }
-    ]
+	"name": "Moveroo",
+	"short_name": "Moveroo",
+	"description": "Moveroo helps coordinate household moves, vehicle transport and specialty freight across Australia.",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#0f172a",
+	"theme_color": "#10b981",
+	"icons": [
+		{
+			"src": "/favicon.svg",
+			"sizes": "any",
+			"type": "image/svg+xml"
+		},
+		{
+			"src": "/icon-192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "/icon-512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		},
+		{
+			"src": "/icon-maskable-512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "maskable"
+		}
+	]
 }
