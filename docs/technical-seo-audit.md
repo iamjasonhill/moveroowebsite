@@ -54,6 +54,7 @@ See [technical-seo-history.md](./technical-seo-history.md) for timestamped audit
 - `robots.txt` exists and points crawlers to the sitemap index
 - Lighthouse rerun on production now reports `SEO 100` on both mobile and desktop
 - Lighthouse rerun on production now reports `Performance 100` on both mobile and desktop
+- Lighthouse rerun on production now reports `Best Practices 100` on both mobile and desktop after removing Partytown from the GA path
 - page schema is now closer to the visible page purpose across homepage, services, moving cars, contact, and legal support pages
 - analytics stack is now simpler, with GA4 kept and the second sitewide analytics script removed
 - GA4 no longer relies on Partytown and now uses the standard direct Google tag

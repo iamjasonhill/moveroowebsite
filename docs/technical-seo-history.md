@@ -3,6 +3,41 @@
 Use this file as the append-only log of technical SEO checks over time.
 Each entry should record the date, commit, environment checked, headline scores, key findings, and what changed.
 
+## 2026-03-23 14:53:23 AEST
+
+- Commit: `22dffe7`
+- Environment: production
+- Scope: Lighthouse rerun after switching GA from Partytown to the standard direct Google tag
+
+### Lighthouse Scores
+
+- Mobile: `Performance 88`, `Accessibility 95`, `Best Practices 100`, `SEO 100`
+- Desktop: `Performance 100`, `Accessibility 95`, `Best Practices 100`, `SEO 100`
+
+### Key Metrics
+
+- Mobile: `FCP 1.2s`, `LCP 3.6s`, `Speed Index 4.0s`, `TBT 30ms`, `CLS 0`
+- Desktop: `FCP 0.5s`, `LCP 0.5s`, `Speed Index 0.6s`, `TBT 0ms`, `CLS 0`
+
+### Findings
+
+- the Partytown deprecation warnings are gone
+- Lighthouse `Best Practices` is now `100` on both mobile and desktop
+- the GA implementation is now simpler and more standard
+- mobile performance dipped versus the earlier Partytown run, even though SEO and Best Practices improved
+
+### Fixes Landed In This Cycle
+
+- removed the Partytown integration from Astro
+- removed the Partytown package from the repo
+- switched GA4 to the standard direct Google tag
+- updated the repo analytics and SEO docs to match the new setup
+
+### Follow-Up
+
+- optional: monitor whether the lower mobile performance score is stable across repeated runs
+- optional: review image and script loading if mobile Lighthouse performance becomes the next priority
+
 ## 2026-03-23 14:35:22 AEST
 
 - Commit: recorded in VCS history for the GA-only analytics cleanup pass
