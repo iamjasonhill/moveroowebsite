@@ -1,5 +1,7 @@
 # Moveroo Technical SEO Audit
 
+See [technical-seo-history.md](./technical-seo-history.md) for timestamped audit runs and Lighthouse result history.
+
 ## Latest Pass
 
 - Date: 2026-03-23
@@ -48,13 +50,14 @@
 - internal review/template pages are intentionally excluded or noindexed
 - sitemap exclusions are in place for the known internal/template routes
 - `robots.txt` exists and points crawlers to the sitemap index
-- Lighthouse flagged mobile CLS and `robots.txt`; both now have targeted fixes in the codebase
+- Lighthouse rerun on production now reports `SEO 100` on both mobile and desktop
+- Lighthouse rerun on production now reports `Performance 100` on both mobile and desktop
 
 ## Remaining Non-Critical Follow-Up
 
-- run a deeper Lighthouse and performance-focused SEO pass when performance becomes the priority
 - review analytics and Partytown request overhead if performance optimisation becomes a priority
 - review share-image strategy if future campaign or service-specific OG assets are added
+- consider a structured-data validation pass page by page
 - keep repo docs updated as new public routes are introduced
 
 ## Accepted Tradeoffs
