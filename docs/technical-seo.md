@@ -60,7 +60,8 @@ Current known exclusions:
 
 Current note:
 
-- `robots.txt` is not currently present in `public/`, so crawl directives are mainly being handled through meta robots and sitemap behavior
+- `robots.txt` is served by `src/pages/robots.txt.ts`
+- current rules allow full crawl access and point crawlers to `/sitemap-index.xml`
 
 ## Metadata Rules
 
