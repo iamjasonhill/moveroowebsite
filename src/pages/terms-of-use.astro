@@ -19,19 +19,6 @@ const summarySignals = [
 	"Queensland jurisdiction",
 ];
 
-const faqItems = [
-	{
-		question: "What are the terms of use for the Moveroo website?",
-		answer:
-			"The Terms of Use govern your access to moveroo.com.au and outline rights, responsibilities and limitations when using our services. By browsing or interacting with the site, you agree to abide by these conditions, including prohibitions on illegal activities, intellectual property restrictions, and liability limitations.",
-	},
-	{
-		question: "Can I reproduce content from the Moveroo website?",
-		answer:
-			"All site content including design, text, images and logos is owned or licensed by Moveroo. You may view or temporarily print content for personal reference only. Reproducing, modifying, framing or redistributing materials for commercial purposes requires written approval from Moveroo.",
-	},
-];
-
 const structuredData = {
 	"@context": "https://schema.org",
 	"@graph": [
@@ -43,18 +30,6 @@ const structuredData = {
 			description:
 				"Review the terms and conditions governing your use of the Moveroo website and our moving services across Australia. Understand your rights and responsibilities.",
 			dateModified: lastModified.toISOString(),
-		},
-		{
-			"@type": "FAQPage",
-			"@id": "https://moveroo.com.au/terms-of-use/#faq",
-			mainEntity: faqItems.map((faq) => ({
-				"@type": "Question",
-				name: faq.question,
-				acceptedAnswer: {
-					"@type": "Answer",
-					text: faq.answer,
-				},
-			})),
 		},
 	],
 };

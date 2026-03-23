@@ -74,52 +74,32 @@ const nextSteps = [
 	},
 ];
 
-const faqItems = [
-	{
-		question: "How can I request a callback?",
-		answer:
-			"Complete our Setmore booking form to choose a convenient time for a move specialist to call you back. We'll confirm your brief, line up the right partners and supply tailored pricing options.",
-	},
-	{
-		question: "What are other ways to reach us?",
-		answer:
-			"You can reach us by phone at +61 7 2143 2557, email at removals@moveroo.com.au, or through our moving quote portal. We respond within one business day.",
-	},
-	{
-		question: "What happens after you contact us?",
-		answer:
-			"A dedicated move coordinator reviews your requirements and matches you with vetted partners from our nationwide network. Expect a response within one business day. For callback bookings, your coordinator will phone at your chosen time to discuss logistics, answer questions and provide transparent pricing.",
-	},
-];
-
 const structuredData = {
 	"@context": "https://schema.org",
 	"@graph": [
 		{
-			"@type": "WebPage",
+			"@type": "ContactPage",
 			"@id": "https://moveroo.com.au/contact/",
 			url: "https://moveroo.com.au/contact/",
 			name: "Contact Moveroo | Get Help Planning Your Australian Move",
 			description:
 				"Talk with Moveroo to plan your next relocation. Request a callback, book a consultation or reach our friendly support team directly by phone or email.",
 			dateModified: lastModified.toISOString(),
-			author: {
-				"@type": "Person",
-				name: "Moveroo Editorial Team",
-				url: "https://moveroo.com.au/",
+			isPartOf: {
+				"@id": "https://moveroo.com.au/#website",
+			},
+			about: {
+				"@id": "https://moveroo.com.au/#organization",
 			},
 		},
 		{
-			"@type": "FAQPage",
-			"@id": "https://moveroo.com.au/contact/#faq",
-			mainEntity: faqItems.map((faq) => ({
-				"@type": "Question",
-				name: faq.question,
-				acceptedAnswer: {
-					"@type": "Answer",
-					text: faq.answer,
-				},
-			})),
+			"@type": "ContactPoint",
+			"@id": "https://moveroo.com.au/contact/#primary-contact",
+			telephone: "+61 7 2143 2557",
+			email: "removals@moveroo.com.au",
+			contactType: "customer support",
+			areaServed: "AU",
+			availableLanguage: "English",
 		},
 	],
 };

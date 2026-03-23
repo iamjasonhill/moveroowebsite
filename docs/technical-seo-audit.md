@@ -41,6 +41,8 @@ See [technical-seo-history.md](./technical-seo-history.md) for timestamped audit
 - enforced trailing slash redirects in Astro and Vercel so canonical HTML routes do not resolve both slash variants with `200`
 - replaced the non-standard `LLMs.txt:` robots directive with a comment so Lighthouse no longer treats `robots.txt` as malformed
 - reduced a mobile homepage CLS culprit by hiding the large lower-left hero blur shape on small screens
+- removed unsupported or misleading schema patterns such as homepage `SearchAction`, homepage `LocalBusiness`, and FAQ schema on pages without visible FAQs
+- refined page schema types so key pages now use more appropriate entities like `CollectionPage`, `ContactPage`, and service-specific schema
 
 ## Current State
 
@@ -52,12 +54,12 @@ See [technical-seo-history.md](./technical-seo-history.md) for timestamped audit
 - `robots.txt` exists and points crawlers to the sitemap index
 - Lighthouse rerun on production now reports `SEO 100` on both mobile and desktop
 - Lighthouse rerun on production now reports `Performance 100` on both mobile and desktop
+- page schema is now closer to the visible page purpose across homepage, services, moving cars, contact, and legal support pages
 
 ## Remaining Non-Critical Follow-Up
 
 - review analytics and Partytown request overhead if performance optimisation becomes a priority
 - review share-image strategy if future campaign or service-specific OG assets are added
-- consider a structured-data validation pass page by page
 - keep repo docs updated as new public routes are introduced
 
 ## Accepted Tradeoffs

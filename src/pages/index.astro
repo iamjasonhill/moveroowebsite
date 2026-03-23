@@ -104,40 +104,23 @@ const structuredData = {
 				"@id": "https://moveroo.com.au/#organization",
 			},
 			inLanguage: "en-AU",
-			potentialAction: {
-				"@type": "SearchAction",
-				target: "https://moveroo.com.au/?s={search_term_string}",
-				"query-input": "required name=search_term_string",
-			},
 		},
 		{
-			"@type": "LocalBusiness",
-			"@id": "https://moveroo.com.au/#localbusiness",
-			name: "Moveroo Australia",
-			image: "https://moveroo.com.au/og-image.png",
+			"@type": "WebPage",
+			"@id": "https://moveroo.com.au/",
 			url: "https://moveroo.com.au/",
-			telephone: "+61 7 2143 2557",
-			priceRange: "$$",
-			address: {
-				"@type": "PostalAddress",
-				addressCountry: "AU",
+			name: "Moveroo | Trusted Moving & Transport Services Australia",
+			description:
+				"Moveroo helps coordinate household moves, vehicle transport and specialty freight across Australia.",
+			isPartOf: {
+				"@id": "https://moveroo.com.au/#website",
 			},
-			geo: {
-				"@type": "GeoCoordinates",
-				latitude: -27.4698,
-				longitude: 153.0251,
+			about: {
+				"@id": "https://moveroo.com.au/#organization",
 			},
-			areaServed: {
-				"@type": "Country",
-				name: "Australia",
-			},
-			aggregateRating: {
-				"@type": "AggregateRating",
-				ratingValue: "4.8",
-				reviewCount: "150",
-				bestRating: "5",
-				worstRating: "1",
-			},
+			inLanguage: "en-AU",
+			datePublished: publishedIso,
+			dateModified: updatedIso,
 		},
 		{
 			"@type": "Service",
@@ -169,6 +152,14 @@ const structuredData = {
 							"@type": "Service",
 							name: "Vehicle Transport",
 							description: "Safe and reliable vehicle transport nationwide",
+						},
+					},
+					{
+						"@type": "Offer",
+						itemOffered: {
+							"@type": "Service",
+							name: "Specialty Freight Coordination",
+							description: "Support for storage, oversized freight and fragile items",
 						},
 					},
 				],

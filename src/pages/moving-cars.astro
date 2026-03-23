@@ -98,6 +98,24 @@ const structuredData = {
 			},
 			datePublished: publishedAt.toISOString(),
 			dateModified: updatedAt.toISOString(),
+			about: {
+				"@id": "https://moveroo.com.au/moving-cars/#vehicle-service",
+			},
+		},
+		{
+			"@type": "Service",
+			"@id": "https://moveroo.com.au/moving-cars/#vehicle-service",
+			name: "Vehicle transport across Australia",
+			serviceType: "Vehicle transport",
+			description:
+				"Vehicle-first transport support for cars, motorcycles and multi-vehicle moves across Australia.",
+			provider: {
+				"@id": "https://moveroo.com.au/#organization",
+			},
+			areaServed: {
+				"@type": "Country",
+				name: "Australia",
+			},
 		},
 		{
 			"@type": "FAQPage",

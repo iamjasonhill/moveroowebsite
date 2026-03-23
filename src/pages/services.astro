@@ -166,17 +166,45 @@ const structuredData = {
 	"@context": "https://schema.org",
 	"@graph": [
 		{
-			"@type": "WebPage",
+			"@type": "CollectionPage",
 			"@id": "https://moveroo.com.au/services/",
 			url: "https://moveroo.com.au/services/",
 			name: "Moving & Transport Services Across Australia | Moveroo",
 			description:
 				"Comprehensive moving and transport services across Australia. Household removals, vehicle transport, and specialty freight coordinated by one trusted team.",
 			dateModified: lastModified.toISOString(),
-			author: {
-				"@type": "Person",
-				name: "Moveroo Editorial Team",
-				url: "https://moveroo.com.au/",
+			isPartOf: {
+				"@id": "https://moveroo.com.au/#website",
+			},
+			about: {
+				"@id": "https://moveroo.com.au/services/#service-catalog",
+			},
+		},
+		{
+			"@type": "Service",
+			"@id": "https://moveroo.com.au/services/#service-catalog",
+			name: "Moving and transport services across Australia",
+			serviceType: "Moving and transport coordination",
+			provider: {
+				"@id": "https://moveroo.com.au/#organization",
+			},
+			areaServed: {
+				"@type": "Country",
+				name: "Australia",
+			},
+			hasOfferCatalog: {
+				"@type": "OfferCatalog",
+				name: "Moveroo service tracks",
+				itemListElement: serviceTracks.map((track) => ({
+					"@type": "Offer",
+					name: track.title,
+					url: track.external ? track.href : `https://moveroo.com.au${track.href}`,
+					itemOffered: {
+						"@type": "Service",
+						name: track.title,
+						description: track.description,
+					},
+				})),
 			},
 		},
 		{
@@ -196,6 +224,7 @@ const structuredData = {
 			"@id": "https://moveroo.com.au/services/#howto",
 			name: "How to plan your move with Moveroo",
 			description: "A guided process from enquiry to delivery with Moveroo's moving services",
+			totalTime: "P1D",
 			step: howToSteps.map((step, index) => ({
 				"@type": "HowToStep",
 				position: index + 1,
