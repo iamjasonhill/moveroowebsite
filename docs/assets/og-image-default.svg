@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Moveroo default social share image</title>
+  <desc id="desc">A dark emerald Moveroo share image with the brand mark, route grid atmosphere, and a broad transport-led message.</desc>
+
+  <rect width="1200" height="630" fill="#061320" />
+  <rect width="1200" height="630" fill="#0b1b2b" opacity="0.58" />
+  <circle cx="238" cy="156" r="240" fill="#10b981" opacity="0.12" />
+  <circle cx="1018" cy="520" r="210" fill="#10b981" opacity="0.08" />
+  <circle cx="933" cy="140" r="168" fill="#34d399" opacity="0.05" />
+
+  <g opacity="0.22" stroke="#94a3b8" stroke-width="1">
+    <path d="M0 106H1200" />
+    <path d="M0 210H1200" />
+    <path d="M0 314H1200" />
+    <path d="M0 418H1200" />
+    <path d="M0 522H1200" />
+    <path d="M170 0V630" />
+    <path d="M356 0V630" />
+    <path d="M542 0V630" />
+    <path d="M728 0V630" />
+    <path d="M914 0V630" />
+    <path d="M1100 0V630" />
+  </g>
+
+  <g opacity="0.28">
+    <path d="M758 126C843 148 915 189 994 252" fill="none" stroke="#34d399" stroke-width="3" stroke-linecap="round" />
+    <path d="M788 188C865 213 941 258 1041 334" fill="none" stroke="#10b981" stroke-width="7" stroke-linecap="round" />
+    <path d="M816 262C900 296 981 353 1082 447" fill="none" stroke="#34d399" stroke-width="3" stroke-linecap="round" />
+    <circle cx="1041" cy="334" r="12" fill="#34d399" />
+    <circle cx="1082" cy="447" r="9" fill="#10b981" />
+  </g>
+
+  <g transform="translate(92 86)">
+    <rect x="0" y="0" width="172" height="172" rx="46" fill="#10b981" />
+    <path d="M36 128V42H57L86 85L115 42H136V128H112V82L96 106H76L60 82V128Z" fill="#fff" />
+  </g>
+
+  <g fill="#fff">
+    <text x="300" y="150" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" letter-spacing="6" opacity="0.72">MOVEROO AUSTRALIA</text>
+    <text x="300" y="262" font-family="Arial, Helvetica, sans-serif" font-size="82" font-weight="700">Homes, vehicles</text>
+    <text x="300" y="348" font-family="Arial, Helvetica, sans-serif" font-size="82" font-weight="700">and freight.</text>
+    <text x="300" y="416" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="500" fill="#cbd5e1">One coordinated move across Australia.</text>
+  </g>
+
+  <g transform="translate(300 476)">
+    <rect x="0" y="0" width="206" height="48" rx="24" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.14" />
+    <text x="103" y="31" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#d1fae5">Household moves</text>
+
+    <rect x="226" y="0" width="214" height="48" rx="24" fill="#10b981" fill-opacity="0.16" stroke="#34d399" stroke-opacity="0.45" />
+    <text x="333" y="31" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#d1fae5">Vehicle transport</text>
+
+    <rect x="460" y="0" width="204" height="48" rx="24" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.14" />
+    <text x="562" y="31" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#d1fae5">Specialty freight</text>
+  </g>
+</svg>

@@ -209,6 +209,6 @@ Likely updates:
 - [x] favicon PNG set exists
 - [x] Apple touch icon exists
 - [x] manifest includes 192, 512, and maskable icons
-- [ ] default OG image is final
+- [x] default OG image is final
 - [ ] page-specific OG images exist for key public pages
 - [x] layout and page metadata point to the correct asset files
