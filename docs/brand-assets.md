@@ -210,5 +210,5 @@ Likely updates:
 - [x] Apple touch icon exists
 - [x] manifest includes 192, 512, and maskable icons
 - [x] default OG image is final
-- [ ] page-specific OG images exist for key public pages
+- [x] page-specific OG images exist for key public pages
 - [x] layout and page metadata point to the correct asset files

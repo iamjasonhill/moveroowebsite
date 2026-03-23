@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#061320" />
+  <circle cx="182" cy="170" r="220" fill="#10b981" opacity="0.08" />
+  <circle cx="1032" cy="492" r="210" fill="#10b981" opacity="0.1" />
+
+  <g opacity="0.18" stroke="#94a3b8" stroke-width="1">
+    <path d="M0 126H1200" />
+    <path d="M0 252H1200" />
+    <path d="M0 378H1200" />
+    <path d="M0 504H1200" />
+    <path d="M180 0V630" />
+    <path d="M420 0V630" />
+    <path d="M660 0V630" />
+    <path d="M900 0V630" />
+  </g>
+
+  <g transform="translate(92 84)">
+    <rect x="0" y="0" width="156" height="156" rx="42" fill="#10b981" />
+    <path d="M33 116V40H52L78 79L104 40H123V116H102V77L88 98H69L55 77V116Z" fill="#fff" />
+  </g>
+
+  <g fill="#fff">
+    <text x="288" y="144" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" letter-spacing="6" opacity="0.72">MOVING CARS</text>
+    <text x="288" y="246" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="700">Vehicle transport</text>
+    <text x="288" y="328" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="700">across Australia.</text>
+    <text x="288" y="394" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="500" fill="#cbd5e1">Cars, motorcycles and fleet moves with a clear support path.</text>
+  </g>
+
+  <g transform="translate(894 228)">
+    <rect x="0" y="132" width="224" height="72" rx="30" fill="#10b981" fill-opacity="0.18" stroke="#34d399" stroke-opacity="0.6" />
+    <rect x="18" y="88" width="128" height="54" rx="16" fill="#0b1320" stroke="#ffffff" stroke-opacity="0.12" />
+    <rect x="144" y="98" width="48" height="44" rx="10" fill="#0b1320" stroke="#ffffff" stroke-opacity="0.12" />
+    <circle cx="66" cy="214" r="24" fill="#0f172a" stroke="#34d399" stroke-opacity="0.5" stroke-width="6" />
+    <circle cx="176" cy="214" r="24" fill="#0f172a" stroke="#34d399" stroke-opacity="0.5" stroke-width="6" />
+    <path d="M44 120H126" stroke="#d1fae5" stroke-width="8" stroke-linecap="round" />
+    <path d="M208 188L244 188" stroke="#34d399" stroke-width="6" stroke-linecap="round" />
+    <path d="M228 170L246 188L228 206" fill="none" stroke="#34d399" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+</svg>
