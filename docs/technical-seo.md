@@ -77,10 +77,17 @@ Current note:
 - FAQ schema must stay aligned with the visible FAQ copy
 - Breadcrumb schema should reflect the real route structure
 
+## Analytics Rules
+
+- Primary analytics stack: `GA4` only
+- GA4 is loaded via Partytown from `src/layouts/Layout.astro`
+- Avoid layering a second page analytics script on top unless there is a clear reporting need
+- If analytics changes, update CSP and this file in the same pass
+
 ## Social And Asset Rules
 
 - Primary social image: `public/og-image.png`
-- Manifest currently references the SVG favicon only
+- Manifest should include the SVG favicon plus the PNG and maskable icon set
 - Layout should not reference icon assets that do not exist in `public/`
 
 ## Known Intentional Exceptions

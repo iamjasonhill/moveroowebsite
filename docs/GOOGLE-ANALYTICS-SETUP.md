@@ -38,20 +38,15 @@ To change the default for this repo:
 
    Replace `"G-4DN533CFGK"` with your ID.
 
-2. **Config script** – In `public/scripts/analytics.js`, update the fallback used when `window.__GA_MEASUREMENT_ID__` isn’t set:
-   ```js
-   const gaId = (typeof window !== "undefined" && window.__GA_MEASUREMENT_ID__) || "G-4DN533CFGK";
-   ```
-   Replace `"G-4DN533CFGK"` with the same ID.
+2. **Config script** – In `src/layouts/Layout.astro`, update the inline GA config so it uses the same measurement ID fallback.
 
 ## Where it’s wired
 
 - **Layout:** `src/layouts/Layout.astro`
   - Reads `PUBLIC_GA_MEASUREMENT_ID` (or default).
   - Loads `https://www.googletagmanager.com/gtag/js?id=<ID>` via Partytown.
-  - Inlines the GA config script (also Partytown) with `define:vars={{ gaId: gaMeasurementId }}` so the **worker** gets the correct ID (Partytown runs in a web worker; `window.__GA_MEASUREMENT_ID__` from the main page is not visible there).
+  - Inlines the GA config script so the Partytown worker gets the correct ID.
   - That inline script does `gtag("config", gaId, gaConfig)` so data is sent for your measurement ID.
-- **Legacy:** `public/scripts/analytics.js` is no longer loaded; the config lives in the layout so the Partytown worker receives the build-time ID.
 
 ## Preconnect / DNS prefetch
 

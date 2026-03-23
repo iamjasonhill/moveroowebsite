@@ -3,6 +3,30 @@
 Use this file as the append-only log of technical SEO checks over time.
 Each entry should record the date, commit, environment checked, headline scores, key findings, and what changed.
 
+## 2026-03-23 14:35:22 AEST
+
+- Commit: recorded in VCS history for the GA-only analytics cleanup pass
+- Environment: local code review and config cleanup
+- Scope: analytics stack review after the technical SEO sweep
+
+### Findings
+
+- the site was loading both GA4 and a second page analytics script from `againanalytics.vercel.app`
+- GA4 was the preferred tracking platform to keep
+- the extra script and its CSP allowances were no longer needed
+
+### Fixes Landed In This Cycle
+
+- removed the sitewide `againanalytics.vercel.app` script from the shared layout
+- removed the matching `preconnect` hint
+- tightened CSP so it no longer allows the removed analytics host
+- updated the repo SEO baseline to record a GA4-only analytics stack
+
+### Follow-Up
+
+- optional: review GA4 consent mode if privacy requirements change
+- optional: rerun Lighthouse on production after the next deploy if you want a fresh Best Practices baseline
+
 ## 2026-03-23 11:36:53 AEST
 
 - Commit: `3bf292b`

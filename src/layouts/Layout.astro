@@ -199,7 +199,6 @@ const footerSignals = ["Household relocations", "Vehicle transport", "Nationwide
 		<link rel="manifest" href="/manifest.json" />
 		<!-- Resource Hints for Performance -->
 		<link rel="preconnect" href="https://www.googletagmanager.com" />
-		<link rel="preconnect" href="https://againanalytics.vercel.app" />
 		<link rel="dns-prefetch" href="https://www.google-analytics.com" />
 		<link rel="dns-prefetch" href="https://analytics.google.com" />
 		<meta name="generator" content={Astro.generator} />
@@ -246,11 +245,6 @@ const footerSignals = ["Household relocations", "Vehicle transport", "Nationwide
 				</>
 			)
 		}
-		<script
-			type="text/partytown"
-			defer
-			src="https://againanalytics.vercel.app/script.js"
-			data-website-id="3004f4eb-2b2c-4d61-a2fc-2cd23e627f64"></script>
 		{
 			includeBaseSchema && (
 				<script type="application/ld+json" set:html={JSON.stringify(baseSchema)} />
