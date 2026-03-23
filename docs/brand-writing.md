@@ -13,14 +13,39 @@ Moveroo should sound:
 - calm
 - warm without sounding soft
 - Australian without forcing slang
+- simple
+- clean
 
 Moveroo should not sound:
 
 - like a generic SaaS template
 - overly clever
+- pretentious
 - salesy for the sake of it
 - padded with filler
 - internal or meta
+
+## Writing Standards
+
+Default to simple language.
+If a shorter, plainer word works, use it.
+
+Good grammar matters.
+Sentences should be clean, correctly punctuated, and easy to read on the first pass.
+
+Prefer:
+
+- short to medium sentence length
+- plain English
+- direct sentence structure
+- strong nouns and verbs
+
+Avoid:
+
+- inflated wording
+- decorative business language
+- over-explaining simple ideas
+- sounding polished at the expense of clarity
 
 ## Tone By Page Type
 
@@ -37,6 +62,7 @@ Tone:
 - strongest brand energy in the site
 - confident and transport-led
 - concise, not essay-like
+- simple before stylish
 
 ### Services
 
@@ -51,6 +77,7 @@ Tone:
 - more functional than homepage
 - decision-led, not narrative-led
 - specific about who each path is for
+- plain and easy to scan
 
 ### Moving Cars
 
@@ -65,6 +92,7 @@ Tone:
 - transport-specific
 - direct
 - trustworthy
+- simple and matter-of-fact
 
 ### Contact
 
@@ -79,6 +107,7 @@ Tone:
 - shortest and clearest prose on the site
 - action-led
 - supportive
+- plain and friction-free
 
 ### Legal And Support Pages
 
@@ -93,6 +122,7 @@ Tone:
 - restrained
 - calm
 - plain-language first
+- formal enough to feel reliable, but never stiff
 
 ## Messaging Priorities
 
@@ -108,6 +138,7 @@ Do not lead with:
 - abstract claims
 - vague quality words
 - commentary about the page itself
+- clever phrasing that makes the line harder to understand
 
 ## Preferred Language
 
@@ -154,6 +185,8 @@ Avoid these habits:
 - describing the content instead of helping the reader
 - making services and homepage sound interchangeable
 - writing long support paragraphs when two short lines would do
+- using fancy wording where normal wording is stronger
+- letting grammar slip in the name of sounding casual
 
 ## CTA Rules
 
@@ -228,7 +261,9 @@ Stronger:
 Before publishing new copy, ask:
 
 - Does this sound like Moveroo rather than a generic removals site?
+- Is the language simple and clean?
 - Is the page doing one main job clearly?
 - Did we choose concrete nouns and verbs?
+- Is the grammar correct and the punctuation tidy?
 - Is the CTA specific?
 - Would this still read cleanly on mobile?
