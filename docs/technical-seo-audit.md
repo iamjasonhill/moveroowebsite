@@ -37,6 +37,8 @@
 - confirmed the checked public pages had no horizontal overflow in the QA pass
 - corrected the repo SEO baseline to reflect the existing `robots.txt` route
 - enforced trailing slash redirects in Astro and Vercel so canonical HTML routes do not resolve both slash variants with `200`
+- replaced the non-standard `LLMs.txt:` robots directive with a comment so Lighthouse no longer treats `robots.txt` as malformed
+- reduced a mobile homepage CLS culprit by hiding the large lower-left hero blur shape on small screens
 
 ## Current State
 
@@ -46,6 +48,7 @@
 - internal review/template pages are intentionally excluded or noindexed
 - sitemap exclusions are in place for the known internal/template routes
 - `robots.txt` exists and points crawlers to the sitemap index
+- Lighthouse flagged mobile CLS and `robots.txt`; both now have targeted fixes in the codebase
 
 ## Remaining Non-Critical Follow-Up
 
