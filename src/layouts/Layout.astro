@@ -232,14 +232,8 @@ const footerSignals = ["Household relocations", "Vehicle transport", "Nationwide
 		{
 			gaMeasurementId && (
 				<>
+					<script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`} />
 					<script
-						type="text/partytown"
-						async
-						src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
-					/>
-					{/* Inline config so Partytown worker gets the correct ID (window.__GA_MEASUREMENT_ID__ is not visible in worker) */}
-					<script
-						type="text/partytown"
 						set:html={`window.dataLayer = window.dataLayer || []; function gtag(){ dataLayer.push(arguments); } gtag("js", new Date()); var hostname = window.location.hostname; var gaConfig = { cookie_domain: hostname === "localhost" || hostname === "127.0.0.1" ? hostname : "auto" }; gtag("config", "${gaMeasurementId}", gaConfig);`}
 					/>
 				</>

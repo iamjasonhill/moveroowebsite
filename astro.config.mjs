@@ -5,8 +5,6 @@ import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import vercel from "@astrojs/vercel";
 
-import partytown from "@astrojs/partytown";
-
 /** @type {import('astro').AstroIntegration} */
 const duplicateSitemap = {
 	name: "duplicate-sitemap-index-underscore",
@@ -51,11 +49,6 @@ export default defineConfig({
 				!page.includes("/design"),
 		}),
 		duplicateSitemap,
-		partytown({
-			config: {
-				forward: ["dataLayer.push"],
-			},
-		}),
 	],
 	vite: {
 		plugins: [tailwindcss()],

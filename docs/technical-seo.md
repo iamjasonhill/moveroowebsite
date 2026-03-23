@@ -80,7 +80,7 @@ Current note:
 ## Analytics Rules
 
 - Primary analytics stack: `GA4` only
-- GA4 is loaded via Partytown from `src/layouts/Layout.astro`
+- GA4 is loaded directly from the standard Google tag in `src/layouts/Layout.astro`
 - Avoid layering a second page analytics script on top unless there is a clear reporting need
 - If analytics changes, update CSP and this file in the same pass
 

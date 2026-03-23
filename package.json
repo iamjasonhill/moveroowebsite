@@ -24,7 +24,6 @@
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.6",
-		"@astrojs/partytown": "^2.1.4",
 		"@astrojs/sitemap": "^3.6.0",
 		"@astrojs/vercel": "^9.0.3",
 		"@sendgrid/mail": "^8.1.6",

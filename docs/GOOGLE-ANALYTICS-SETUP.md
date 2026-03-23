@@ -1,6 +1,6 @@
 # Google Analytics (GA4) Setup
 
-This project loads **Google Analytics 4** via [Partytown](https://partytown.builder.io/) so analytics run off the main thread and don’t block the page.
+This project loads **Google Analytics 4** with the standard Google tag (`gtag.js`) directly from Google.
 
 ## Adding or changing the GA measurement ID
 
@@ -44,8 +44,8 @@ To change the default for this repo:
 
 - **Layout:** `src/layouts/Layout.astro`
   - Reads `PUBLIC_GA_MEASUREMENT_ID` (or default).
-  - Loads `https://www.googletagmanager.com/gtag/js?id=<ID>` via Partytown.
-  - Inlines the GA config script so the Partytown worker gets the correct ID.
+  - Loads `https://www.googletagmanager.com/gtag/js?id=<ID>` directly.
+  - Inlines the GA config script with the matching measurement ID.
   - That inline script does `gtag("config", gaId, gaConfig)` so data is sent for your measurement ID.
 
 ## Preconnect / DNS prefetch

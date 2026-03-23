@@ -56,6 +56,7 @@ See [technical-seo-history.md](./technical-seo-history.md) for timestamped audit
 - Lighthouse rerun on production now reports `Performance 100` on both mobile and desktop
 - page schema is now closer to the visible page purpose across homepage, services, moving cars, contact, and legal support pages
 - analytics stack is now simpler, with GA4 kept and the second sitewide analytics script removed
+- GA4 no longer relies on Partytown and now uses the standard direct Google tag
 
 ## Remaining Non-Critical Follow-Up
 
