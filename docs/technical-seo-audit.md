@@ -3,7 +3,7 @@
 ## Latest Pass
 
 - Date: 2026-03-23
-- Scope: core public pages, metadata, indexing controls, rendered mobile QA, FAQ/schema consistency
+- Scope: core public pages, metadata, indexing controls, rendered mobile QA, FAQ/schema consistency, canonical slash behavior, performance-risk review
 
 ## Routes Reviewed
 
@@ -36,11 +36,13 @@
 - removed layout references to missing PNG and Apple touch icon assets
 - confirmed the checked public pages had no horizontal overflow in the QA pass
 - corrected the repo SEO baseline to reflect the existing `robots.txt` route
+- enforced trailing slash redirects in Astro and Vercel so canonical HTML routes do not resolve both slash variants with `200`
 
 ## Current State
 
 - no critical indexation issues were found in the checked public pages
 - main public routes have titles, descriptions and canonicals
+- slash-based canonicals are now backed by explicit redirect behavior in config
 - internal review/template pages are intentionally excluded or noindexed
 - sitemap exclusions are in place for the known internal/template routes
 - `robots.txt` exists and points crawlers to the sitemap index
@@ -48,6 +50,7 @@
 ## Remaining Non-Critical Follow-Up
 
 - run a deeper Lighthouse and performance-focused SEO pass when performance becomes the priority
+- review analytics and Partytown request overhead if performance optimisation becomes a priority
 - review share-image strategy if future campaign or service-specific OG assets are added
 - keep repo docs updated as new public routes are introduced
 

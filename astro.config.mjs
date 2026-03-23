@@ -35,6 +35,7 @@ const duplicateSitemap = {
 export default defineConfig({
 	site: "https://moveroo.com.au",
 	output: "server",
+	trailingSlash: "always",
 	adapter: vercel(),
 	build: {
 		// Inline smaller stylesheets to reduce number of external CSS files

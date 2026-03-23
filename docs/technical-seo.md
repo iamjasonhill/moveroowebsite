@@ -38,6 +38,7 @@ These routes should stay out of search:
 
 - Canonicals should always use the production domain `https://moveroo.com.au`
 - Public pages should use trailing slash canonicals
+- Public HTML routes should redirect to the trailing slash version instead of serving both variants with `200`
 - Internal review or template pages may keep canonicals for consistency, but must also stay `noindex`
 
 ## Sitemap Rules
