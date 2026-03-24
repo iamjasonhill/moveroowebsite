@@ -14,7 +14,7 @@ and information hub for our services.
 - **Framework**: [Astro](https://astro.build) 5.x
 - **Styling**: [Tailwind CSS](https://tailwindcss.com) 4.x
 - **Deployment**: Vercel
-- **Analytics**: Google Analytics 4 + Again Analytics (via Partytown)
+- **Analytics**: Google Analytics 4 + Matomo
 - **Linting**: ESLint + Prettier with Astro plugins
 - **Pre-commit**: Husky + lint-staged
 
@@ -95,7 +95,7 @@ git commit --no-verify -m "your message"
 - **Performance**: Partytown for third-party script optimization
 - **Accessibility**: WCAG AA compliant with skip links and ARIA labels
 - **Mobile First**: Responsive design with mobile navigation
-- **Analytics**: Integrated Google Analytics 4 and Again Analytics
+- **Analytics**: Integrated Google Analytics 4 and Matomo
 - **Security**: CSP headers, X-Frame-Options, and other security headers
 
 ## 📄 Pages
