@@ -2,6 +2,26 @@
 	"trailingSlash": true,
 	"redirects": [
 		{
+			"source": "/sitemap.xml",
+			"destination": "/sitemap-index.xml",
+			"permanent": true
+		},
+		{
+			"source": "/contact-moveroo",
+			"destination": "https://quotes.moveroo.com.au/contact",
+			"permanent": true
+		},
+		{
+			"source": "/removalists-quote",
+			"destination": "https://quotes.moveroo.com.au/quote/household",
+			"permanent": true
+		},
+		{
+			"source": "/terms-and-conditions",
+			"destination": "/terms-and-conditions-transport/",
+			"permanent": true
+		},
+		{
 			"source": "/:path*",
 			"has": [
 				{
