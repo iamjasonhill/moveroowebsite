@@ -30,7 +30,7 @@ Safe and reliable vehicle transport across Australia. Whether you're moving inte
 - [Get a Moving Quote](https://removalists.moveroo.com.au/quote/household)
 - [Vehicle Transport Quote](https://cars.moveroo.com.au/quote/v2)
 - [Moving Cars](https://moveroo.com.au/moving-cars/)
-- [Contact Us](https://moveroo.com.au/contact/)
+- [Contact Us](https://quotes.moveroo.com.au/contact)
 - [Book Your Move](https://removalists.moveroo.com.au/booking/create)
 
 ## Contact
