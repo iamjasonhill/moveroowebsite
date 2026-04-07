@@ -7,17 +7,17 @@
 			"permanent": true
 		},
 		{
-			"source": "/contact-moveroo",
+			"source": "/contact-moveroo/",
 			"destination": "https://quotes.moveroo.com.au/contact",
 			"permanent": true
 		},
 		{
-			"source": "/removalists-quote",
+			"source": "/removalists-quote/",
 			"destination": "https://quotes.moveroo.com.au/quote/household",
 			"permanent": true
 		},
 		{
-			"source": "/terms-and-conditions",
+			"source": "/terms-and-conditions/",
 			"destination": "/terms-and-conditions-transport/",
 			"permanent": true
 		},
