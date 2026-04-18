@@ -1,142 +1,65 @@
-# Moveroo Website
+# MM-moveroo.com.au
 
-The official website for Moveroo Australia - your trusted partner for moving and
-transport services across Australia.
+Canonical Astro controller for `moveroo.com.au`.
 
-## 🚀 About
+This repo contains the live Moveroo marketing site and its current Vercel deployment contract. The site is lighter than the bigger programmatic fleet surfaces, but it still needs the same core operating paperwork so it is managed like a first-class controller instead of an isolated marketing repo.
 
-Moveroo connects customers with trusted removalists, vehicle carriers, and
-logistics specialists nationwide. This website serves as the primary marketing
-and information hub for our services.
+## Current State
 
-## 🛠️ Tech Stack
+- domain: `https://moveroo.com.au`
+- framework: Astro
+- hosting: Vercel
+- local controller path: `MM-moveroo.com.au`
+- site shape: branded marketing site with service pathways into external quote and booking flows
 
-- **Framework**: [Astro](https://astro.build) 5.x
-- **Styling**: [Tailwind CSS](https://tailwindcss.com) 4.x
-- **Deployment**: Vercel
-- **Analytics**: Google Analytics 4 + Matomo
-- **Linting**: ESLint + Prettier with Astro plugins
-- **Pre-commit**: Husky + lint-staged
+The current migration and operating paperwork lives in:
 
-## 📁 Project Structure
+- [docs/migration-ledger.md](docs/migration-ledger.md)
+- [docs/redirect-map.md](docs/redirect-map.md)
+- [docs/indexed-valid-inventory.md](docs/indexed-valid-inventory.md)
+- [docs/homepage-audit.md](docs/homepage-audit.md)
+- [docs/live-cutover-status.md](docs/live-cutover-status.md)
 
-```
-/
-├── public/              # Static assets (favicon, manifest)
-├── src/
-│   ├── assets/          # Images and media
-│   ├── components/      # Astro components
-│   │   └── sections/    # Page section components
-│   ├── layouts/         # Layout templates
-│   ├── pages/           # Route pages
-│   └── styles/          # Global CSS
-├── docs/                # Project documentation
-├── scripts/             # Utility scripts (SEO audit, etc.)
-├── astro.config.mjs     # Astro configuration
-├── tailwind.config.ts   # Tailwind configuration
-├── eslint.config.js     # ESLint configuration
-├── .prettierrc          # Prettier configuration
-└── vercel.json          # Vercel deployment config
-```
-
-## 🧞 Commands
-
-All commands are run from the root of the project:
-
-| Command                   | Action                                       |
-| :------------------------ | :------------------------------------------- |
-| `npm install`             | Installs dependencies                        |
-| `npm run dev`             | Starts local dev server at `localhost:4321`  |
-| `npm run build`           | Build your production site to `./dist/`      |
-| `npm run preview`         | Preview your build locally, before deploying |
-| `npm run lint`            | Run ESLint and Astro type checking           |
-| `npm run lint:fix`        | Auto-fix ESLint issues                       |
-| `npm run format`          | Format all files with Prettier               |
-| `npm run format:check`    | Check formatting without making changes      |
-| `npm run seo:audit`       | Run SEO audit on production site             |
-| `npm run seo:audit:local` | Run SEO audit on local dev server            |
-
-## 🔧 Development Setup
-
-### Prerequisites
-
-- Node.js 22.x (see `.nvmrc`)
-- npm 10.x+
-
-### Getting Started
+## Important Commands
 
 ```bash
-# Install dependencies
-npm install
-
-# Start development server
 npm run dev
-
-# Open http://localhost:4321
+npm run build
+npm run check
+npm run check:seo
+npm run seo:audit
 ```
 
-### Pre-commit Hooks
+Useful supporting commands:
 
-This project uses Husky to run linting on staged files before each commit:
+- `npm run seo:page`
+- `npm run seo:crawl`
+- `npm run lint`
+- `npm run format:check`
 
-- **ESLint** checks `.js`, `.ts`, and `.astro` files
-- **Prettier** formats all supported files
-- Commits are blocked if linting fails
+## Site Shape
 
-To bypass hooks (not recommended):
+Moveroo is a smaller, more curated surface than the larger programmatic estates.
 
-```bash
-git commit --no-verify -m "your message"
-```
+Current highlights:
 
-## 🌐 Key Features
+- homepage, services, contact, legal pages, and the `moving-cars` merger/support page
+- external quote and booking endpoints for household, vehicle, and contact flows
+- Vercel redirect, header, and security policy config in `vercel.json`
+- branded OG assets and `llms.txt` already present in `public/`
 
-- **SEO Optimized**: Comprehensive meta tags, structured data, and sitemaps
-- **Performance**: Partytown for third-party script optimization
-- **Accessibility**: WCAG AA compliant with skip links and ARIA labels
-- **Mobile First**: Responsive design with mobile navigation
-- **Analytics**: Integrated Google Analytics 4 and Matomo
-- **Security**: CSP headers, X-Frame-Options, and other security headers
+## Environment
 
-## 📄 Pages
+Copy `.env.example` and set the real values when needed:
 
-- `/` - Homepage with hero, features, pricing, and testimonials
-- `/services/` - Comprehensive service overview
-- `/moving-cars/` - Moving Cars merger announcement
-- `/contact/` - Contact form and information
-- `/privacy-policy/` - Privacy policy
-- `/terms-of-use/` - Website terms of use
-- `/terms-and-conditions-transport/` - Transport service terms
+- `PUBLIC_SITE_URL`
+- `PUBLIC_SITE_NAME`
+- `PUBLIC_SITE_DESCRIPTION`
+- `PUBLIC_GA_MEASUREMENT_ID`
+- `PUBLIC_MATOMO_BASE_URL`
+- `PUBLIC_MATOMO_SITE_ID`
 
-## 🔗 External Services
+## Notes
 
-- **Removalist Quotes**: [removalists.moveroo.com.au](https://removalists.moveroo.com.au)
-- **Vehicle Transport**: [cars.moveroo.com.au](https://cars.moveroo.com.au)
-- **Booking System**: Setmore integration
-
-## 🚀 Deployment
-
-The site is automatically deployed to Vercel on push to the main branch. Build
-output is optimized with:
-
-- Static asset caching (1 year)
-- Page caching with revalidation
-- Sitemap generation with dual format support
-
-## 📚 Documentation
-
-Additional documentation is available in the [`docs/`](./docs/) folder:
-
-- [Astro Linting Setup Guide](./docs/ASTRO-LINTING-SETUP.md) - How to set up linting for Astro projects
-- [CORS Configuration](./docs/CORS-CONFIGURATION.md) - Cross-origin resource sharing setup
-- [CSP Improvements](./docs/CSP-IMPROVEMENTS.md) - Content Security Policy details
-- [Improvements Log](./docs/IMPROVEMENTS-COMPLETED.md) - History of site improvements
-
-## 📝 License
-
-© 2024 Moveroo Australia. All rights reserved.
-
-## 📧 Contact
-
-For questions about this codebase, contact the development team at
-[removals@moveroo.com.au](mailto:removals@moveroo.com.au)
+- there is already active in-progress design/content work in this repo; the fleet-standard docs are intended to sit alongside that work, not replace it
+- the live controller is confirmed locally under the `MM-<domain>` naming standard

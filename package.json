@@ -11,6 +11,8 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"astro": "astro",
+		"check": "astro check",
+		"check:seo": "node scripts/check-seo.mjs",
 		"lint": "eslint . && astro check",
 		"lint:fix": "eslint . --fix",
 		"format": "prettier --write .",

@@ -1,17 +1,17 @@
 import type { APIRoute } from "astro";
 
-const SITE_URL = "https://moveroo.com.au";
+const siteUrl = (import.meta.env.PUBLIC_SITE_URL || "https://moveroo.com.au").replace(/\/$/, "");
 
 export const GET: APIRoute = () => {
 	const body = [
 		`User-agent: *`,
 		`Allow: /`,
 		``,
-		`Sitemap: ${SITE_URL}/sitemap-index.xml`,
+		`Sitemap: ${siteUrl}/sitemap-index.xml`,
 		``,
 		`# LLM/AI Crawler Information`,
 		`# See https://llmstxt.org for specification`,
-		`# LLMs.txt: ${SITE_URL}/llms.txt`,
+		`# LLMs.txt: ${siteUrl}/llms.txt`,
 	].join("\n");
 
 	return new Response(body, {
