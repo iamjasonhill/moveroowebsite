@@ -28,7 +28,7 @@ Safe and reliable vehicle transport across Australia. Whether you're moving inte
 
 - [Home](https://moveroo.com.au/)
 - [Get a Moving Quote](https://removalists.moveroo.com.au/quote/household)
-- [Vehicle Transport Quote](https://cars.moveroo.com.au/quote/v2)
+- [Vehicle Transport Quote](https://quotes.moveroo.com.au/quote/vehicle)
 - [Moving Cars](https://moveroo.com.au/moving-cars/)
 - [Contact Us](https://quotes.moveroo.com.au/contact)
 - [Book Your Move](https://removalists.moveroo.com.au/booking/create)
@@ -52,7 +52,7 @@ Safe and reliable vehicle transport across Australia. Whether you're moving inte
 Visit our [quote page](https://removalists.moveroo.com.au/quote/household) and enter your move details. We'll connect you with multiple removalists who will provide competitive quotes.
 
 ### Do you transport vehicles interstate?
-Yes, we offer vehicle transport services across all Australian states and territories. Get a [vehicle transport quote](https://cars.moveroo.com.au/quote/v2) to see pricing.
+Yes, we offer vehicle transport services across all Australian states and territories. Get a [vehicle transport quote](https://quotes.moveroo.com.au/quote/vehicle) to see pricing.
 
 ### Are your removalists verified?
 All removalists on our platform are verified and vetted for reliability and professionalism.

@@ -22,6 +22,21 @@
 			"permanent": true
 		},
 		{
+			"source": "/moveroo-customer-reviews/",
+			"destination": "/",
+			"permanent": true
+		},
+		{
+			"source": "/api/cancellation",
+			"destination": "/",
+			"permanent": true
+		},
+		{
+			"source": "/~partytown/",
+			"destination": "/",
+			"permanent": true
+		},
+		{
 			"source": "/:path*",
 			"has": [
 				{

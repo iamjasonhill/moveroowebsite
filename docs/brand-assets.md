@@ -174,8 +174,8 @@ Avoid:
 
 These code references should be updated once assets are created:
 
-- [Layout.astro](/Users/jasonhill/Projects/websites/moveroo-website-astro/src/layouts/Layout.astro)
-- [manifest.json](/Users/jasonhill/Projects/websites/moveroo-website-astro/public/manifest.json)
+- [Layout.astro](/Users/jasonhill/Projects/websites/MM-moveroo.com.au/src/layouts/Layout.astro)
+- [manifest.json](/Users/jasonhill/Projects/websites/MM-moveroo.com.au/public/manifest.json)
 - page-level `ogImage` props where page-specific assets are added
 
 Likely updates:
