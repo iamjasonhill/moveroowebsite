@@ -1,0 +1,17 @@
+---
+import Matomo from "./Matomo.astro";
+
+const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || "G-4DN533CFGK";
+---
+
+{
+	gaMeasurementId && (
+		<>
+			<script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`} />
+			<script
+				set:html={`window.dataLayer = window.dataLayer || []; function gtag(){ dataLayer.push(arguments); } gtag("js", new Date()); var hostname = window.location.hostname; var gaConfig = { cookie_domain: hostname === "localhost" || hostname === "127.0.0.1" ? hostname : "auto" }; gtag("config", "${gaMeasurementId}", gaConfig);`}
+			/>
+		</>
+	)
+}
+<Matomo />

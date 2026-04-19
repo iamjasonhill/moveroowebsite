@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Analytics from "../components/analytics/Analytics.astro";
 import DarkModeToggle from "../components/DarkModeToggle.astro";
 
 interface BreadcrumbItem {
@@ -107,13 +108,6 @@ const baseSchema = {
 	],
 };
 
-// Google Analytics: set PUBLIC_GA_MEASUREMENT_ID in .env to enable or use a different ID
-const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || "G-4DN533CFGK";
-const matomoBaseUrl = (
-	import.meta.env.PUBLIC_MATOMO_BASE_URL || "https://stats.redirection.com.au"
-).replace(/\/$/, "");
-const matomoSiteId = import.meta.env.PUBLIC_MATOMO_SITE_ID || "6";
-
 const navItems = [
 	{ label: "Home", href: "/", external: false, variant: "link" },
 	{
@@ -168,7 +162,8 @@ const footerLegalLinks = [
 	{ label: "Terms of Use", href: "/terms-of-use/" },
 	{ label: "Transport Terms", href: "/terms-and-conditions-transport/" },
 	{ label: "Cancellation Policy", href: "/cancellation/" },
-	{ label: "Sitemap", href: "/sitemap-index.xml" },
+	{ label: "HTML Sitemap", href: "/sitemap/" },
+	{ label: "XML Sitemap", href: "/sitemap-index.xml" },
 ];
 
 const footerSignals = ["Household relocations", "Vehicle transport", "Nationwide coordination"];
@@ -205,13 +200,13 @@ const footerSignals = ["Household relocations", "Vehicle transport", "Nationwide
 		<link rel="preconnect" href="https://www.googletagmanager.com" />
 		<link rel="dns-prefetch" href="https://www.google-analytics.com" />
 		<link rel="dns-prefetch" href="https://analytics.google.com" />
-		<link rel="preconnect" href={matomoBaseUrl} />
-		<link rel="dns-prefetch" href={matomoBaseUrl} />
 		<meta name="generator" content={Astro.generator} />
 		{robots && <meta name="robots" content={robots} />}
 		<title>{title}</title>
 		{description && <meta name="description" content={description} />}
 		{canonical && <link rel="canonical" href={canonical} />}
+		<link rel="alternate" type="application/rss+xml" title="Moveroo RSS feed" href="/rss.xml" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
 		<!-- Hreflang tags for single-language site -->
 		<link rel="alternate" hreflang="en-AU" href={canonical || "https://moveroo.com.au/"} />
 		<link rel="alternate" hreflang="x-default" href={canonical || "https://moveroo.com.au/"} />
@@ -235,23 +230,7 @@ const footerSignals = ["Household relocations", "Vehicle transport", "Nationwide
 		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
 		<meta name="apple-mobile-web-app-title" content="Moveroo" />
 		<meta name="theme-color" content="#10b981" />
-		{
-			gaMeasurementId && (
-				<>
-					<script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`} />
-					<script
-						set:html={`window.dataLayer = window.dataLayer || []; function gtag(){ dataLayer.push(arguments); } gtag("js", new Date()); var hostname = window.location.hostname; var gaConfig = { cookie_domain: hostname === "localhost" || hostname === "127.0.0.1" ? hostname : "auto" }; gtag("config", "${gaMeasurementId}", gaConfig);`}
-					/>
-				</>
-			)
-		}
-		{
-			matomoBaseUrl && matomoSiteId && (
-				<script
-					set:html={`var _paq = window._paq = window._paq || []; _paq.push(['trackPageView']); _paq.push(['enableLinkTracking']); (function() { var u='${matomoBaseUrl}/'; _paq.push(['setTrackerUrl', u + 'piwik.php']); _paq.push(['setSiteId', '${matomoSiteId}']); var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.async=true; g.src=u + 'piwik.js'; s.parentNode.insertBefore(g,s); })();`}
-				/>
-			)
-		}
+		<Analytics />
 		{
 			includeBaseSchema && (
 				<script type="application/ld+json" set:html={JSON.stringify(baseSchema)} />

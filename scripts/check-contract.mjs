@@ -10,19 +10,61 @@ async function read(relativePath) {
 	return fs.readFile(path.join(root, relativePath), "utf8");
 }
 
+async function exists(relativePath) {
+	try {
+		await fs.access(path.join(root, relativePath));
+		return true;
+	} catch {
+		return false;
+	}
+}
+
 async function main() {
 	const checks = [];
+	const packageJson = JSON.parse(await read("package.json"));
 	const layout = await read("src/layouts/Layout.astro");
 	const envExample = await read(".env.example");
+	const analyticsWrapper = await read("src/components/analytics/Analytics.astro");
+
+	for (const scriptName of ["check", "check:contract", "check:seo"]) {
+		checks.push([
+			`package.json includes ${scriptName}`,
+			Boolean(packageJson.scripts?.[scriptName]),
+		]);
+	}
 
 	checks.push([
-		"Layout includes Matomo config keys",
-		layout.includes("PUBLIC_MATOMO_BASE_URL") && layout.includes("PUBLIC_MATOMO_SITE_ID"),
+		"analytics wrapper exists",
+		await exists("src/components/analytics/Analytics.astro"),
 	]);
+	checks.push(["matomo wrapper exists", await exists("src/components/analytics/Matomo.astro")]);
 	checks.push([
-		"Layout emits Matomo tracker bootstrap",
-		layout.includes("piwik.js") && layout.includes("setSiteId"),
+		"Layout imports analytics wrapper",
+		layout.includes('import Analytics from "../components/analytics/Analytics.astro";'),
 	]);
+	checks.push(["Layout renders analytics wrapper", layout.includes("<Analytics />")]);
+	checks.push([
+		"analytics wrapper includes Matomo",
+		analyticsWrapper.includes('import Matomo from "./Matomo.astro";'),
+	]);
+	for (const relativePath of [
+		"src/pages/rss.xml.ts",
+		"src/pages/sitemap.astro",
+		"src/pages/robots.txt.ts",
+		"src/pages/privacy-policy.astro",
+		"src/pages/terms-of-use.astro",
+		"docs/migration-ledger.md",
+		"docs/redirect-map.md",
+		"docs/live-cutover-status.md",
+		"docs/homepage-audit.md",
+		"docs/indexed-valid-inventory.md",
+		"docs/nonindexed-redirect-strategy.md",
+		"docs/nonindexed-redirect-report.md",
+	]) {
+		checks.push([`${relativePath} exists`, await exists(relativePath)]);
+	}
+	checks.push(["Layout links RSS feed", layout.includes("application/rss+xml")]);
+	checks.push(["Layout links sitemap", layout.includes('rel="sitemap"')]);
 	checks.push([
 		".env.example includes PUBLIC_MATOMO_BASE_URL=",
 		envExample.includes("PUBLIC_MATOMO_BASE_URL="),
