@@ -1,0 +1,48 @@
+---
+interface Props {
+	measurementId?: string;
+	tagUrl?: string;
+	sendPageView?: boolean | string;
+	anonymizeIp?: boolean | string;
+}
+
+const {
+	measurementId = "",
+	tagUrl = "https://www.googletagmanager.com/gtag/js",
+	sendPageView = true,
+	anonymizeIp = false,
+} = Astro.props;
+
+const gaMeasurementId = measurementId.trim();
+const gaTagUrl = tagUrl.trim() || "https://www.googletagmanager.com/gtag/js";
+const gaSendPageView =
+	typeof sendPageView === "string" ? sendPageView !== "false" : Boolean(sendPageView);
+const gaAnonymizeIp =
+	typeof anonymizeIp === "string" ? anonymizeIp === "true" : Boolean(anonymizeIp);
+
+const gaConfig: Record<string, boolean | string> = {
+	cookie_domain: "auto",
+};
+
+if (!gaSendPageView) {
+	gaConfig.send_page_view = false;
+}
+
+if (gaAnonymizeIp) {
+	gaConfig.anonymize_ip = true;
+}
+---
+
+{
+	import.meta.env.PROD && gaMeasurementId && (
+		<>
+			<link rel="preconnect" href="https://www.googletagmanager.com" />
+			<link rel="dns-prefetch" href="https://www.google-analytics.com" />
+			<script async src={`${gaTagUrl}?id=${gaMeasurementId}`} />
+			<script
+				is:inline
+				set:html={`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${gaMeasurementId}', ${JSON.stringify(gaConfig)});`}
+			/>
+		</>
+	)
+}
