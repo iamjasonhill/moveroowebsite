@@ -1,4 +1,5 @@
 import rss from "@astrojs/rss";
+import { site } from "../config/site";
 
 const items = [
 	{
@@ -21,7 +22,7 @@ const items = [
 	{
 		title: "Contact",
 		description: "Contact pathways for Moveroo quote support and planning help.",
-		link: "/contact/",
+		link: site.destinations.contactPage,
 	},
 ];
 
