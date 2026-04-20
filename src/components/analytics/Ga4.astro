@@ -4,6 +4,7 @@ interface Props {
 	tagUrl?: string;
 	sendPageView?: boolean | string;
 	anonymizeIp?: boolean | string;
+	siteKey?: string;
 }
 
 const {
@@ -11,6 +12,7 @@ const {
 	tagUrl = "https://www.googletagmanager.com/gtag/js",
 	sendPageView = true,
 	anonymizeIp = false,
+	siteKey = "moveroo",
 } = Astro.props;
 
 const gaMeasurementId = measurementId.trim();
@@ -20,13 +22,9 @@ const gaSendPageView =
 const gaAnonymizeIp =
 	typeof anonymizeIp === "string" ? anonymizeIp === "true" : Boolean(anonymizeIp);
 
-const gaConfig: Record<string, boolean | string> = {
-	cookie_domain: "auto",
-};
+const gaConfig: Record<string, boolean | string> = {};
 
-if (!gaSendPageView) {
-	gaConfig.send_page_view = false;
-}
+gaConfig.send_page_view = gaSendPageView;
 
 if (gaAnonymizeIp) {
 	gaConfig.anonymize_ip = true;
@@ -41,7 +39,7 @@ if (gaAnonymizeIp) {
 			<script async src={`${gaTagUrl}?id=${gaMeasurementId}`} />
 			<script
 				is:inline
-				set:html={`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${gaMeasurementId}', ${JSON.stringify(gaConfig)});`}
+				set:html={`window.dataLayer = window.dataLayer || []; window.gtag = function () { window.dataLayer.push(arguments); }; gtag('js', new Date()); gtag('config', '${gaMeasurementId}', ${JSON.stringify(gaConfig)}); window.mmTrack = function (eventName, params) { gtag('event', eventName, Object.assign({ site_key: '${siteKey}' }, params || {})); };`}
 			/>
 		</>
 	)

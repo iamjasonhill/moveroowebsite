@@ -25,13 +25,14 @@ let config = {};
 if (analyticsProvider && analyticsConfig) {
 	provider = analyticsProvider;
 	config = analyticsConfig;
-} else if (import.meta.env.PUBLIC_GA_MEASUREMENT_ID || "G-4DN533CFGK") {
+} else if (import.meta.env.PUBLIC_GA_MEASUREMENT_ID || "G-9F3Y80LEQL") {
 	provider = "ga4";
 	config = {
-		measurement_id: import.meta.env.PUBLIC_GA_MEASUREMENT_ID || "G-4DN533CFGK",
+		measurement_id: import.meta.env.PUBLIC_GA_MEASUREMENT_ID || "G-9F3Y80LEQL",
 		tag_url: import.meta.env.PUBLIC_GA_TAG_URL || "https://www.googletagmanager.com/gtag/js",
 		send_page_view: import.meta.env.PUBLIC_GA_SEND_PAGE_VIEW || "true",
 		anonymize_ip: import.meta.env.PUBLIC_GA_ANONYMIZE_IP || "false",
+		site_key: "moveroo",
 	};
 } else if (import.meta.env.PUBLIC_MATOMO_BASE_URL && import.meta.env.PUBLIC_MATOMO_SITE_ID) {
 	provider = "matomo";
@@ -51,6 +52,7 @@ const enabled = analyticsEnabled ? analyticsEnabled === "true" : Boolean(provide
 			tagUrl={config.tag_url}
 			sendPageView={config.send_page_view}
 			anonymizeIp={config.anonymize_ip}
+			siteKey={config.site_key}
 		/>
 	)
 }
