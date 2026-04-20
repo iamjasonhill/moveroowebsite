@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import QuoteCta from "../components/sections/QuoteCta.astro";
+import { site } from "../config/site";
 
 const lastModified = new Date("2026-01-10T00:00:00.000Z");
 
@@ -23,7 +24,7 @@ const serviceTracks = [
 		],
 		notFor: "Single-vehicle-only bookings where no household inventory or moving crew is involved.",
 		ctaLabel: "Request a household quote",
-		href: "https://quotes.moveroo.com.au/quote/household",
+		href: site.destinations.householdQuote,
 		external: true,
 	},
 	{
@@ -45,7 +46,7 @@ const serviceTracks = [
 		notFor:
 			"Full household removals with furniture, cartons and loading crews as the main requirement.",
 		ctaLabel: "Request a vehicle quote",
-		href: "https://quotes.moveroo.com.au/quote/vehicle",
+		href: site.destinations.vehicleQuote,
 		external: true,
 	},
 	{

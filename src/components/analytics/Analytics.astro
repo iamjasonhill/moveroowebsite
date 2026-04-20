@@ -1,6 +1,7 @@
 ---
 import Ga4 from "./Ga4.astro";
 import Matomo from "./Matomo.astro";
+import { site } from "../../config/site";
 
 function parseJsonRecord(value) {
 	if (!value) return null;
@@ -52,7 +53,8 @@ const enabled = analyticsEnabled ? analyticsEnabled === "true" : Boolean(provide
 			tagUrl={config.tag_url}
 			sendPageView={config.send_page_view}
 			anonymizeIp={config.anonymize_ip}
-			siteKey={config.site_key}
+			siteKey={config.site_key || site.analytics.siteKey}
+			trackedLinks={site.analytics.trackedLinks}
 		/>
 	)
 }

@@ -7,6 +7,7 @@ import Pricing from "../components/sections/Pricing.astro";
 import Testimonials from "../components/sections/Testimonials.astro";
 import FAQ from "../components/sections/FAQ.astro";
 import { faqs as homepageFaqs } from "../data/faqs";
+import { site } from "../config/site";
 
 const homepageTracks = [
 	{
@@ -14,7 +15,7 @@ const homepageTracks = [
 		title: "Home moves planned around access, timing and inventory.",
 		description:
 			"From apartments and family homes to interstate relocations, Moveroo helps keep the quote path and planning clear from the start.",
-		href: "https://quotes.moveroo.com.au/quote/household",
+		href: site.destinations.householdQuote,
 		linkLabel: "Request a household quote",
 	},
 	{
@@ -22,7 +23,7 @@ const homepageTracks = [
 		title: "Vehicle transport handled with the same calm handoff.",
 		description:
 			"Use Moveroo when the move includes vehicle transport, dealership transfers, auction purchases or a single car heading interstate.",
-		href: "https://quotes.moveroo.com.au/quote/vehicle",
+		href: site.destinations.vehicleQuote,
 		linkLabel: "Request a vehicle quote",
 	},
 	{

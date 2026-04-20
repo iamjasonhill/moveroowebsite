@@ -1,4 +1,6 @@
 ---
+import { site } from "../../config/site";
+
 interface Plan {
 	name: string;
 	price: string;
@@ -20,7 +22,7 @@ const plans: Plan[] = [
 			"Ideal for apartments, partial loads and date-flexible relocations",
 		],
 		cta: "Grab your free quote",
-		href: "https://quotes.moveroo.com.au/quote/household",
+		href: site.destinations.householdQuote,
 	},
 	{
 		name: "Dedicated move",
@@ -33,7 +35,7 @@ const plans: Plan[] = [
 			"Add storage, vehicle transport or extra crews on demand as plans evolve",
 		],
 		cta: "Grab your free quote",
-		href: "https://quotes.moveroo.com.au/quote/household",
+		href: site.destinations.householdQuote,
 	},
 ];
 ---

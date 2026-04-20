@@ -5,6 +5,10 @@ interface Props {
 	sendPageView?: boolean | string;
 	anonymizeIp?: boolean | string;
 	siteKey?: string;
+	trackedLinks?: Array<{
+		href: string;
+		eventName: string;
+	}>;
 }
 
 const {
@@ -13,6 +17,7 @@ const {
 	sendPageView = true,
 	anonymizeIp = false,
 	siteKey = "moveroo",
+	trackedLinks = [],
 } = Astro.props;
 
 const gaMeasurementId = measurementId.trim();
@@ -29,6 +34,13 @@ gaConfig.send_page_view = gaSendPageView;
 if (gaAnonymizeIp) {
 	gaConfig.anonymize_ip = true;
 }
+
+const normalizedTrackedLinks = trackedLinks
+	.filter((link) => link?.href && link?.eventName)
+	.map((link) => ({
+		href: link.href.replace(/\/$/, ""),
+		eventName: link.eventName,
+	}));
 ---
 
 {
@@ -39,7 +51,7 @@ if (gaAnonymizeIp) {
 			<script async src={`${gaTagUrl}?id=${gaMeasurementId}`} />
 			<script
 				is:inline
-				set:html={`window.dataLayer = window.dataLayer || []; window.gtag = function () { window.dataLayer.push(arguments); }; gtag('js', new Date()); gtag('config', '${gaMeasurementId}', ${JSON.stringify(gaConfig)}); window.mmTrack = function (eventName, params) { gtag('event', eventName, Object.assign({ site_key: '${siteKey}' }, params || {})); };`}
+				set:html={`window.dataLayer = window.dataLayer || []; window.gtag = function () { window.dataLayer.push(arguments); }; gtag('js', new Date()); gtag('config', '${gaMeasurementId}', ${JSON.stringify(gaConfig)}); window.mmTrack = function (eventName, params) { gtag('event', eventName, Object.assign({ site_key: '${siteKey}' }, params || {})); }; (function () { var trackedLinks = ${JSON.stringify(normalizedTrackedLinks)}; if (!trackedLinks.length) return; function normalizeUrl(url) { try { var parsed = new URL(url, window.location.origin); return (parsed.origin + parsed.pathname).replace(/\\/$/, ''); } catch (_) { return String(url || '').replace(/\\/$/, ''); } } document.addEventListener('click', function (event) { var target = event.target instanceof Element ? event.target.closest('a[href]') : null; if (!target) return; var href = target.getAttribute('href'); if (!href) return; var normalizedHref = normalizeUrl(href); for (var i = 0; i < trackedLinks.length; i += 1) { var item = trackedLinks[i]; if (normalizedHref === item.href) { window.mmTrack(item.eventName); break; } } }); })();`}
 			/>
 		</>
 	)

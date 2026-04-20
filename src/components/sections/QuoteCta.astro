@@ -1,4 +1,6 @@
 ---
+import { site } from "../../config/site";
+
 interface Props {
 	title: string;
 	subtitle: string;
@@ -10,6 +12,17 @@ interface Props {
 
 const { title, subtitle, ctaPrimaryLabel, ctaPrimaryHref, ctaSecondaryLabel, ctaSecondaryHref } =
 	Astro.props as Props;
+
+function resolveHref(href: string) {
+	if (href === site.destinations.householdQuote) return site.destinations.householdQuote;
+	if (href === site.destinations.vehicleQuote) return site.destinations.vehicleQuote;
+	if (href === site.destinations.contactPage) return site.destinations.contactPage;
+	if (href === site.destinations.bookingPage) return site.destinations.bookingPage;
+	return href;
+}
+
+const primaryHref = resolveHref(ctaPrimaryHref);
+const secondaryHref = ctaSecondaryHref ? resolveHref(ctaSecondaryHref) : undefined;
 ---
 
 <section class="bg-white py-20 dark:bg-slate-900">
@@ -32,19 +45,19 @@ const { title, subtitle, ctaPrimaryLabel, ctaPrimaryHref, ctaSecondaryLabel, cta
 					<div class="motion-rise motion-rise-delay-1 flex flex-col gap-4 lg:items-end">
 						<a
 							class="inline-flex items-center justify-center rounded-full bg-emerald-400 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-950/30 transition hover:bg-emerald-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
-							href={ctaPrimaryHref}
-							target={ctaPrimaryHref.startsWith("http") ? "_blank" : undefined}
-							rel={ctaPrimaryHref.startsWith("http") ? "noopener noreferrer" : undefined}
+							href={primaryHref}
+							target={primaryHref.startsWith("http") ? "_blank" : undefined}
+							rel={primaryHref.startsWith("http") ? "noopener noreferrer" : undefined}
 						>
 							{ctaPrimaryLabel}
 						</a>
 						{
-							ctaSecondaryLabel && ctaSecondaryHref && (
+							ctaSecondaryLabel && secondaryHref && (
 								<a
 									class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-emerald-300 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
-									href={ctaSecondaryHref}
-									rel={ctaSecondaryHref.startsWith("http") ? "noopener noreferrer" : undefined}
-									target={ctaSecondaryHref.startsWith("http") ? "_blank" : undefined}
+									href={secondaryHref}
+									rel={secondaryHref.startsWith("http") ? "noopener noreferrer" : undefined}
+									target={secondaryHref.startsWith("http") ? "_blank" : undefined}
 								>
 									{ctaSecondaryLabel}
 								</a>

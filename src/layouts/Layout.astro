@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Analytics from "../components/analytics/Analytics.astro";
 import DarkModeToggle from "../components/DarkModeToggle.astro";
+import { site } from "../config/site";
 
 interface BreadcrumbItem {
 	name: string;
@@ -112,13 +113,13 @@ const navItems = [
 	{ label: "Home", href: "/", external: false, variant: "link" },
 	{
 		label: "Moving Quote",
-		href: "https://quotes.moveroo.com.au/quote/household",
+		href: site.destinations.householdQuote,
 		external: true,
 		variant: "link",
 	},
 	{
 		label: "Vehicle Transport Quote",
-		href: "https://quotes.moveroo.com.au/quote/vehicle",
+		href: site.destinations.vehicleQuote,
 		external: true,
 		variant: "link",
 	},
@@ -130,13 +131,13 @@ const navItems = [
 	},
 	{
 		label: "Contact Us",
-		href: "https://quotes.moveroo.com.au/contact",
+		href: site.destinations.contactPage,
 		external: true,
 		variant: "link",
 	},
 	{
 		label: "Book Your Move",
-		href: "https://quotes.moveroo.com.au/booking/create",
+		href: site.destinations.bookingPage,
 		external: true,
 		variant: "button",
 	},
@@ -145,16 +146,16 @@ const navItems = [
 const footerServiceLinks = [
 	{
 		label: "Household Moving Quote",
-		href: "https://quotes.moveroo.com.au/quote/household",
+		href: site.destinations.householdQuote,
 		external: true,
 	},
 	{
 		label: "Vehicle Transport Quote",
-		href: "https://quotes.moveroo.com.au/quote/vehicle",
+		href: site.destinations.vehicleQuote,
 		external: true,
 	},
 	{ label: "Moving Cars", href: "/moving-cars/", external: false },
-	{ label: "Contact Team", href: "https://quotes.moveroo.com.au/contact", external: true },
+	{ label: "Contact Team", href: site.destinations.contactPage, external: true },
 ];
 
 const footerLegalLinks = [
@@ -384,7 +385,7 @@ const footerSignals = ["Household relocations", "Vehicle transport", "Nationwide
 						</div>
 						<div class="mt-8 flex flex-wrap gap-4">
 							<a
-								href="https://quotes.moveroo.com.au/quote/household"
+								href={site.destinations.householdQuote}
 								target="_blank"
 								rel="noopener"
 								class="site-nav-button"
@@ -392,7 +393,7 @@ const footerSignals = ["Household relocations", "Vehicle transport", "Nationwide
 								Get a moving quote
 							</a>
 							<a
-								href="https://quotes.moveroo.com.au/booking/create"
+								href={site.destinations.bookingPage}
 								target="_blank"
 								rel="noopener"
 								class="inline-flex items-center justify-center rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:text-slate-950 dark:border-slate-700 dark:text-slate-300 dark:hover:border-slate-500 dark:hover:text-white"
