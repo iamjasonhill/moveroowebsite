@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Analytics from "../components/analytics/Analytics.astro";
 import DarkModeToggle from "../components/DarkModeToggle.astro";
 import { site } from "../config/site";
+import { getTrackedOnClick } from "../utils/tracking";
 
 interface BreadcrumbItem {
 	name: string;
@@ -143,6 +144,11 @@ const navItems = [
 	},
 ];
 
+const trackedNavItems = navItems.map((item) => ({
+	...item,
+	onclick: getTrackedOnClick(item.href, site.analytics.trackedLinks),
+}));
+
 const footerServiceLinks = [
 	{
 		label: "Household Moving Quote",
@@ -158,6 +164,11 @@ const footerServiceLinks = [
 	{ label: "Contact Team", href: site.destinations.contactPage, external: true },
 ];
 
+const trackedFooterServiceLinks = footerServiceLinks.map((item) => ({
+	...item,
+	onclick: getTrackedOnClick(item.href, site.analytics.trackedLinks),
+}));
+
 const footerLegalLinks = [
 	{ label: "Privacy Policy", href: "/privacy-policy/" },
 	{ label: "Terms of Use", href: "/terms-of-use/" },
@@ -168,6 +179,10 @@ const footerLegalLinks = [
 ];
 
 const footerSignals = ["Household relocations", "Vehicle transport", "Nationwide coordination"];
+const footerHouseholdQuoteOnClick = getTrackedOnClick(
+	site.destinations.householdQuote,
+	site.analytics.trackedLinks
+);
 ---
 
 <!doctype html>
@@ -267,10 +282,11 @@ const footerSignals = ["Household relocations", "Vehicle transport", "Nationwide
 						class="hidden items-center gap-6 text-sm font-semibold text-slate-700 dark:text-slate-300 xl:flex"
 					>
 						{
-							navItems.map((item) => (
+							trackedNavItems.map((item) => (
 								<a
 									class={item.variant === "button" ? "site-nav-button" : "site-nav-link"}
 									href={item.href}
+									onclick={item.onclick}
 									target={item.external ? "_blank" : undefined}
 									rel={item.external ? "noopener" : undefined}
 									aria-label={item.external ? `${item.label} (opens in a new tab)` : undefined}
@@ -332,7 +348,7 @@ const footerSignals = ["Household relocations", "Vehicle transport", "Nationwide
 							class="flex flex-col gap-3 text-sm font-semibold text-slate-700 dark:text-slate-300"
 						>
 							{
-								navItems.map((item) => (
+								trackedNavItems.map((item) => (
 									<a
 										class={
 											item.variant === "button"
@@ -340,6 +356,7 @@ const footerSignals = ["Household relocations", "Vehicle transport", "Nationwide
 												: "site-mobile-link"
 										}
 										href={item.href}
+										onclick={item.onclick}
 										target={item.external ? "_blank" : undefined}
 										rel={item.external ? "noopener" : undefined}
 										aria-label={item.external ? `${item.label} (opens in a new tab)` : undefined}
@@ -386,6 +403,7 @@ const footerSignals = ["Household relocations", "Vehicle transport", "Nationwide
 						<div class="mt-8 flex flex-wrap gap-4">
 							<a
 								href={site.destinations.householdQuote}
+								onclick={footerHouseholdQuoteOnClick}
 								target="_blank"
 								rel="noopener"
 								class="site-nav-button"
@@ -408,10 +426,11 @@ const footerSignals = ["Household relocations", "Vehicle transport", "Nationwide
 							<p class="site-footer-heading">Services</p>
 							<nav class="mt-4 flex flex-col gap-3">
 								{
-									footerServiceLinks.map((item) => (
+									trackedFooterServiceLinks.map((item) => (
 										<a
 											class="site-footer-link"
 											href={item.href}
+											onclick={item.onclick}
 											target={item.external ? "_blank" : undefined}
 											rel={item.external ? "noopener" : undefined}
 										>
