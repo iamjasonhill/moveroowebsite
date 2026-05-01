@@ -67,5 +67,6 @@ Copy `.env.example` and set the real values when needed:
 
 ## Notes
 
+- external contributors should follow the branch and pull request workflow in [AGENTS.md](AGENTS.md)
 - there is already active in-progress design/content work in this repo; the fleet-standard docs are intended to sit alongside that work, not replace it
 - the live controller is confirmed locally under the `MM-<domain>` naming standard
