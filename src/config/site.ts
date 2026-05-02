@@ -18,6 +18,18 @@ export const site = {
 				href: "https://quotes.moveroo.com.au/quote/vehicle",
 				eventName: "quote_vehicle_click",
 			},
+			{
+				href: "https://quotes.moveroo.com.au/contact",
+				eventName: "callback_request_click",
+			},
+			{
+				href: "https://quotes.moveroo.com.au/booking/create",
+				eventName: "booking_click",
+			},
+			{
+				href: "tel:+61721432557",
+				eventName: "phone_click",
+			},
 		],
 	},
 } as const;

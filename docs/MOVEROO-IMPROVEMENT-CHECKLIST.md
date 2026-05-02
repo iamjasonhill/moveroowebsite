@@ -62,15 +62,15 @@ Use this as the shared backlog across future chats. Items marked **Access needed
 
 ## 3. Conversion And Quote Flow
 
-- [ ] Add "what happens after I submit a quote?" near major CTAs.
-- [ ] Add outbound transition reassurance before sending users to `quotes.moveroo.com.au`.
-- [ ] Add microcopy under quote CTAs: "Submitting a quote does not create a booking."
-- [ ] Use intent-specific CTAs:
-  - [ ] "Check what applies to my move"
-  - [ ] "Start your quote"
-  - [ ] "Request a callback"
-  - [ ] "Call 07 2143 2557"
-- [ ] Add a sticky mobile CTA bar with call, quote, and callback actions.
+- [x] Add "what happens after I submit a quote?" near major CTAs.
+- [x] Add outbound transition reassurance before sending users to `quotes.moveroo.com.au`.
+- [x] Add microcopy under quote CTAs: "Submitting a quote does not create a booking."
+- [x] Use intent-specific CTAs:
+  - [x] "Check what applies to my move"
+  - [x] "Start your quote"
+  - [x] "Request a callback"
+  - [x] "Call 07 2143 2557"
+- [x] Add a sticky mobile CTA bar with call, quote, and callback actions.
 - [ ] Consider embedding the first step of the quote flow on the main site.
   - Access needed: quote-flow code/API/embed support.
 - [ ] Audit the external quote flow from start to finish.
