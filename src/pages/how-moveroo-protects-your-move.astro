@@ -1,0 +1,346 @@
+---
+import Layout from "../layouts/Layout.astro";
+import QuoteCta from "../components/sections/QuoteCta.astro";
+import { site } from "../config/site";
+
+const lastModified = new Date("2026-05-02T00:00:00.000Z");
+
+const assuranceSignals = [
+	"Partner fit checks",
+	"Quote clarity",
+	"Deposit transparency",
+	"Change support",
+	"Escalation pathway",
+];
+
+const partnerChecks = [
+	"Fit for the job type, route, access and timing",
+	"Suitable equipment or service pathway for the inventory or vehicle",
+	"Clear pickup, delivery and communication expectations",
+	"Review of past performance signals where available",
+];
+
+const controlRows = [
+	{
+		moveroo:
+			"Collects your move brief, clarifies the quote pathway and helps coordinate the service plan.",
+		partner:
+			"Completes the physical move, vehicle transport or handling work agreed for that booking.",
+	},
+	{
+		moveroo:
+			"Helps explain deposit timing, balance-payment expectations and common quote variables before booking.",
+		partner:
+			"Confirms operational details such as vehicle allocation, crew availability and route-specific timing.",
+	},
+	{
+		moveroo:
+			"Receives support issues, helps triage changes and points you to the next clear action.",
+		partner:
+			"Provides operational updates from the transport side, including collection and delivery status.",
+	},
+];
+
+const changeFactors = [
+	"Access limits, long carries, stairs or lift restrictions",
+	"Weather, traffic, road closures and route delays",
+	"Settlement-date changes or key handover changes",
+	"Inventory changes, extra stops, route changes or shuttle vehicle needs",
+	"Provider availability, pickup windows and vehicle capacity",
+	"Packing, fragile-item handling, storage or permit needs",
+];
+
+const escalationItems = [
+	"Pickup-window changes",
+	"Access or inventory changes",
+	"Unclear updates",
+	"Damage reports",
+	"Cancellation review",
+	"Cover pathway questions",
+];
+
+const beforeDepositItems = [
+	"The pickup and delivery suburbs are correct",
+	"Inventory, vehicle condition or freight details are accurate",
+	"Access notes cover stairs, lifts, long carries and parking",
+	"Extra stops, storage, packing or special handling are included",
+	"Deposit, balance-payment timing and cancellation rules are understood",
+	"Any cover information has been reviewed before committing",
+];
+---
+
+<Layout
+	title="How Moveroo Protects Your Move | Moveroo"
+	description="See how Moveroo helps reduce move risk with partner fit checks, quote clarity, deposit transparency, change support and escalation pathways."
+	canonical="https://moveroo.com.au/how-moveroo-protects-your-move/"
+>
+	<Fragment slot="head">
+		<meta property="article:modified_time" content={lastModified.toISOString()} />
+	</Fragment>
+
+	<section class="relative overflow-hidden bg-slate-950 py-24 text-white md:py-32">
+		<div
+			class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.25),_transparent_30%),linear-gradient(135deg,_#052e2b_0%,_#0f172a_48%,_#111827_100%)]"
+		>
+		</div>
+		<div class="route-grid absolute inset-0 opacity-25"></div>
+
+		<div class="relative mx-auto max-w-6xl px-6">
+			<div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-start">
+				<div class="motion-rise">
+					<p class="section-kicker text-emerald-300">Move Protection</p>
+					<h1 class="section-title mt-6 max-w-4xl text-5xl font-semibold text-white md:text-7xl">
+						How Moveroo helps keep your move clearer, calmer and better supported.
+					</h1>
+					<p class="mt-7 max-w-3xl text-lg leading-relaxed text-slate-300 md:text-xl">
+						Moveroo is a coordination team. We help collect the right details, match the move to a
+						suitable service pathway, explain what can affect the quote and keep support focused
+						when plans change.
+					</p>
+				</div>
+
+				<div
+					class="motion-rise motion-rise-delay-1 rounded-[2rem] border border-white/10 bg-white/8 p-6 shadow-[0_30px_80px_-40px_rgba(2,6,23,0.8)] backdrop-blur-sm"
+				>
+					<p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">
+						What this covers
+					</p>
+					<div class="mt-5 grid gap-3">
+						{
+							assuranceSignals.map((signal) => (
+								<div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-100">
+									{signal}
+								</div>
+							))
+						}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="border-b border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900">
+		<div class="mx-auto max-w-6xl px-6">
+			<div class="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
+				<div class="motion-rise lg:sticky lg:top-28">
+					<p class="section-kicker">Coordination Role</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						What Moveroo controls, and what transport partners control.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						Being clear about responsibilities reduces surprises. Moveroo coordinates the pathway;
+						transport partners complete the physical service.
+					</p>
+				</div>
+
+				<div
+					class="motion-rise motion-rise-delay-1 overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950/40"
+				>
+					<div
+						class="grid border-b border-slate-200 bg-white text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400 md:grid-cols-2"
+					>
+						<div class="px-6 py-4">Moveroo coordinates</div>
+						<div
+							class="border-t border-slate-200 px-6 py-4 dark:border-slate-800 md:border-l md:border-t-0"
+						>
+							Transport partners handle
+						</div>
+					</div>
+					{
+						controlRows.map((row) => (
+							<div class="grid border-b border-slate-200 last:border-b-0 dark:border-slate-800 md:grid-cols-2">
+								<p class="px-6 py-5 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+									{row.moveroo}
+								</p>
+								<p class="border-t border-slate-200 px-6 py-5 text-sm leading-relaxed text-slate-600 dark:border-slate-800 dark:text-slate-400 md:border-l md:border-t-0">
+									{row.partner}
+								</p>
+							</div>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-slate-50 py-24 dark:bg-slate-950/40">
+		<div class="mx-auto max-w-6xl px-6">
+			<div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+				<div
+					class="motion-rise rounded-[2rem] border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900/75 md:p-8"
+				>
+					<p class="section-kicker">Partner Fit</p>
+					<h2 class="section-title mt-5 text-3xl font-semibold text-slate-900 dark:text-white">
+						What "vetted transport partners" means here.
+					</h2>
+					<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+						Moveroo uses partner fit checks to help match the job to the right service pathway. It
+						is not a guarantee that nothing can change, but it creates a clearer starting point.
+					</p>
+					<ul class="mt-6 grid gap-3 text-sm text-slate-600 dark:text-slate-400">
+						{
+							partnerChecks.map((item) => (
+								<li class="flex items-start gap-3">
+									<span class="mt-1.5 h-2.5 w-2.5 rounded-full bg-emerald-500" aria-hidden="true" />
+									<span>{item}</span>
+								</li>
+							))
+						}
+					</ul>
+				</div>
+
+				<div
+					class="motion-rise motion-rise-delay-1 rounded-[2rem] border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900/75 md:p-8"
+				>
+					<p class="section-kicker">Quote Clarity</p>
+					<h2 class="section-title mt-5 text-3xl font-semibold text-slate-900 dark:text-white">
+						What can change during a move.
+					</h2>
+					<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+						Quotes are clearest when the moving variables are clear up front. These details can
+						change timing, effort, provider fit or final requirements.
+					</p>
+					<ul class="mt-6 grid gap-3 text-sm text-slate-600 dark:text-slate-400">
+						{
+							changeFactors.map((item) => (
+								<li class="flex items-start gap-3">
+									<span class="mt-1.5 h-2.5 w-2.5 rounded-full bg-emerald-500" aria-hidden="true" />
+									<span>{item}</span>
+								</li>
+							))
+						}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="border-y border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900">
+		<div class="mx-auto max-w-6xl px-6">
+			<div class="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
+				<div class="motion-rise">
+					<p class="section-kicker">Before You Pay A Deposit</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						A quick checklist before you commit.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						Deposits help secure the booking pathway and provider capacity. Before paying, check
+						that the quote and service notes reflect the real job.
+					</p>
+					<p class="mt-5 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						Balance-payment timing and available payment options can vary by service pathway. Ask
+						the team to confirm what applies before the booking is finalised.
+					</p>
+				</div>
+
+				<div class="motion-rise motion-rise-delay-1 grid gap-4">
+					{
+						beforeDepositItems.map((item) => (
+							<div class="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 text-sm font-medium text-slate-700 dark:border-slate-800 dark:bg-slate-950/45 dark:text-slate-300">
+								{item}
+							</div>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-slate-50 py-24 dark:bg-slate-950/40">
+		<div class="mx-auto max-w-6xl px-6">
+			<div class="grid gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-start">
+				<div
+					class="motion-rise rounded-[2rem] border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900/75 md:p-8"
+				>
+					<p class="section-kicker">Inventory Flexibility</p>
+					<h2 class="section-title mt-5 text-3xl font-semibold text-slate-900 dark:text-white">
+						Fair changes work best when they are caught early.
+					</h2>
+					<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+						Small inventory changes are common. Larger changes can affect volume, equipment, timing
+						or partner fit, so Moveroo encourages an inventory check about one week before the move
+						where possible.
+					</p>
+				</div>
+
+				<div
+					class="motion-rise motion-rise-delay-1 rounded-[2rem] border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900/75 md:p-8"
+				>
+					<p class="section-kicker">Cover Questions</p>
+					<h2 class="section-title mt-5 text-3xl font-semibold text-slate-900 dark:text-white">
+						Cover details depend on the pathway.
+					</h2>
+					<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+						Cover, liability and claim pathways can differ by service type and provider. Moveroo can
+						share the available information before booking so you can review what applies to your
+						move or vehicle transport. This page is a plain-language summary, not legal or insurance
+						advice.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="border-y border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900">
+		<div class="mx-auto max-w-6xl px-6">
+			<div class="grid gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-start">
+				<div class="motion-rise">
+					<p class="section-kicker">Escalation</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						When something changes, raise it early.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						If an update is unclear or a material detail changes, contact Moveroo so the team can
+						triage the issue and help direct it to the right pathway.
+					</p>
+					<div class="mt-8 flex flex-wrap gap-4">
+						<a
+							href={site.destinations.contactPage}
+							class="inline-flex items-center justify-center rounded-full bg-emerald-600 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-500"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Request support
+						</a>
+						<a
+							href="tel:+61721432557"
+							class="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:text-slate-950 dark:border-slate-700 dark:text-slate-300 dark:hover:border-slate-500 dark:hover:text-white"
+						>
+							Call 07 2143 2557
+						</a>
+					</div>
+				</div>
+
+				<div
+					class="motion-rise motion-rise-delay-1 overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950/40"
+				>
+					{
+						escalationItems.map((item, index) => (
+							<div class="grid gap-4 border-b border-slate-200 px-6 py-5 last:border-b-0 dark:border-slate-800 md:grid-cols-[5rem_1fr]">
+								<p class="text-xs font-semibold uppercase tracking-[0.28em] text-emerald-700 dark:text-emerald-400">
+									0{index + 1}
+								</p>
+								<p class="text-sm font-semibold text-slate-800 dark:text-slate-200">{item}</p>
+							</div>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<QuoteCta
+		title="Want the quote pathway checked before you book?"
+		subtitle="Share the route, inventory, access notes and timing so Moveroo can help clarify what applies before you commit."
+		ctaPrimaryLabel="Start your quote"
+		ctaPrimaryHref={site.destinations.householdQuote}
+		ctaSecondaryLabel="Request a callback"
+		ctaSecondaryHref={site.destinations.contactPage}
+	/>
+</Layout>

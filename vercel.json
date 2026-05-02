@@ -27,11 +27,6 @@
 			"permanent": true
 		},
 		{
-			"source": "/api/cancellation",
-			"destination": "/",
-			"permanent": true
-		},
-		{
 			"source": "/~partytown/",
 			"destination": "/",
 			"permanent": true
