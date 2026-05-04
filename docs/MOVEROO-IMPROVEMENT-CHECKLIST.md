@@ -219,6 +219,10 @@ Use this as the shared backlog across future chats. Items marked **Access needed
   - Cancellation rate
   - Customer feedback
   - Route/service suitability
+- [ ] Add provider vetting/status fields to the admin provider section.
+  - Draft requirements created: `docs/ADMIN-PROVIDER-VETTING-REQUIREMENTS.md`.
+  - Admin provider records should store the operational partner record, status, service fit, cover notes, review history, recommendation eligibility, allocation decisions, and audit history.
+  - Keep internal thresholds, restriction/removal logic, incidents, and score details internal; expose only customer-safe provider details after allocation and deposit payment.
 - [ ] Track partner performance by job type and route.
   - Access needed: job history and partner data.
 - [ ] Define escalation SLAs.
