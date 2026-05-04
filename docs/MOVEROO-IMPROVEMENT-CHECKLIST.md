@@ -211,6 +211,8 @@ Use this as the shared backlog across future chats. Items marked **Access needed
   - Still needed: review against actual partner records and Konrad approval for operations use.
   - Access needed: current partner requirements and legal constraints.
 - [ ] Create customer/partner-facing explainer for how Moveroo matches jobs with transport partners.
+  - Draft created: `docs/PARTNER-MATCHING-EXPLAINER-DRAFT.md`.
+  - Still needed: Konrad review for operational accuracy and Jason review for public-claim, cover, payment, and legal/commercial risk.
   - Use the internal vetting standard as source material, but do not expose operational thresholds, restriction logic, incident handling, or removal/re-entry details.
 - [ ] Define partner performance scorecard.
   - Communication
