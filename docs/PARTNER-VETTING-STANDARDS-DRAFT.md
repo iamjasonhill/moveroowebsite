@@ -1,12 +1,32 @@
 # Partner Vetting Standards Draft
 
-Status: Draft v0.1.
+Status: Draft v0.2.
 
 Draft operating standard for substantiating Moveroo's public use of "vetted transport partners".
 
 This document captures the intended partner vetting and recommendation model, but it is not yet an adopted operating policy until reviewed against actual partner records and approved by Konrad for operations use.
 
 This document is internal only. A shorter customer/partner-facing explainer may be created later, but should not expose operational thresholds, restriction logic, incident handling, or removal/re-entry details.
+
+## How To Review This Draft
+
+Review this document as an internal operating standard, not customer-facing copy.
+
+Primary review questions:
+
+- Does this match how Konrad actually identifies, quotes, allocates, and reviews providers?
+- Can the minimum partner record be completed from information Moveroo can reasonably access today?
+- Are the status thresholds practical for current job volume and provider coverage?
+- Are the customer-facing recommendation rules conservative enough to avoid overclaiming?
+- Are the restriction, pause, removal, and re-entry rules workable when active jobs are in progress?
+
+Review outcomes:
+
+- `Approved for operational use`: Konrad accepts this as the working standard.
+- `Approved with changes`: specific edits are needed before adoption.
+- `Draft only`: useful direction, but more partner/job evidence is needed before adoption.
+
+Jason should review any wording that affects public claims, provider-supplied cover, cancellation, payment handling, or legal/commercial risk. Konrad should approve the operational workflow, statuses, thresholds, allocation rules, and provider record requirements.
 
 ## Purpose
 
@@ -56,6 +76,30 @@ Each active partner should have a simple internal record containing:
 Moveroo should store operational and business-contact details needed to quote, allocate, support, and review jobs. Avoid storing unnecessary personal documents or sensitive personal information unless there is a clear legal, compliance, or operational need.
 
 If documents such as licences, certificates, or insurance evidence are stored, record the document type, expiry date, and review date.
+
+### Partner Record Template
+
+- Legal/business name:
+- Trading name:
+- ABN or equivalent identifier:
+- Primary contact:
+- Secondary contact:
+- Service categories supported:
+- Routes, regions, or corridors supported:
+- Equipment or capacity notes:
+- Access limitations:
+- Known exclusions or bad-fit work:
+- Payment handling rules:
+- Cancellation or rescheduling constraints:
+- Provider-supplied cover notes:
+- Documents stored, if any:
+- Document expiry or review dates:
+- Date added:
+- Current status:
+- Status scope, such as route, service type, or complexity level:
+- Last reviewed:
+- Next review date:
+- Notes:
 
 Recommended statuses:
 
@@ -309,6 +353,10 @@ Before a partner becomes active, Moveroo should confirm:
 
 ## Fit-For-Job Allocation Checks
 
+Fit-for-job checks are the operational basis for using "vetted transport partners" publicly. The check is job-specific: a provider can be suitable for one route, service type, or complexity level and unsuitable for another.
+
+These checks should happen before Moveroo recommends an option to the customer and again before allocation when availability may have changed.
+
 ## Partner Allocation Workflow
 
 Current allocation workflow:
@@ -361,6 +409,30 @@ Before allocating a specific job, check whether the partner fits:
 - Communication needs: customer anxiety, complex handoffs, business/fleet coordination.
 - Risk profile: fragile items, high-value goods, disputed access, tight deadlines, unclear inventory.
 - Payment and policy fit: deposit, balance timing, cancellation terms, provider-specific constraints.
+
+### Allocation Decision Record Template
+
+Use a lightweight allocation record when a provider is recommended, selected, changed, or used as an exception.
+
+- Job reference:
+- Job type:
+- Route:
+- Requested timing:
+- Access or service complexity:
+- Providers asked to quote:
+- Providers that quoted:
+- Providers that declined or did not quote:
+- Recommended option:
+- Recommendation reasons:
+- Alternatives shown to customer:
+- Primary trade-off for each alternative:
+- Provider name disclosed before deposit: Yes / No
+- Availability rechecked before allocation: Yes / No
+- Allocation date:
+- Deposit paid: Yes / No
+- Provider details activated on dashboard: Yes / No
+- Override or exception used: Yes / No
+- Notes:
 
 In many cases, a provider who is not a fit for a job will simply not quote it. This should not automatically be treated as a partner-quality issue. It is usually a useful fit signal.
 
@@ -489,6 +561,32 @@ Recommended cadence:
 - Active partner: review quarterly or after any serious incident.
 - Preferred partner: review quarterly and compare against similar providers.
 - Restricted or paused partner: review before any future allocation.
+
+### Partner Review Template
+
+- Review date:
+- Partner:
+- Current status:
+- Status scope:
+- Review period:
+- Completed jobs reviewed:
+- Job types and routes reviewed:
+- Communication summary:
+- Reliability summary:
+- Damage, care, or condition-note summary:
+- Cancellation or schedule-change summary:
+- Customer feedback summary:
+- Payment or cover/liability questions:
+- Positive signals:
+- Complaints or incidents:
+- Confirmed partner issues:
+- Moveroo coordination issues:
+- No-quote or availability patterns, not scored as performance:
+- Recommended status:
+- Restrictions or conditions:
+- Follow-up review date:
+- Jason consultation needed: Yes / No
+- Konrad approval:
 
 ## Incident Review
 
@@ -620,6 +718,28 @@ Avoid unless legally substantiated:
 - "Moveroo provides insurance"
 - "Moveroo arranges insurance"
 - "All partners are verified and insured"
+
+## Open Review Items
+
+Before this draft becomes an adopted standard, confirm:
+
+- Whether current partner records can support the minimum partner record fields.
+- Whether the `Approved for trial`, `Active`, `Preferred`, `Restricted`, `Paused`, and `Removed` statuses map cleanly to current operations.
+- Whether the 3-job trial threshold and 10-job or 3-month preferred threshold are realistic for low-volume routes and specialty categories.
+- Whether the proposed scorecard dimensions match the job outcomes Moveroo can actually observe.
+- Whether customer-facing recommendations can be supported in the quote/customer dashboard experience without exposing provider names too early.
+- Whether dashboard provider-detail activation after allocation and deposit payment is technically feasible in the quote app.
+- Whether provider-supplied cover notes can be stored and displayed without creating insurance advice risk.
+- Whether any current public copy uses "verified", "trusted", "licensed", "insured", or similar claims that need revision.
+
+Recommended first operational test:
+
+1. Choose 3-5 active or frequently used providers.
+2. Complete the partner record template for each provider.
+3. Review 3-10 recent jobs per provider where available.
+4. Assign a provisional status and scope.
+5. Record any fields that cannot be completed from current information.
+6. Update this standard before using it as adopted policy.
 
 ## Checklist Mapping
 
