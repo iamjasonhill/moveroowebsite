@@ -26,7 +26,7 @@ async function main() {
 	const envExample = await read(".env.example");
 	const analyticsWrapper = await read("src/components/analytics/Analytics.astro");
 
-	for (const scriptName of ["check", "check:contract", "check:seo"]) {
+	for (const scriptName of ["check", "check:contract", "check:content", "check:seo"]) {
 		checks.push([
 			`package.json includes ${scriptName}`,
 			Boolean(packageJson.scripts?.[scriptName]),

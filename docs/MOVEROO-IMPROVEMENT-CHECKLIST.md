@@ -282,8 +282,10 @@ Use this as the shared backlog across future chats. Items marked **Access needed
 
 - [ ] Add automated link check for internal and external links.
 - [ ] Add a check that `public/llms.txt` links match `src/config/site.ts`.
-- [ ] Add a check for prohibited or risky insurance phrases.
-- [ ] Add a check for stale quote domains.
+- [x] Add a check for prohibited or risky insurance phrases.
+  - Completed in repo: added `npm run check:content` to scan public/source surfaces for risky public insurance, trust, and partner-claim phrases.
+- [x] Add a check for stale quote domains.
+  - Completed in repo: added `npm run check:content` to scan repo files for the old `removalists.moveroo.com.au` quote domain.
 - [ ] Add tests or checks for critical redirects.
 - [ ] Add a cancellation form smoke test.
 - [ ] Remove unused starter assets if confirmed unused.
