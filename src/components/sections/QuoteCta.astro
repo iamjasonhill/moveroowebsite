@@ -28,6 +28,16 @@ const primaryOnClick = getTrackedOnClick(primaryHref, site.analytics.trackedLink
 const secondaryOnClick = secondaryHref
 	? getTrackedOnClick(secondaryHref, site.analytics.trackedLinks)
 	: undefined;
+
+const opensQuoteWorkspace =
+	primaryHref.startsWith("https://quotes.moveroo.com.au") ||
+	secondaryHref?.startsWith("https://quotes.moveroo.com.au");
+
+const quoteNextSteps = [
+	"Share the route, timing, inventory and access notes.",
+	"Moveroo checks which service pathway fits the job.",
+	"A coordinator follows up before anything becomes a booking.",
+];
 ---
 
 <section class="bg-white py-20 dark:bg-slate-900">
@@ -45,6 +55,18 @@ const secondaryOnClick = secondaryHref
 							{title}
 						</h2>
 						<p class="mt-5 text-base leading-relaxed text-slate-300 md:text-lg">{subtitle}</p>
+						<div
+							class="mt-6 grid gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm leading-relaxed text-slate-300 md:grid-cols-3"
+						>
+							{
+								quoteNextSteps.map((step, index) => (
+									<div class="flex gap-3">
+										<span class="font-semibold text-emerald-300">0{index + 1}</span>
+										<span>{step}</span>
+									</div>
+								))
+							}
+						</div>
 					</div>
 
 					<div class="motion-rise motion-rise-delay-1 flex flex-col gap-4 lg:items-end">
@@ -68,6 +90,20 @@ const secondaryOnClick = secondaryHref
 								>
 									{ctaSecondaryLabel}
 								</a>
+							)
+						}
+						<a
+							href="/how-moveroo-protects-your-move/"
+							class="text-sm font-medium text-slate-300 underline decoration-slate-500 underline-offset-4 transition hover:text-emerald-200 hover:decoration-emerald-300"
+						>
+							See how Moveroo protects your move
+						</a>
+						{
+							opensQuoteWorkspace && (
+								<p class="max-w-xs text-sm leading-relaxed text-slate-400 lg:text-right">
+									Opens Moveroo's secure quote workspace. Submitting a quote request does not create
+									a booking.
+								</p>
 							)
 						}
 					</div>

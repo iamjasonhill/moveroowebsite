@@ -41,7 +41,7 @@ const serviceTracks = [
 		usuallyIncludes: [
 			"Door-to-door transport for running and non-running vehicles",
 			"Dealer, auction, relocation and fleet movement support",
-			"Condition reporting, insurance options and national carrier coverage",
+			"Condition reporting, service notes and national carrier coordination",
 		],
 		notFor:
 			"Full household removals with furniture, cartons and loading crews as the main requirement.",
@@ -137,9 +137,9 @@ const faqItems = [
 			"We recommend booking 2-4 weeks in advance for best availability. Shorter timelines can often still be accommodated, especially when route flexibility or staged planning is possible.",
 	},
 	{
-		question: "Do you provide insurance coverage?",
+		question: "How are cover questions handled?",
 		answer:
-			"Yes, we coordinate insurance coverage options for moves and vehicle transport. The exact cover depends on the service mix and the partners matched to your job.",
+			"Cover details depend on the service mix and the partners matched to your job. We can share the available information before booking so you can review what applies to your move or vehicle transport.",
 	},
 	{
 		question: "What areas do you service?",
@@ -402,6 +402,13 @@ const structuredData = {
 						If more than one lane applies, start with the one that best describes the main job. We
 						can add the rest once the route is clear.
 					</p>
+					<a
+						href="/how-moveroo-protects-your-move/"
+						class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 transition hover:text-emerald-900 dark:text-emerald-400 dark:hover:text-emerald-300"
+					>
+						<span>Review the protection pathway</span>
+						<span aria-hidden="true">→</span>
+					</a>
 				</div>
 
 				<div class="motion-rise motion-rise-delay-1 grid gap-6">
@@ -643,7 +650,7 @@ const structuredData = {
 	<QuoteCta
 		title="Need help choosing the right service path?"
 		subtitle="Tell us what the main job is and what else needs to move, and Moveroo will point you to the right quote path."
-		ctaPrimaryLabel="Request your quote"
+		ctaPrimaryLabel="Check what applies to my move"
 		ctaPrimaryHref="https://quotes.moveroo.com.au/quote/household"
 		ctaSecondaryLabel="Request a callback"
 		ctaSecondaryHref="https://quotes.moveroo.com.au/contact"

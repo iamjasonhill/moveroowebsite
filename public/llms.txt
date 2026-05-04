@@ -4,12 +4,12 @@
 
 ## About Moveroo
 
-Moveroo reimagines the relocation experience with transparent pricing, dependable partners, and friendly support. We help Australians move homes and transport vehicles safely across the country.
+Moveroo reimagines the relocation experience with transparent pricing, dependable partners, and friendly support. We help Australians coordinate home moves and vehicle transport across the country.
 
 ## Services
 
 ### Household Removals
-Professional moving services for homes and apartments. Get quotes from verified removalists, compare prices, and book your move with confidence.
+Professional moving support for homes and apartments. Get a quote for your route, timing, inventory and access needs.
 
 - Interstate moving
 - Local removals
@@ -17,7 +17,7 @@ Professional moving services for homes and apartments. Get quotes from verified 
 - Storage solutions
 
 ### Vehicle Transport
-Safe and reliable vehicle transport across Australia. Whether you're moving interstate or buying a car from another city, we connect you with trusted car carriers.
+Vehicle transport coordination across Australia. Whether you're moving interstate or buying a car from another city, we help match the job to a suitable transport pathway.
 
 - Car transport
 - Motorcycle transport
@@ -27,11 +27,12 @@ Safe and reliable vehicle transport across Australia. Whether you're moving inte
 ## Key Pages
 
 - [Home](https://moveroo.com.au/)
-- [Get a Moving Quote](https://removalists.moveroo.com.au/quote/household)
+- [Get a Moving Quote](https://quotes.moveroo.com.au/quote/household)
 - [Vehicle Transport Quote](https://quotes.moveroo.com.au/quote/vehicle)
 - [Moving Cars](https://moveroo.com.au/moving-cars/)
+- [How Moveroo Protects Your Move](https://moveroo.com.au/how-moveroo-protects-your-move/)
 - [Contact Us](https://quotes.moveroo.com.au/contact)
-- [Book Your Move](https://removalists.moveroo.com.au/booking/create)
+- [Book Your Move](https://quotes.moveroo.com.au/booking/create)
 
 ## Contact
 
@@ -49,13 +50,13 @@ Safe and reliable vehicle transport across Australia. Whether you're moving inte
 ## Frequently Asked Questions
 
 ### How do I get a moving quote?
-Visit our [quote page](https://removalists.moveroo.com.au/quote/household) and enter your move details. We'll connect you with multiple removalists who will provide competitive quotes.
+Visit our [quote page](https://quotes.moveroo.com.au/quote/household) and enter your move details. We'll review the route, timing, inventory and service needs so the quote can reflect the actual job.
 
 ### Do you transport vehicles interstate?
 Yes, we offer vehicle transport services across all Australian states and territories. Get a [vehicle transport quote](https://quotes.moveroo.com.au/quote/vehicle) to see pricing.
 
-### Are your removalists verified?
-All removalists on our platform are verified and vetted for reliability and professionalism.
+### How do you choose transport partners?
+Moveroo works with moving and transport partners that fit the job type, route, timing and service needs. We review partner suitability and can explain the planned service pathway before booking.
 
 ### What areas do you service?
 We service all major cities and regional areas across Australia, including Sydney, Melbourne, Brisbane, Perth, Adelaide, Hobart, Darwin, and Canberra.

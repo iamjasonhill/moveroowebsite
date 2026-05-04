@@ -113,7 +113,7 @@ const baseSchema = {
 const navItems = [
 	{ label: "Home", href: "/", external: false, variant: "link" },
 	{
-		label: "Moving Quote",
+		label: "Start your quote",
 		href: site.destinations.householdQuote,
 		external: true,
 		variant: "link",
@@ -131,7 +131,7 @@ const navItems = [
 		variant: "link",
 	},
 	{
-		label: "Contact Us",
+		label: "Request a callback",
 		href: site.destinations.contactPage,
 		external: true,
 		variant: "link",
@@ -161,6 +161,11 @@ const footerServiceLinks = [
 		external: true,
 	},
 	{ label: "Moving Cars", href: "/moving-cars/", external: false },
+	{
+		label: "How Moveroo Protects Your Move",
+		href: "/how-moveroo-protects-your-move/",
+		external: false,
+	},
 	{ label: "Contact Team", href: site.destinations.contactPage, external: true },
 ];
 
@@ -181,6 +186,11 @@ const footerLegalLinks = [
 const footerSignals = ["Household relocations", "Vehicle transport", "Nationwide coordination"];
 const footerHouseholdQuoteOnClick = getTrackedOnClick(
 	site.destinations.householdQuote,
+	site.analytics.trackedLinks
+);
+const phoneOnClick = getTrackedOnClick("tel:+61721432557", site.analytics.trackedLinks);
+const callbackOnClick = getTrackedOnClick(
+	site.destinations.contactPage,
 	site.analytics.trackedLinks
 );
 ---
@@ -254,7 +264,7 @@ const footerHouseholdQuoteOnClick = getTrackedOnClick(
 		}
 		<slot name="head" />
 	</head>
-	<body class="site-shell flex min-h-screen flex-col transition-colors">
+	<body class="site-shell flex min-h-screen flex-col pb-24 transition-colors md:pb-0">
 		<a
 			href="#main-content"
 			class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-white focus:p-4 focus:text-emerald-700 dark:focus:bg-slate-800 dark:focus:text-emerald-400"
@@ -301,6 +311,7 @@ const footerHouseholdQuoteOnClick = getTrackedOnClick(
 						<a
 							href="tel:+61721432557"
 							class="site-contact-chip hidden lg:inline-flex"
+							onclick={phoneOnClick}
 							aria-label="Call Moveroo on +61 7 2143 2557"
 						>
 							<span class="h-2 w-2 rounded-full bg-emerald-500"></span>
@@ -369,6 +380,7 @@ const footerHouseholdQuoteOnClick = getTrackedOnClick(
 						<a
 							href="tel:+61721432557"
 							class="site-contact-chip w-full justify-center"
+							onclick={phoneOnClick}
 							aria-label="Call Moveroo on +61 7 2143 2557"
 						>
 							<span class="h-2 w-2 rounded-full bg-emerald-500"></span>
@@ -412,6 +424,10 @@ const footerHouseholdQuoteOnClick = getTrackedOnClick(
 							</a>
 							<a
 								href={site.destinations.bookingPage}
+								onclick={getTrackedOnClick(
+									site.destinations.bookingPage,
+									site.analytics.trackedLinks
+								)}
 								target="_blank"
 								rel="noopener"
 								class="inline-flex items-center justify-center rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:text-slate-950 dark:border-slate-700 dark:text-slate-300 dark:hover:border-slate-500 dark:hover:text-white"
@@ -494,13 +510,48 @@ const footerHouseholdQuoteOnClick = getTrackedOnClick(
 								<span class="h-2 w-2 rounded-full bg-emerald-500"></span>
 								<span>Secure SSL</span>
 							</span>
-							<span class="site-footer-meta-pill">Licensed partners</span>
+							<span class="site-footer-meta-pill">Partner coordination</span>
 							<span class="site-footer-meta-pill">Australian owned</span>
 						</div>
 					</div>
 				</div>
 			</div>
 		</footer>
+		<nav
+			class="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 px-3 py-3 shadow-[0_-16px_40px_-28px_rgba(15,23,42,0.55)] backdrop-blur md:hidden dark:border-slate-800 dark:bg-slate-950/95"
+			aria-label="Quick actions"
+		>
+			<div class="mx-auto grid max-w-md grid-cols-3 gap-2">
+				<a
+					href="tel:+61721432557"
+					onclick={phoneOnClick}
+					class="inline-flex min-h-12 items-center justify-center rounded-2xl border border-slate-200 px-3 text-center text-xs font-semibold text-slate-700 transition hover:border-emerald-300 hover:text-emerald-700 dark:border-slate-800 dark:text-slate-300 dark:hover:border-emerald-500/50 dark:hover:text-emerald-300"
+					aria-label="Call Moveroo on 07 2143 2557"
+				>
+					Call
+				</a>
+				<a
+					href={site.destinations.householdQuote}
+					onclick={footerHouseholdQuoteOnClick}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-flex min-h-12 items-center justify-center rounded-2xl bg-emerald-600 px-3 text-center text-xs font-semibold text-slate-950 shadow-lg shadow-emerald-950/20 transition hover:bg-emerald-500"
+					aria-label="Start your Moveroo quote"
+				>
+					Quote
+				</a>
+				<a
+					href={site.destinations.contactPage}
+					onclick={callbackOnClick}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-flex min-h-12 items-center justify-center rounded-2xl border border-slate-200 px-3 text-center text-xs font-semibold text-slate-700 transition hover:border-emerald-300 hover:text-emerald-700 dark:border-slate-800 dark:text-slate-300 dark:hover:border-emerald-500/50 dark:hover:text-emerald-300"
+					aria-label="Request a callback from Moveroo"
+				>
+					Callback
+				</a>
+			</div>
+		</nav>
 		<script is:inline src="/scripts/mobile-nav.js"></script>
 		<script is:inline>
 			(function () {

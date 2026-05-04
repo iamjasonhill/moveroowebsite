@@ -15,9 +15,9 @@ export const faqs: FAQItem[] = [
 			"Moveroo works across Australia, including metro, regional and interstate routes. If your move starts in one part of the country and ends in another, we can help plan it.",
 	},
 	{
-		question: "Are the removalists on Moveroo verified and insured?",
+		question: "How does Moveroo handle partner fit and cover questions?",
 		answer:
-			"We work with vetted moving and transport partners. Insurance options depend on the service and provider matched to your job, and we can explain the cover available before booking.",
+			"We work with moving and transport partners matched to the job type, route, timing and service needs. Cover details depend on the service pathway and provider, and we can explain the available information before booking.",
 	},
 	{
 		question: "How much does it cost to move house in Australia?",
