@@ -207,7 +207,11 @@ Use this as the shared backlog across future chats. Items marked **Access needed
 - [ ] Document the actual partner allocation process.
   - Access needed: internal operations workflow.
 - [ ] Define partner vetting standards.
+  - Draft created: `docs/PARTNER-VETTING-STANDARDS-DRAFT.md`.
+  - Still needed: review against actual partner records and Konrad approval for operations use.
   - Access needed: current partner requirements and legal constraints.
+- [ ] Create customer/partner-facing explainer for how Moveroo matches jobs with transport partners.
+  - Use the internal vetting standard as source material, but do not expose operational thresholds, restriction logic, incident handling, or removal/re-entry details.
 - [ ] Define partner performance scorecard.
   - Communication
   - Reliability
