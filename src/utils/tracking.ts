@@ -1,6 +1,7 @@
 export interface TrackedLink {
 	href: string;
 	eventName: string;
+	params?: Record<string, string>;
 }
 
 function normalizeHref(href: string) {
@@ -13,10 +14,16 @@ export function getTrackedEventName(href: string, trackedLinks: readonly Tracked
 }
 
 export function getTrackedOnClick(href: string, trackedLinks: readonly TrackedLink[] = []) {
-	const eventName = getTrackedEventName(href, trackedLinks);
-	if (!eventName) {
+	const trackedLink = trackedLinks.find((item) => normalizeHref(item.href) === normalizeHref(href));
+	if (!trackedLink) {
 		return undefined;
 	}
 
-	return `window.mmTrack && window.mmTrack('${eventName}');`;
+	const params = {
+		...(trackedLink.params ?? {}),
+		link_url: href,
+		tracked_inline: "true",
+	};
+
+	return `this.dataset.mmTracked = 'true'; if (window.mmTrack) { var mmTrackedParams = ${JSON.stringify(params)}; mmTrackedParams.link_text = ((this.getAttribute('aria-label') || this.textContent || '').replace(/\\s+/g, ' ').trim().slice(0, 120)); mmTrackedParams.page_path = window.location.pathname; if (mmTrackedParams.handoff_event_name) { mmTrackedParams.handoff_path = window.location.pathname; } window.mmTrack(${JSON.stringify(trackedLink.eventName)}, mmTrackedParams); }`;
 }

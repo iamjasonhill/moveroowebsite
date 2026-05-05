@@ -142,15 +142,19 @@ Use this as the shared backlog across future chats. Items marked **Access needed
 
 ## 6. Analytics, Measurement, And Funnel Visibility
 
-- [ ] Track all CTA clicks, not only household and vehicle quote links.
-- [ ] Track phone taps.
-- [ ] Track callback/contact clicks.
-- [ ] Track booking clicks.
-- [ ] Track cancellation form starts, submissions, and errors.
+- [x] Track all CTA clicks, not only household and vehicle quote links.
+  - Completed in repo: GA4 link tracking now includes quote, callback/contact, booking, phone, and email click types with link metadata.
+- [x] Track phone taps.
+- [x] Track callback/contact clicks.
+- [x] Track booking clicks.
+- [x] Track cancellation form starts, submissions, and errors.
+  - Completed in repo: cancellation form tracks start, submit, success, API error, and network error events.
 - [ ] Track service-lane clicks.
-- [ ] Track FAQ opens.
+- [x] Track FAQ opens.
+  - Completed in repo: FAQ `<details>` opens emit `faq_open` with question text and page path.
 - [ ] Track scroll depth on major pages.
-- [ ] Track trust-page CTA clicks once the page exists.
+- [x] Track trust-page CTA clicks once the page exists.
+  - Completed in repo through shared quote/contact link tracking on `/how-moveroo-protects-your-move/`.
 - [ ] Create a weekly dashboard:
   - Leads
   - Quote-starts
