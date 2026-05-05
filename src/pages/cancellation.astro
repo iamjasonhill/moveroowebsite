@@ -353,10 +353,33 @@ const summarySignals = [
 		const form = document.getElementById("cancellationForm") as HTMLFormElement;
 		const submitButton = document.getElementById("submit-button") as HTMLButtonElement;
 		const messageDiv = document.getElementById("form-message") as HTMLDivElement;
+		const track = (eventName: string, params: Record<string, string> = {}) => {
+			(
+				window as Window & {
+					mmTrack?: (eventName: string, params?: Record<string, string>) => void;
+				}
+			).mmTrack?.(eventName, {
+				page_path: window.location.pathname,
+				...params,
+			});
+		};
 
 		if (form && submitButton && messageDiv) {
+			let formStarted = false;
+
+			form.addEventListener(
+				"input",
+				() => {
+					if (formStarted) return;
+					formStarted = true;
+					track("cancellation_form_start");
+				},
+				{ once: true }
+			);
+
 			form.addEventListener("submit", async (e) => {
 				e.preventDefault();
+				track("cancellation_form_submit");
 
 				submitButton.disabled = true;
 				submitButton.textContent = "Submitting...";
@@ -386,6 +409,7 @@ const summarySignals = [
 					const result = await response.json();
 
 					if (response.ok) {
+						track("cancellation_form_success");
 						messageDiv.classList.add(
 							"bg-emerald-50",
 							"text-emerald-700",
@@ -398,11 +422,18 @@ const summarySignals = [
 						messageDiv.classList.remove("hidden");
 						form.reset();
 					} else {
+						track("cancellation_form_error", {
+							error_type: "api_error",
+							status_code: String(response.status),
+						});
 						messageDiv.classList.add("bg-red-50", "text-red-700", "border", "border-red-200");
 						messageDiv.textContent = result.error || "An error occurred. Please try again later.";
 						messageDiv.classList.remove("hidden");
 					}
 				} catch {
+					track("cancellation_form_error", {
+						error_type: "network_error",
+					});
 					messageDiv.classList.add("bg-red-50", "text-red-700", "border", "border-red-200");
 					messageDiv.textContent = "An error occurred. Please try again later.";
 					messageDiv.classList.remove("hidden");
