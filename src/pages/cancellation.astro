@@ -353,6 +353,7 @@ const summarySignals = [
 		const form = document.getElementById("cancellationForm") as HTMLFormElement;
 		const submitButton = document.getElementById("submit-button") as HTMLButtonElement;
 		const messageDiv = document.getElementById("form-message") as HTMLDivElement;
+		const formTrackingParams = { form_name: "cancellation" };
 		const track = (eventName: string, params: Record<string, string> = {}) => {
 			(
 				window as Window & {
@@ -372,14 +373,14 @@ const summarySignals = [
 				() => {
 					if (formStarted) return;
 					formStarted = true;
-					track("cancellation_form_start");
+					track("form_start", formTrackingParams);
 				},
 				{ once: true }
 			);
 
 			form.addEventListener("submit", async (e) => {
 				e.preventDefault();
-				track("cancellation_form_submit");
+				track("form_submit", formTrackingParams);
 
 				submitButton.disabled = true;
 				submitButton.textContent = "Submitting...";
@@ -409,7 +410,7 @@ const summarySignals = [
 					const result = await response.json();
 
 					if (response.ok) {
-						track("cancellation_form_success");
+						track("form_success", formTrackingParams);
 						messageDiv.classList.add(
 							"bg-emerald-50",
 							"text-emerald-700",
@@ -422,7 +423,8 @@ const summarySignals = [
 						messageDiv.classList.remove("hidden");
 						form.reset();
 					} else {
-						track("cancellation_form_error", {
+						track("form_error", {
+							...formTrackingParams,
 							error_type: "api_error",
 							status_code: String(response.status),
 						});
@@ -431,7 +433,8 @@ const summarySignals = [
 						messageDiv.classList.remove("hidden");
 					}
 				} catch {
-					track("cancellation_form_error", {
+					track("form_error", {
+						...formTrackingParams,
 						error_type: "network_error",
 					});
 					messageDiv.classList.add("bg-red-50", "text-red-700", "border", "border-red-200");
