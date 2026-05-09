@@ -149,10 +149,12 @@ Use this as the shared backlog across future chats. Items marked **Access needed
 - [x] Track booking clicks.
 - [x] Track cancellation form starts, submissions, and errors.
   - Completed in repo: cancellation form tracks start, submit, success, API error, and network error events.
-- [ ] Track service-lane clicks.
+- [x] Track service-lane clicks.
+  - Completed in repo: homepage and services service-lane links emit `service_lane_click` with lane, surface, link text, URL, and page path.
 - [x] Track FAQ opens.
   - Completed in repo: FAQ `<details>` opens emit `faq_open` with question text and page path.
-- [ ] Track scroll depth on major pages.
+- [x] Track scroll depth on major pages.
+  - Completed in repo: GA4 helper emits `scroll_depth` at 25%, 50%, 75%, and 90% milestones.
 - [x] Track trust-page CTA clicks once the page exists.
   - Completed in repo through shared quote/contact link tracking on `/how-moveroo-protects-your-move/`.
 - [ ] Create a weekly dashboard:

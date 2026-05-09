@@ -26,6 +26,7 @@ const serviceTracks = [
 		ctaLabel: "Request a household quote",
 		href: site.destinations.householdQuote,
 		external: true,
+		analyticsLane: "household",
 	},
 	{
 		id: "vehicles",
@@ -48,6 +49,7 @@ const serviceTracks = [
 		ctaLabel: "Request a vehicle quote",
 		href: site.destinations.vehicleQuote,
 		external: true,
+		analyticsLane: "vehicle",
 	},
 	{
 		id: "specialty",
@@ -70,6 +72,7 @@ const serviceTracks = [
 		ctaLabel: "See supported services",
 		href: "/moving-cars/",
 		external: false,
+		analyticsLane: "specialty",
 	},
 ];
 
@@ -77,14 +80,17 @@ const jumpLinks = [
 	{
 		label: "Household",
 		href: "#household",
+		analyticsLane: "household",
 	},
 	{
 		label: "Vehicles",
 		href: "#vehicles",
+		analyticsLane: "vehicle",
 	},
 	{
 		label: "Specialty",
 		href: "#specialty",
+		analyticsLane: "specialty",
 	},
 	{
 		label: "Process",
@@ -376,6 +382,9 @@ const structuredData = {
 					jumpLinks.map((link) => (
 						<a
 							href={link.href}
+							data-mm-event={link.analyticsLane ? "service_lane_click" : undefined}
+							data-mm-lane={link.analyticsLane}
+							data-mm-surface={link.analyticsLane ? "services_jump_nav" : undefined}
 							class="inline-flex items-center justify-center rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-600 transition hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-800 dark:border-slate-800 dark:bg-slate-950/50 dark:text-slate-300 dark:hover:border-emerald-500/40 dark:hover:bg-emerald-500/10 dark:hover:text-emerald-300"
 						>
 							{link.label}
@@ -474,6 +483,9 @@ const structuredData = {
 										<a
 											class="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 transition hover:text-emerald-900 dark:text-emerald-400 dark:hover:text-emerald-300"
 											href={track.href}
+											data-mm-event="service_lane_click"
+											data-mm-lane={track.analyticsLane}
+											data-mm-surface="services_track_cards"
 											target={track.external ? "_blank" : undefined}
 											rel={track.external ? "noopener noreferrer" : undefined}
 										>

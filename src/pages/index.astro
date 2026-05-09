@@ -11,6 +11,7 @@ import { site } from "../config/site";
 
 const homepageTracks = [
 	{
+		id: "household",
 		eyebrow: "01 Household relocations",
 		title: "Home moves planned around access, timing and inventory.",
 		description:
@@ -19,6 +20,7 @@ const homepageTracks = [
 		linkLabel: "Request a household quote",
 	},
 	{
+		id: "vehicle",
 		eyebrow: "02 Vehicle transport",
 		title: "Vehicle transport handled with the same calm handoff.",
 		description:
@@ -27,6 +29,7 @@ const homepageTracks = [
 		linkLabel: "Request a vehicle quote",
 	},
 	{
+		id: "specialty",
 		eyebrow: "03 Added complexity",
 		title: "Storage, specialist freight and fragile items kept in the same plan.",
 		description:
@@ -276,6 +279,9 @@ const structuredData = {
 									</p>
 									<a
 										href={track.href}
+										data-mm-event="service_lane_click"
+										data-mm-lane={track.id}
+										data-mm-surface="homepage_tracks"
 										class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 transition hover:text-emerald-900 dark:text-emerald-400 dark:hover:text-emerald-300"
 										target={track.href.startsWith("http") ? "_blank" : undefined}
 										rel={track.href.startsWith("http") ? "noopener noreferrer" : undefined}
