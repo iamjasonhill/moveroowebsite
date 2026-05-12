@@ -1,0 +1,426 @@
+---
+import Layout from "../layouts/Layout.astro";
+import QuoteCta from "../components/sections/QuoteCta.astro";
+import { site } from "../config/site";
+
+const publishedAt = new Date("2026-05-12T00:00:00+10:00");
+const updatedAt = publishedAt;
+
+const heroSignals = [
+	"Household inventory",
+	"Car or motorcycle transport",
+	"Settlement and access timing",
+	"One coordinated move plan",
+];
+
+const fitSignals = [
+	{
+		title: "You are moving home and a vehicle",
+		text: "Best when the household move is the main job and a car, motorcycle or extra vehicle needs to arrive around the same window.",
+	},
+	{
+		title: "The dates need to line up",
+		text: "Useful for settlement dates, lease handovers, regional moves or staged deliveries where one late handoff affects the rest.",
+	},
+	{
+		title: "There are multiple providers involved",
+		text: "Moveroo keeps the household and vehicle pathways in one plan so the customer is not chasing separate updates.",
+	},
+];
+
+const planSteps = [
+	{
+		label: "Start with the household brief",
+		text: "We collect the route, inventory, access notes, preferred dates and any settlement or handover constraints.",
+	},
+	{
+		label: "Add the vehicle details early",
+		text: "Share the vehicle type, running status, pickup and delivery access, and whether it needs to move before, during or after the household goods.",
+	},
+	{
+		label: "Match the service mix",
+		text: "Moveroo lines up the household move and vehicle transport pathways around availability, route fit and timing.",
+	},
+	{
+		label: "Keep the handoffs visible",
+		text: "Once booked, the plan stays focused on what is moving, who is handling each part, and what needs to happen next.",
+	},
+];
+
+const comparisonRows = [
+	{
+		label: "Start here when",
+		household: "Furniture, cartons and home access are the main job.",
+		vehicle: "The only thing being moved is a vehicle.",
+		combined: "The home move and vehicle transport both need planning.",
+	},
+	{
+		label: "Primary quote path",
+		household: "Household quote.",
+		vehicle: "Vehicle quote.",
+		combined: "Household quote first, with vehicle details included in the brief.",
+	},
+	{
+		label: "Timing focus",
+		household: "Pickup, loading access and delivery window.",
+		vehicle: "Carrier availability and vehicle handoff.",
+		combined: "Household timing plus vehicle pickup and delivery sequencing.",
+	},
+];
+
+const faqItems = [
+	{
+		question: "Should I request a household quote or a vehicle quote for a combined move?",
+		answer:
+			"If the move includes furniture, cartons or a removalist crew, start with the household quote and include the vehicle details in the brief. If the vehicle is the only item being moved, use the vehicle quote path instead.",
+	},
+	{
+		question: "Can the household goods and vehicle move on the same day?",
+		answer:
+			"Sometimes, but it depends on route, provider availability, access and the type of vehicle transport needed. Moveroo plans around the preferred timing and confirms what is realistic before booking.",
+	},
+	{
+		question: "Will one provider handle everything?",
+		answer:
+			"Not always. A household move and a vehicle move may need different providers. Moveroo's role is to coordinate the service mix and keep the plan clear.",
+	},
+	{
+		question: "What vehicle details should I include?",
+		answer:
+			"Include the make and model, whether the vehicle runs, pickup and delivery suburbs, access notes, and whether it needs to arrive before or after the household goods.",
+	},
+	{
+		question: "Can storage or staged delivery be included too?",
+		answer:
+			"Yes. If the move has storage, a delayed settlement date or staged delivery needs, include those details when you request the quote so the plan can be built around them.",
+	},
+];
+
+const structuredData = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "WebPage",
+			"@id": "https://moveroo.com.au/household-vehicle-relocation/",
+			url: "https://moveroo.com.au/household-vehicle-relocation/",
+			name: "Combined Household and Vehicle Relocation | Moveroo",
+			description:
+				"Plan a household move and vehicle transport together with Moveroo. Start with a household quote and include the vehicle details so timing, access and handoffs can be coordinated.",
+			inLanguage: "en-AU",
+			datePublished: publishedAt.toISOString(),
+			dateModified: updatedAt.toISOString(),
+			isPartOf: {
+				"@id": "https://moveroo.com.au/#website",
+			},
+			about: {
+				"@id": "https://moveroo.com.au/household-vehicle-relocation/#service",
+			},
+		},
+		{
+			"@type": "Service",
+			"@id": "https://moveroo.com.au/household-vehicle-relocation/#service",
+			name: "Combined household and vehicle relocation coordination",
+			serviceType: "Moving and vehicle transport coordination",
+			description:
+				"Coordination support for moves that include household goods and vehicle transport across Australia.",
+			provider: {
+				"@id": "https://moveroo.com.au/#organization",
+			},
+			areaServed: {
+				"@type": "Country",
+				name: "Australia",
+			},
+		},
+		{
+			"@type": "FAQPage",
+			"@id": "https://moveroo.com.au/household-vehicle-relocation/#faq",
+			mainEntity: faqItems.map((faq) => ({
+				"@type": "Question",
+				name: faq.question,
+				acceptedAnswer: {
+					"@type": "Answer",
+					text: faq.answer,
+				},
+			})),
+		},
+	],
+};
+---
+
+<Layout
+	title="Combined Household and Vehicle Relocation | Moveroo"
+	description="Plan a household move and vehicle transport together with Moveroo. Start with a household quote and include the vehicle details so timing, access and handoffs can be coordinated."
+	canonical="https://moveroo.com.au/household-vehicle-relocation/"
+	ogImage="https://moveroo.com.au/og-services.png"
+>
+	<Fragment slot="head">
+		<meta property="article:published_time" content={publishedAt.toISOString()} />
+		<meta property="article:modified_time" content={updatedAt.toISOString()} />
+		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+	</Fragment>
+
+	<section class="relative overflow-hidden bg-slate-950 py-24 text-white md:py-32">
+		<div
+			class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.24),_transparent_30%),linear-gradient(135deg,_#052e2b_0%,_#0f172a_48%,_#111827_100%)]"
+		>
+		</div>
+		<div class="route-grid absolute inset-0 opacity-25"></div>
+		<div
+			class="absolute bottom-[-10rem] right-[-8rem] h-[24rem] w-[24rem] rounded-full bg-emerald-500/10 blur-3xl"
+		>
+		</div>
+
+		<div class="relative mx-auto max-w-6xl px-6">
+			<div class="grid gap-14 lg:grid-cols-[minmax(0,1.04fr)_minmax(22rem,0.96fr)] lg:items-center">
+				<div class="motion-rise">
+					<p class="section-kicker text-emerald-300">Combined relocation</p>
+					<h1
+						class="section-title mt-6 max-w-3xl text-5xl font-semibold leading-[0.95] text-balance md:text-7xl"
+					>
+						Move the home and the vehicle under one clearer plan.
+					</h1>
+					<p class="mt-7 max-w-2xl text-lg leading-relaxed text-slate-300 md:text-xl">
+						When a household move also includes a car, motorcycle or extra vehicle, Moveroo helps
+						coordinate the service mix so timing, access and handoffs are considered together.
+					</p>
+
+					<div class="motion-rise motion-rise-delay-1 mt-10 flex flex-wrap gap-4">
+						<a
+							class="inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-950/30 transition hover:bg-emerald-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
+							href={site.destinations.householdQuote}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Start a household quote
+						</a>
+						<a
+							class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-emerald-300 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
+							href={site.destinations.contactPage}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Request a callback
+						</a>
+					</div>
+
+					<div class="motion-rise motion-rise-delay-2 mt-12 flex flex-wrap gap-3">
+						{
+							heroSignals.map((signal) => (
+								<span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium uppercase tracking-[0.22em] text-slate-200">
+									{signal}
+								</span>
+							))
+						}
+					</div>
+				</div>
+
+				<div class="motion-rise motion-rise-delay-2">
+					<div
+						class="overflow-hidden rounded-[2rem] border border-white/10 bg-white/6 shadow-[0_30px_80px_-40px_rgba(2,6,23,0.85)] backdrop-blur-sm"
+					>
+						<div class="border-b border-white/10 px-6 py-5 md:px-8">
+							<p class="section-kicker text-emerald-300">How to route it</p>
+							<p class="mt-2 text-sm leading-relaxed text-slate-300">
+								If people, furniture and a vehicle are involved, start with the household move and
+								include the vehicle details in the same brief.
+							</p>
+						</div>
+						<div class="route-grid px-6 py-6 md:px-8 md:py-8">
+							<div class="grid gap-5">
+								{
+									planSteps.slice(0, 3).map((step, index) => (
+										<article class="grid gap-3 border-b border-white/10 pb-5 last:border-b-0 last:pb-0 lg:grid-cols-[4rem_1fr]">
+											<span class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-emerald-400/40 bg-emerald-400/10 text-sm font-semibold text-emerald-200">
+												0{index + 1}
+											</span>
+											<div>
+												<p class="text-base font-semibold text-slate-100">{step.label}</p>
+												<p class="mt-2 text-sm leading-relaxed text-slate-300">{step.text}</p>
+											</div>
+										</article>
+									))
+								}
+							</div>
+						</div>
+						<div class="border-t border-white/10 bg-slate-950/30 px-6 py-5 md:px-8">
+							<p class="text-xs uppercase tracking-[0.22em] text-slate-400">Quote path</p>
+							<p class="mt-2 text-xl font-semibold text-white">Household first, vehicle included</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="border-b border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900">
+		<div class="mx-auto max-w-6xl px-6">
+			<div
+				class="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-16"
+			>
+				<div class="motion-rise lg:sticky lg:top-28">
+					<p class="section-kicker">Best Fit</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						Use this path when the move has more than one moving part.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						A combined move is not just two separate quotes sitting next to each other. The useful
+						part is planning the household move, vehicle movement and timing constraints together.
+					</p>
+				</div>
+
+				<div class="motion-rise motion-rise-delay-1 grid gap-5">
+					{
+						fitSignals.map((item) => (
+							<article class="rounded-[1.75rem] border border-slate-200 bg-slate-50 px-6 py-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/40">
+								<h3 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
+									{item.title}
+								</h3>
+								<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+									{item.text}
+								</p>
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-slate-50 py-24 dark:bg-slate-950/40">
+		<div class="mx-auto max-w-6xl px-6">
+			<div class="motion-rise max-w-3xl">
+				<p class="section-kicker">Choosing The Right Path</p>
+				<h2
+					class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+				>
+					Household, vehicle-only, or combined?
+				</h2>
+				<p class="mt-6 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+					The quote path should match the main job. If a removalist crew and household inventory are
+					involved, the household brief gives Moveroo the right context to add the vehicle.
+				</p>
+			</div>
+
+			<div
+				class="motion-rise motion-rise-delay-1 mt-10 overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_28px_80px_-48px_rgba(15,23,42,0.28)] dark:border-slate-800 dark:bg-slate-900/75"
+			>
+				{
+					comparisonRows.map((row) => (
+						<div class="grid gap-5 border-b border-slate-200 px-6 py-6 last:border-b-0 dark:border-slate-800 lg:grid-cols-[12rem_repeat(3,minmax(0,1fr))]">
+							<p class="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-700 dark:text-emerald-400">
+								{row.label}
+							</p>
+							<p class="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+								<strong class="block text-slate-900 dark:text-white">Household</strong>
+								{row.household}
+							</p>
+							<p class="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+								<strong class="block text-slate-900 dark:text-white">Vehicle-only</strong>
+								{row.vehicle}
+							</p>
+							<p class="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+								<strong class="block text-slate-900 dark:text-white">Combined</strong>
+								{row.combined}
+							</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="border-y border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900">
+		<div class="mx-auto max-w-6xl px-6">
+			<div
+				class="grid gap-12 lg:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)] lg:items-start lg:gap-16"
+			>
+				<div class="motion-rise lg:sticky lg:top-28">
+					<p class="section-kicker">Planning Sequence</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						The earlier the vehicle is mentioned, the easier the plan is to shape.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						Vehicle timing can affect pickup windows, delivery planning and customer handover. Put
+						it in the first brief so it can be considered before the move is booked.
+					</p>
+				</div>
+
+				<div class="motion-rise motion-rise-delay-1 grid gap-5">
+					{
+						planSteps.map((step, index) => (
+							<article class="route-grid rounded-[1.75rem] border border-slate-200 bg-slate-50/80 px-6 py-6 dark:border-slate-800 dark:bg-slate-950/45">
+								<div class="grid gap-4 md:grid-cols-[5rem_1fr] md:items-start">
+									<p class="text-sm font-semibold uppercase tracking-[0.28em] text-emerald-700 dark:text-emerald-400">
+										0{index + 1}
+									</p>
+									<div>
+										<h3 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
+											{step.label}
+										</h3>
+										<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+											{step.text}
+										</p>
+									</div>
+								</div>
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-slate-50 py-24 dark:bg-slate-900" id="faq">
+		<div class="mx-auto max-w-6xl px-6">
+			<div
+				class="grid gap-12 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-start lg:gap-16"
+			>
+				<div class="motion-rise lg:sticky lg:top-28">
+					<p class="section-kicker">FAQ</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						Combined move questions, answered before you start.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						These answers help route the enquiry. Final availability, timing and pricing depend on
+						the route, date, inventory and matched providers.
+					</p>
+				</div>
+
+				<div class="motion-rise motion-rise-delay-1 grid gap-4">
+					{
+						faqItems.map((faq) => (
+							<details class="group rounded-[1.5rem] border border-slate-200 bg-white px-6 py-5 shadow-sm dark:border-slate-800 dark:bg-slate-950/55">
+								<summary class="flex cursor-pointer list-none items-start justify-between gap-6">
+									<h3 class="text-lg font-semibold leading-relaxed text-slate-900 dark:text-white">
+										{faq.question}
+									</h3>
+									<span class="mt-1 text-2xl leading-none text-emerald-600 transition group-open:rotate-45 dark:text-emerald-400">
+										+
+									</span>
+								</summary>
+								<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+									{faq.answer}
+								</p>
+							</details>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<QuoteCta
+		title="Ready to plan a combined move?"
+		subtitle="Start with the household quote and include the vehicle details, timing preferences and any settlement or access constraints in the brief."
+		ctaPrimaryLabel="Start a household quote"
+		ctaPrimaryHref={site.destinations.householdQuote}
+		ctaSecondaryLabel="Request a callback"
+		ctaSecondaryHref={site.destinations.contactPage}
+	/>
+</Layout>
