@@ -3,6 +3,9 @@
 This repository allows trusted direct contributions from Jason, Konrad, and
 their agents.
 
+Konrad and agent-specific operating guidance lives in
+`docs/KONRAD-CODEX-INSTRUCTIONS.md`.
+
 ## Core Rule
 
 Direct pushes to `main` are allowed when the change is clear, scoped, and
