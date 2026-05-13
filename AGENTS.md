@@ -1,47 +1,52 @@
 # AGENTS.md
 
-This repository allows external contribution drafts from Konrad and his agent,
-but all changes must flow through pull requests.
+This repository allows trusted direct contributions from Jason, Konrad, and
+their agents.
 
 ## Core Rule
 
-Do not push directly to `main`.
+Direct pushes to `main` are allowed when the change is clear, scoped, and
+verified.
 
-Every non-trivial change must:
+Use a pull request when the intended change is uncertain, high risk, or benefits
+from review before it lands.
 
-1. be made on a branch
-2. be pushed to that branch
-3. be opened as a pull request
-4. wait for review before merge
+Every direct-to-main change should:
+
+1. inspect the current worktree before editing
+2. keep the change scoped to the requested work
+3. run relevant local checks where practical
+4. commit with a clear message
+5. push to `main`
 
 ## Allowed Contribution Style
 
 Konrad and his agent may:
 
 - inspect the repository
-- edit files on a branch
+- edit files on `main` or on a branch
 - run relevant local checks
-- push a branch
-- open a pull request
+- commit and push directly to `main` when appropriate
+- push a branch and open a pull request when review is useful
 
 Konrad and his agent may not:
 
-- merge their own pull requests
-- push directly to `main`
-- bypass review
 - change production credentials or secrets
+- bypass review when Jason specifically requests a PR or approval gate
+- force push or rewrite shared branch history without explicit approval
 
 ## Pull Request Expectations
 
-Each pull request should:
+When a pull request is used, it should:
 
 - explain the problem being solved
 - summarize the change clearly
 - call out any risk areas
 - include relevant verification steps
 
-## Review Gate
+## Review Guidance
 
-Jason reviews pull requests before merge.
+Jason may still request review for broad, sensitive, production-risk, or unclear
+changes.
 
 If the intended change is uncertain, prefer a smaller PR over a broad rewrite.
