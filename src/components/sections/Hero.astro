@@ -2,13 +2,13 @@
 import { site } from "../../config/site";
 
 const primaryCta = {
-	label: "Request a callback",
-	href: site.destinations.contactPage,
+	label: "Start a household quote",
+	href: site.destinations.householdQuote,
 };
 
 const secondaryCta = {
-	label: "Check what applies to my move",
-	href: "/services/",
+	label: "Start a vehicle quote",
+	href: site.destinations.vehicleQuote,
 };
 
 const serviceLanes = [
@@ -76,8 +76,13 @@ const trustSignals = ["Australia-wide coverage", "Clear quote paths", "One coord
 				<p
 					class="motion-rise motion-rise-delay-1 mt-4 max-w-xl text-sm leading-relaxed text-slate-400"
 				>
-					Quote links open Moveroo's secure quote workspace. Submitting a quote request does not
-					create a booking.
+					Start with the quote path that matches the main job. Prefer a callback first? Use the
+					<a
+						class="text-slate-200 underline decoration-slate-500 underline-offset-4 transition hover:text-emerald-200 hover:decoration-emerald-300"
+						href={site.destinations.contactPage}
+					>
+						contact page</a
+					>. Submitting a quote request does not create a booking.
 				</p>
 
 				<ul class="motion-rise motion-rise-delay-2 mt-12 flex flex-wrap gap-3">
