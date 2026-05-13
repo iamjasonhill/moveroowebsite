@@ -8,7 +8,22 @@
 		},
 		{
 			"source": "/contact-moveroo/",
-			"destination": "https://quotes.moveroo.com.au/contact",
+			"destination": "/contact/",
+			"permanent": true
+		},
+		{
+			"source": "/contact-au/",
+			"destination": "/contact/",
+			"permanent": true
+		},
+		{
+			"source": "/contact-page/",
+			"destination": "/contact/",
+			"permanent": true
+		},
+		{
+			"source": "/contact-us/",
+			"destination": "/contact/",
 			"permanent": true
 		},
 		{

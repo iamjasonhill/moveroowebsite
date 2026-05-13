@@ -9,8 +9,8 @@ const updatedAt = publishedAt;
 const heroSignals = [
 	"Household inventory",
 	"Car or motorcycle transport",
-	"Settlement and access timing",
-	"One coordinated move plan",
+	"Same-day pickup planning",
+	"Clearer service handoffs",
 ];
 
 const fitSignals = [
@@ -20,11 +20,11 @@ const fitSignals = [
 	},
 	{
 		title: "The dates need to line up",
-		text: "Useful for settlement dates, lease handovers, regional moves or staged deliveries where one late handoff affects the rest.",
+		text: "Useful for settlement dates, lease handovers, regional moves or staged deliveries where pickup timing needs to be coordinated across household and vehicle providers.",
 	},
 	{
 		title: "There are multiple providers involved",
-		text: "Moveroo keeps the household and vehicle pathways in one plan so the customer is not chasing separate updates.",
+		text: "Household removal and vehicle transport are usually handled by different provider types. Moveroo keeps those pathways in one plan so the customer is not chasing separate updates.",
 	},
 ];
 
@@ -64,7 +64,15 @@ const comparisonRows = [
 		label: "Timing focus",
 		household: "Pickup, loading access and delivery window.",
 		vehicle: "Carrier availability and vehicle handoff.",
-		combined: "Household timing plus vehicle pickup and delivery sequencing.",
+		combined:
+			"Coordinated pickup timing first, then realistic delivery sequencing for each service.",
+	},
+	{
+		label: "What not to expect",
+		household: "A generic price before route and inventory are known.",
+		vehicle: "The same pathway for running and non-running vehicles.",
+		combined:
+			"Guaranteed same-day delivery, one provider for both services, or lower cost per service.",
 	},
 ];
 
@@ -77,7 +85,7 @@ const faqItems = [
 	{
 		question: "Can the household goods and vehicle move on the same day?",
 		answer:
-			"Sometimes, but it depends on route, provider availability, access and the type of vehicle transport needed. Moveroo plans around the preferred timing and confirms what is realistic before booking.",
+			"Moveroo can coordinate household and vehicle pickup for the same day when route, provider availability, access and vehicle transport requirements support it. Delivery on the same day for both services should not be expected.",
 	},
 	{
 		question: "Will one provider handle everything?",
@@ -105,7 +113,7 @@ const structuredData = {
 			url: "https://moveroo.com.au/household-vehicle-relocation/",
 			name: "Combined Household and Vehicle Relocation | Moveroo",
 			description:
-				"Plan a household move and vehicle transport together with Moveroo. Start with a household quote and include the vehicle details so timing, access and handoffs can be coordinated.",
+				"Plan a household move and vehicle transport together with coordinated pickup timing and clearer service handoffs.",
 			inLanguage: "en-AU",
 			datePublished: publishedAt.toISOString(),
 			dateModified: updatedAt.toISOString(),
@@ -149,7 +157,7 @@ const structuredData = {
 
 <Layout
 	title="Combined Household and Vehicle Relocation | Moveroo"
-	description="Plan a household move and vehicle transport together with Moveroo. Start with a household quote and include the vehicle details so timing, access and handoffs can be coordinated."
+	description="Plan a household move and vehicle transport together with coordinated pickup timing and clearer service handoffs."
 	canonical="https://moveroo.com.au/household-vehicle-relocation/"
 	ogImage="https://moveroo.com.au/og-services.png"
 >
@@ -181,7 +189,9 @@ const structuredData = {
 					</h1>
 					<p class="mt-7 max-w-2xl text-lg leading-relaxed text-slate-300 md:text-xl">
 						When a household move also includes a car, motorcycle or extra vehicle, Moveroo helps
-						coordinate the service mix so timing, access and handoffs are considered together.
+						coordinate the service mix so pickup timing, access and handoffs are considered
+						together. Same-day pickup can be planned when availability supports it; same-day
+						delivery should not be assumed.
 					</p>
 
 					<div class="motion-rise motion-rise-delay-1 mt-10 flex flex-wrap gap-4">
@@ -196,8 +206,6 @@ const structuredData = {
 						<a
 							class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-emerald-300 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
 							href={site.destinations.contactPage}
-							target="_blank"
-							rel="noopener noreferrer"
 						>
 							Request a callback
 						</a>
@@ -300,6 +308,10 @@ const structuredData = {
 				<p class="mt-6 text-base leading-relaxed text-slate-600 dark:text-slate-400">
 					The quote path should match the main job. If a removalist crew and household inventory are
 					involved, the household brief gives Moveroo the right context to add the vehicle.
+				</p>
+				<p class="mt-5 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+					The goal is not to pretend one provider does everything. It is to reduce the number of
+					customer-managed handoffs across separate household and vehicle transport pathways.
 				</p>
 			</div>
 

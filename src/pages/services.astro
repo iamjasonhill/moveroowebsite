@@ -9,31 +9,31 @@ const serviceTracks = [
 	{
 		id: "household",
 		eyebrow: "01 Household moves",
-		title: "Household moves",
+		title: "Household moves first",
 		description:
-			"Moveroo helps plan local, regional and interstate household moves with the right removalist team, route and timing.",
+			"Moveroo's primary service lane is household move coordination: local, regional and interstate moves where inventory, access, timing and the right removalist pathway all matter.",
 		bestFor: [
 			"Apartments, homes and interstate relocations",
-			"Moves where access, loading or inventory need planning",
-			"Jobs that may also need storage or transport add-ons",
+			"Moves where access, loading, inventory or timing need planning",
+			"Jobs that may also need packing, storage or fragile-item support",
 		],
 		usuallyIncludes: [
 			"Apartments, family homes and interstate relocations",
 			"Backloading or dedicated move pathways",
-			"Inventory planning, loading access and timeline support",
+			"Inventory planning, loading access, packing and timeline support",
 		],
 		notFor: "Single-vehicle-only bookings where no household inventory or moving crew is involved.",
-		ctaLabel: "Request a household quote",
-		href: site.destinations.householdQuote,
-		external: true,
+		ctaLabel: "Explore household removals",
+		href: "/household-removals/",
+		external: false,
 		analyticsLane: "household",
 	},
 	{
 		id: "vehicles",
 		eyebrow: "02 Vehicle transport",
-		title: "Vehicle transport",
+		title: "Vehicle transport second",
 		description:
-			"Moving Cars now sits within Moveroo, so vehicle transport can be planned alongside the rest of the move when needed.",
+			"Moveroo's vehicle transport lane is for cars, motorcycles and multi-vehicle work, with support for wider relocation planning when the vehicle is part of a bigger move.",
 		bestFor: [
 			"Cars, motorcycles and non-running vehicles",
 			"Dealer, auction and relocation movements",
@@ -52,27 +52,27 @@ const serviceTracks = [
 		analyticsLane: "vehicle",
 	},
 	{
-		id: "specialty",
-		eyebrow: "03 Added complexity",
-		title: "Specialty and added complexity",
+		id: "combined",
+		eyebrow: "03 Combined relocation",
+		title: "Household + vehicle together",
 		description:
-			"When the move includes boats, caravans, trailers, oversized freight, storage or delicate items, Moveroo can build those into the same plan.",
+			"When a household move also includes vehicle transport, Moveroo can coordinate the pickup timing and support path across both services without promising one provider or same-day delivery.",
 		bestFor: [
-			"Boats, caravans, trailers and oversized freight",
-			"Moves with storage handoffs or permit-sensitive routing",
-			"Fragile, bulky or high-attention inventory support",
+			"Household moves where a car or motorcycle also needs transport",
+			"Moves where pickup timing needs to line up across two service types",
+			"Customers who want one brief and clearer handoffs",
 		],
 		usuallyIncludes: [
-			"Boats, caravans, trailers and industrial machinery",
-			"Storage links, permit-sensitive routes and specialist handling",
-			"Fragile, bulky or high-attention inventory support",
+			"Household quote first, with vehicle details included early",
+			"Same-day pickup coordination where availability supports it",
+			"Separate household and vehicle providers kept under one plan",
 		],
 		notFor:
-			"Standard metro moves with no storage, special handling or unusual freight requirements.",
-		ctaLabel: "See supported services",
-		href: "/moving-cars/",
+			"Vehicle-only moves with no household goods, or moves where same-day delivery is required for both services.",
+		ctaLabel: "Plan a combined move",
+		href: "/household-vehicle-relocation/",
 		external: false,
-		analyticsLane: "specialty",
+		analyticsLane: "combined",
 	},
 ];
 
@@ -88,9 +88,9 @@ const jumpLinks = [
 		analyticsLane: "vehicle",
 	},
 	{
-		label: "Specialty",
-		href: "#specialty",
-		analyticsLane: "specialty",
+		label: "Combined",
+		href: "#combined",
+		analyticsLane: "combined",
 	},
 	{
 		label: "Process",
@@ -117,7 +117,7 @@ const chooserNotes = [
 	},
 	{
 		label: "Use specialty when access or freight complexity is the real issue",
-		text: "If storage, oversized freight, fragile handling or unusual equipment are driving the job, start there and we will plan the rest around it.",
+		text: "If storage, fragile handling or unusual equipment are driving the job, start with the closest household or vehicle lane and include the extra requirement in the first brief.",
 	},
 ];
 
@@ -125,7 +125,7 @@ const faqItems = [
 	{
 		question: "What services does Moveroo offer?",
 		answer:
-			"Moveroo works with trusted carriers, removalists and logistics experts across Australia. We help with home moves, vehicle transport, and custom transport plans for boats, caravans, trailers and industrial machinery.",
+			"Moveroo coordinates household moves first, vehicle transport second, and combined household plus vehicle relocations when both services need to be planned together. Extra needs such as packing, storage or fragile handling can be included where the provider fit supports them.",
 	},
 	{
 		question: "How does the Moveroo moving process work?",
@@ -146,6 +146,11 @@ const faqItems = [
 		question: "How are cover questions handled?",
 		answer:
 			"Cover details depend on the service mix and the partners matched to your job. We can share the available information before booking so you can review what applies to your move or vehicle transport.",
+	},
+	{
+		question: "Can Moveroo coordinate a household move and vehicle pickup on the same day?",
+		answer:
+			"Moveroo can coordinate same-day pickup for the household move and vehicle transport when provider availability, route and access details support it. Same-day delivery for both services should not be assumed.",
 	},
 	{
 		question: "What areas do you service?",
@@ -178,7 +183,7 @@ const structuredData = {
 			url: "https://moveroo.com.au/services/",
 			name: "Moving & Transport Services Across Australia | Moveroo",
 			description:
-				"Comprehensive moving and transport services across Australia. Household removals, vehicle transport, and specialty freight coordinated by one trusted team.",
+				"Household moves, vehicle transport and combined household plus vehicle relocations coordinated across Australia by Moveroo.",
 			dateModified: lastModified.toISOString(),
 			isPartOf: {
 				"@id": "https://moveroo.com.au/#website",
@@ -245,7 +250,7 @@ const structuredData = {
 
 <Layout
 	title="Moving & Transport Services Across Australia | Moveroo"
-	description="Comprehensive moving and transport services across Australia. Household removals, vehicle transport, and specialty freight coordinated by one trusted team."
+	description="Household moves, vehicle transport and combined household plus vehicle relocations coordinated across Australia by Moveroo."
 	canonical="https://moveroo.com.au/services/"
 	ogImage="https://moveroo.com.au/og-services.png"
 >
@@ -279,8 +284,8 @@ const structuredData = {
 						Choose the service path that fits your move.
 					</h1>
 					<p class="mt-7 max-w-2xl text-lg leading-relaxed text-slate-300 md:text-xl">
-						Start with the lane that best matches the main job: household moves, vehicle transport,
-						or specialty logistics with added complexity.
+						Start with the lane that best matches the main job: household moves first, vehicle
+						transport second, or a combined household and vehicle plan when both need to move.
 					</p>
 
 					<div class="motion-rise motion-rise-delay-1 mt-10 flex flex-wrap gap-4">
@@ -294,7 +299,7 @@ const structuredData = {
 						</a>
 						<a
 							class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-emerald-300 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
-							href="https://quotes.moveroo.com.au/contact"
+							href={site.destinations.contactPage}
 						>
 							Request a callback
 						</a>
@@ -305,8 +310,8 @@ const structuredData = {
 							Best used for
 						</p>
 						<p class="mt-3 text-sm leading-relaxed text-slate-300 md:text-base">
-							Interstate relocations, multi-part moves, vehicle handoffs, storage links and jobs
-							where you need a clear place to start.
+							Interstate relocations, apartment and home moves, vehicle handoffs, storage links and
+							jobs where you need a clear place to start.
 						</p>
 					</div>
 				</div>
@@ -421,7 +426,8 @@ const structuredData = {
 						</p>
 						<p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
 							If the home move also includes a car or motorcycle, use the combined move guide before
-							choosing a quote path.
+							choosing a quote path. Same-day pickup can often be coordinated; same-day delivery
+							should not be assumed.
 						</p>
 						<a
 							href="/household-vehicle-relocation/"
@@ -633,7 +639,7 @@ const structuredData = {
 							or freight that needs to stay under one plan.
 						</p>
 						<a
-							href="https://quotes.moveroo.com.au/contact"
+							href={site.destinations.contactPage}
 							class="mt-5 inline-flex items-center justify-center rounded-full border border-emerald-500 px-5 py-2.5 text-sm font-semibold text-emerald-700 transition hover:border-emerald-600 hover:bg-emerald-50 hover:text-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700 dark:border-emerald-500/50 dark:text-emerald-400 dark:hover:border-emerald-400 dark:hover:bg-emerald-500/10 dark:hover:text-emerald-300 dark:focus-visible:outline-emerald-400"
 						>
 							Request a callback
@@ -683,11 +689,11 @@ const structuredData = {
 	</section>
 
 	<QuoteCta
-		title="Need help choosing the right service path?"
-		subtitle="Tell us what the main job is and what else needs to move, and Moveroo will point you to the right quote path."
-		ctaPrimaryLabel="Check what applies to my move"
+		title="Ready to start with the household move?"
+		subtitle="Share the main household move first, then include any vehicle, storage, packing or fragile-item details in the same brief."
+		ctaPrimaryLabel="Start a household quote"
 		ctaPrimaryHref="https://quotes.moveroo.com.au/quote/household"
 		ctaSecondaryLabel="Request a callback"
-		ctaSecondaryHref="https://quotes.moveroo.com.au/contact"
+		ctaSecondaryHref={site.destinations.contactPage}
 	/>
 </Layout>

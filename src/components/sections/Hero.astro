@@ -1,6 +1,5 @@
 ---
 import { site } from "../../config/site";
-import { getTrackedOnClick } from "../../utils/tracking";
 
 const primaryCta = {
 	label: "Request a callback",
@@ -64,9 +63,6 @@ const trustSignals = ["Australia-wide coverage", "Clear quote paths", "One coord
 					<a
 						class="inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-950/30 transition hover:bg-emerald-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
 						href={primaryCta.href}
-						onclick={getTrackedOnClick(primaryCta.href, site.analytics.trackedLinks)}
-						target="_blank"
-						rel="noopener noreferrer"
 					>
 						{primaryCta.label}
 					</a>
@@ -80,8 +76,8 @@ const trustSignals = ["Australia-wide coverage", "Clear quote paths", "One coord
 				<p
 					class="motion-rise motion-rise-delay-1 mt-4 max-w-xl text-sm leading-relaxed text-slate-400"
 				>
-					Callback and quote links open Moveroo's secure quote workspace. Submitting a quote request
-					does not create a booking.
+					Quote links open Moveroo's secure quote workspace. Submitting a quote request does not
+					create a booking.
 				</p>
 
 				<ul class="motion-rise motion-rise-delay-2 mt-12 flex flex-wrap gap-3">

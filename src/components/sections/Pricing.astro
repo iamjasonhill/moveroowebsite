@@ -1,6 +1,5 @@
 ---
 import { site } from "../../config/site";
-import { getTrackedOnClick } from "../../utils/tracking";
 
 interface Plan {
 	name: string;
@@ -109,7 +108,6 @@ const plans: Plan[] = [
 										: "bg-emerald-800 text-white shadow-lg shadow-emerald-800/30 hover:bg-emerald-900 focus-visible:outline-emerald-900 dark:bg-emerald-700 dark:shadow-emerald-700/30 dark:hover:bg-emerald-600 dark:focus-visible:outline-emerald-600"
 								}`}
 								href={plan.href}
-								onclick={getTrackedOnClick(plan.href, site.analytics.trackedLinks)}
 								rel="noopener noreferrer"
 								target="_blank"
 							>

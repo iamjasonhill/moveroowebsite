@@ -36,11 +36,12 @@ Vehicle transport coordination across Australia. Whether you're moving interstat
 
 - [Home](https://moveroo.com.au/)
 - [Get a Moving Quote](https://quotes.moveroo.com.au/quote/household)
+- [Household Removals](https://moveroo.com.au/household-removals/)
 - [Combined Household + Vehicle Relocation](https://moveroo.com.au/household-vehicle-relocation/)
 - [Vehicle Transport Quote](https://quotes.moveroo.com.au/quote/vehicle)
 - [Moving Cars](https://moveroo.com.au/moving-cars/)
 - [How Moveroo Protects Your Move](https://moveroo.com.au/how-moveroo-protects-your-move/)
-- [Contact Us](https://quotes.moveroo.com.au/contact)
+- [Contact Us](https://moveroo.com.au/contact/)
 - [Book Your Move](https://quotes.moveroo.com.au/booking/create)
 
 ## Contact

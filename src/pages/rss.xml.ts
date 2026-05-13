@@ -14,6 +14,12 @@ const items = [
 		link: "/services/",
 	},
 	{
+		title: "Household Removals",
+		description:
+			"Household removals guidance for local, regional and interstate moves coordinated by Moveroo.",
+		link: "/household-removals/",
+	},
+	{
 		title: "Moving Cars",
 		description:
 			"Vehicle transport guidance, quote flow, and delivery planning for moving cars with Moveroo.",
