@@ -4,7 +4,8 @@ export const site = {
 	destinations: {
 		householdQuote: "https://quotes.moveroo.com.au/quote/household",
 		vehicleQuote: "https://quotes.moveroo.com.au/quote/vehicle",
-		contactPage: "https://quotes.moveroo.com.au/contact",
+		contactPage: "/contact/",
+		contactWorkspace: "https://quotes.moveroo.com.au/contact",
 		bookingPage: "https://quotes.moveroo.com.au/booking/create",
 	},
 	analytics: {
@@ -40,6 +41,14 @@ export const site = {
 					lead_type: "callback",
 					quote_host: "quotes.moveroo.com.au",
 					handoff_event_name: "callback_request_click",
+				},
+			},
+			{
+				href: "/contact/",
+				eventName: "callback_page_click",
+				params: {
+					interaction_type: "callback",
+					lead_type: "callback",
 				},
 			},
 			{

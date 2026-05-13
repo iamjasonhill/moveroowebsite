@@ -36,8 +36,12 @@ const transportBenefits = [
 
 const transportUseCases = [
 	{
-		label: "Relocating interstate",
-		text: "Useful when the vehicle needs to move alongside a household relocation, staff move or staged move.",
+		label: "Private car transport",
+		text: "For customers moving a car, motorcycle, classic, project vehicle or second family vehicle across Australia.",
+	},
+	{
+		label: "Non-running vehicles",
+		text: "Useful when the vehicle cannot be driven onto standard transport and the quote needs to account for loading requirements.",
 	},
 	{
 		label: "Buying or selling remotely",
@@ -53,7 +57,31 @@ const transportUseCases = [
 	},
 ];
 
+const quoteFactors = [
+	{
+		label: "Vehicle condition",
+		text: "Whether the vehicle runs, rolls and steers affects the carrier pathway and loading requirements.",
+	},
+	{
+		label: "Pickup and delivery access",
+		text: "Street access, depot handoffs, regional distance and timing windows all shape what is realistic.",
+	},
+	{
+		label: "Vehicle type and dimensions",
+		text: "Cars, motorcycles, classics, modified vehicles and fleet units can need different handling notes.",
+	},
+	{
+		label: "Wider move requirements",
+		text: "If household goods, storage or freight are involved too, include them early so Moveroo can coordinate the broader plan.",
+	},
+];
+
 const faqItems = [
+	{
+		question: "What vehicle transport services can Moveroo help coordinate?",
+		answer:
+			"Moveroo can help coordinate car transport, motorcycle transport, non-running vehicle moves, auction or dealer handoffs, fleet or multi-vehicle work, and vehicle transport that forms part of a wider household move.",
+	},
 	{
 		question: "What happened to Moving Cars?",
 		answer:
@@ -79,6 +107,11 @@ const faqItems = [
 		answer:
 			"Use the vehicle quote path for new jobs. If the move includes more than the vehicle, Moveroo can help coordinate the wider plan as well.",
 	},
+	{
+		question: "What details should I include for a vehicle transport quote?",
+		answer:
+			"Include the pickup and delivery suburbs, preferred timing, vehicle make and model, whether it runs, access notes, and whether the transport is connected to a household move, storage handoff or freight job.",
+	},
 ];
 
 const structuredData = {
@@ -89,7 +122,7 @@ const structuredData = {
 			"@id": "https://moveroo.com.au/moving-cars/",
 			name: "Moving Cars Australia | Car Transport by Moveroo",
 			description:
-				"Move cars and motorcycles across Australia with Moveroo's dedicated vehicle transport lane. Get a vehicle-first quote, with optional support for wider relocation planning.",
+				"Move cars, motorcycles, non-running vehicles and fleet units across Australia with Moveroo's vehicle-first transport lane.",
 			url: "https://moveroo.com.au/moving-cars/",
 			inLanguage: "en-AU",
 			isPartOf: {
@@ -109,7 +142,7 @@ const structuredData = {
 			name: "Vehicle transport across Australia",
 			serviceType: "Vehicle transport",
 			description:
-				"Vehicle-first transport support for cars, motorcycles and multi-vehicle moves across Australia.",
+				"Vehicle-first transport support for cars, motorcycles, non-running vehicles, auction or dealer handoffs and multi-vehicle moves across Australia.",
 			provider: {
 				"@id": "https://moveroo.com.au/#organization",
 			},
@@ -136,7 +169,7 @@ const structuredData = {
 
 <Layout
 	title="Moving Cars Australia | Car Transport by Moveroo"
-	description="Move cars and motorcycles across Australia with Moveroo's dedicated vehicle transport lane. Get a vehicle-first quote, with optional support for wider relocation planning."
+	description="Move cars, motorcycles, non-running vehicles and fleet units across Australia with Moveroo's vehicle-first transport lane."
 	canonical="https://moveroo.com.au/moving-cars/"
 	ogImage="https://moveroo.com.au/og-moving-cars.png"
 >
@@ -171,8 +204,8 @@ const structuredData = {
 					</h1>
 					<p class="mt-7 max-w-2xl text-lg leading-relaxed text-slate-300 md:text-xl">
 						If the main job is moving a car, motorcycle or multiple vehicles, start here for a
-						vehicle-first quote. You still get specialist transport, with extra support if the move
-						also includes household goods, storage or other logistics.
+						vehicle-first quote. Moveroo can also coordinate non-running vehicles, auction or dealer
+						handoffs, fleet work and vehicle transport that sits beside a household move.
 					</p>
 					<a
 						href="/how-moveroo-protects-your-move/"
@@ -287,8 +320,9 @@ const structuredData = {
 						Start here when the vehicle is the main part of the move.
 					</h2>
 					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
-						Use this path for car, motorcycle and multi-vehicle moves. If the job also includes
-						household goods, storage or freight, we can coordinate that as well.
+						Use this path for car, motorcycle, non-running and multi-vehicle moves. If the job also
+						includes household goods, storage or freight, include those details early so Moveroo can
+						coordinate the wider plan.
 					</p>
 				</div>
 
@@ -302,6 +336,42 @@ const structuredData = {
 									{item.label}
 								</p>
 								<p class="text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+									{item.text}
+								</p>
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="border-b border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900">
+		<div class="mx-auto max-w-6xl px-6">
+			<div
+				class="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-16"
+			>
+				<div class="motion-rise lg:sticky lg:top-28">
+					<p class="section-kicker">Quote Factors</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						The right vehicle quote starts with the details carriers need.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						Vehicle transport changes quickly when the car does not run, access is tight or the
+						vehicle needs to line up with a larger relocation.
+					</p>
+				</div>
+
+				<div class="motion-rise motion-rise-delay-1 grid gap-5">
+					{
+						quoteFactors.map((item) => (
+							<article class="rounded-[1.75rem] border border-slate-200 bg-slate-50 px-6 py-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/40">
+								<h3 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
+									{item.label}
+								</h3>
+								<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
 									{item.text}
 								</p>
 							</article>
@@ -489,6 +559,6 @@ const structuredData = {
 		ctaPrimaryLabel="Start a vehicle quote"
 		ctaPrimaryHref="https://quotes.moveroo.com.au/quote/vehicle"
 		ctaSecondaryLabel="Talk to a coordinator"
-		ctaSecondaryHref="https://quotes.moveroo.com.au/contact"
+		ctaSecondaryHref={site.destinations.contactPage}
 	/>
 </Layout>

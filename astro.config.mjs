@@ -46,7 +46,11 @@ export default defineConfig({
 			filter: (page) =>
 				!page.includes("/template-dark") &&
 				!page.includes("/template-light") &&
-				!page.includes("/design"),
+				!page.includes("/design") &&
+				!page.includes("/contact-moveroo") &&
+				!page.includes("/contact-au") &&
+				!page.includes("/contact-page") &&
+				!page.includes("/contact-us"),
 		}),
 		duplicateSitemap,
 	],

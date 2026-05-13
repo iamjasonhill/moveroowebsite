@@ -67,6 +67,24 @@ const beforeDepositItems = [
 	"Deposit, balance-payment timing and cancellation rules are understood",
 	"Any cover information has been reviewed before committing",
 ];
+
+const pathwayLinks = [
+	{
+		label: "Household moves",
+		text: "Start here when furniture, cartons, access and a removalist crew are the main job.",
+		href: "/services/#household",
+	},
+	{
+		label: "Vehicle transport",
+		text: "Use this when the car, motorcycle or fleet vehicle is the main item being moved.",
+		href: "/moving-cars/",
+	},
+	{
+		label: "Household + vehicle relocation",
+		text: "Use this when pickup timing and handoffs need to be coordinated across both service types.",
+		href: "/household-vehicle-relocation/",
+	},
+];
 ---
 
 <Layout
@@ -95,7 +113,8 @@ const beforeDepositItems = [
 					<p class="mt-7 max-w-3xl text-lg leading-relaxed text-slate-300 md:text-xl">
 						Moveroo is a coordination team. We help collect the right details, match the move to a
 						suitable service pathway, explain what can affect the quote and keep support focused
-						when plans change.
+						when plans change. This reduces avoidable confusion, but it does not remove every risk
+						from a physical move.
 					</p>
 				</div>
 
@@ -219,6 +238,50 @@ const beforeDepositItems = [
 
 	<section class="border-y border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900">
 		<div class="mx-auto max-w-6xl px-6">
+			<div
+				class="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-16"
+			>
+				<div class="motion-rise lg:sticky lg:top-28">
+					<p class="section-kicker">Choose The Right Pathway</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						Protection starts with routing the move correctly.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						The safest quote path is the one that matches the real job. Start with the main service
+						lane, then include the details that could affect access, equipment, timing or provider
+						fit.
+					</p>
+				</div>
+
+				<div class="motion-rise motion-rise-delay-1 grid gap-5">
+					{
+						pathwayLinks.map((item) => (
+							<article class="rounded-[1.75rem] border border-slate-200 bg-slate-50 px-6 py-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/40">
+								<h3 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
+									{item.label}
+								</h3>
+								<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+									{item.text}
+								</p>
+								<a
+									href={item.href}
+									class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 transition hover:text-emerald-900 dark:text-emerald-400 dark:hover:text-emerald-300"
+								>
+									<span>View pathway</span>
+									<span aria-hidden="true">&rarr;</span>
+								</a>
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="border-y border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900">
+		<div class="mx-auto max-w-6xl px-6">
 			<div class="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
 				<div class="motion-rise">
 					<p class="section-kicker">Before You Pay A Deposit</p>
@@ -303,8 +366,6 @@ const beforeDepositItems = [
 						<a
 							href={site.destinations.contactPage}
 							class="inline-flex items-center justify-center rounded-full bg-emerald-600 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-500"
-							target="_blank"
-							rel="noopener noreferrer"
 						>
 							Request support
 						</a>

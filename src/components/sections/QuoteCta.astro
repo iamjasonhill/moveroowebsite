@@ -1,6 +1,5 @@
 ---
 import { site } from "../../config/site";
-import { getTrackedOnClick } from "../../utils/tracking";
 
 interface Props {
 	title: string;
@@ -24,10 +23,6 @@ function resolveHref(href: string) {
 
 const primaryHref = resolveHref(ctaPrimaryHref);
 const secondaryHref = ctaSecondaryHref ? resolveHref(ctaSecondaryHref) : undefined;
-const primaryOnClick = getTrackedOnClick(primaryHref, site.analytics.trackedLinks);
-const secondaryOnClick = secondaryHref
-	? getTrackedOnClick(secondaryHref, site.analytics.trackedLinks)
-	: undefined;
 
 const opensQuoteWorkspace =
 	primaryHref.startsWith("https://quotes.moveroo.com.au") ||
@@ -73,7 +68,6 @@ const quoteNextSteps = [
 						<a
 							class="inline-flex items-center justify-center rounded-full bg-emerald-400 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-950/30 transition hover:bg-emerald-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
 							href={primaryHref}
-							onclick={primaryOnClick}
 							target={primaryHref.startsWith("http") ? "_blank" : undefined}
 							rel={primaryHref.startsWith("http") ? "noopener noreferrer" : undefined}
 						>
@@ -84,7 +78,6 @@ const quoteNextSteps = [
 								<a
 									class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-emerald-300 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
 									href={secondaryHref}
-									onclick={secondaryOnClick}
 									rel={secondaryHref.startsWith("http") ? "noopener noreferrer" : undefined}
 									target={secondaryHref.startsWith("http") ? "_blank" : undefined}
 								>
