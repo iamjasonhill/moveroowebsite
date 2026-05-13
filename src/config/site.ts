@@ -44,7 +44,7 @@ export const site = {
 				},
 			},
 			{
-				href: "/contact/",
+				href: "https://moveroo.com.au/contact/",
 				eventName: "callback_page_click",
 				params: {
 					interaction_type: "callback",
