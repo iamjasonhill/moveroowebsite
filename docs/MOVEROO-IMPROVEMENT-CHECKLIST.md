@@ -46,7 +46,9 @@ Use this as the shared backlog across future chats. Items marked **Access needed
 
 - [ ] Tighten the core positioning: Moveroo as the coordination layer for moves with moving parts.
 - [ ] Separate user journeys for simple household moves, vehicle-only moves, combined moves, and specialty/complex moves.
-- [ ] Add a combined household + vehicle relocation page.
+  - In progress: combined household + vehicle relocation journey now has a dedicated page.
+- [x] Add a combined household + vehicle relocation page.
+  - Completed in repo: `/household-vehicle-relocation/` explains when to use the combined path, how to route the quote, what details to include, and how the household and vehicle timelines are coordinated.
 - [ ] Add a backloading removals page.
 - [ ] Add a dedicated removals page.
 - [ ] Add a storage coordination page or section.
