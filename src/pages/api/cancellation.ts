@@ -1,6 +1,12 @@
 import type { APIRoute } from "astro";
 import sgMail from "@sendgrid/mail";
 
+declare const process:
+	| {
+			env?: Record<string, string | undefined>;
+	  }
+	| undefined;
+
 const MAX_FIELD_LENGTHS = {
 	name: 120,
 	email: 254,
@@ -37,19 +43,25 @@ function escapeHtml(value: string) {
 		.replace(/'/g, "&#39;");
 }
 
-// Initialize SendGrid
-if (import.meta.env.SENDGRID_API_KEY) {
-	sgMail.setApiKey(import.meta.env.SENDGRID_API_KEY);
+function getServerEnv(name: string) {
+	const runtimeValue = typeof process !== "undefined" ? process.env?.[name] : undefined;
+	const buildValue = import.meta.env[name];
+
+	return runtimeValue || buildValue || "";
 }
 
 export const POST: APIRoute = async ({ request }) => {
 	try {
+		const sendGridApiKey = getServerEnv("SENDGRID_API_KEY");
+		const sendGridFromEmail = getServerEnv("SENDGRID_FROM_EMAIL") || "noreply@moveroo.com.au";
+
 		// Check if SendGrid API key is configured
-		if (!import.meta.env.SENDGRID_API_KEY) {
+		if (!sendGridApiKey) {
 			console.error("SENDGRID_API_KEY is not configured");
 			return new Response(
 				JSON.stringify({
-					error: "Email service is not configured. Please contact support.",
+					error:
+						"Email service is not configured. Please call +61 7 2143 2557 or email removals@moveroo.com.au.",
 				}),
 				{
 					status: 500,
@@ -59,6 +71,8 @@ export const POST: APIRoute = async ({ request }) => {
 				}
 			);
 		}
+
+		sgMail.setApiKey(sendGridApiKey);
 
 		// Always send to removals@moveroo.com.au
 		const recipientEmail = "removals@moveroo.com.au";
@@ -107,7 +121,7 @@ export const POST: APIRoute = async ({ request }) => {
 		// Prepare SendGrid message
 		const msg = {
 			to: recipientEmail,
-			from: import.meta.env.SENDGRID_FROM_EMAIL || "noreply@moveroo.com.au",
+			from: sendGridFromEmail,
 			replyTo: email,
 			subject: `Cancellation Request from ${name.replace(/[\r\n]/g, " ")}`,
 			html: emailContent,
