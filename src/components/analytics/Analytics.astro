@@ -1,6 +1,5 @@
 ---
 import Ga4 from "./Ga4.astro";
-import Matomo from "./Matomo.astro";
 import { site } from "../../config/site";
 
 type AnalyticsConfig = Record<string, string>;
@@ -37,12 +36,6 @@ if (analyticsProvider && analyticsConfig) {
 		anonymize_ip: import.meta.env.PUBLIC_GA_ANONYMIZE_IP || "false",
 		site_key: "moveroo",
 	};
-} else if (import.meta.env.PUBLIC_MATOMO_BASE_URL && import.meta.env.PUBLIC_MATOMO_SITE_ID) {
-	provider = "matomo";
-	config = {
-		base_url: import.meta.env.PUBLIC_MATOMO_BASE_URL,
-		site_id: import.meta.env.PUBLIC_MATOMO_SITE_ID,
-	};
 }
 
 const enabled = analyticsEnabled ? analyticsEnabled === "true" : Boolean(provider);
@@ -60,4 +53,3 @@ const enabled = analyticsEnabled ? analyticsEnabled === "true" : Boolean(provide
 		/>
 	)
 }
-{import.meta.env.PROD && enabled && provider === "matomo" && <Matomo />}

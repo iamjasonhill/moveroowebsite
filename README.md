@@ -62,8 +62,6 @@ Copy `.env.example` and set the real values when needed:
 - `PUBLIC_GA_TAG_URL`
 - `PUBLIC_GA_SEND_PAGE_VIEW`
 - `PUBLIC_GA_ANONYMIZE_IP`
-- `PUBLIC_MATOMO_BASE_URL`
-- `PUBLIC_MATOMO_SITE_ID`
 - `SENDGRID_API_KEY`
 - `SENDGRID_FROM_EMAIL`
 

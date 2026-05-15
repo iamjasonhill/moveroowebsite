@@ -2,8 +2,9 @@
 
 ## Summary of Changes
 
-Successfully improved the Content Security Policy to remove the dangerous
-`unsafe-eval` directive and minimize the use of `unsafe-inline`.
+Successfully improved the Content Security Policy by removing the dangerous
+`unsafe-eval` directive, retiring legacy analytics allowances, and minimizing
+the remaining source allowlist.
 
 ---
 
@@ -16,33 +17,28 @@ Successfully improved the Content Security Policy to remove the dangerous
 - **Impact**: Prevents eval() and related functions from executing arbitrary
   code
 
-### 2. **Extracted Inline Analytics to External Files**
+### 2. **Retired Legacy Analytics Allowances**
 
-The mobile navigation logic now lives in the existing inline layout script so
-the page no longer requests a separate tiny JavaScript file.
-
-Created one external JavaScript file:
-
-#### `/public/scripts/analytics.js`
-
-- Google Analytics initialization
-- Eliminates another inline script block
+- Removed the unused Partytown/jsDelivr allowance
+- Removed the old Setmore frame allowance
+- Removed the old secondary analytics allowance
+- Tightened form submissions to same-origin only
 
 ### 3. **Enhanced CSP Directives**
 
-Added additional security directives:
+Kept the core security directives:
 
 ```
-worker-src 'self' blob:          # For Partytown web workers
-child-src 'self' blob:           # For Partytown iframes
 upgrade-insecure-requests        # Force HTTPS
+object-src 'none'                # Block plugin content
+base-uri 'self'                  # Restrict base URL injection
 ```
 
-Expanded allowed domains for analytics:
+Allowed domains for current GA4 analytics:
 
 ```
 connect-src: Added https://analytics.google.com and https://*.google-analytics.com
-script-src: Added https://cdn.jsdelivr.net for Partytown
+script-src: Allows https://www.googletagmanager.com
 ```
 
 ---
@@ -53,12 +49,11 @@ script-src: Added https://cdn.jsdelivr.net for Partytown
 
 The `unsafe-inline` directive in `script-src` is still present because:
 
-1. **Partytown Architecture**: The @astrojs/partytown integration uses inline
-   scripts to initialize the web worker that runs third-party scripts off the
-   main thread.
+1. **Analytics bootstrap**: GA4 is initialized by an inline script that also
+   delays loading the external Google tag until idle or user interaction.
 
-2. **Third-Party Analytics**: Both Google Analytics and Again Analytics require
-   inline initialization code that Partytown manages.
+2. **Inline structured data and theme scripts**: Astro emits inline JSON-LD and
+   this layout has small inline scripts for navigation and theme handling.
 
 ### Is This a Security Risk?
 
@@ -66,7 +61,6 @@ The `unsafe-inline` directive in `script-src` is still present because:
 
 - ✅ **Mitigated by**: Removed `unsafe-eval` (the more dangerous directive)
 - ✅ **Mitigated by**: Strict source allowlist for scripts
-- ✅ **Mitigated by**: Partytown sandboxes third-party scripts in web workers
 - ✅ **Mitigated by**: All other security headers in place (X-Frame-Options,
   etc.)
 - ⚠️ **Risk**: XSS attacks could inject inline scripts
@@ -75,16 +69,15 @@ The `unsafe-inline` directive in `script-src` is still present because:
 
 If you want to eliminate `unsafe-inline` completely, you would need to:
 
-1. **Remove Partytown** and load analytics directly (worse for performance)
-2. **Use CSP nonces** - Generate unique nonces per request (requires server-side
+1. **Use CSP nonces** - Generate unique nonces per request (requires server-side
    rendering)
-3. **Use CSP hashes** - Calculate SHA-256 hashes for each inline script
+2. **Use CSP hashes** - Calculate SHA-256 hashes for each inline script
    (brittle, breaks on any change)
-4. **Switch to different analytics** - Use analytics that don't require inline
+3. **Switch to different analytics** - Use analytics that don't require inline
    scripts
 
-**Recommendation**: Keep the current setup. The performance benefits of
-Partytown outweigh the moderate CSP risk, especially with `unsafe-eval` removed.
+**Recommendation**: Keep the current setup until a nonce or hash pass is planned.
+The current policy keeps GA4 working while removing unused third-party origins.
 
 ---
 
@@ -114,23 +107,18 @@ Security Grade: B
 ```
 default-src 'self';
 script-src 'self' 'unsafe-inline'
-  https://www.googletagmanager.com
-  https://againanalytics.vercel.app
-  https://cdn.jsdelivr.net;
+  https://www.googletagmanager.com;
 style-src 'self' 'unsafe-inline';
 img-src 'self' data: https:;
 font-src 'self' data:;
 connect-src 'self'
   https://www.google-analytics.com
   https://analytics.google.com
-  https://againanalytics.vercel.app
   https://*.google-analytics.com;
-frame-src 'self' https://moveroo.setmore.com;
-worker-src 'self' blob:;
-child-src 'self' blob:;
+frame-src 'none';
 object-src 'none';
 base-uri 'self';
-form-action 'self' https:;
+form-action 'self';
 frame-ancestors 'self';
 upgrade-insecure-requests;
 ```
@@ -142,7 +130,6 @@ upgrade-insecure-requests;
 ### 1. Test Analytics Still Works
 
 - Verify Google Analytics events are being recorded
-- Check Again Analytics is tracking page views
 - Confirm no console errors related to CSP
 
 ### 2. Test Mobile Navigation
@@ -179,7 +166,6 @@ No violations = ✅ CSP is working correctly
 1. `/vercel.json` - Updated CSP header
 2. `/src/layouts/Layout.astro` - Hosts the mobile navigation logic and analytics
    references
-3. `/public/scripts/analytics.js` - Google Analytics initialization
 
 ---
 
@@ -198,7 +184,6 @@ These changes are safe to deploy immediately:
 ## 📚 Further Reading
 
 - [CSP Best Practices](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
-- [Partytown Documentation](https://partytown.builder.io/)
 - [OWASP CSP Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html)
 
 ---

@@ -24,7 +24,6 @@ async function main() {
 	const packageJson = JSON.parse(await read("package.json"));
 	const layout = await read("src/layouts/Layout.astro");
 	const envExample = await read(".env.example");
-	const analyticsWrapper = await read("src/components/analytics/Analytics.astro");
 
 	for (const scriptName of ["check", "check:contract", "check:content", "check:seo"]) {
 		checks.push([
@@ -38,16 +37,11 @@ async function main() {
 		await exists("src/components/analytics/Analytics.astro"),
 	]);
 	checks.push(["ga4 wrapper exists", await exists("src/components/analytics/Ga4.astro")]);
-	checks.push(["matomo wrapper exists", await exists("src/components/analytics/Matomo.astro")]);
 	checks.push([
 		"Layout imports analytics wrapper",
 		layout.includes('import Analytics from "../components/analytics/Analytics.astro";'),
 	]);
 	checks.push(["Layout renders analytics wrapper", layout.includes("<Analytics />")]);
-	checks.push([
-		"analytics wrapper includes Matomo",
-		analyticsWrapper.includes('import Matomo from "./Matomo.astro";'),
-	]);
 	for (const relativePath of [
 		"src/pages/rss.xml.ts",
 		"src/pages/sitemap.astro",
@@ -93,14 +87,6 @@ async function main() {
 	checks.push([
 		".env.example includes PUBLIC_GA_ANONYMIZE_IP=",
 		envExample.includes("PUBLIC_GA_ANONYMIZE_IP="),
-	]);
-	checks.push([
-		".env.example includes PUBLIC_MATOMO_BASE_URL=",
-		envExample.includes("PUBLIC_MATOMO_BASE_URL="),
-	]);
-	checks.push([
-		".env.example includes PUBLIC_MATOMO_SITE_ID=",
-		envExample.includes("PUBLIC_MATOMO_SITE_ID="),
 	]);
 
 	const failures = checks.filter(([, passed]) => !passed);

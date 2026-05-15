@@ -42,11 +42,6 @@
 			"permanent": true
 		},
 		{
-			"source": "/~partytown/",
-			"destination": "/",
-			"permanent": true
-		},
-		{
 			"source": "/:path*",
 			"has": [
 				{
@@ -102,19 +97,6 @@
 			]
 		},
 		{
-			"source": "/scripts/(.*)",
-			"headers": [
-				{
-					"key": "Cache-Control",
-					"value": "public,max-age=86400"
-				},
-				{
-					"key": "Access-Control-Allow-Origin",
-					"value": "https://moveroo.com.au"
-				}
-			]
-		},
-		{
 			"source": "/(.*)",
 			"headers": [
 				{
@@ -143,7 +125,7 @@
 				},
 				{
 					"key": "Content-Security-Policy",
-					"value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.jsdelivr.net https://stats.redirection.com.au; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://*.google-analytics.com https://stats.redirection.com.au; frame-src 'self' https://moveroo.setmore.com; worker-src 'self' blob:; child-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self' https:; frame-ancestors 'self'; upgrade-insecure-requests;"
+					"value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://*.google-analytics.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests;"
 				}
 			]
 		}

@@ -31,18 +31,7 @@ Cache-Control: public, max-age=31536000, immutable
 **Security**: Safe to allow all origins (fonts are public assets)\
 **Use Case**: Prevents CORS errors when loading custom fonts
 
-### 3. **JavaScript Files** (`/scripts/*`)
-
-```
-Access-Control-Allow-Origin: https://moveroo.com.au
-Cache-Control: public, max-age=86400
-```
-
-**Why**: Custom scripts (analytics.js)\
-**Security**: Restricted to same origin only\
-**Use Case**: Prevents unauthorized sites from using your scripts
-
-### 4. **All Other Resources** (`/*`)
+### 3. **All Other Resources** (`/*`)
 
 ```
 No Access-Control-Allow-Origin header
@@ -120,14 +109,6 @@ curl -I https://moveroo.com.au/_astro/some-file.css
 
 # Expected:
 # Access-Control-Allow-Origin: *
-```
-
-```bash
-# Test scripts (should allow same origin only)
-curl -I https://moveroo.com.au/scripts/analytics.js
-
-# Expected:
-# Access-Control-Allow-Origin: https://moveroo.com.au
 ```
 
 ```bash
@@ -248,15 +229,6 @@ above)
 		{
 			"source": "/fonts/(.*)",
 			"headers": [{ "key": "Access-Control-Allow-Origin", "value": "*" }]
-		},
-		{
-			"source": "/scripts/(.*)",
-			"headers": [
-				{
-					"key": "Access-Control-Allow-Origin",
-					"value": "https://moveroo.com.au"
-				}
-			]
 		}
 	]
 }
