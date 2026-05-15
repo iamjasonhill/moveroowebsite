@@ -138,6 +138,7 @@
 	.site-nav-link {
 		position: relative;
 		display: inline-flex;
+		min-width: 3rem;
 		min-height: 3rem;
 		align-items: center;
 		justify-content: center;
@@ -246,6 +247,9 @@
 	}
 
 	.site-footer-link {
+		display: inline-flex;
+		min-height: 3rem;
+		align-items: center;
 		font-size: 0.95rem;
 		font-weight: 500;
 		color: var(--site-ink-muted);
