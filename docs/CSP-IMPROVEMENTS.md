@@ -16,14 +16,12 @@ Successfully improved the Content Security Policy to remove the dangerous
 - **Impact**: Prevents eval() and related functions from executing arbitrary
   code
 
-### 2. **Extracted Inline Scripts to External Files**
+### 2. **Extracted Inline Analytics to External Files**
 
-Created two new external JavaScript files:
+The mobile navigation logic now lives in the existing inline layout script so
+the page no longer requests a separate tiny JavaScript file.
 
-#### `/public/scripts/mobile-nav.js`
-
-- Mobile navigation toggle functionality
-- Eliminates one inline script block
+Created one external JavaScript file:
 
 #### `/public/scripts/analytics.js`
 
@@ -179,10 +177,9 @@ No violations = ✅ CSP is working correctly
 ## 📝 Files Modified
 
 1. `/vercel.json` - Updated CSP header
-2. `/src/layouts/Layout.astro` - Replaced inline scripts with external
+2. `/src/layouts/Layout.astro` - Hosts the mobile navigation logic and analytics
    references
-3. `/public/scripts/mobile-nav.js` - NEW: Mobile navigation logic
-4. `/public/scripts/analytics.js` - NEW: Google Analytics initialization
+3. `/public/scripts/analytics.js` - Google Analytics initialization
 
 ---
 

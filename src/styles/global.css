@@ -108,8 +108,39 @@
 		color: var(--site-brand);
 	}
 
+	.site-skip-link {
+		position: fixed;
+		top: 1rem;
+		left: 1rem;
+		z-index: 50;
+		display: inline-flex;
+		min-height: 3rem;
+		align-items: center;
+		justify-content: center;
+		border-radius: 9999px;
+		background: var(--site-bg-panel);
+		padding: 0.75rem 1rem;
+		font-size: 0.875rem;
+		font-weight: 700;
+		color: var(--site-brand-strong);
+		box-shadow: 0 18px 48px -24px rgba(15, 23, 42, 0.5);
+		transform: translateY(-5rem);
+		transition: transform 180ms ease;
+	}
+
+	.site-skip-link:focus,
+	.site-skip-link:focus-visible {
+		transform: translateY(0);
+		outline: 2px solid var(--site-brand);
+		outline-offset: 3px;
+	}
+
 	.site-nav-link {
 		position: relative;
+		display: inline-flex;
+		min-height: 3rem;
+		align-items: center;
+		justify-content: center;
 		transition:
 			color 180ms ease,
 			opacity 180ms ease;
@@ -121,6 +152,7 @@
 
 	.site-nav-button {
 		display: inline-flex;
+		min-height: 3rem;
 		align-items: center;
 		justify-content: center;
 		border-radius: 9999px;
@@ -145,6 +177,7 @@
 
 	.site-contact-chip {
 		display: inline-flex;
+		min-height: 3rem;
 		align-items: center;
 		gap: 0.55rem;
 		border-radius: 9999px;
@@ -173,13 +206,30 @@
 		background-color: var(--site-bg-panel);
 	}
 
+	.site-mobile-toggle {
+		min-width: 3rem;
+		min-height: 3rem;
+	}
+
 	.site-mobile-toggle:hover {
 		border-color: color-mix(in srgb, var(--site-brand) 34%, var(--site-border));
 		color: var(--site-brand-strong);
 	}
 
+	.site-text-action {
+		display: inline-flex;
+		min-height: 3rem;
+		align-items: center;
+	}
+
+	.site-pill-action {
+		min-height: 3rem;
+	}
+
 	.site-mobile-link {
-		padding: 0.25rem 0;
+		display: flex;
+		min-height: 3rem;
+		align-items: center;
 		transition: color 180ms ease;
 	}
 

@@ -38,7 +38,7 @@ Access-Control-Allow-Origin: https://moveroo.com.au
 Cache-Control: public, max-age=86400
 ```
 
-**Why**: Custom scripts (mobile-nav.js, analytics.js)\
+**Why**: Custom scripts (analytics.js)\
 **Security**: Restricted to same origin only\
 **Use Case**: Prevents unauthorized sites from using your scripts
 
@@ -124,7 +124,7 @@ curl -I https://moveroo.com.au/_astro/some-file.css
 
 ```bash
 # Test scripts (should allow same origin only)
-curl -I https://moveroo.com.au/scripts/mobile-nav.js
+curl -I https://moveroo.com.au/scripts/analytics.js
 
 # Expected:
 # Access-Control-Allow-Origin: https://moveroo.com.au
