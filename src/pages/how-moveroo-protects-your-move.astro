@@ -68,6 +68,25 @@ const beforeDepositItems = [
 	"Any cover information has been reviewed before committing",
 ];
 
+const depositSteps = [
+	{
+		title: "Date and provider fit are confirmed",
+		text: "A deposit is not the first step. The collection date and a suitable provider pathway should be confirmed before the booking is secured.",
+	},
+	{
+		title: "You pay a 25% deposit to Moveroo",
+		text: "The deposit secures the booking and lets Moveroo book the job with the allocated provider.",
+	},
+	{
+		title: "A 48-hour cooling-off period applies",
+		text: "During this period, the deposit may be refunded if you choose to cancel. After that, the cancellation policy explains when deposits are non-refundable.",
+	},
+	{
+		title: "The balance path is confirmed before collection",
+		text: "The remaining balance is due no later than collection. Depending on the provider pathway, the team confirms whether the balance is paid to Moveroo or through another approved path.",
+	},
+];
+
 const pathwayLinks = [
 	{
 		label: "Household moves",
@@ -291,16 +310,46 @@ const pathwayLinks = [
 						A quick checklist before you commit.
 					</h2>
 					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
-						Deposits help secure the booking pathway and provider capacity. Before paying, check
-						that the quote and service notes reflect the real job.
+						Once a collection date is confirmed and a suitable provider is allocated, a 25%
+						deposit is paid to Moveroo to secure the booking. After that, Moveroo books the job
+						with the allocated provider.
 					</p>
 					<p class="mt-5 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
-						Balance-payment timing and available payment options can vary by service pathway. Ask
-						the team to confirm what applies before the booking is finalised.
+						A 48-hour cooling-off period applies after the deposit is paid. The remaining balance
+						is due no later than collection, with the payment path confirmed for the provider or
+						service pathway before the booking is finalised.
 					</p>
+					<a
+						href="/cancellation/"
+						class="site-text-action mt-6 gap-2 text-sm font-semibold text-emerald-700 transition hover:text-emerald-900 dark:text-emerald-400 dark:hover:text-emerald-300"
+					>
+						<span>Review cancellation rules</span>
+						<span aria-hidden="true">&rarr;</span>
+					</a>
 				</div>
 
-				<div class="motion-rise motion-rise-delay-1 grid gap-4">
+				<div class="motion-rise motion-rise-delay-1 grid gap-6">
+					<div
+						class="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950/40"
+					>
+						{
+							depositSteps.map((item, index) => (
+								<div class="grid gap-4 border-b border-slate-200 px-6 py-5 last:border-b-0 dark:border-slate-800 md:grid-cols-[5rem_1fr]">
+									<p class="text-xs font-semibold uppercase tracking-[0.28em] text-emerald-700 dark:text-emerald-400">
+										0{index + 1}
+									</p>
+									<div>
+										<h3 class="text-lg font-semibold tracking-tight text-slate-900 dark:text-white">
+											{item.title}
+										</h3>
+										<p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+											{item.text}
+										</p>
+									</div>
+								</div>
+							))
+						}
+					</div>
 					{
 						beforeDepositItems.map((item) => (
 							<div class="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 text-sm font-medium text-slate-700 dark:border-slate-800 dark:bg-slate-950/45 dark:text-slate-300">
@@ -338,10 +387,15 @@ const pathwayLinks = [
 						Cover details depend on the pathway.
 					</h2>
 					<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
-						Cover, liability and claim pathways can differ by service type and provider. Moveroo can
-						share the available information before booking so you can review what applies to your
-						move or vehicle transport. This page is a plain-language summary, not legal or insurance
-						advice.
+						Cover, liability and claim pathways can differ by service type and provider. Where a
+						provider includes or describes provider-supplied cover, Moveroo can share the factual
+						information available for the quoted pathway before booking so you can review what
+						applies.
+					</p>
+					<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+						Moveroo does not provide, arrange, sell or advise on insurance. Customers who want
+						broader protection should arrange third-party cover separately before moving. This page
+						is a plain-language summary, not legal or insurance advice.
 					</p>
 				</div>
 			</div>

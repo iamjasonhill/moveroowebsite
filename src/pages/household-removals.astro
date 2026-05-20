@@ -21,7 +21,7 @@ const moveTypes = [
 	},
 	{
 		label: "Regional and interstate moves",
-		text: "Helpful when dates, route distance, delivery windows and backloading or dedicated pathways need comparison.",
+		text: "Helpful when dates, route distance, delivery windows and backload or dedicated move options need comparison.",
 	},
 	{
 		label: "Moves with added support",
@@ -40,8 +40,10 @@ const planningDetails = [
 
 const serviceOptions = [
 	{
-		label: "Backloading-style pathways",
-		text: "For date-flexible moves where shared capacity may be a suitable option for the route and inventory.",
+		label: "Backload options",
+		text: "For date-flexible moves where available space on the right truck schedule may lower the quoted price.",
+		href: "/backloading-removals/",
+		cta: "Read about backloading removals",
 	},
 	{
 		label: "Dedicated move pathways",
@@ -62,7 +64,7 @@ const faqItems = [
 	{
 		question: "Should I choose backloading or a dedicated move?",
 		answer:
-			"Backloading-style pathways can suit flexible dates and compatible routes. Dedicated pathways can suit fixed timing, larger inventories, access constraints or moves needing a clearer schedule.",
+			"Backload options can suit flexible dates and compatible routes. Dedicated moves can suit tighter timing, access constraints or moves that need a more structured schedule.",
 	},
 	{
 		question: "Can packing, storage or fragile items be included?",
@@ -246,7 +248,7 @@ const structuredData = {
 				<h2
 					class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
 				>
-					Backloading-style, dedicated, or added support.
+					Backload option, dedicated move, or added support.
 				</h2>
 				<p class="mt-6 text-base leading-relaxed text-slate-600 dark:text-slate-400">
 					Moveroo can help shape the quote around the route and requirements instead of forcing
@@ -264,6 +266,15 @@ const structuredData = {
 							<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
 								{item.text}
 							</p>
+							{item.href && (
+								<a
+									href={item.href}
+									class="site-text-action mt-5 gap-2 text-sm font-semibold text-emerald-700 transition hover:text-emerald-900 dark:text-emerald-400 dark:hover:text-emerald-300"
+								>
+									<span>{item.cta}</span>
+									<span aria-hidden="true">&rarr;</span>
+								</a>
+							)}
 						</article>
 					))
 				}

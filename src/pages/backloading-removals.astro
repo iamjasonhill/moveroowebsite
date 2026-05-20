@@ -1,0 +1,554 @@
+---
+import Layout from "../layouts/Layout.astro";
+import QuoteCta from "../components/sections/QuoteCta.astro";
+import { site } from "../config/site";
+
+const publishedAt = new Date("2026-05-21T00:00:00+10:00");
+const updatedAt = publishedAt;
+
+const pageTitle = "Backloading Removals for Flexible Moving Dates | Moveroo";
+const pageDescription =
+	"Compare backloading removals and dedicated move options with Moveroo. Check truck schedules, timing fit and recent anonymised quote examples.";
+
+const fitPoints = [
+	{
+		title: "Your dates have some room",
+		text: "Backloading works best when you can work with a wider collection or delivery window instead of needing the truck to fit one exact date.",
+	},
+	{
+		title: "The route lines up",
+		text: "The lower-cost option depends on available space on a truck already heading the right way.",
+	},
+	{
+		title: "The quote is clear before booking",
+		text: "When a backload is available, the lower-cost setup is already reflected in the quote.",
+	},
+];
+
+const quoteExamples = [
+	{
+		route: "Fletcher NSW to Paget QLD",
+		lower: "$1,600",
+		higher: "$2,850",
+		difference: "$1,250",
+	},
+	{
+		route: "Dingley Village VIC to Kippa-Ring QLD",
+		lower: "$1,700",
+		higher: "$2,550",
+		difference: "$850",
+	},
+	{
+		route: "Elanora QLD to Port Macquarie NSW",
+		lower: "$2,100",
+		higher: "$4,450",
+		difference: "$2,350",
+	},
+];
+
+const comparisonRows = [
+	{
+		label: "Timing",
+		backload: "You fit the truck's existing schedule.",
+		dedicated: "The schedule is chosen around what you need.",
+	},
+	{
+		label: "Cost",
+		backload: "Often lower when the route and dates line up.",
+		dedicated: "Usually priced around a more structured plan.",
+	},
+	{
+		label: "Best fit",
+		backload: "Flexible interstate or regional moves where timing can move a little.",
+		dedicated: "Moves with tighter timing, complex access or a plan that needs more control.",
+	},
+	{
+		label: "Windows",
+		backload: "Pickup and delivery windows still apply.",
+		dedicated: "Pickup and delivery windows still apply.",
+	},
+];
+
+const bookingChecks = [
+	"Key handback dates",
+	"Property settlement dates",
+	"Storage access dates",
+	"Building or loading dock rules",
+	"Preferred collection and delivery windows",
+	"Any dates you cannot make work",
+];
+
+const steps = [
+	{
+		title: "Share the move details",
+		text: "Send the pickup and delivery suburbs, inventory, access notes and the dates you are working around.",
+	},
+	{
+		title: "Moveroo checks provider options",
+		text: "Moveroo checks each move across multiple removalists, then compares the backload option against any dedicated move option that makes sense.",
+	},
+	{
+		title: "Compare the dates and price",
+		text: "The important part is whether that truck schedule works around your dates and the move details.",
+	},
+	{
+		title: "Book the option that fits",
+		text: "Once a backload option is booked, the agreed timing is not something to casually move around.",
+	},
+];
+
+const faqItems = [
+	{
+		question: "What are backloading removals?",
+		answer:
+			"Backloading removals use available space on a truck already heading the right way. The customer fits the truck's schedule, and the lower-cost setup can reduce the quoted price when the dates work.",
+	},
+	{
+		question: "Is backloading just sharing truck space?",
+		answer:
+			"Not exactly. Most removalist moves share truck space unless a customer books the whole truck. The practical difference with a backload option is schedule fit: the truck already has a route, and your move fits around that schedule.",
+	},
+	{
+		question: "Is a backload option always cheaper?",
+		answer:
+			"Backload options are often lower cost when the route and dates line up, but the right choice still depends on timing, access, inventory and the options available for the move.",
+	},
+	{
+		question: "Is the lower backload price already included?",
+		answer:
+			"That price already reflected the lower-cost truck schedule available for the move. If there is a backload option, the saving is already built into the quote shown to you.",
+	},
+	{
+		question: "Do backloads still have pickup and delivery windows?",
+		answer:
+			"Yes. Pickup and delivery windows are normal across interstate removals, whether you choose a backload option or a dedicated move. The difference is how much the truck schedule shapes the dates available.",
+	},
+	{
+		question: "What should I tell Moveroo before booking?",
+		answer:
+			"Tell Moveroo what the team needs to work around, including key handback, property settlement, storage access, building rules or any dates that will not work.",
+	},
+];
+
+const structuredData = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "WebPage",
+			"@id": "https://moveroo.com.au/backloading-removals/",
+			url: "https://moveroo.com.au/backloading-removals/",
+			name: pageTitle,
+			description: pageDescription,
+			inLanguage: "en-AU",
+			datePublished: publishedAt.toISOString(),
+			dateModified: updatedAt.toISOString(),
+			isPartOf: {
+				"@id": "https://moveroo.com.au/#website",
+			},
+			about: {
+				"@id": "https://moveroo.com.au/backloading-removals/#service",
+			},
+		},
+		{
+			"@type": "Service",
+			"@id": "https://moveroo.com.au/backloading-removals/#service",
+			name: "Backloading removals coordination",
+			serviceType: "Backloading removals",
+			description: pageDescription,
+			provider: {
+				"@id": "https://moveroo.com.au/#organization",
+			},
+			areaServed: {
+				"@type": "Country",
+				name: "Australia",
+			},
+		},
+		{
+			"@type": "FAQPage",
+			"@id": "https://moveroo.com.au/backloading-removals/#faq",
+			mainEntity: faqItems.map((faq) => ({
+				"@type": "Question",
+				name: faq.question,
+				acceptedAnswer: {
+					"@type": "Answer",
+					text: faq.answer,
+				},
+			})),
+		},
+	],
+};
+---
+
+<Layout
+	title={pageTitle}
+	description={pageDescription}
+	canonical="https://moveroo.com.au/backloading-removals/"
+	ogImage="https://moveroo.com.au/og-services.png"
+>
+	<Fragment slot="head">
+		<meta property="article:published_time" content={publishedAt.toISOString()} />
+		<meta property="article:modified_time" content={updatedAt.toISOString()} />
+		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+	</Fragment>
+
+	<section class="relative overflow-hidden bg-slate-950 py-24 text-white md:py-32">
+		<div
+			class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.24),_transparent_30%),linear-gradient(135deg,_#052e2b_0%,_#0f172a_48%,_#111827_100%)]"
+		>
+		</div>
+		<div class="route-grid absolute inset-0 opacity-25"></div>
+
+		<div class="relative mx-auto box-border w-full max-w-6xl px-6">
+			<div class="grid gap-14 lg:grid-cols-[minmax(0,1.02fr)_minmax(22rem,0.98fr)] lg:items-center">
+				<div class="motion-rise min-w-0" style="max-width: calc(100vw - 3rem);">
+					<p class="section-kicker text-emerald-300">Backloading removals</p>
+					<h1
+						class="section-title mt-6 max-w-4xl text-3xl font-semibold leading-[1.08] text-balance min-[420px]:text-4xl sm:text-5xl md:text-7xl"
+					>
+						<span class="block md:inline">Backloading removals</span>{" "}
+						<span class="block md:inline">for flexible</span>{" "}
+						<span class="block md:inline">moving dates.</span>
+					</h1>
+					<p class="mt-7 max-w-2xl text-lg leading-relaxed text-slate-300 md:text-xl">
+						Moveroo checks available truck schedules across multiple removalists, then helps you
+						compare the backload option and any dedicated move option that makes sense for your
+						route, dates and access.
+					</p>
+
+					<div
+						class="motion-rise motion-rise-delay-1 mt-10 grid max-w-[calc(100vw-3rem)] gap-3 sm:flex sm:max-w-none sm:flex-wrap sm:gap-4"
+						style="max-width: calc(100vw - 3rem);"
+					>
+						<a
+							class="inline-flex min-h-12 items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-center text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-950/30 transition hover:bg-emerald-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300 sm:min-h-0"
+							href={site.destinations.householdQuote}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Check backload availability
+						</a>
+						<a
+							class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/20 px-6 py-3 text-center text-sm font-semibold text-white transition hover:border-emerald-300 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300 sm:min-h-0"
+							href="#examples"
+						>
+							See quote examples
+						</a>
+					</div>
+				</div>
+
+				<div
+					class="motion-rise motion-rise-delay-2 min-w-0 max-w-[calc(100vw-3rem)] rounded-[2rem] border border-white/10 bg-white/8 p-6 shadow-[0_30px_80px_-40px_rgba(2,6,23,0.8)] backdrop-blur-sm sm:max-w-none md:p-8"
+					style="max-width: calc(100vw - 3rem);"
+				>
+					<p class="section-kicker text-emerald-300">Good fit when</p>
+					<div class="mt-6 grid gap-4">
+						{
+							fitPoints.map((point) => (
+								<article class="rounded-2xl border border-white/10 bg-white/5 p-4">
+									<h2 class="text-lg font-semibold tracking-tight text-white">{point.title}</h2>
+									<p class="mt-2 text-sm leading-relaxed text-slate-300">{point.text}</p>
+								</article>
+							))
+						}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="border-b border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900">
+		<div class="mx-auto box-border w-full max-w-6xl px-6">
+			<div
+				class="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-16"
+			>
+				<div class="motion-rise lg:sticky lg:top-28">
+					<p class="section-kicker">What It Means</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						A backload option is mainly about schedule fit.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						You are not booking empty space on a random truck. You are fitting your move around a
+						truck that is already heading in the right direction.
+					</p>
+				</div>
+
+				<div
+					class="motion-rise motion-rise-delay-1 grid gap-5 text-base leading-relaxed text-slate-600 dark:text-slate-400"
+				>
+					<article
+						class="rounded-[1.75rem] border border-slate-200 bg-slate-50 px-6 py-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/40"
+					>
+						<h3 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
+							Most removalist moves use shared truck space.
+						</h3>
+						<p class="mt-4">
+							Unless one customer uses the whole truck, removalists plan loads around more than one
+							move. Running large trucks with large empty spaces is too costly.
+						</p>
+					</article>
+
+					<article
+						class="rounded-[1.75rem] border border-slate-200 bg-slate-50 px-6 py-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/40"
+					>
+						<h3 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
+							Backloading is different because you fit the truck's schedule.
+						</h3>
+						<p class="mt-4">
+							That flexibility can reduce wasted truck space and lower the price. It works best when
+							your move has some room around collection and delivery timing.
+						</p>
+					</article>
+
+					<article
+						class="rounded-[1.75rem] border border-slate-200 bg-slate-50 px-6 py-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/40"
+					>
+						<h3 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
+							The lower price is already in the option shown to you.
+						</h3>
+						<p class="mt-4">
+							That price already reflected the lower-cost truck schedule available for the move.
+						</p>
+					</article>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-slate-50 py-24 dark:bg-slate-950/40" id="examples">
+		<div class="mx-auto box-border w-full max-w-6xl px-6">
+			<div class="motion-rise max-w-3xl">
+				<p class="section-kicker">Recent Quote Examples</p>
+				<h2
+					class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+				>
+					Real route examples show how much the options can differ.
+				</h2>
+				<p class="mt-6 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+					These anonymised Moveroo quote examples compare options shown for the same move. They are
+					not promises of savings, but they show why checking available truck schedules matters.
+				</p>
+			</div>
+
+			<div
+				class="motion-rise motion-rise-delay-1 mt-10 overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900/75"
+			>
+				<div
+					class="grid border-b border-slate-200 bg-slate-100 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:border-slate-800 dark:bg-slate-950/60 dark:text-slate-400 md:grid-cols-[minmax(0,1.2fr)_repeat(3,minmax(0,0.7fr))]"
+				>
+					<div class="px-6 py-4">Route</div>
+					<div
+						class="border-t border-slate-200 px-6 py-4 dark:border-slate-800 md:border-l md:border-t-0"
+					>
+						Lower option
+					</div>
+					<div
+						class="border-t border-slate-200 px-6 py-4 dark:border-slate-800 md:border-l md:border-t-0"
+					>
+						Other option
+					</div>
+					<div
+						class="border-t border-slate-200 px-6 py-4 dark:border-slate-800 md:border-l md:border-t-0"
+					>
+						Difference
+					</div>
+				</div>
+				{
+					quoteExamples.map((example) => (
+						<div class="grid border-b border-slate-200 last:border-b-0 dark:border-slate-800 md:grid-cols-[minmax(0,1.2fr)_repeat(3,minmax(0,0.7fr))]">
+							<p class="px-6 py-5 text-sm font-semibold text-slate-900 dark:text-white">
+								{example.route}
+							</p>
+							<p class="border-t border-slate-200 px-6 py-5 text-sm text-slate-600 dark:border-slate-800 dark:text-slate-400 md:border-l md:border-t-0">
+								{example.lower}
+							</p>
+							<p class="border-t border-slate-200 px-6 py-5 text-sm text-slate-600 dark:border-slate-800 dark:text-slate-400 md:border-l md:border-t-0">
+								{example.higher}
+							</p>
+							<p class="border-t border-slate-200 px-6 py-5 text-sm font-semibold text-emerald-700 dark:border-slate-800 dark:text-emerald-400 md:border-l md:border-t-0">
+								{example.difference}
+							</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="border-y border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900">
+		<div class="mx-auto box-border w-full max-w-6xl px-6">
+			<div
+				class="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-16"
+			>
+				<div class="motion-rise lg:sticky lg:top-28">
+					<p class="section-kicker">Backload Or Dedicated</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						Choose the option whose dates work before you book.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						A backload option is not a worse move. A dedicated move is not automatically the better
+						move. The right choice depends on how much control you need over the schedule.
+					</p>
+				</div>
+
+				<div
+					class="motion-rise motion-rise-delay-1 overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50 shadow-sm dark:border-slate-800 dark:bg-slate-950/40"
+				>
+					<div
+						class="grid border-b border-slate-200 bg-white text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400 md:grid-cols-[0.55fr_1fr_1fr]"
+					>
+						<div class="px-6 py-4">Factor</div>
+						<div
+							class="border-t border-slate-200 px-6 py-4 dark:border-slate-800 md:border-l md:border-t-0"
+						>
+							Backload option
+						</div>
+						<div
+							class="border-t border-slate-200 px-6 py-4 dark:border-slate-800 md:border-l md:border-t-0"
+						>
+							Dedicated move
+						</div>
+					</div>
+					{
+						comparisonRows.map((row) => (
+							<div class="grid border-b border-slate-200 last:border-b-0 dark:border-slate-800 md:grid-cols-[0.55fr_1fr_1fr]">
+								<p class="px-6 py-5 text-sm font-semibold text-slate-900 dark:text-white">
+									{row.label}
+								</p>
+								<p class="border-t border-slate-200 px-6 py-5 text-sm leading-relaxed text-slate-600 dark:border-slate-800 dark:text-slate-400 md:border-l md:border-t-0">
+									{row.backload}
+								</p>
+								<p class="border-t border-slate-200 px-6 py-5 text-sm leading-relaxed text-slate-600 dark:border-slate-800 dark:text-slate-400 md:border-l md:border-t-0">
+									{row.dedicated}
+								</p>
+							</div>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-slate-50 py-24 dark:bg-slate-950/40">
+		<div class="mx-auto box-border w-full max-w-6xl px-6">
+			<div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start">
+				<div class="motion-rise">
+					<p class="section-kicker">How Moveroo Checks</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						The main question is whether the truck schedule works around your dates.
+					</h2>
+					<p class="mt-6 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						You are moving from Brisbane to Melbourne and can work with a wider collection window.
+						Moveroo can check which truck schedules line up with your dates, then show you the
+						backload option and any dedicated move option that makes sense.
+					</p>
+				</div>
+
+				<div class="motion-rise motion-rise-delay-1 grid gap-4">
+					{
+						steps.map((step, index) => (
+							<article class="rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/75">
+								<p class="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-700 dark:text-emerald-400">
+									Step {index + 1}
+								</p>
+								<h3 class="mt-3 text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
+									{step.title}
+								</h3>
+								<p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+									{step.text}
+								</p>
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="border-y border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900">
+		<div class="mx-auto box-border w-full max-w-6xl px-6">
+			<div
+				class="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-16"
+			>
+				<div class="motion-rise lg:sticky lg:top-28">
+					<p class="section-kicker">Before Booking</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						Tell Moveroo what the team needs to work around.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						Backload options typically do not move around much once they are booked. The important
+						part is choosing an option whose dates work before you book.
+					</p>
+				</div>
+
+				<div class="motion-rise motion-rise-delay-1 grid gap-3">
+					{
+						bookingChecks.map((item) => (
+							<div class="flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 text-sm font-semibold text-slate-700 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-300">
+								<span class="mt-1.5 h-2.5 w-2.5 rounded-full bg-emerald-500" aria-hidden="true" />
+								<span>{item}</span>
+							</div>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-slate-50 py-24 dark:bg-slate-900" id="faq">
+		<div class="mx-auto box-border w-full max-w-6xl px-6">
+			<div
+				class="grid gap-12 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-start lg:gap-16"
+			>
+				<div class="motion-rise lg:sticky lg:top-28">
+					<p class="section-kicker">FAQ</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						Backloading removals questions, answered plainly.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						The final quote depends on route, dates, access, inventory and provider fit. These
+						answers help set expectations before you choose an option.
+					</p>
+				</div>
+
+				<div class="motion-rise motion-rise-delay-1 grid gap-4">
+					{
+						faqItems.map((faq) => (
+							<details class="group rounded-[1.5rem] border border-slate-200 bg-white px-6 py-5 shadow-sm dark:border-slate-800 dark:bg-slate-950/55">
+								<summary class="flex cursor-pointer list-none items-start justify-between gap-6">
+									<h3 class="text-lg font-semibold leading-relaxed text-slate-900 dark:text-white">
+										{faq.question}
+									</h3>
+									<span class="mt-1 text-2xl leading-none text-emerald-600 transition group-open:rotate-45 dark:text-emerald-400">
+										+
+									</span>
+								</summary>
+								<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+									{faq.answer}
+								</p>
+							</details>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<QuoteCta
+		title="See which truck schedules line up with your move."
+		subtitle="Share your route, inventory, access notes and the dates Moveroo needs to work around. We will help you compare the backload option and any dedicated move option that makes sense."
+		ctaPrimaryLabel="Check backload availability"
+		ctaPrimaryHref={site.destinations.householdQuote}
+		ctaSecondaryLabel="Request a callback"
+		ctaSecondaryHref={site.destinations.contactPage}
+	/>
+</Layout>

@@ -9,9 +9,9 @@ Use this as the shared backlog across future chats. Items marked **Access needed
 - [x] Fix or verify the `/api/cancellation` production route.
   - Completed in repo: removed the `vercel.json` redirect that sent `/api/cancellation` to `/`.
   - Access still needed: production/Vercel routing verification after deployment.
-- [ ] Review all insurance/cover language for compliance.
-  - Replace broad phrases such as "insurance options" and "coordinate insurance coverage options" with narrower, accurate language.
-  - Access needed: legal/compliance sign-off on final wording.
+- [x] Review all insurance/cover language for compliance.
+  - Completed in repo: public copy uses narrower cover-pathway and provider-supplied-cover language, and `npm run check:content` scans public/source surfaces for risky public insurance, trust, and partner-claim phrases.
+  - Access still needed: legal/compliance sign-off on final wording.
 - [x] Update `public/llms.txt` so quote and booking URLs match `src/config/site.ts`.
 - [x] Add spam protection and safer HTML escaping to the cancellation email endpoint.
   - Completed in repo: added a honeypot field, server-side field limits, email validation, safer subject handling, and HTML escaping.
@@ -33,14 +33,15 @@ Use this as the shared backlog across future chats. Items marked **Access needed
 - [x] Add an escalation pathway.
   - Cover pickup-window changes, access changes, unclear updates, damage reports, cancellation review, and cover pathway referral.
 - [x] Add a "before you pay a deposit" checklist.
-- [ ] Explain the 25% deposit model.
+- [x] Explain the 25% deposit model.
+  - Completed in repo: `/how-moveroo-protects-your-move/` now explains the provider/date confirmation step, 25% deposit to Moveroo, 48-hour cooling-off period, cancellation-policy link, and balance-payment timing.
 - [x] Explain balance-payment options and timing.
 - [x] Explain fair inventory flexibility and the one-week inventory check-in.
 - [x] Add common quote-surprise prevention content.
   - Stairs, long carries, shuttle vehicles, extra stops, route changes, packing, fragile items, storage, permits.
-- [ ] Add a plain-language cover/insurance explainer.
-  - Drafted on `/how-moveroo-protects-your-move/`; still needs legal/compliance review before marking complete.
-  - Access needed: legal/compliance review.
+- [x] Add a plain-language cover/insurance explainer.
+  - Completed in repo: `/how-moveroo-protects-your-move/` explains that cover, liability and claim pathways can differ by service type and provider; Moveroo can share factual provider-supplied cover information where available; Moveroo does not provide, arrange, sell or advise on insurance; customers wanting broader protection should arrange third-party cover separately.
+  - Access still needed: legal/compliance review.
 
 ## 2. Offer And Service Architecture
 

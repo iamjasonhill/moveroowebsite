@@ -22,6 +22,14 @@ Every direct-to-main change should:
 4. commit with a clear message
 5. push to `main`
 
+## New Page Rule
+
+Whenever a new public website page is being prepared, follow
+`docs/NEW-PAGE-PRELAUNCH-WORKFLOW.md`.
+
+In short: before launch, account for every installed Codex skill in a
+pre-launch audit doc, then run the relevant local verification commands.
+
 ## Allowed Contribution Style
 
 Konrad and his agent may:
