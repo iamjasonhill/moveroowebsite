@@ -58,7 +58,9 @@ Use this as the shared backlog across future chats. Items marked **Access needed
   - Completed in repo: `/backloading-removals/` explains schedule fit, price examples, backload vs dedicated move, booking date constraints, and FAQs.
 - [x] Add an interstate removalists hub.
   - Competitor finding: this should sit at similar hierarchical standing to `/backloading-removals/` and act as a broader household/interstate decision page.
-  - Completed in repo: `/interstate-removalists/` explains interstate removalist option fit, date constraints, quote factors, household + vehicle timing, related service links, and FAQs.
+  - Live: `/interstate-removalists/` is published from `main`.
+  - Completed in repo: the page explains interstate removalist option fit, date constraints, quote factors, household + vehicle timing, related service links, and FAQs.
+  - Internal linking completed: linked from relevant body copy, footer/service discovery, sitemap, `llms.txt`, and supporting pages without relying on footer-only link placement.
   - Prelaunch review completed: copy, SEO, schema, internal links, compliance wording, CTA flow, mobile compatibility, local route status, `llms.txt`, footer discovery, and build checks.
 - [ ] Add an interstate car transport hub.
   - Competitor finding: vehicle competitors treat car transport as a full category, not only a legacy Moving Cars transition page.
@@ -126,7 +128,8 @@ Use this as the shared backlog across future chats. Items marked **Access needed
 ## 5. SEO And Content Expansion
 
 - [ ] Use the competitor-informed page priority order before creating new SEO pages.
-  - Priority hubs: interstate removalists, interstate car transport, storage coordination, non-running vehicle transport, motorcycle transport, and door-to-door vs depot vehicle transport.
+  - Completed priority hub: interstate removalists.
+  - Remaining priority hubs: interstate car transport, storage coordination, non-running vehicle transport, motorcycle transport, and door-to-door vs depot vehicle transport.
 - [ ] Define route-page quality rules before building route pages.
   - Route pages should include useful route-specific context, realistic timing/booking constraints, internal links to the correct hub, and real examples where available. Do not publish thin route templates.
 - [ ] Build core city pages:
@@ -141,7 +144,7 @@ Use this as the shared backlog across future chats. Items marked **Access needed
 - [ ] Build route pages for vehicle transport corridors.
 - [ ] Build high-intent commercial pages:
   - [x] Interstate removalists
-    - Completed in repo and prelaunch-reviewed.
+    - Live from `main`, internally linked, and prelaunch-reviewed including mobile compatibility.
   - [x] Backloading removals
   - [ ] Move car interstate
   - [ ] Transport car interstate
