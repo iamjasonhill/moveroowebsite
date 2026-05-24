@@ -2,6 +2,8 @@
 
 Living checklist for the Moveroo business, website, trust, conversion, SEO, analytics, operations, and data-access improvements identified from the repo audit.
 
+Competitor research reference: `docs/COMPETITOR-DEEP-DIVE-FURNITURE-CAR-TRANSPORT.md`.
+
 Use this as the shared backlog across future chats. Items marked **Access needed** require credentials, data exports, third-party access, customer evidence, or business decisions before they can be completed.
 
 ## 0. Immediate Triage
@@ -46,21 +48,33 @@ Use this as the shared backlog across future chats. Items marked **Access needed
 ## 2. Offer And Service Architecture
 
 - [ ] Tighten the core positioning: Moveroo as the coordination layer for moves with moving parts.
+- [ ] Create a competitor-informed service architecture map before adding more public pages.
+  - Use the competitor deep dive to group pages into hubs first, route pages second, and avoid thin SEO pages.
 - [ ] Separate user journeys for simple household moves, vehicle-only moves, combined moves, and specialty/complex moves.
   - In progress: combined household + vehicle relocation journey now has a dedicated page.
 - [x] Add a combined household + vehicle relocation page.
   - Completed in repo: `/household-vehicle-relocation/` explains when to use the combined path, how to route the quote, what details to include, and how the household and vehicle timelines are coordinated.
-- [ ] Add a backloading removals page.
+- [x] Add a backloading removals page.
+  - Completed in repo: `/backloading-removals/` explains schedule fit, price examples, backload vs dedicated move, booking date constraints, and FAQs.
+- [x] Add an interstate removalists hub.
+  - Competitor finding: this should sit at similar hierarchical standing to `/backloading-removals/` and act as a broader household/interstate decision page.
+  - Completed in repo: `/interstate-removalists/` explains interstate removalist option fit, date constraints, quote factors, household + vehicle timing, related service links, and FAQs.
+  - Prelaunch review completed: copy, SEO, schema, internal links, compliance wording, CTA flow, mobile compatibility, local route status, `llms.txt`, footer discovery, and build checks.
+- [ ] Add an interstate car transport hub.
+  - Competitor finding: vehicle competitors treat car transport as a full category, not only a legacy Moving Cars transition page.
 - [ ] Add a dedicated removals page.
 - [ ] Add a storage coordination page or section.
 - [ ] Add a non-running vehicle transport page or section.
 - [ ] Add a motorcycle transport page or section.
+- [ ] Add door-to-door vs depot vehicle transport content.
 - [ ] Add a boat/caravan/trailer transport page or section.
 - [ ] Add business/fleet vehicle relocation content.
 - [ ] Add apartment/access-constrained move content.
 - [ ] Add settlement-date move content.
 - [ ] Add urgent/short-notice move content with capacity caveats.
 - [ ] Add "what Moveroo is less suited for" guidance to reduce bad-fit leads.
+- [ ] Add vehicle transport policy content.
+  - Include personal items, running vs non-running condition, photos/condition reporting, handover expectations, access/ground-clearance notes, and what customers should confirm before booking.
 - [ ] Create a lightweight service router or "help me choose" page.
 
 ## 3. Conversion And Quote Flow
@@ -74,6 +88,8 @@ Use this as the shared backlog across future chats. Items marked **Access needed
   - [x] "Request a callback"
   - [x] "Call 07 2143 2557"
 - [x] Add a sticky mobile CTA bar with call, quote, and callback actions.
+- [ ] Add a "how Moveroo compares quote options" module.
+  - Explain price, dates, provider fit, access fit, inventory/vehicle requirements, and available cover/terms information without implying the cheapest option is always best.
 - [ ] Consider embedding the first step of the quote flow on the main site.
   - Access needed: quote-flow code/API/embed support.
 - [ ] Audit the external quote flow from start to finish.
@@ -86,6 +102,8 @@ Use this as the shared backlog across future chats. Items marked **Access needed
 
 ## 4. Social Proof And Reputation
 
+- [ ] Inventory public proof before the next major service page.
+  - Access needed: review profile URLs, customer permission rules, anonymised quote/job examples, and any verifiable quote or booking volume metrics.
 - [ ] Replace generic testimonials with verified customer proof.
   - Access needed: customer permission and source reviews.
 - [ ] Add real review source links, e.g. Google reviews or other platforms.
@@ -107,6 +125,10 @@ Use this as the shared backlog across future chats. Items marked **Access needed
 
 ## 5. SEO And Content Expansion
 
+- [ ] Use the competitor-informed page priority order before creating new SEO pages.
+  - Priority hubs: interstate removalists, interstate car transport, storage coordination, non-running vehicle transport, motorcycle transport, and door-to-door vs depot vehicle transport.
+- [ ] Define route-page quality rules before building route pages.
+  - Route pages should include useful route-specific context, realistic timing/booking constraints, internal links to the correct hub, and real examples where available. Do not publish thin route templates.
 - [ ] Build core city pages:
   - [ ] Brisbane
   - [ ] Sydney
@@ -118,8 +140,9 @@ Use this as the shared backlog across future chats. Items marked **Access needed
 - [ ] Build route pages for major household move corridors.
 - [ ] Build route pages for vehicle transport corridors.
 - [ ] Build high-intent commercial pages:
-  - [ ] Interstate removalists
-  - [ ] Backloading removals
+  - [x] Interstate removalists
+    - Completed in repo and prelaunch-reviewed.
+  - [x] Backloading removals
   - [ ] Move car interstate
   - [ ] Transport car interstate
   - [ ] Interstate car transport
@@ -295,6 +318,9 @@ Use this as the shared backlog across future chats. Items marked **Access needed
 
 ## 11. Technical And Repo Hygiene
 
+- [x] Add mobile compatibility review to every prelaunch page review.
+  - Completed as a process rule in `CONTEXT.md`: prelaunch review must check small-screen layout, sticky mobile CTA behaviour, text wrapping, button fit, section spacing, horizontal overflow, and phone readability.
+  - Future option: add an automated viewport smoke test when browser automation is available in the repo tooling.
 - [ ] Add automated link check for internal and external links.
 - [ ] Add a check that `public/llms.txt` links match `src/config/site.ts`.
 - [x] Add a check for prohibited or risky insurance phrases.

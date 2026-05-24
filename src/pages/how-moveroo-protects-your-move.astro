@@ -3,19 +3,19 @@ import Layout from "../layouts/Layout.astro";
 import QuoteCta from "../components/sections/QuoteCta.astro";
 import { site } from "../config/site";
 
-const lastModified = new Date("2026-05-02T00:00:00.000Z");
+const lastModified = new Date("2026-05-24T00:00:00+10:00");
 
 const assuranceSignals = [
 	"Partner fit checks",
 	"Quote clarity",
 	"Deposit transparency",
 	"Change support",
-	"Escalation pathway",
+	"Escalation support",
 ];
 
 const partnerChecks = [
 	"Fit for the job type, route, access and timing",
-	"Suitable equipment or service pathway for the inventory or vehicle",
+	"Suitable equipment or service option for the inventory or vehicle",
 	"Clear pickup, delivery and communication expectations",
 	"Review of past performance signals where available",
 ];
@@ -23,7 +23,7 @@ const partnerChecks = [
 const controlRows = [
 	{
 		moveroo:
-			"Collects your move brief, clarifies the quote pathway and helps coordinate the service plan.",
+			"Collects your move brief, clarifies the quote details and helps coordinate the service plan.",
 		partner:
 			"Completes the physical move, vehicle transport or handling work agreed for that booking.",
 	},
@@ -56,7 +56,7 @@ const escalationItems = [
 	"Unclear updates",
 	"Damage reports",
 	"Cancellation review",
-	"Cover pathway questions",
+	"Cover questions",
 ];
 
 const beforeDepositItems = [
@@ -71,7 +71,7 @@ const beforeDepositItems = [
 const depositSteps = [
 	{
 		title: "Date and provider fit are confirmed",
-		text: "A deposit is not the first step. The collection date and a suitable provider pathway should be confirmed before the booking is secured.",
+		text: "A deposit is not the first step. The collection date and a suitable provider should be confirmed before the booking is secured.",
 	},
 	{
 		title: "You pay a 25% deposit to Moveroo",
@@ -82,33 +82,48 @@ const depositSteps = [
 		text: "During this period, the deposit may be refunded if you choose to cancel. After that, the cancellation policy explains when deposits are non-refundable.",
 	},
 	{
-		title: "The balance path is confirmed before collection",
-		text: "The remaining balance is due no later than collection. Depending on the provider pathway, the team confirms whether the balance is paid to Moveroo or through another approved path.",
+		title: "The balance payment is confirmed before collection",
+		text: "The remaining balance is due no later than collection. Depending on the provider, the team confirms whether the balance is paid to Moveroo or another approved way.",
 	},
 ];
 
 const pathwayLinks = [
 	{
+		label: "Interstate removalists",
+		text: "For moves crossing state lines where dates, access and inventory need to be checked before booking.",
+		href: "/interstate-removalists/",
+		cta: "Check interstate removals",
+	},
+	{
 		label: "Household moves",
-		text: "Start here when furniture, cartons, access and a removalist crew are the main job.",
-		href: "/services/#household",
+		text: "For moves where furniture, cartons, access and a removalist crew are the main job.",
+		href: "/household-removals/",
+		cta: "Check household removals",
+	},
+	{
+		label: "Backload options",
+		text: "For household moves with flexible dates and a truck schedule that lines up.",
+		href: "/backloading-removals/",
+		cta: "Check backloading",
 	},
 	{
 		label: "Vehicle transport",
-		text: "Use this when the car, motorcycle or fleet vehicle is the main item being moved.",
+		text: "For car, motorcycle or fleet vehicle transport without a household move as the main job.",
 		href: "/moving-cars/",
+		cta: "Check vehicle transport",
 	},
 	{
 		label: "Household + vehicle relocation",
-		text: "Use this when pickup timing and handoffs need to be coordinated across both service types.",
+		text: "For moves where household goods and a vehicle need to be planned together.",
 		href: "/household-vehicle-relocation/",
+		cta: "Check combined moves",
 	},
 ];
 ---
 
 <Layout
 	title="How Moveroo Protects Your Move | Moveroo"
-	description="See how Moveroo helps reduce move risk with partner fit checks, quote clarity, deposit transparency, change support and escalation pathways."
+	description="See how Moveroo helps reduce move risk with partner fit checks, quote clarity, deposit transparency, change support and escalation."
 	canonical="https://moveroo.com.au/how-moveroo-protects-your-move/"
 >
 	<Fragment slot="head">
@@ -131,9 +146,9 @@ const pathwayLinks = [
 					</h1>
 					<p class="mt-7 max-w-3xl text-lg leading-relaxed text-slate-300 md:text-xl">
 						Moveroo is a coordination team. We help collect the right details, match the move to a
-						suitable service pathway, explain what can affect the quote and keep support focused
-						when plans change. This reduces avoidable confusion, but it does not remove every risk
-						from a physical move.
+						suitable service option, explain what can affect the quote and keep support focused when
+						plans change. This reduces avoidable confusion, but it does not remove every risk from a
+						physical move.
 					</p>
 				</div>
 
@@ -168,7 +183,7 @@ const pathwayLinks = [
 						What Moveroo controls, and what transport partners control.
 					</h2>
 					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
-						Being clear about responsibilities reduces surprises. Moveroo coordinates the pathway;
+						Being clear about responsibilities reduces surprises. Moveroo coordinates the booking;
 						transport partners complete the physical service.
 					</p>
 				</div>
@@ -214,8 +229,8 @@ const pathwayLinks = [
 						What "vetted transport partners" means here.
 					</h2>
 					<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
-						Moveroo uses partner fit checks to help match the job to the right service pathway. It
-						is not a guarantee that nothing can change, but it creates a clearer starting point.
+						Moveroo uses partner fit checks to help match the job to the right service option. It is
+						not a guarantee that nothing can change, but it creates a clearer starting point.
 					</p>
 					<ul class="mt-6 grid gap-3 text-sm text-slate-600 dark:text-slate-400">
 						{
@@ -261,16 +276,15 @@ const pathwayLinks = [
 				class="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-16"
 			>
 				<div class="motion-rise lg:sticky lg:top-28">
-					<p class="section-kicker">Choose The Right Pathway</p>
+					<p class="section-kicker">Choose The Right Service</p>
 					<h2
 						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
 					>
-						Protection starts with routing the move correctly.
+						The move is easier when the right service is chosen early.
 					</h2>
 					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
-						The safest quote path is the one that matches the real job. Start with the main service
-						lane, then include the details that could affect access, equipment, timing or provider
-						fit.
+						Start with the main service, then include the details that could affect access,
+						equipment, timing or provider fit.
 					</p>
 				</div>
 
@@ -288,7 +302,7 @@ const pathwayLinks = [
 									href={item.href}
 									class="site-text-action mt-5 gap-2 text-sm font-semibold text-emerald-700 transition hover:text-emerald-900 dark:text-emerald-400 dark:hover:text-emerald-300"
 								>
-									<span>View pathway</span>
+									<span>{item.cta}</span>
 									<span aria-hidden="true">&rarr;</span>
 								</a>
 							</article>
@@ -310,14 +324,14 @@ const pathwayLinks = [
 						A quick checklist before you commit.
 					</h2>
 					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
-						Once a collection date is confirmed and a suitable provider is allocated, a 25%
-						deposit is paid to Moveroo to secure the booking. After that, Moveroo books the job
-						with the allocated provider.
+						Once a collection date is confirmed and a suitable provider is allocated, a 25% deposit
+						is paid to Moveroo to secure the booking. After that, Moveroo books the job with the
+						allocated provider.
 					</p>
 					<p class="mt-5 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
-						A 48-hour cooling-off period applies after the deposit is paid. The remaining balance
-						is due no later than collection, with the payment path confirmed for the provider or
-						service pathway before the booking is finalised.
+						A 48-hour cooling-off period applies after the deposit is paid. The remaining balance is
+						due no later than collection, with the payment method confirmed before the booking is
+						finalised.
 					</p>
 					<a
 						href="/cancellation/"
@@ -384,12 +398,12 @@ const pathwayLinks = [
 				>
 					<p class="section-kicker">Cover Questions</p>
 					<h2 class="section-title mt-5 text-3xl font-semibold text-slate-900 dark:text-white">
-						Cover details depend on the pathway.
+						Cover details depend on the service.
 					</h2>
 					<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
-						Cover, liability and claim pathways can differ by service type and provider. Where a
+						Cover, liability and claim details can differ by service type and provider. Where a
 						provider includes or describes provider-supplied cover, Moveroo can share the factual
-						information available for the quoted pathway before booking so you can review what
+						information available for the quoted service before booking so you can review what
 						applies.
 					</p>
 					<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
@@ -414,7 +428,7 @@ const pathwayLinks = [
 					</h2>
 					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
 						If an update is unclear or a material detail changes, contact Moveroo so the team can
-						triage the issue and help direct it to the right pathway.
+						triage the issue and help direct it to the right person.
 					</p>
 					<div class="mt-8 flex flex-wrap gap-4">
 						<a
@@ -451,7 +465,7 @@ const pathwayLinks = [
 	</section>
 
 	<QuoteCta
-		title="Want the quote pathway checked before you book?"
+		title="Want the quote details checked before you book?"
 		subtitle="Share the route, inventory, access notes and timing so Moveroo can help clarify what applies before you commit."
 		ctaPrimaryLabel="Check what applies to my move"
 		ctaPrimaryHref={site.destinations.householdQuote}

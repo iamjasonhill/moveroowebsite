@@ -1,10 +1,10 @@
 # Moveroo Australia
 
-> Moveroo is Australia's trusted platform for moving and vehicle transport services, connecting customers with reliable removalists and transport providers nationwide.
+> Moveroo helps Australians compare and coordinate household moves, interstate removals and vehicle transport through suitable removalist and transport providers.
 
 ## About Moveroo
 
-Moveroo reimagines the relocation experience with transparent pricing, dependable partners, and friendly support. We help Australians coordinate home moves and vehicle transport across the country.
+Moveroo helps Australians coordinate home moves and vehicle transport across the country. We collect the details that affect the job, compare suitable options and explain the next steps before booking.
 
 ## Services
 
@@ -16,6 +16,14 @@ Professional moving support for homes and apartments. Get a quote for your route
 - Packing services
 - Storage solutions
 
+### Interstate Removalists
+Interstate removalist coordination for moves where dates, inventory, access and timing constraints need to be checked before booking.
+
+- Backload option or dedicated move comparison
+- Rental key handback and settlement-date planning
+- Storage access and delayed delivery notes
+- Household move plus vehicle timing where needed
+
 ### Combined Household + Vehicle Relocation
 Planning support when a home move also includes a car, motorcycle or extra vehicle. Start with the household quote and include the vehicle details so timing, access and handoffs can be coordinated together.
 
@@ -25,7 +33,7 @@ Planning support when a home move also includes a car, motorcycle or extra vehic
 - One coordinated brief for multiple moving parts
 
 ### Vehicle Transport
-Vehicle transport coordination across Australia. Whether you're moving interstate or buying a car from another city, we help match the job to a suitable transport pathway.
+Vehicle transport coordination across Australia. Whether you're moving interstate or buying a car from another city, we help match the job to a suitable transport option.
 
 - Car transport
 - Motorcycle transport
@@ -37,6 +45,8 @@ Vehicle transport coordination across Australia. Whether you're moving interstat
 - [Home](https://moveroo.com.au/)
 - [Get a Moving Quote](https://quotes.moveroo.com.au/quote/household)
 - [Household Removals](https://moveroo.com.au/household-removals/)
+- [Interstate Removalists](https://moveroo.com.au/interstate-removalists/)
+- [Backloading Removals](https://moveroo.com.au/backloading-removals/)
 - [Combined Household + Vehicle Relocation](https://moveroo.com.au/household-vehicle-relocation/)
 - [Vehicle Transport Quote](https://quotes.moveroo.com.au/quote/vehicle)
 - [Moving Cars](https://moveroo.com.au/moving-cars/)
@@ -66,7 +76,7 @@ Visit our [quote page](https://quotes.moveroo.com.au/quote/household) and enter 
 Yes, we offer vehicle transport services across all Australian states and territories. Get a [vehicle transport quote](https://quotes.moveroo.com.au/quote/vehicle) to see pricing.
 
 ### How do you choose transport partners?
-Moveroo works with moving and transport partners that fit the job type, route, timing and service needs. We review partner suitability and can explain the planned service pathway before booking.
+Moveroo works with moving and transport partners that fit the job type, route, timing and service needs. We review partner suitability and can explain the planned service before booking.
 
 ### What areas do you service?
 We service all major cities and regional areas across Australia, including Sydney, Melbourne, Brisbane, Perth, Adelaide, Hobart, Darwin, and Canberra.

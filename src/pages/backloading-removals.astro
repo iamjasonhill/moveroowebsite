@@ -4,7 +4,7 @@ import QuoteCta from "../components/sections/QuoteCta.astro";
 import { site } from "../config/site";
 
 const publishedAt = new Date("2026-05-21T00:00:00+10:00");
-const updatedAt = publishedAt;
+const updatedAt = new Date("2026-05-24T00:00:00+10:00");
 
 const pageTitle = "Backloading Removals for Flexible Moving Dates | Moveroo";
 const pageDescription =
@@ -76,6 +76,27 @@ const bookingChecks = [
 	"Building or loading dock rules",
 	"Preferred collection and delivery windows",
 	"Any dates you cannot make work",
+];
+
+const relatedServices = [
+	{
+		title: "Household removals",
+		text: "Use the household page when inventory, access, packing, storage or timing all need to be planned together.",
+		href: "/household-removals/",
+		cta: "Start with household removals",
+	},
+	{
+		title: "Household + vehicle relocation",
+		text: "Use this when the household move also includes a car, motorcycle or other vehicle that needs to be coordinated around the move.",
+		href: "/household-vehicle-relocation/",
+		cta: "Plan a household and vehicle move",
+	},
+	{
+		title: "How Moveroo protects your move",
+		text: "Check how deposits, cover questions and support are handled before booking.",
+		href: "/how-moveroo-protects-your-move/",
+		cta: "Check before booking",
+	},
 ];
 
 const steps = [
@@ -272,6 +293,16 @@ const structuredData = {
 						You are not booking empty space on a random truck. You are fitting your move around a
 						truck that is already heading in the right direction.
 					</p>
+					<p class="mt-5 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						Still working out the whole move? Start with{" "}
+						<a
+							href="/household-removals/"
+							class="font-semibold text-emerald-700 underline decoration-emerald-300 underline-offset-4 transition hover:text-emerald-900 dark:text-emerald-400 dark:decoration-emerald-600 dark:hover:text-emerald-300"
+						>
+							household removals
+						</a>
+						.
+					</p>
 				</div>
 
 				<div
@@ -392,6 +423,16 @@ const structuredData = {
 						A backload option is not a worse move. A dedicated move is not automatically the better
 						move. The right choice depends on how much control you need over the schedule.
 					</p>
+					<p class="mt-5 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						If timing, deposits or{" "}
+						<a
+							href="/how-moveroo-protects-your-move/"
+							class="font-semibold text-emerald-700 underline decoration-emerald-300 underline-offset-4 transition hover:text-emerald-900 dark:text-emerald-400 dark:decoration-emerald-600 dark:hover:text-emerald-300"
+						>
+							cover questions
+						</a>
+						{" "}matter for this move, check those details before choosing an option.
+					</p>
 				</div>
 
 				<div
@@ -446,6 +487,26 @@ const structuredData = {
 						You are moving from Brisbane to Melbourne and can work with a wider collection window.
 						Moveroo can check which truck schedules line up with your dates, then show you the
 						backload option and any dedicated move option that makes sense.
+					</p>
+					<p class="mt-5 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						Not sure if backloading suits your move? Start with{" "}
+						<a
+							href="/interstate-removalists/"
+							class="font-semibold text-emerald-700 underline decoration-emerald-300 underline-offset-4 transition hover:text-emerald-900 dark:text-emerald-400 dark:decoration-emerald-600 dark:hover:text-emerald-300"
+						>
+							interstate removalists
+						</a>
+						.
+					</p>
+					<p class="mt-5 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						If you also need to move a car or motorcycle, let us know. We cover that under{" "}
+						<a
+							href="/household-vehicle-relocation/"
+							class="font-semibold text-emerald-700 underline decoration-emerald-300 underline-offset-4 transition hover:text-emerald-900 dark:text-emerald-400 dark:decoration-emerald-600 dark:hover:text-emerald-300"
+						>
+							household and vehicle moves
+						</a>
+						.
 					</p>
 				</div>
 
@@ -539,6 +600,45 @@ const structuredData = {
 						))
 					}
 				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="border-y border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900">
+		<div class="mx-auto box-border w-full max-w-6xl px-6">
+			<div class="motion-rise max-w-3xl">
+				<p class="section-kicker">Related Services</p>
+				<h2
+					class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+				>
+					Need to check something else?
+				</h2>
+				<p class="mt-6 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+					Some moves need more than a backload option. These are the next things people usually
+					check before they book.
+				</p>
+			</div>
+
+			<div class="motion-rise motion-rise-delay-1 mt-10 grid gap-5 md:grid-cols-3">
+				{
+					relatedServices.map((item) => (
+						<article class="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/40">
+							<h3 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
+								{item.title}
+							</h3>
+							<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+								{item.text}
+							</p>
+							<a
+								href={item.href}
+								class="site-text-action mt-5 gap-2 text-sm font-semibold text-emerald-700 transition hover:text-emerald-900 dark:text-emerald-400 dark:hover:text-emerald-300"
+							>
+								<span>{item.cta}</span>
+								<span aria-hidden="true">&rarr;</span>
+							</a>
+						</article>
+					))
+				}
 			</div>
 		</div>
 	</section>

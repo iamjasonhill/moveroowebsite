@@ -25,7 +25,7 @@ const moveTypes = [
 	},
 	{
 		label: "Moves with added support",
-		text: "Use the household path when storage, packing, unpacking, fragile items or a vehicle also need to be considered.",
+		text: "Use the household move page when storage, packing, unpacking, fragile items or a vehicle also need to be considered.",
 	},
 ];
 
@@ -40,13 +40,19 @@ const planningDetails = [
 
 const serviceOptions = [
 	{
+		label: "Interstate removalists",
+		text: "For moves crossing state lines where dates, access, inventory and the right removalist option all need to line up.",
+		href: "/interstate-removalists/",
+		cta: "Find an interstate removalist",
+	},
+	{
 		label: "Backload options",
 		text: "For date-flexible moves where available space on the right truck schedule may lower the quoted price.",
 		href: "/backloading-removals/",
-		cta: "Read about backloading removals",
+		cta: "See how backloading works",
 	},
 	{
-		label: "Dedicated move pathways",
+		label: "Dedicated moves",
 		text: "For moves where timing, access, volume or service expectations need a more fixed plan.",
 	},
 	{
@@ -59,7 +65,7 @@ const faqItems = [
 	{
 		question: "What household removals can Moveroo help coordinate?",
 		answer:
-			"Moveroo can help coordinate apartment moves, home moves, local moves, regional moves and interstate household relocations across Australia.",
+			"Moveroo can help coordinate apartment moves, home moves, local moves, regional moves and interstate household moves across Australia.",
 	},
 	{
 		question: "Should I choose backloading or a dedicated move?",
@@ -69,7 +75,7 @@ const faqItems = [
 	{
 		question: "Can packing, storage or fragile items be included?",
 		answer:
-			"Yes. Include packing, unpacking, storage, fragile items, bulky items and access notes in the first brief so Moveroo can match the move to a suitable service pathway.",
+			"Yes. Include packing, unpacking, storage, fragile items, bulky items and access notes in the first brief so Moveroo can match the move to a suitable option.",
 	},
 	{
 		question: "What if my household move also includes a car?",
@@ -79,7 +85,7 @@ const faqItems = [
 	{
 		question: "Does Moveroo do the physical move?",
 		answer:
-			"Moveroo coordinates the quote path, service mix and support flow. Vetted transport partners complete the physical move or transport service matched to the job.",
+			"Moveroo coordinates the quote details, service mix and support. Vetted transport partners complete the physical move or transport service matched to the job.",
 	},
 ];
 
@@ -178,7 +184,7 @@ const structuredData = {
 							class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-emerald-300 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
 							href="/services/"
 						>
-							Compare service paths
+							See service options
 						</a>
 					</div>
 				</div>
@@ -215,11 +221,11 @@ const structuredData = {
 					<h2
 						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
 					>
-						Use the household lane when people, furniture and access are the main job.
+						Use household removals when people, furniture and access are the main job.
 					</h2>
 					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
 						Household moves need more than a pickup and delivery suburb. Inventory, access, route,
-						timing and service extras all change the pathway.
+						timing and service extras all affect the quote.
 					</p>
 				</div>
 
@@ -244,7 +250,7 @@ const structuredData = {
 	<section class="bg-slate-50 py-24 dark:bg-slate-950/40">
 		<div class="mx-auto max-w-6xl px-6">
 			<div class="motion-rise max-w-3xl">
-				<p class="section-kicker">Service Pathways</p>
+				<p class="section-kicker">Service Options</p>
 				<h2
 					class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
 				>
@@ -252,7 +258,7 @@ const structuredData = {
 				</h2>
 				<p class="mt-6 text-base leading-relaxed text-slate-600 dark:text-slate-400">
 					Moveroo can help shape the quote around the route and requirements instead of forcing
-					every move into one generic removals path.
+					every move into one generic removals quote.
 				</p>
 			</div>
 
@@ -326,7 +332,7 @@ const structuredData = {
 						</h3>
 						<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
 							The clearer the route, inventory and access notes are, the easier it is to match the
-							move to a suitable pathway and explain what can affect the quote.
+							move to the right option and explain what can affect the quote.
 						</p>
 						<a
 							href="/how-moveroo-protects-your-move/"
@@ -384,7 +390,7 @@ const structuredData = {
 
 	<QuoteCta
 		title="Ready to plan the household move?"
-		subtitle="Share the route, inventory, access notes, timing and any extra support needs so Moveroo can shape the right quote pathway."
+		subtitle="Share the route, inventory, access notes, timing and any extra support needs so Moveroo can shape the right quote."
 		ctaPrimaryLabel="Start a household quote"
 		ctaPrimaryHref={site.destinations.householdQuote}
 		ctaSecondaryLabel="Request a callback"

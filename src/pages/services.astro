@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import QuoteCta from "../components/sections/QuoteCta.astro";
 import { site } from "../config/site";
 
-const lastModified = new Date("2026-01-10T00:00:00.000Z");
+const lastModified = new Date("2026-05-24T00:00:00+10:00");
 
 const serviceTracks = [
 	{
@@ -11,7 +11,7 @@ const serviceTracks = [
 		eyebrow: "01 Household moves",
 		title: "Household moves first",
 		description:
-			"Moveroo's primary service lane is household move coordination: local, regional and interstate moves where inventory, access, timing and the right removalist pathway all matter.",
+			"Moveroo's main service is household move coordination: local, regional and interstate moves where inventory, access, timing and the right removalist all matter.",
 		bestFor: [
 			"Apartments, homes and interstate relocations",
 			"Moves where access, loading, inventory or timing need planning",
@@ -23,7 +23,7 @@ const serviceTracks = [
 			"Inventory planning, loading access, packing and timeline support",
 		],
 		notFor: "Single-vehicle-only bookings where no household inventory or moving crew is involved.",
-		ctaLabel: "Explore household removals",
+		ctaLabel: "Start with household removals",
 		href: "/household-removals/",
 		external: false,
 		analyticsLane: "household",
@@ -33,7 +33,7 @@ const serviceTracks = [
 		eyebrow: "02 Vehicle transport",
 		title: "Vehicle transport second",
 		description:
-			"Moveroo's vehicle transport lane is for cars, motorcycles and multi-vehicle work, with support for wider relocation planning when the vehicle is part of a bigger move.",
+			"Moveroo's vehicle transport service is for cars, motorcycles and multi-vehicle work, with support for wider relocation planning when the vehicle is part of a bigger move.",
 		bestFor: [
 			"Cars, motorcycles and non-running vehicles",
 			"Dealer, auction and relocation movements",
@@ -56,7 +56,7 @@ const serviceTracks = [
 		eyebrow: "03 Combined relocation",
 		title: "Household + vehicle together",
 		description:
-			"When a household move also includes vehicle transport, Moveroo can coordinate the pickup timing and support path across both services without promising one provider or same-day delivery.",
+			"When a household move also includes vehicle transport, Moveroo can coordinate the pickup timing and support across both services without promising one provider or same-day delivery.",
 		bestFor: [
 			"Household moves where a car or motorcycle also needs transport",
 			"Moves where pickup timing needs to line up across two service types",
@@ -105,19 +105,19 @@ const jumpLinks = [
 const chooserNotes = [
 	{
 		label: "Start with the main moving job",
-		text: "Choose the lane that best matches the main part of the move first. We can add the rest after that.",
+		text: "Choose the option that best matches the main part of the move first. We can add the rest after that.",
 	},
 	{
 		label: "Use household if people and furniture are involved",
-		text: "If the move needs removalists, loading access, packing help or inventory planning, start with the household path.",
+		text: "If the move needs removalists, loading access, packing help or inventory planning, start with household removals.",
 	},
 	{
 		label: "Use vehicles if the transport item is the vehicle itself",
-		text: "If the main job is moving a car, motorcycle or fleet vehicle, the vehicle path is the clearer place to start.",
+		text: "If the main job is moving a car, motorcycle or fleet vehicle, start with vehicle transport.",
 	},
 	{
 		label: "Use specialty when access or freight complexity is the real issue",
-		text: "If storage, fragile handling or unusual equipment are driving the job, start with the closest household or vehicle lane and include the extra requirement in the first brief.",
+		text: "If storage, fragile handling or unusual equipment are driving the job, start with the closest household or vehicle option and include the extra requirement in the first brief.",
 	},
 ];
 
@@ -130,12 +130,12 @@ const faqItems = [
 	{
 		question: "How does the Moveroo moving process work?",
 		answer:
-			"Our process has three stages: Discovery, where we gather the route, timing and move details; Tailored plan, where we match the right partners and prepare the quote; and Managed delivery, where we keep the move on track with updates along the way.",
+			"Our process has three stages: Discovery, where we gather the route, timing and move details; Clear plan, where we match the right partners and prepare the quote; and Managed delivery, where we keep the move on track with updates along the way.",
 	},
 	{
 		question: "How much does moving cost?",
 		answer:
-			"Moving costs vary based on distance, volume and service type. We provide free quotes tailored to your route, timing and service mix, so the final price reflects the actual job rather than a generic estimate.",
+			"Moving costs vary based on distance, volume and service type. We provide free quotes built around your route, timing and service mix, so the final price reflects the actual job rather than a generic estimate.",
 	},
 	{
 		question: "How far in advance should I book?",
@@ -165,7 +165,7 @@ const howToSteps = [
 		text: "We gather the route, timing, inventory, access needs and any special handling requirements.",
 	},
 	{
-		name: "Tailored plan",
+		name: "Clear plan",
 		text: "We line up the right partners and service mix, then send a clear quote and plan.",
 	},
 	{
@@ -281,10 +281,10 @@ const structuredData = {
 					<h1
 						class="section-title mt-6 max-w-3xl text-5xl font-semibold leading-[0.95] text-balance md:text-7xl"
 					>
-						Choose the service path that fits your move.
+						Choose the service that fits your move.
 					</h1>
 					<p class="mt-7 max-w-2xl text-lg leading-relaxed text-slate-300 md:text-xl">
-						Start with the lane that best matches the main job: household moves first, vehicle
+						Start with the option that best matches the main job: household moves first, vehicle
 						transport second, or a combined household and vehicle plan when both need to move.
 					</p>
 
@@ -323,14 +323,14 @@ const structuredData = {
 						<div class="border-b border-white/10 px-6 py-5 md:px-8">
 							<div class="flex items-center justify-between gap-4">
 								<div>
-									<p class="section-kicker text-emerald-300">Quick routing guide</p>
+									<p class="section-kicker text-emerald-300">Quick guide</p>
 									<p class="mt-2 text-sm text-slate-300">
-										Choose the closest lane, then start with that quote path.
+										Choose the closest option, then start there.
 									</p>
 								</div>
 								<div class="text-right">
-									<p class="text-xs uppercase tracking-[0.26em] text-slate-400">Routing</p>
-									<p class="mt-1 text-lg font-semibold text-white">3 main lanes</p>
+									<p class="text-xs uppercase tracking-[0.26em] text-slate-400">Services</p>
+									<p class="mt-1 text-lg font-semibold text-white">3 main options</p>
 								</div>
 							</div>
 						</div>
@@ -406,15 +406,25 @@ const structuredData = {
 				class="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-16"
 			>
 				<div class="motion-rise lg:sticky lg:top-28">
-					<p class="section-kicker">Service Tracks</p>
+					<p class="section-kicker">Service Options</p>
 					<h2
 						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
 					>
-						Pick the lane that matches the main moving requirement.
+						Pick the option that matches the main moving requirement.
 					</h2>
 					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
-						If more than one lane applies, start with the one that best describes the main job. We
+						If more than one option applies, start with the one that best describes the main job. We
 						can add the rest once the route is clear.
+					</p>
+					<p class="mt-5 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						Moving interstate? Start with{" "}
+						<a
+							href="/interstate-removalists/"
+							class="font-semibold text-emerald-700 underline decoration-emerald-300 underline-offset-4 transition hover:text-emerald-900 dark:text-emerald-400 dark:decoration-emerald-600 dark:hover:text-emerald-300"
+						>
+							interstate removalists
+						</a>
+						.
 					</p>
 					<div
 						class="mt-8 rounded-[1.5rem] border border-emerald-200 bg-emerald-50 px-5 py-5 dark:border-emerald-500/30 dark:bg-emerald-500/10"
@@ -425,9 +435,9 @@ const structuredData = {
 							Household + vehicle
 						</p>
 						<p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-							If the home move also includes a car or motorcycle, use the combined move guide before
-							choosing a quote path. Same-day pickup can often be coordinated; same-day delivery
-							should not be assumed.
+							If the home move also includes a car or motorcycle, check the combined move guide
+							before you choose. Same-day pickup can often be coordinated; same-day delivery should
+							not be assumed.
 						</p>
 						<a
 							href="/household-vehicle-relocation/"
@@ -444,7 +454,7 @@ const structuredData = {
 						href="/how-moveroo-protects-your-move/"
 						class="site-text-action mt-6 gap-2 text-sm font-semibold text-emerald-700 transition hover:text-emerald-900 dark:text-emerald-400 dark:hover:text-emerald-300"
 					>
-						<span>Review the protection pathway</span>
+						<span>Check what to confirm before booking</span>
 						<span aria-hidden="true">→</span>
 					</a>
 				</div>
@@ -521,6 +531,15 @@ const structuredData = {
 											<span>{track.ctaLabel}</span>
 											<span aria-hidden="true">→</span>
 										</a>
+										{track.id === "household" && (
+											<a
+												class="site-text-action mt-4 gap-2 text-sm font-semibold text-slate-600 transition hover:text-slate-950 dark:text-slate-400 dark:hover:text-white"
+												href="/backloading-removals/"
+											>
+												<span>See how backloading works</span>
+												<span aria-hidden="true">&rarr;</span>
+											</a>
+										)}
 									</div>
 								</div>
 							</article>
@@ -544,8 +563,8 @@ const structuredData = {
 						The next steps stay simple, even when the move gets more complex.
 					</h2>
 					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
-						Once you enter the right lane, we gather the move brief, match the right partners and
-						keep the next steps clear.
+						Once you start in the right place, we gather the move brief, match the right partners
+						and keep the next steps clear.
 					</p>
 				</div>
 
@@ -584,7 +603,7 @@ const structuredData = {
 					<h2
 						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
 					>
-						Use these rules if the right lane is not obvious at first glance.
+						Use these rules if the right option is not obvious at first glance.
 					</h2>
 					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
 						The goal is to make the first decision easier, not make the move feel more complicated.
@@ -632,7 +651,7 @@ const structuredData = {
 						<p
 							class="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-700 dark:text-emerald-400"
 						>
-							Need a tailored answer?
+							Need a clearer answer?
 						</p>
 						<p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
 							Use the callback form if the job includes household goods, vehicle transport, storage
