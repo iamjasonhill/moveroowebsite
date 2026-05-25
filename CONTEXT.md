@@ -110,6 +110,88 @@ The `/moving-cars/` page should lead with consumer car and motorcycle transport 
 
 Consumer vehicle moves should remain the entry point, while business, dealer, fleet, and complex vehicle scenarios provide depth and credibility.
 
+The `/interstate-car-transport/` page should be vehicle-only first. It should lead with customers moving a car interstate, then cover motorcycle, running/non-running condition, pickup and delivery access, timing, and door/depot options. Household + vehicle relocation should appear as a secondary scenario only, for customers whose car move is part of a larger household move.
+
+The preferred H1 direction for `/interstate-car-transport/` is: "Move your car interstate with the right transport option." Use "interstate car transport" in SEO-critical places such as the title, metadata, early copy, and selected headings, but avoid repeating it unnaturally through the page. Body copy should use normal industry language such as car transport, vehicle transport, carrier, pickup, delivery, depot, handover, running condition, and access.
+
+For interstate car transport, Moveroo should explain that the quote depends on pickup and delivery suburbs, whether the vehicle runs, rolls and steers, vehicle type and size, clearance or modifications, access, timing, whether door-to-door or depot handoff is realistic, whether the car is part of a household move, carrier fit for the route, and whether the customer wants to move the vehicle with or without personal items. Do not imply every carrier accepts personal items or that belongings are always covered; present personal items as something to choose and confirm before booking.
+
+Preferred personal-items wording style for car transport pages: "If you want to leave items in the car, mention it in the quote request. Not every carrier allows it, so it is something to check before booking." Avoid legalistic or overpromising phrasing such as "personal items are included" or "pack your car with belongings".
+
+Door-to-door and depot-to-depot should be explained as practical car transport choices. Door-to-door is always available. Depot-to-depot is always cheaper than door-to-door within the same carrier's quote options, but the overall cheapest option can still differ between carriers. For example, Carrier 1's depot-to-depot option may be cheaper than Carrier 1's door-to-door option, while Carrier 2's depot-to-depot price may also be cheaper than Carrier 1's door-to-door price. Explain this plainly without making the comparison sound like a negotiable discount.
+
+Before the door-to-door vs depot-to-depot example table, include a brief plain-English explanation that depot-to-depot is cheaper within the same carrier's quote options, but the cheapest overall quote can still depend on which carrier is available for the route.
+
+The `/interstate-car-transport/` page should include a "Compare the carrier options before you choose" section. Explain that Moveroo can show more than one carrier option where available, and those options can differ by price, pickup/delivery type, transit time, and carrier requirements. A lower price is not always the better choice if the transit time is much longer. The customer's quote details need to be accurate before comparing options.
+
+Multiple carrier options are available for the vast majority of interstate car transport quotes, but not 100% of quotes. Use "where available" when describing multiple carrier-option comparisons.
+
+Avoid using "instant quote" as a blanket promise for vehicle transport. Two carriers have near-instant response times, usually around 30-60 seconds, but they do not quote 100% of requests. Public copy may refer to quick quote responses where available, but should not promise every customer will receive instant carrier prices.
+
+Preferred quote-speed wording for vehicle transport pages: "Where carrier pricing is available automatically, quote options can come back quickly. If the vehicle or route needs a manual check, Moveroo will reply when the pricing is available."
+
+The `/interstate-car-transport/` page should stay focused on cars first and motorcycles second. Caravan, trailer, boat, and other vehicle types may be referenced lightly and interlinked later when dedicated pages exist, but they should not become a major part of this page.
+
+The preferred title tag for `/interstate-car-transport/` is "Interstate Car Transport Australia | Moveroo". Use the human H1 "Move your car interstate with the right transport option." so the visible page does not read like SEO copy.
+
+Preferred meta description for `/interstate-car-transport/`: "Moving a car interstate? Moveroo helps you compare door-to-door and depot options, transit times, personal-item rules and carrier requirements before you book."
+
+The `/interstate-car-transport/` page should include a near-top section headed "Details that change the quote". Preferred wording direction: "A drivable sedan between two metro depots is not the same job as a non-running ute collected from a narrow street. The quote needs the right details so the carrier can price the actual job." Cover pickup/delivery suburbs, vehicle type, whether it runs/rolls/steers, door-to-door or depot-to-depot, personal items, timing and transit time, access notes, and enclosed transport by post-quote email where relevant.
+
+The `/interstate-car-transport/` page may include real anonymised quote examples, but only for door-to-door vs depot-to-depot comparisons. Frame them as examples of how the transport option can change the price, not as guaranteed discounts or negotiable savings. Do not mix in running vs non-running, personal-items, enclosed, or vehicle-size comparisons in the first table.
+
+Door-to-door and depot-to-depot quote examples should be taken only from clearly labelled quote options in the admin system. Do not infer door/depot status from address fields if the labels are missing or ambiguous.
+
+Each door-to-door vs depot-to-depot table row should compare options from the same quote, same customer, and same carrier. The point is to show the price difference within the same carrier's options, not differences between carriers or loosely similar routes.
+
+Use three door-to-door vs depot-to-depot examples where suitable data exists. Show an anonymised route, including suburbs when useful or relevant, broad vehicle type such as sedan/SUV/ute where available, door-to-door price, depot-to-depot price, and difference. Do not show customer-identifying details, and do not show carrier names unless explicitly approved.
+
+Carrier names should be hidden in public door-to-door vs depot-to-depot examples. Use carrier identity internally only to confirm the comparison is within the same carrier's quote options.
+
+The `/interstate-car-transport/` page should become the main public SEO/service hub for interstate car transport. The existing `/moving-cars/` page remains a broader or legacy vehicle service page and should support the new hub through natural internal linking. Any public wording that explains the relationship between Moving Cars and Moveroo should be reviewed carefully for human tone before publishing.
+
+When creating `/interstate-car-transport/`, also make a light editorial update to `/moving-cars/` so it links naturally to the new hub from body copy. Do not rely on footer-only discovery and do not rewrite `/moving-cars/` unless the new page exposes a specific conflict.
+
+Incoming links for `/interstate-car-transport/` should be added where natural from `/moving-cars/`, `/household-vehicle-relocation/`, `/interstate-removalists/`, and `/services/`, plus footer, sitemap, and `llms.txt` discovery. Consider `/how-moveroo-protects-your-move/` only if the vehicle-service context is natural. Do not add a link from `/backloading-removals/` unless the page context clearly calls for vehicle transport.
+
+Do not tell customers there is a required order between household and vehicle quote forms. The form itself does not allow customers to include vehicle details inside a household move quote, so there is no reason to say "start with household quote first" or "start with vehicle quote first" for combined moves. Instead, explain the intent distinction: use the car transport page when the vehicle transport details are the focus; use the household + vehicle relocation page when the customer needs to understand how a household move and vehicle move can be coordinated.
+
+Preferred combined-move wording on the car transport page: "If the car move is part of a larger household move, let us know when you speak with Moveroo. The household move and vehicle transport may need different carriers, but the timing can still be planned together."
+
+On `/interstate-car-transport/`, frame operational details such as running condition, personal items, door/depot preference, access, and enclosed transport as quote-request details. Use "before you book" mainly for comparing final options and confirming expectations.
+
+Vehicle transport pages should use "pickup and delivery" rather than "collection and delivery". Use "handover" where discussing depot or address handoff.
+
+Preferred heading for the car transport example table: "Recent door-to-door and depot-to-depot examples". Supporting copy should say: "These anonymised quote examples show how the pickup and delivery option can change the price. They are examples only, not a promise that the same difference will apply to every car move." Avoid "save up to", "discounts", "cheapest", or "guaranteed savings" framing.
+
+Future supporting page topics for interstate car transport should be worked into the copy naturally: door/depot, non-running cars, motorcycle transport, personal items, and cost factors. Do not create fake links before those pages exist. Locations may be mentioned in plain examples where useful, but route phrases should not be a major part of this page and should not read like route-page SEO, e.g. avoid heading or repeated copy such as "interstate car transport from Sydney to Brisbane".
+
+The preferred primary CTA for `/interstate-car-transport/` is "Start a vehicle transport quote", pointing to the vehicle quote flow. The secondary CTA should be "Request a callback". CTA support copy should ask for pickup and delivery suburbs, vehicle details, running condition, timing, and whether the customer wants door-to-door or depot options checked. Do not promise "best provider" or instant carrier comparison unless the quote flow substantiates that.
+
+Vehicle transport copy should prefer "carrier" over "provider" when referring to the vehicle transport operator, because that is the normal industry term. Use "provider" only when discussing broader Moveroo service coordination across household moves and vehicle transport.
+
+For non-running vehicle copy, make clear that the drivable vs non-drivable separation happens during the quote process, not later at booking. Customers should state whether the vehicle runs, rolls and steers when requesting the quote so the loading requirements and carrier suitability can be checked early.
+
+Use both "non-running" and "does not run, roll or steer" in public vehicle copy. "Non-running car transport" is useful for SEO and future page planning, while "does not run, roll or steer" is the operational detail customers understand. Before finalising a dedicated non-running page title, check current traffic/query patterns.
+
+Motorcycle transport should be visible but secondary on `/interstate-car-transport/`. Mention motorcycles in the vehicle-type checklist and a short supporting card or section, but do not let motorcycle copy compete with cars in the hero. Preferred wording direction: "Moving a motorcycle instead of a car? Include the make, model, pickup and delivery access, and any timing limits in the quote request so the right carrier options can be checked."
+
+Enclosed transport should be mentioned lightly on `/interstate-car-transport/` and should not be presented as a standard quote-flow option. Preferred wording: "Enclosed transport may be available on some routes, email us after submitting a standard quote to discuss." This should be tied to classic, prestige, modified, or higher-care vehicles without overpromising availability.
+
+The `/interstate-car-transport/` page should include a practical vehicle preparation section. Cover pickup and delivery suburbs, whether the vehicle runs/rolls/steers, low clearance/modifications/roof racks, whether personal items need to stay in the car, safe pickup access, and carrier inspection at pickup and delivery. Keep the copy practical and operational, not generic trust copy.
+
+Do not tell vehicle transport customers they need to take their own condition photos in advance. Carriers complete a vehicle inspection at pickup and delivery.
+
+Do not include fuel-level requirements on vehicle transport pages unless a specific carrier requirement is being communicated after booking.
+
+Vehicle transport tracking and updates vary by carrier. Public copy may say that, at minimum, customers receive a phone number and tracking code. Some carriers provide a tracking link that updates when the vehicle enters a new depot location or is scheduled onto a trip. Customers can also contact Moveroo to request a tracking update if they would prefer. Do not promise live tracking for every carrier or every move.
+
+Vehicle transport quotes should explain that pricing options include the most up-to-date transit time information available to Moveroo at the time the quote is provided. Transit time can be a deciding factor between carrier options, especially when prices are close but one option is much slower. Avoid vague wording such as "depot movements" in customer-facing copy.
+
+Avoid promising the "fastest" interstate car transport option. Use practical comparative language such as "shorter transit time", "slower option", or "one option may take noticeably longer than another" where accurate.
+
+The first version of `/interstate-car-transport/` should use process proof rather than review/testimonial proof. Use real anonymised door-to-door vs depot examples, quote-detail checks, transit time information, carrier contact/tracking expectations, and practical preparation guidance. Vehicle-specific reviews should be incorporated later once there are usable verified reviews from SMS/review workflows.
+
 ### Combined Household + Vehicle Relocation
 
 Combined household + vehicle relocation is Moveroo's differentiating service lane.

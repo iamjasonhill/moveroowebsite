@@ -24,14 +24,14 @@ const fitSignals = [
 	},
 	{
 		title: "There are multiple providers involved",
-		text: "Household removal and vehicle transport are usually handled by different provider types. Moveroo keeps those pathways in one plan so the customer is not chasing separate updates.",
+		text: "Household removal and vehicle transport are usually handled by different provider types. Moveroo keeps the timing and updates in one plan so the customer is not chasing separate teams.",
 	},
 ];
 
 const planSteps = [
 	{
 		label: "Start with the household brief",
-		text: "We collect the route, inventory, access notes, preferred dates and any settlement or handover constraints.",
+		text: "We collect the household route, inventory, access notes, preferred dates and any settlement or handover constraints.",
 	},
 	{
 		label: "Add the vehicle details early",
@@ -39,7 +39,7 @@ const planSteps = [
 	},
 	{
 		label: "Match the service mix",
-		text: "Moveroo lines up the household move and vehicle transport pathways around availability, route fit and timing.",
+		text: "Moveroo lines up the household move and vehicle transport around availability, route fit and timing.",
 	},
 	{
 		label: "Keep the handoffs visible",
@@ -55,10 +55,10 @@ const comparisonRows = [
 		combined: "The home move and vehicle transport both need planning.",
 	},
 	{
-		label: "Primary quote path",
+		label: "Main quote focus",
 		household: "Household quote.",
 		vehicle: "Vehicle quote.",
-		combined: "Household quote first, with vehicle details included in the brief.",
+		combined: "Household and vehicle timing discussed before booking.",
 	},
 	{
 		label: "Timing focus",
@@ -70,7 +70,7 @@ const comparisonRows = [
 	{
 		label: "What not to expect",
 		household: "A generic price before route and inventory are known.",
-		vehicle: "The same pathway for running and non-running vehicles.",
+		vehicle: "The same carrier setup for running and non-running vehicles.",
 		combined:
 			"Guaranteed same-day delivery, one provider for both services, or lower cost per service.",
 	},
@@ -80,7 +80,7 @@ const faqItems = [
 	{
 		question: "Should I request a household quote or a vehicle quote for a combined move?",
 		answer:
-			"If the move includes furniture, cartons or a removalist crew, start with the household quote and include the vehicle details in the brief. If the vehicle is the only item being moved, use the vehicle quote path instead.",
+			"There is no required order. Use the household quote for the household move and the vehicle quote for the car or motorcycle. If both are part of the same relocation, tell Moveroo so the timing can be planned together.",
 	},
 	{
 		question: "Can the household goods and vehicle move on the same day?",
@@ -229,8 +229,8 @@ const structuredData = {
 						<div class="border-b border-white/10 px-6 py-5 md:px-8">
 							<p class="section-kicker text-emerald-300">How to route it</p>
 							<p class="mt-2 text-sm leading-relaxed text-slate-300">
-								If people, furniture and a vehicle are involved, start with the household move and
-								include the vehicle details in the same brief.
+								If people, furniture and a vehicle are involved, tell Moveroo so the household
+								move and vehicle transport can be planned around the same dates.
 							</p>
 						</div>
 						<div class="route-grid px-6 py-6 md:px-8 md:py-8">
@@ -251,8 +251,8 @@ const structuredData = {
 							</div>
 						</div>
 						<div class="border-t border-white/10 bg-slate-950/30 px-6 py-5 md:px-8">
-							<p class="text-xs uppercase tracking-[0.22em] text-slate-400">Quote path</p>
-							<p class="mt-2 text-xl font-semibold text-white">Household first, vehicle included</p>
+							<p class="text-xs uppercase tracking-[0.22em] text-slate-400">Quote plan</p>
+							<p class="mt-2 text-xl font-semibold text-white">Two services, one timing plan</p>
 						</div>
 					</div>
 				</div>
@@ -270,7 +270,7 @@ const structuredData = {
 					<h2
 						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
 					>
-						Use this path when the move has more than one moving part.
+						Use this page when the move has more than one moving part.
 					</h2>
 					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
 						A combined move is not just two separate quotes sitting next to each other. The useful
@@ -299,19 +299,29 @@ const structuredData = {
 	<section class="bg-slate-50 py-24 dark:bg-slate-950/40">
 		<div class="mx-auto max-w-6xl px-6">
 			<div class="motion-rise max-w-3xl">
-				<p class="section-kicker">Choosing The Right Path</p>
+				<p class="section-kicker">Choosing what to quote</p>
 				<h2
 					class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
 				>
 					Household, vehicle-only, or combined?
 				</h2>
 				<p class="mt-6 text-base leading-relaxed text-slate-600 dark:text-slate-400">
-					The quote path should match the main job. If a removalist crew and household inventory are
-					involved, the household brief gives Moveroo the right context to add the vehicle.
+					The quote should match what is being moved. If the car or motorcycle has its own transport
+					details, use the vehicle quote too and tell Moveroo both parts belong to the same move.
+				</p>
+				<p class="mt-5 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+					If the vehicle is the main thing being moved, start with{" "}
+					<a
+						href="/interstate-car-transport/"
+						class="font-semibold text-emerald-700 underline decoration-emerald-300 underline-offset-4 transition hover:text-emerald-900 dark:text-emerald-400 dark:decoration-emerald-600 dark:hover:text-emerald-300"
+					>
+						interstate car transport
+					</a>
+					{" "}instead.
 				</p>
 				<p class="mt-5 text-base leading-relaxed text-slate-600 dark:text-slate-400">
 					The goal is not to pretend one provider does everything. It is to reduce the number of
-					customer-managed handoffs across separate household and vehicle transport pathways.
+					customer-managed handoffs across separate household and vehicle transport services.
 				</p>
 			</div>
 
@@ -429,7 +439,7 @@ const structuredData = {
 
 	<QuoteCta
 		title="Ready to plan a combined move?"
-		subtitle="Start with the household quote and include the vehicle details, timing preferences and any settlement or access constraints in the brief."
+		subtitle="Share the household move, vehicle details, timing preferences and any settlement or access constraints so both parts can be planned together."
 		ctaPrimaryLabel="Start a household quote"
 		ctaPrimaryHref={site.destinations.householdQuote}
 		ctaSecondaryLabel="Request a callback"

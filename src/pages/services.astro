@@ -31,7 +31,7 @@ const serviceTracks = [
 	{
 		id: "vehicles",
 		eyebrow: "02 Vehicle transport",
-		title: "Vehicle transport second",
+		title: "Vehicle transport",
 		description:
 			"Moveroo's vehicle transport service is for cars, motorcycles and multi-vehicle work, with support for wider relocation planning when the vehicle is part of a bigger move.",
 		bestFor: [
@@ -40,15 +40,15 @@ const serviceTracks = [
 			"Moves where vehicles need to stay aligned with household timelines",
 		],
 		usuallyIncludes: [
-			"Door-to-door transport for running and non-running vehicles",
+			"Door-to-door and depot options for running and non-running vehicles",
 			"Dealer, auction, relocation and fleet movement support",
 			"Condition reporting, service notes and national carrier coordination",
 		],
 		notFor:
 			"Full household removals with furniture, cartons and loading crews as the main requirement.",
-		ctaLabel: "Request a vehicle quote",
-		href: site.destinations.vehicleQuote,
-		external: true,
+		ctaLabel: "Compare car transport options",
+		href: "/interstate-car-transport/",
+		external: false,
 		analyticsLane: "vehicle",
 	},
 	{
@@ -63,7 +63,7 @@ const serviceTracks = [
 			"Customers who want one brief and clearer handoffs",
 		],
 		usuallyIncludes: [
-			"Household quote first, with vehicle details included early",
+			"Household and vehicle timing discussed before booking",
 			"Same-day pickup coordination where availability supports it",
 			"Separate household and vehicle providers kept under one plan",
 		],
@@ -125,7 +125,7 @@ const faqItems = [
 	{
 		question: "What services does Moveroo offer?",
 		answer:
-			"Moveroo coordinates household moves first, vehicle transport second, and combined household plus vehicle relocations when both services need to be planned together. Extra needs such as packing, storage or fragile handling can be included where the provider fit supports them.",
+			"Moveroo coordinates household moves, vehicle transport, and combined household plus vehicle relocations when both services need to be planned together. Extra needs such as packing, storage or fragile handling can be included where the provider fit supports them.",
 	},
 	{
 		question: "How does the Moveroo moving process work?",
@@ -708,8 +708,8 @@ const structuredData = {
 	</section>
 
 	<QuoteCta
-		title="Ready to start with the household move?"
-		subtitle="Share the main household move first, then include any vehicle, storage, packing or fragile-item details in the same brief."
+		title="Ready to start the right quote?"
+		subtitle="Choose the quote that matches what is moving, then include the timing, access, storage, packing or vehicle details Moveroo needs to understand the job."
 		ctaPrimaryLabel="Start a household quote"
 		ctaPrimaryHref="https://quotes.moveroo.com.au/quote/household"
 		ctaSecondaryLabel="Request a callback"

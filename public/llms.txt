@@ -25,7 +25,7 @@ Interstate removalist coordination for moves where dates, inventory, access and 
 - Household move plus vehicle timing where needed
 
 ### Combined Household + Vehicle Relocation
-Planning support when a home move also includes a car, motorcycle or extra vehicle. Start with the household quote and include the vehicle details so timing, access and handoffs can be coordinated together.
+Planning support when a home move also includes a car, motorcycle or extra vehicle. Tell Moveroo when the household move and vehicle transport belong to the same relocation so timing, access and handoffs can be coordinated together.
 
 - Household move plus vehicle transport
 - Settlement and access timing
@@ -35,6 +35,7 @@ Planning support when a home move also includes a car, motorcycle or extra vehic
 ### Vehicle Transport
 Vehicle transport coordination across Australia. Whether you're moving interstate or buying a car from another city, we help match the job to a suitable transport option.
 
+- Interstate car transport
 - Car transport
 - Motorcycle transport
 - Boat transport
@@ -48,6 +49,7 @@ Vehicle transport coordination across Australia. Whether you're moving interstat
 - [Interstate Removalists](https://moveroo.com.au/interstate-removalists/)
 - [Backloading Removals](https://moveroo.com.au/backloading-removals/)
 - [Combined Household + Vehicle Relocation](https://moveroo.com.au/household-vehicle-relocation/)
+- [Interstate Car Transport](https://moveroo.com.au/interstate-car-transport/)
 - [Vehicle Transport Quote](https://quotes.moveroo.com.au/quote/vehicle)
 - [Moving Cars](https://moveroo.com.au/moving-cars/)
 - [How Moveroo Protects Your Move](https://moveroo.com.au/how-moveroo-protects-your-move/)
