@@ -62,8 +62,12 @@ Use this as the shared backlog across future chats. Items marked **Access needed
   - Completed in repo: the page explains interstate removalist option fit, date constraints, quote factors, household + vehicle timing, related service links, and FAQs.
   - Internal linking completed: linked from relevant body copy, footer/service discovery, sitemap, `llms.txt`, and supporting pages without relying on footer-only link placement.
   - Prelaunch review completed: copy, SEO, schema, internal links, compliance wording, CTA flow, mobile compatibility, local route status, `llms.txt`, footer discovery, and build checks.
-- [ ] Add an interstate car transport hub.
+- [x] Add an interstate car transport hub.
   - Competitor finding: vehicle competitors treat car transport as a full category, not only a legacy Moving Cars transition page.
+  - Live: `/interstate-car-transport/` is published from `main`.
+  - Completed in repo: the page explains interstate car transport quote factors, door-to-door vs depot-to-depot options, carrier requirements, tracking expectations, personal items, non-running vehicle notes, enclosed transport caveats, and household + vehicle coordination.
+  - Internal linking completed: linked from vehicle, services, household/removalist support pages, footer/service discovery, sitemap, and `llms.txt`.
+  - Prelaunch review completed: copy, SEO, schema, internal links, compliance wording, mobile compatibility, local route status, quote examples, and build checks.
 - [ ] Add a dedicated removals page.
 - [ ] Add a storage coordination page or section.
 - [ ] Add a non-running vehicle transport page or section.
@@ -129,7 +133,7 @@ Use this as the shared backlog across future chats. Items marked **Access needed
 
 - [ ] Use the competitor-informed page priority order before creating new SEO pages.
   - Completed priority hub: interstate removalists.
-  - Remaining priority hubs: interstate car transport, storage coordination, non-running vehicle transport, motorcycle transport, and door-to-door vs depot vehicle transport.
+  - Remaining priority hubs: storage coordination, non-running vehicle transport, motorcycle transport, and door-to-door vs depot vehicle transport.
 - [ ] Define route-page quality rules before building route pages.
   - Route pages should include useful route-specific context, realistic timing/booking constraints, internal links to the correct hub, and real examples where available. Do not publish thin route templates.
 - [ ] Build core city pages:
@@ -148,7 +152,8 @@ Use this as the shared backlog across future chats. Items marked **Access needed
   - [x] Backloading removals
   - [ ] Move car interstate
   - [ ] Transport car interstate
-  - [ ] Interstate car transport
+  - [x] Interstate car transport
+    - Live from `main`, internally linked, and prelaunch-reviewed including mobile compatibility.
 - [ ] Build moving cost guide pages.
 - [ ] Build vehicle transport cost guide pages.
 - [ ] Build moving checklist content.
