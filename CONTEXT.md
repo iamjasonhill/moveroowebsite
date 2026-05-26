@@ -20,7 +20,7 @@ Before beginning a new public page, review SEO Champion for the relevant domain 
 
 Every new public page needs a full prelaunch review before it is treated as ready. The review must cover copy, SEO, schema, internal links, compliance wording, CTA flow, local route status, `llms.txt`/AI discoverability where relevant, footer or sitemap discovery where relevant, build checks, and mobile compatibility. Mobile compatibility is not optional: check small-screen layout, sticky mobile CTA behaviour, text wrapping, button fit, section spacing, horizontal overflow, and whether the page still makes sense when read on a phone.
 
-After every new public page is published, log an SEO Champion analysis note for `moveroo.com.au` using the request token if available. The note should include the new page URL, its role in the site architecture, whether sitemap/`llms.txt`/internal links were updated, and a request to monitor indexing, GSC query mapping, GA4 landing-page data, Bing pickup, cannibalisation, and future opportunity routing.
+After every new public page is published, log an SEO Champion analysis note for `moveroo.com.au` using the request token if available, and request that SEO Champion/Jason creates a proper change-history annotation for the launch. The note should include the new page URL, its role in the site architecture, whether sitemap/`llms.txt`/internal links were updated, the repo/commit if available, expected impact, and a request to monitor indexing, GSC query mapping, GA4 landing-page data, Bing pickup, cannibalisation, and future opportunity routing.
 
 ### Household Moves
 
