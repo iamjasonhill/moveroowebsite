@@ -77,7 +77,12 @@ Use this as the shared backlog across future chats. Items marked **Access needed
   - SEO Champion request logged: `0f80e63e-b1e8-43ee-8e5b-6018cc78e7fa`.
 - [ ] Add a non-running vehicle transport page or section.
 - [ ] Add a motorcycle transport page or section.
-- [ ] Add door-to-door vs depot vehicle transport content.
+- [x] Add door-to-door vs depot vehicle transport content.
+  - Live: `/door-to-door-vs-depot-car-transport/` is published from `main`.
+  - Completed in repo: the page explains door-to-door vs depot-to-depot fit, practical handover expectations, depot suburb checks, same-carrier quote examples, transit-time comparison, regional meeting-point caveats, related service links, and FAQs.
+  - Internal linking completed: linked from interstate car transport, Moving Cars, services, footer/service discovery, sitemap, and `llms.txt`.
+  - Prelaunch review completed: copy, SEO Champion/GSC evidence, schema, internal links, compliance wording, CTA flow, mobile compatibility, local route status, quote examples, and build checks.
+  - SEO Champion request logged: `a9aa63e6-8863-4474-abf0-6a545955d5d0`.
 - [ ] Add a boat/caravan/trailer transport page or section.
 - [ ] Add business/fleet vehicle relocation content.
 - [ ] Add apartment/access-constrained move content.
@@ -139,7 +144,7 @@ Use this as the shared backlog across future chats. Items marked **Access needed
 - [ ] Use the competitor-informed page priority order before creating new SEO pages.
   - Completed priority hub: interstate removalists.
   - Completed priority hub: storage coordination.
-  - Remaining priority hubs: non-running vehicle transport, motorcycle transport, and door-to-door vs depot vehicle transport.
+  - Remaining priority hubs: non-running vehicle transport and motorcycle transport.
 - [ ] Define route-page quality rules before building route pages.
   - Route pages should include useful route-specific context, realistic timing/booking constraints, internal links to the correct hub, and real examples where available. Do not publish thin route templates.
 - [ ] Build core city pages:
@@ -169,7 +174,8 @@ Use this as the shared backlog across future chats. Items marked **Access needed
 - [ ] Build "how to compare moving quotes" content.
 - [ ] Build "questions to ask before booking a removalist" content.
 - [ ] Build "backloading vs dedicated move" content.
-- [ ] Build "door-to-door vs depot vehicle transport" content.
+- [x] Build "door-to-door vs depot vehicle transport" content.
+  - Live from `main`, internally linked, and prelaunch-reviewed including mobile compatibility.
 - [ ] Build glossary content:
   - [ ] Backloading
   - [ ] Cubic metres
