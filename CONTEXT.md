@@ -20,6 +20,8 @@ Before beginning a new public page, review SEO Champion for the relevant domain 
 
 Every new public page needs a full prelaunch review before it is treated as ready. The review must cover copy, SEO, schema, internal links, compliance wording, CTA flow, local route status, `llms.txt`/AI discoverability where relevant, footer or sitemap discovery where relevant, build checks, and mobile compatibility. Mobile compatibility is not optional: check small-screen layout, sticky mobile CTA behaviour, text wrapping, button fit, section spacing, horizontal overflow, and whether the page still makes sense when read on a phone.
 
+Before sending a new page draft to the human reviewer, take a dedicated customer-language pass over the whole page. Replace internal planning language, SEO scaffolding, vague service jargon, and machine-written phrasing with plain customer-facing wording. This pass should happen before asking for human copy review, so the reviewer is not forced to catch obvious "AI written" language.
+
 After every new public page is published, log an SEO Champion analysis note for `moveroo.com.au` using the request token if available, and request that SEO Champion/Jason creates a proper change-history annotation for the launch. The note should include the new page URL, its role in the site architecture, whether sitemap/`llms.txt`/internal links were updated, the repo/commit if available, expected impact, and a request to monitor indexing, GSC query mapping, GA4 landing-page data, Bing pickup, cannibalisation, and future opportunity routing.
 
 ### Household Moves
@@ -29,6 +31,28 @@ Household moves are Moveroo's primary commercial service lane.
 Moveroo can safely describe household move support as coordination for local, regional, and interstate household moves, including apartment moves, home moves, backload options, dedicated move options, packing and unpacking coordination, storage coordination, and fragile or specialty item handling where the provider fit supports it.
 
 Use language such as "coordinates", "can help with", and "can line up" rather than implying Moveroo directly performs every physical service.
+
+### Removals And Storage
+
+The `/removals-and-storage/` page should sit under household moves as the main public page for moving and storage timing support. It should not imply Moveroo owns or operates storage facilities. Use language such as Moveroo can help coordinate storage through removalists or storage partners where provider fit supports it.
+
+Public copy may mention short-term storage, longer storage, and storage between pickup and redelivery as possibilities, but should avoid promising containerised storage, climate control, customer access, or a specific storage type unless those details have been checked for the job.
+
+Initial household move pricing usually does not include storage costs. The quote form lets customers indicate that they may need storage, but storage needs extra follow-up information that would make the form too bloated for customers who do not need it. Storage and redelivery are specific to each provider and usually depend on storage duration and the overall size of the moved items. Public copy should explain that storage is usually quoted as a monthly amount plus a redelivery fee once those details are checked.
+
+Storage quote follow-up should ask about expected storage duration, pickup and final delivery timing, final redelivery suburb or address, inventory size, bulky or fragile items, and any settlement, lease, key handback, or other fixed dates Moveroo needs to work around.
+
+If a customer needs access to stored items, recommend arranging a self-storage unit instead of promising access through move storage. Moveroo can help them find a self-storage option where practical, then arrange delivery when they are ready. If goods only need to be held between pickup and redelivery, Moveroo can check storage options as part of the move.
+
+The page should speak to real storage situations: property settlement dates not lining up, rental key handback before the new place is ready, downsizing, renovation or building delays, staged delivery, and furniture that needs collecting now but delivered later.
+
+Storage should be positioned as worth mentioning early, especially when settlement, lease, or redelivery dates matter. If plans change after the first quote, customers can still tell Moveroo and the team can check what storage options are available.
+
+Backloading can be mentioned lightly on the storage page because storage can sometimes make a flexible move easier when pickup and delivery do not need to happen back-to-back. Do not imply storage automatically makes backloading cheaper or available.
+
+The storage page may mention household + vehicle relocation as a secondary situation when household goods need storage and a car or motorcycle is also moving. Ask customers to tell Moveroo early so the jobs can be planned around the same dates where possible.
+
+Storage cover and responsibility should be handled carefully. Say cover and responsibility can depend on the provider, storage arrangement, and terms of the move. Link to the protection/trust page for quote clarity and cover questions. Avoid "fully insured storage", "secure storage" without qualification, "instant storage quote", "access your items any time", "same provider handles everything", "we store your goods", or any claim that storage is always available in every location.
 
 ### Interstate Removalists
 

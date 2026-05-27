@@ -119,13 +119,18 @@ const chooserNotes = [
 		label: "Use specialty when access or freight complexity is the real issue",
 		text: "If storage, fragile handling or unusual equipment are driving the job, start with the closest household or vehicle option and include the extra requirement in the first brief.",
 	},
+	{
+		label: "Use removals and storage when dates do not line up",
+		text: "If pickup can happen before the new place is ready, start with the storage page so the team knows what timing needs to be checked.",
+		href: "/removals-and-storage/",
+	},
 ];
 
 const faqItems = [
 	{
 		question: "What services does Moveroo offer?",
 		answer:
-			"Moveroo coordinates household moves, vehicle transport, and combined household plus vehicle relocations when both services need to be planned together. Extra needs such as packing, storage or fragile handling can be included where the provider fit supports them.",
+			"Moveroo coordinates household moves, removals and storage, vehicle transport, and combined household plus vehicle relocations when more than one service needs to be planned together. Extra needs such as packing, storage or fragile handling can be included where the provider fit supports them.",
 	},
 	{
 		question: "How does the Moveroo moving process work?",
@@ -532,13 +537,22 @@ const structuredData = {
 											<span aria-hidden="true">→</span>
 										</a>
 										{track.id === "household" && (
-											<a
-												class="site-text-action mt-4 gap-2 text-sm font-semibold text-slate-600 transition hover:text-slate-950 dark:text-slate-400 dark:hover:text-white"
-												href="/backloading-removals/"
-											>
-												<span>See how backloading works</span>
-												<span aria-hidden="true">&rarr;</span>
-											</a>
+											<div class="mt-4 grid gap-3">
+												<a
+													class="site-text-action gap-2 text-sm font-semibold text-slate-600 transition hover:text-slate-950 dark:text-slate-400 dark:hover:text-white"
+													href="/backloading-removals/"
+												>
+													<span>See how backloading works</span>
+													<span aria-hidden="true">&rarr;</span>
+												</a>
+												<a
+													class="site-text-action gap-2 text-sm font-semibold text-slate-600 transition hover:text-slate-950 dark:text-slate-400 dark:hover:text-white"
+													href="/removals-and-storage/"
+												>
+													<span>Plan removals and storage</span>
+													<span aria-hidden="true">&rarr;</span>
+												</a>
+											</div>
 										)}
 									</div>
 								</div>
@@ -621,6 +635,18 @@ const structuredData = {
 								</p>
 								<p class="text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
 									{item.text}
+									{item.href && (
+										<>
+											{" "}
+											<a
+												href={item.href}
+												class="font-semibold text-emerald-700 underline decoration-emerald-300 underline-offset-4 transition hover:text-emerald-900 dark:text-emerald-400 dark:decoration-emerald-600 dark:hover:text-emerald-300"
+											>
+												Read the storage guide
+											</a>
+											.
+										</>
+									)}
 								</p>
 							</article>
 						))

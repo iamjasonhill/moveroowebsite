@@ -35,6 +35,7 @@ The audit should include:
 
 For every new page, check:
 
+- human-sounding, customer-facing language before human review
 - brand voice and copy quality
 - factual/domain model accuracy
 - claim and compliance risk
@@ -59,5 +60,7 @@ git diff --check
 ```
 
 ## Human Approval
+
+Before asking for human approval, complete a customer-language pass across the page. Remove internal terms, robotic section labels, SEO-stuffed phrasing, vague business jargon, and copy that sounds like it was written for an operator rather than a customer.
 
 Do not treat the skills sweep as deploy approval. Public pages still need final human review for tone, commercial fit, and any sensitive claims.

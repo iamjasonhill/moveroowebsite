@@ -1,0 +1,482 @@
+---
+import Layout from "../layouts/Layout.astro";
+import QuoteCta from "../components/sections/QuoteCta.astro";
+import { site } from "../config/site";
+
+const publishedAt = new Date("2026-05-27T00:00:00+10:00");
+const updatedAt = publishedAt;
+
+const pageTitle = "Removals and Storage Australia | Moveroo";
+const pageDescription =
+	"Need storage with your move because the dates do not line up? Moveroo helps arrange removals and storage around settlements, leases and delivery dates.";
+
+const storageReasons = [
+	"Settlement is later than your move-out date",
+	"Rental keys are due back before the new place is ready",
+	"Renovation or building work has delayed delivery",
+	"You are downsizing and need time to sort things out",
+	"You need delivery split across more than one date",
+	"Furniture has to be collected now and delivered later",
+];
+
+const firstBriefItems = [
+	"Pickup and delivery suburbs",
+	"What is being moved",
+	"Roughly how long you may need storage",
+	"Settlement, lease or key handback dates",
+	"Whether you will need to access anything in storage",
+	"Fragile items, stairs, lifts or parking problems",
+];
+
+const storageFitCards = [
+	{
+		title: "You do not need access while things are stored",
+		text: "If the goods are being collected, stored and delivered at a later date, Moveroo can help arrange storage with the move.",
+	},
+	{
+		title: "You do need access while things are stored",
+		text: "If you will need to get to boxes or furniture while it is stored, a self-storage unit usually makes more sense. Moveroo can help you look for one, then arrange delivery when you are ready.",
+	},
+	{
+		title: "Your plans change after the quote",
+		text: "It is best to mention storage early, but move dates change all the time. If storage becomes necessary later, let Moveroo know and the team can check what is available.",
+	},
+];
+
+const quoteDetails = [
+	"How long storage may be needed",
+	"How much furniture and how many boxes need storing",
+	"Pickup suburb and final delivery suburb",
+	"Pickup date and likely delivery date",
+	"Whether you will need to access anything in storage",
+	"Bulky, fragile or awkward items",
+];
+
+const relatedServices = [
+	{
+		title: "Interstate removalists",
+		text: "If the whole move is going interstate, start here for the removalist side of the job.",
+		href: "/interstate-removalists/",
+		cta: "Check interstate removals",
+	},
+	{
+		title: "Backloading removals",
+		text: "Worth checking if your dates have some room and delivery does not need to happen straight after pickup.",
+		href: "/backloading-removals/",
+		cta: "Check backloading",
+	},
+	{
+		title: "How Moveroo protects your move",
+		text: "Before booking, check what to expect around quote details, deposits, cover questions and support.",
+		href: "/how-moveroo-protects-your-move/",
+		cta: "Check before booking",
+	},
+];
+
+const faqItems = [
+	{
+		question: "Does the first moving quote include storage?",
+		answer:
+			"Usually no. The quote form lets you tell Moveroo storage may be needed, then the team asks the extra questions needed to price it properly.",
+	},
+	{
+		question: "How is storage quoted?",
+		answer:
+			"Storage is usually priced by the month, with a separate fee to deliver your items from storage when you are ready. The final cost depends on the provider, the amount being stored and how long storage is needed.",
+	},
+	{
+		question: "Can I access my items while they are in storage?",
+		answer:
+			"If you need access while items are stored, a self-storage unit usually makes more sense. Moveroo can help you look for one, then arrange delivery when you are ready.",
+	},
+	{
+		question: "Can storage be added after the first quote?",
+		answer:
+			"Yes. It is better to mention storage early, especially when settlement, lease or delivery dates matter, but plans can change. If storage becomes necessary, let Moveroo know.",
+	},
+	{
+		question: "Can storage work with backloading?",
+		answer:
+			"Sometimes. Storage can make timing easier when pickup and delivery do not need to happen close together, but the right choice still depends on the dates and move details.",
+	},
+	{
+		question: "What about cover while items are stored?",
+		answer:
+			"Cover and responsibility can depend on the provider, how the goods are stored and the terms of the move. Check what is included before booking.",
+	},
+];
+
+const structuredData = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "WebPage",
+			"@id": "https://moveroo.com.au/removals-and-storage/",
+			url: "https://moveroo.com.au/removals-and-storage/",
+			name: pageTitle,
+			description: pageDescription,
+			inLanguage: "en-AU",
+			datePublished: publishedAt.toISOString(),
+			dateModified: updatedAt.toISOString(),
+			isPartOf: {
+				"@id": "https://moveroo.com.au/#website",
+			},
+			about: {
+				"@id": "https://moveroo.com.au/removals-and-storage/#service",
+			},
+		},
+		{
+			"@type": "Service",
+			"@id": "https://moveroo.com.au/removals-and-storage/#service",
+			name: "Removals and storage coordination",
+			serviceType: "Removals and storage",
+			description: pageDescription,
+			provider: {
+				"@id": "https://moveroo.com.au/#organization",
+			},
+			areaServed: {
+				"@type": "Country",
+				name: "Australia",
+			},
+		},
+		{
+			"@type": "FAQPage",
+			"@id": "https://moveroo.com.au/removals-and-storage/#faq",
+			mainEntity: faqItems.map((faq) => ({
+				"@type": "Question",
+				name: faq.question,
+				acceptedAnswer: {
+					"@type": "Answer",
+					text: faq.answer,
+				},
+			})),
+		},
+	],
+};
+---
+
+<Layout
+	title={pageTitle}
+	description={pageDescription}
+	canonical="https://moveroo.com.au/removals-and-storage/"
+	ogImage="https://moveroo.com.au/og-services.png"
+>
+	<Fragment slot="head">
+		<meta property="article:published_time" content={publishedAt.toISOString()} />
+		<meta property="article:modified_time" content={updatedAt.toISOString()} />
+		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+	</Fragment>
+
+	<section class="relative overflow-hidden bg-slate-950 py-14 text-white md:py-32">
+		<div
+			class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.24),_transparent_30%),linear-gradient(135deg,_#052e2b_0%,_#0f172a_48%,_#111827_100%)]"
+		>
+		</div>
+		<div class="route-grid absolute inset-0 opacity-25"></div>
+
+		<div class="relative mx-auto box-border w-full max-w-6xl px-6">
+			<div class="grid gap-14 lg:grid-cols-[minmax(0,1.02fr)_minmax(22rem,0.98fr)] lg:items-center">
+				<div class="motion-rise min-w-0" style="max-width: calc(100vw - 3rem);">
+					<p class="section-kicker text-emerald-300">Removals and storage</p>
+					<h1
+						class="section-title mt-4 max-w-full text-[2rem] font-semibold leading-[1.12] min-[420px]:text-4xl sm:text-5xl md:mt-6 md:max-w-4xl md:text-7xl"
+					>
+						<span class="block md:inline">Removals and storage</span>{" "}
+						<span class="block md:inline">when dates do not</span>{" "}
+						<span class="block md:inline">line up.</span>
+					</h1>
+					<p
+						class="mt-5 w-full max-w-[calc(100vw-3rem)] text-base leading-relaxed text-slate-300 md:mt-7 md:max-w-2xl md:text-xl"
+					>
+						If your furniture needs to be picked up before the new place is ready, Moveroo can
+						help arrange removals and storage around your settlement, lease or delivery dates.
+					</p>
+
+					<div
+						class="motion-rise motion-rise-delay-1 mt-6 grid max-w-[calc(100vw-3rem)] gap-2 sm:flex sm:max-w-none sm:flex-wrap sm:gap-4 md:mt-10"
+						style="max-width: calc(100vw - 3rem);"
+					>
+						<a
+							class="inline-flex min-h-12 items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-center text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-950/30 transition hover:bg-emerald-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300 sm:min-h-0"
+							href={site.destinations.householdQuote}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Start a moving quote
+						</a>
+						<a
+							class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/20 px-6 py-3 text-center text-sm font-semibold text-white transition hover:border-emerald-300 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300 sm:min-h-0"
+							href={site.destinations.contactPage}
+						>
+							Request a callback
+						</a>
+					</div>
+				</div>
+
+				<div
+					class="motion-rise motion-rise-delay-2 min-w-0 max-w-[calc(100vw-3rem)] rounded-[2rem] border border-white/10 bg-white/8 p-6 shadow-[0_30px_80px_-40px_rgba(2,6,23,0.8)] backdrop-blur-sm sm:max-w-none md:p-8"
+					style="max-width: calc(100vw - 3rem);"
+				>
+					<p class="section-kicker text-emerald-300">Quote Details</p>
+					<h2 class="mt-5 text-3xl font-semibold tracking-tight text-white">
+						Details that help us check storage
+					</h2>
+					<ul class="mt-6 grid gap-3 text-sm leading-relaxed text-slate-300">
+						{
+							firstBriefItems.map((item) => (
+								<li class="flex items-start gap-3">
+									<span class="mt-1.5 h-2.5 w-2.5 rounded-full bg-emerald-400" aria-hidden="true" />
+									<span>{item}</span>
+								</li>
+							))
+						}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="border-b border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900">
+		<div class="mx-auto box-border w-full max-w-6xl px-6">
+			<div
+				class="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-16"
+			>
+				<div class="motion-rise lg:sticky lg:top-28">
+					<p class="section-kicker">Why People Use Storage</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						Storage is usually about timing, not just space.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						Most people ask about storage because they have to be out of one place before the next
+						one is ready. The storage plan needs to work around those dates.
+					</p>
+				</div>
+
+				<div class="motion-rise motion-rise-delay-1 grid gap-3">
+					{
+						storageReasons.map((item) => (
+							<div class="flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 text-sm font-semibold text-slate-700 shadow-sm dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-300">
+								<span class="mt-1.5 h-2.5 w-2.5 rounded-full bg-emerald-500" aria-hidden="true" />
+								<span>{item}</span>
+							</div>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-slate-50 py-24 dark:bg-slate-950/40">
+		<div class="mx-auto box-border w-full max-w-6xl px-6">
+			<div class="motion-rise max-w-3xl">
+				<p class="section-kicker">Access While Stored</p>
+				<h2
+					class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+				>
+					Will you need to get to anything while it is stored?
+				</h2>
+				<p class="mt-6 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+					If your items need to be stored after pickup and delivered at a later date, Moveroo can
+					help arrange storage with the move. If you need to get to boxes or furniture while they
+					are stored, a self-storage unit usually makes more sense.
+				</p>
+			</div>
+
+			<div class="motion-rise motion-rise-delay-1 mt-10 grid gap-5 lg:grid-cols-3">
+				{
+					storageFitCards.map((item) => (
+						<article class="rounded-[1.75rem] border border-slate-200 bg-white px-6 py-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/75">
+							<h3 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
+								{item.title}
+							</h3>
+							<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+								{item.text}
+							</p>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="border-y border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900">
+		<div class="mx-auto box-border w-full max-w-6xl px-6">
+			<div
+				class="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-16"
+			>
+				<div class="motion-rise lg:sticky lg:top-28">
+					<p class="section-kicker">Storage Pricing</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						Storage is priced after we ask a few more questions.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						The moving quote form lets you tell us storage may be needed. From there, Moveroo will
+						ask what needs to be stored, roughly how long it may be in storage and where it needs
+						to be delivered later.
+					</p>
+					<p class="mt-5 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						Storage is usually priced by the month, with a separate fee to deliver your items from
+						storage when you are ready. The final cost depends on the provider, how much needs to
+						be stored and how long storage is needed.
+					</p>
+				</div>
+
+				<div class="motion-rise motion-rise-delay-1 grid gap-4">
+					{
+						quoteDetails.map((item) => (
+							<article class="rounded-[1.5rem] border border-slate-200 bg-slate-50 px-6 py-5 shadow-sm dark:border-slate-800 dark:bg-slate-950/40">
+								<p class="text-base font-semibold leading-relaxed text-slate-800 dark:text-slate-200">
+									{item}
+								</p>
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-slate-50 py-24 dark:bg-slate-950/40">
+		<div class="mx-auto box-border w-full max-w-6xl px-6">
+			<div
+				class="grid gap-12 rounded-[2rem] border border-slate-200 bg-white px-6 py-8 shadow-sm dark:border-slate-800 dark:bg-slate-900/75 md:px-8 md:py-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start"
+			>
+				<div class="motion-rise">
+					<p class="section-kicker">Move Timing</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						Storage can make the dates easier to work around.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						When pickup and delivery do not need to happen close together, there may be more room
+						to work with available truck dates. That can matter when you are comparing a backload
+						option with a move booked around dates that cannot move.
+					</p>
+					<p class="mt-5 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						If the move is interstate and you are still working out which removalist option makes
+						sense, start with{" "}
+						<a
+							href="/interstate-removalists/"
+							class="font-semibold text-emerald-700 underline decoration-emerald-300 underline-offset-4 transition hover:text-emerald-900 dark:text-emerald-400 dark:decoration-emerald-600 dark:hover:text-emerald-300"
+						>
+							interstate removalists
+						</a>
+						.
+					</p>
+				</div>
+
+				<div
+					class="motion-rise motion-rise-delay-1 rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 dark:border-slate-800 dark:bg-slate-950/40 md:p-8"
+				>
+					<h3 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
+						Moving a vehicle too?
+					</h3>
+					<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+						If your furniture needs storage and a car or motorcycle is also moving interstate, tell
+						Moveroo early so the dates can be checked together where possible.
+					</p>
+					<a
+						href="/household-vehicle-relocation/"
+						class="site-text-action mt-5 gap-2 text-sm font-semibold text-emerald-700 transition hover:text-emerald-900 dark:text-emerald-400 dark:hover:text-emerald-300"
+					>
+						<span>Plan a household and vehicle move</span>
+						<span aria-hidden="true">&rarr;</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="border-y border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900">
+		<div class="mx-auto box-border w-full max-w-6xl px-6">
+			<div class="motion-rise max-w-3xl">
+					<p class="section-kicker">Related Pages</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+					Planning more than storage?
+					</h2>
+					<p class="mt-6 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+					These pages can help if the job also involves an interstate move, flexible dates or
+					questions about what is included before booking.
+					</p>
+			</div>
+
+			<div class="motion-rise motion-rise-delay-1 mt-10 grid gap-5 md:grid-cols-3">
+				{
+					relatedServices.map((item) => (
+						<article class="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/40">
+							<h3 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
+								{item.title}
+							</h3>
+							<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+								{item.text}
+							</p>
+							<a
+								href={item.href}
+								class="site-text-action mt-5 gap-2 text-sm font-semibold text-emerald-700 transition hover:text-emerald-900 dark:text-emerald-400 dark:hover:text-emerald-300"
+							>
+								<span>{item.cta}</span>
+								<span aria-hidden="true">&rarr;</span>
+							</a>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-slate-50 py-24 dark:bg-slate-900" id="faq">
+		<div class="mx-auto box-border w-full max-w-6xl px-6">
+			<div
+				class="grid gap-12 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-start lg:gap-16"
+			>
+				<div class="motion-rise lg:sticky lg:top-28">
+					<p class="section-kicker">FAQ</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						Common removals and storage questions.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						These are the questions people usually ask before adding storage to a move.
+					</p>
+				</div>
+
+				<div class="motion-rise motion-rise-delay-1 grid gap-4">
+					{
+						faqItems.map((faq) => (
+							<details class="group rounded-[1.5rem] border border-slate-200 bg-white px-6 py-5 shadow-sm dark:border-slate-800 dark:bg-slate-950/55">
+								<summary class="flex cursor-pointer list-none items-start justify-between gap-6">
+									<h3 class="text-lg font-semibold leading-relaxed text-slate-900 dark:text-white">
+										{faq.question}
+									</h3>
+									<span class="mt-1 text-2xl leading-none text-emerald-600 transition group-open:rotate-45 dark:text-emerald-400">
+										+
+									</span>
+								</summary>
+								<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+									{faq.answer}
+								</p>
+							</details>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<QuoteCta
+		title="Need storage included with the move?"
+		subtitle="Start a moving quote and say storage may be needed. Moveroo will ask the extra questions needed to check storage and later delivery."
+		ctaPrimaryLabel="Start a moving quote"
+		ctaPrimaryHref={site.destinations.householdQuote}
+		ctaSecondaryLabel="Request a callback"
+		ctaSecondaryHref={site.destinations.contactPage}
+	/>
+</Layout>

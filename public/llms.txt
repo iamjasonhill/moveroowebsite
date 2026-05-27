@@ -16,6 +16,13 @@ Professional moving support for homes and apartments. Get a quote for your route
 - Packing services
 - Storage solutions
 
+### Removals and Storage
+Moving and storage support when pickup, settlement, lease and redelivery dates do not line up. Moveroo can help check storage options through removalists or storage partners where provider fit supports it.
+
+- Storage between pickup and redelivery
+- Self-storage guidance when customers need access to stored items
+- Settlement, rental key handback and staged delivery timing
+
 ### Interstate Removalists
 Interstate removalist coordination for moves where dates, inventory, access and timing constraints need to be checked before booking.
 
@@ -47,6 +54,7 @@ Vehicle transport coordination across Australia. Whether you're moving interstat
 - [Get a Moving Quote](https://quotes.moveroo.com.au/quote/household)
 - [Household Removals](https://moveroo.com.au/household-removals/)
 - [Interstate Removalists](https://moveroo.com.au/interstate-removalists/)
+- [Removals and Storage](https://moveroo.com.au/removals-and-storage/)
 - [Backloading Removals](https://moveroo.com.au/backloading-removals/)
 - [Combined Household + Vehicle Relocation](https://moveroo.com.au/household-vehicle-relocation/)
 - [Interstate Car Transport](https://moveroo.com.au/interstate-car-transport/)
