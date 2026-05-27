@@ -69,7 +69,12 @@ Use this as the shared backlog across future chats. Items marked **Access needed
   - Internal linking completed: linked from vehicle, services, household/removalist support pages, footer/service discovery, sitemap, and `llms.txt`.
   - Prelaunch review completed: copy, SEO, schema, internal links, compliance wording, mobile compatibility, local route status, quote examples, and build checks.
 - [ ] Add a dedicated removals page.
-- [ ] Add a storage coordination page or section.
+- [x] Add a storage coordination page or section.
+  - Live: `/removals-and-storage/` is published from `main`.
+  - Completed in repo: the page explains removals and storage timing, settlement and lease gaps, storage access vs self-storage, storage pricing follow-up, backloading timing fit, cover caveats, related service links, and FAQs.
+  - Internal linking completed: linked from household removals, interstate removalists, backloading removals, services, protection page, footer/service discovery, sitemap, and `llms.txt`.
+  - Prelaunch review completed: copy, SEO Champion/GSC evidence, schema, internal links, compliance wording, CTA flow, mobile compatibility, local route status, `llms.txt`, footer discovery, and build checks.
+  - SEO Champion request logged: `0f80e63e-b1e8-43ee-8e5b-6018cc78e7fa`.
 - [ ] Add a non-running vehicle transport page or section.
 - [ ] Add a motorcycle transport page or section.
 - [ ] Add door-to-door vs depot vehicle transport content.
@@ -133,7 +138,8 @@ Use this as the shared backlog across future chats. Items marked **Access needed
 
 - [ ] Use the competitor-informed page priority order before creating new SEO pages.
   - Completed priority hub: interstate removalists.
-  - Remaining priority hubs: storage coordination, non-running vehicle transport, motorcycle transport, and door-to-door vs depot vehicle transport.
+  - Completed priority hub: storage coordination.
+  - Remaining priority hubs: non-running vehicle transport, motorcycle transport, and door-to-door vs depot vehicle transport.
 - [ ] Define route-page quality rules before building route pages.
   - Route pages should include useful route-specific context, realistic timing/booking constraints, internal links to the correct hub, and real examples where available. Do not publish thin route templates.
 - [ ] Build core city pages:
@@ -153,6 +159,8 @@ Use this as the shared backlog across future chats. Items marked **Access needed
   - [ ] Move car interstate
   - [ ] Transport car interstate
   - [x] Interstate car transport
+    - Live from `main`, internally linked, and prelaunch-reviewed including mobile compatibility.
+  - [x] Removals and storage
     - Live from `main`, internally linked, and prelaunch-reviewed including mobile compatibility.
 - [ ] Build moving cost guide pages.
 - [ ] Build vehicle transport cost guide pages.
