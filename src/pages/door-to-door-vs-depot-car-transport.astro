@@ -1,0 +1,576 @@
+---
+import Layout from "../layouts/Layout.astro";
+import QuoteCta from "../components/sections/QuoteCta.astro";
+import { site } from "../config/site";
+
+const publishedAt = new Date("2026-05-27T00:00:00+10:00");
+const updatedAt = publishedAt;
+
+const pageTitle = "Door-to-Door vs Depot Car Transport | Moveroo";
+const pageDescription =
+	"Compare door-to-door and depot-to-depot car transport. Moveroo helps you check price, depot suburbs, transit time and the work involved before booking.";
+
+const comparisonSummary = [
+	{
+		label: "Door-to-door",
+		title: "Easier handover",
+		text: "The carrier collects and delivers the vehicle as close as practical to the requested addresses. In some areas, that can mean a nearby safe meeting point.",
+	},
+	{
+		label: "Depot-to-depot",
+		title: "Lower cost with more effort",
+		text: "You drop the vehicle at the carrier's nominated depot and collect it from the destination depot. The quote should show the specific depot suburbs.",
+	},
+	{
+		label: "Compare both",
+		title: "Price is only one part",
+		text: "Depot-to-depot is cheaper within the same carrier's options, but the better choice also depends on depot location, timing and transit time.",
+	},
+];
+
+const priceExamples = [
+	{
+		route: "Perth WA to Ashmore QLD",
+		vehicle: "Hyundai Santa Fe",
+		door: "$2,249.38",
+		depot: "$2,001.29",
+		difference: "$248.09",
+		transit: "Door: 16 days / Depot: 14 days",
+	},
+	{
+		route: "Prahran VIC to Hawthorne QLD",
+		vehicle: "Audi A3",
+		door: "$1,506.49",
+		depot: "$1,186.72",
+		difference: "$319.77",
+		transit: "Door: 7 days / Depot: 6 days",
+	},
+	{
+		route: "Maroochydore QLD to Bayswater North VIC",
+		vehicle: "Holden Captiva",
+		door: "$1,734.40",
+		depot: "$1,152.30",
+		difference: "$582.10",
+		transit: "Door: 8 days / Depot: 6 days",
+	},
+];
+
+const doorFits = [
+	"You cannot easily get to a depot",
+	"You are short on time at pickup or delivery",
+	"You want the simpler handover",
+	"The move is regional and depot access is awkward",
+	"You are working around flights, work, family or settlement timing",
+	"The car move is part of a larger household move",
+];
+
+const depotFits = [
+	"You can comfortably get the car to and from the depot",
+	"The depot suburbs shown in the quote work for you",
+	"You want the lower-cost option from that carrier",
+	"Someone is available to help at both ends if needed",
+	"You are comparing several carrier options and transit times",
+	"The extra depot trip will not create more hassle than it saves",
+];
+
+const quoteDetails = [
+	"Pickup and delivery suburbs",
+	"Vehicle make, model and body type",
+	"Whether the vehicle runs, rolls and steers",
+	"Whether you want door-to-door, depot-to-depot, or both checked",
+	"Any timing that matters at either end",
+	"Whether the car move is part of a household move",
+];
+
+const relatedServices = [
+	{
+		title: "Interstate car transport",
+		text: "Start here if you need the full car transport page, including carrier options, tracking and quote details.",
+		href: "/interstate-car-transport/",
+		cta: "Compare car transport",
+	},
+	{
+		title: "Moving Cars",
+		text: "Useful for broader vehicle transport, including motorcycles, non-running vehicles and multi-vehicle work.",
+		href: "/moving-cars/",
+		cta: "See vehicle transport",
+	},
+	{
+		title: "Household and vehicle move",
+		text: "If the car move is part of a household relocation, this explains how the timing can be planned together.",
+		href: "/household-vehicle-relocation/",
+		cta: "Plan both together",
+	},
+];
+
+const faqItems = [
+	{
+		question: "Is depot-to-depot cheaper than door-to-door?",
+		answer:
+			"Depot-to-depot is cheaper than door-to-door within the same carrier's quote options. The cheapest overall quote can still depend on which carriers are available for the route.",
+	},
+	{
+		question: "Does door-to-door mean the truck comes to my driveway?",
+		answer:
+			"Not always. Door-to-door means the carrier collects and delivers as close as practical to the requested addresses. If the truck cannot safely access the exact address, the driver may arrange a nearby safe meeting point.",
+	},
+	{
+		question: "Will the quote show which depot I need to use?",
+		answer:
+			"Yes. Depot locations are carrier-specific, so the quote should show the pickup and delivery depot suburbs before you choose that option.",
+	},
+	{
+		question: "Can I compare door-to-door and depot-to-depot before booking?",
+		answer:
+			"Where those options are available, yes. Moveroo can help you compare the price, depot suburbs, transit time and the work involved before booking.",
+	},
+	{
+		question: "What if I am in a regional area?",
+		answer:
+			"In some regional areas, door-to-door may involve meeting the carrier at a practical nearby location rather than the truck coming to the exact driveway. The important part is knowing what the quote option includes before you book.",
+	},
+	{
+		question: "Which option should I choose?",
+		answer:
+			"Choose door-to-door if the simpler handover is worth the extra cost. Choose depot-to-depot if the depot suburbs are practical and the lower price is worth the extra trip.",
+	},
+];
+
+const structuredData = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "WebPage",
+			"@id": "https://moveroo.com.au/door-to-door-vs-depot-car-transport/",
+			url: "https://moveroo.com.au/door-to-door-vs-depot-car-transport/",
+			name: pageTitle,
+			description: pageDescription,
+			inLanguage: "en-AU",
+			datePublished: publishedAt.toISOString(),
+			dateModified: updatedAt.toISOString(),
+			isPartOf: {
+				"@id": "https://moveroo.com.au/#website",
+			},
+			about: {
+				"@id": "https://moveroo.com.au/door-to-door-vs-depot-car-transport/#service",
+			},
+		},
+		{
+			"@type": "Service",
+			"@id": "https://moveroo.com.au/door-to-door-vs-depot-car-transport/#service",
+			name: "Door-to-door and depot car transport comparison",
+			serviceType: "Vehicle transport coordination",
+			description: pageDescription,
+			provider: {
+				"@id": "https://moveroo.com.au/#organization",
+			},
+			areaServed: {
+				"@type": "Country",
+				name: "Australia",
+			},
+		},
+		{
+			"@type": "FAQPage",
+			"@id": "https://moveroo.com.au/door-to-door-vs-depot-car-transport/#faq",
+			mainEntity: faqItems.map((faq) => ({
+				"@type": "Question",
+				name: faq.question,
+				acceptedAnswer: {
+					"@type": "Answer",
+					text: faq.answer,
+				},
+			})),
+		},
+	],
+};
+---
+
+<Layout
+	title={pageTitle}
+	description={pageDescription}
+	canonical="https://moveroo.com.au/door-to-door-vs-depot-car-transport/"
+	ogImage="https://moveroo.com.au/og-moving-cars.png"
+>
+	<Fragment slot="head">
+		<meta property="article:published_time" content={publishedAt.toISOString()} />
+		<meta property="article:modified_time" content={updatedAt.toISOString()} />
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+	</Fragment>
+
+	<section class="relative overflow-hidden bg-slate-950 py-20 text-white md:py-32">
+		<div
+			class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.22),_transparent_30%),linear-gradient(135deg,_#041f1d_0%,_#0f172a_48%,_#111827_100%)]"
+		>
+		</div>
+		<div class="route-grid absolute inset-0 opacity-25"></div>
+
+		<div class="relative mx-auto box-border w-full max-w-6xl px-6">
+			<div class="grid gap-14 lg:grid-cols-[minmax(0,1.02fr)_minmax(22rem,0.98fr)] lg:items-center">
+				<div class="motion-rise w-full min-w-0 max-w-full">
+					<p class="section-kicker text-emerald-300">Car transport options</p>
+					<h1
+						class="section-title mt-6 max-w-4xl text-4xl font-semibold leading-[1.02] text-balance md:text-7xl"
+					>
+						Door-to-door or depot car transport: which option makes sense?
+					</h1>
+					<p class="mt-7 max-w-2xl text-lg leading-relaxed text-slate-300 md:text-xl">
+						Moveroo helps you compare door-to-door and depot-to-depot car transport before
+						booking, so the quote makes sense for your price, timing and handover.
+					</p>
+
+					<div class="motion-rise motion-rise-delay-1 mt-10 grid w-full gap-3 sm:flex sm:flex-wrap sm:gap-4">
+						<a
+							class="inline-flex min-h-12 items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-center text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-950/30 transition hover:bg-emerald-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300 sm:min-h-0"
+							href={site.destinations.vehicleQuote}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Start a vehicle transport quote
+						</a>
+						<a
+							class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/20 px-6 py-3 text-center text-sm font-semibold text-white transition hover:border-emerald-300 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300 sm:min-h-0"
+							href={site.destinations.contactPage}
+						>
+							Request a callback
+						</a>
+					</div>
+				</div>
+
+				<div
+					class="motion-rise motion-rise-delay-2 min-w-0 rounded-[2rem] border border-white/10 bg-white/8 p-6 shadow-[0_30px_80px_-40px_rgba(2,6,23,0.8)] backdrop-blur-sm md:p-8"
+				>
+					<p class="section-kicker text-emerald-300">What To Compare</p>
+					<h2 class="mt-5 text-3xl font-semibold tracking-tight text-white">
+						The quote should show more than the price.
+					</h2>
+					<ul class="mt-6 grid gap-3 text-sm leading-relaxed text-slate-300">
+						<li class="flex items-start gap-3">
+							<span class="mt-1.5 h-2.5 w-2.5 rounded-full bg-emerald-400" aria-hidden="true" />
+							<span>Door-to-door price and depot-to-depot price where available</span>
+						</li>
+						<li class="flex items-start gap-3">
+							<span class="mt-1.5 h-2.5 w-2.5 rounded-full bg-emerald-400" aria-hidden="true" />
+							<span>The depot suburbs, not just the pickup and delivery suburbs</span>
+						</li>
+						<li class="flex items-start gap-3">
+							<span class="mt-1.5 h-2.5 w-2.5 rounded-full bg-emerald-400" aria-hidden="true" />
+							<span>Transit time and the effort needed at each end</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="border-b border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900">
+		<div class="mx-auto box-border w-full max-w-6xl px-6">
+			<div class="motion-rise max-w-3xl">
+				<p class="section-kicker">The Difference</p>
+				<h2
+					class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+				>
+					The main difference is who handles the handover.
+				</h2>
+				<p class="mt-6 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+					Door-to-door is usually easier. Depot-to-depot usually costs less within the same
+					carrier's options, but only makes sense if the depot locations work for you.
+				</p>
+			</div>
+
+			<div class="motion-rise motion-rise-delay-1 mt-10 grid gap-5 md:grid-cols-3">
+				{
+					comparisonSummary.map((item) => (
+						<article class="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/40">
+							<p class="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-700 dark:text-emerald-400">
+								{item.label}
+							</p>
+							<h3 class="mt-4 text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
+								{item.title}
+							</h3>
+							<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+								{item.text}
+							</p>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-slate-50 py-24 dark:bg-slate-950/40">
+		<div class="mx-auto box-border w-full max-w-6xl px-6">
+			<div
+				class="grid gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-start lg:gap-16"
+			>
+				<div class="motion-rise lg:sticky lg:top-28">
+					<p class="section-kicker">Which One Fits</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						Choose the option that works in real life.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						A lower quote can stop being useful if the depot is hard to reach, the timing is wrong
+						or you need another person to help with the handover.
+					</p>
+				</div>
+
+				<div class="motion-rise motion-rise-delay-1 grid gap-5 md:grid-cols-2">
+					<article class="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/75">
+						<h3 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
+							Door-to-door usually fits when:
+						</h3>
+						<ul class="mt-6 grid gap-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+							{doorFits.map((item) => (
+								<li class="flex items-start gap-3">
+									<span class="mt-1.5 h-2.5 w-2.5 rounded-full bg-emerald-500" aria-hidden="true" />
+									<span>{item}</span>
+								</li>
+							))}
+						</ul>
+					</article>
+
+					<article class="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/75">
+						<h3 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
+							Depot-to-depot usually fits when:
+						</h3>
+						<ul class="mt-6 grid gap-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+							{depotFits.map((item) => (
+								<li class="flex items-start gap-3">
+									<span class="mt-1.5 h-2.5 w-2.5 rounded-full bg-emerald-500" aria-hidden="true" />
+									<span>{item}</span>
+								</li>
+							))}
+						</ul>
+					</article>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="border-y border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900">
+		<div class="mx-auto box-border w-full max-w-6xl px-6">
+			<div class="motion-rise max-w-3xl">
+				<p class="section-kicker">Quote Examples</p>
+				<h2
+					class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+				>
+					Recent door-to-door and depot-to-depot examples.
+				</h2>
+				<p class="mt-6 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+					These anonymised quote examples show how the pickup and delivery option changed the
+					price in recent quotes. They are examples only, not a promise that the same difference
+					will apply to every car move.
+				</p>
+			</div>
+
+			<div class="motion-rise motion-rise-delay-1 mt-10 grid gap-4 md:hidden">
+				{
+					priceExamples.map((example) => (
+						<article class="rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/75">
+							<h3 class="text-base font-semibold leading-snug text-slate-900 dark:text-white">
+								{example.route}
+							</h3>
+							<p class="mt-1 text-sm text-slate-600 dark:text-slate-400">{example.vehicle}</p>
+							<dl class="mt-5 grid gap-3 text-sm">
+								<div class="flex items-start justify-between gap-4 border-t border-slate-200 pt-3 dark:border-slate-800">
+									<dt class="text-slate-500 dark:text-slate-400">Door-to-door</dt>
+									<dd class="font-semibold text-slate-900 dark:text-white">{example.door}</dd>
+								</div>
+								<div class="flex items-start justify-between gap-4 border-t border-slate-200 pt-3 dark:border-slate-800">
+									<dt class="text-slate-500 dark:text-slate-400">Depot-to-depot</dt>
+									<dd class="font-semibold text-slate-900 dark:text-white">{example.depot}</dd>
+								</div>
+								<div class="flex items-start justify-between gap-4 border-t border-slate-200 pt-3 dark:border-slate-800">
+									<dt class="text-slate-500 dark:text-slate-400">Difference</dt>
+									<dd class="font-semibold text-emerald-700 dark:text-emerald-400">
+										{example.difference}
+									</dd>
+								</div>
+								<div class="flex items-start justify-between gap-4 border-t border-slate-200 pt-3 dark:border-slate-800">
+									<dt class="text-slate-500 dark:text-slate-400">Transit</dt>
+									<dd class="max-w-[11rem] text-right font-semibold text-slate-900 dark:text-white">
+										{example.transit}
+									</dd>
+								</div>
+							</dl>
+						</article>
+					))
+				}
+			</div>
+
+			<div
+				class="motion-rise motion-rise-delay-1 mt-10 hidden overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900/75 md:block"
+			>
+				<div
+					class="grid border-b border-slate-200 bg-slate-100 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:border-slate-800 dark:bg-slate-950/60 dark:text-slate-400 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.75fr)_repeat(3,minmax(0,0.62fr))_minmax(0,0.8fr)]"
+				>
+					<div class="px-6 py-4">Route</div>
+					<div class="border-t border-slate-200 px-6 py-4 dark:border-slate-800 md:border-l md:border-t-0">
+						Vehicle
+					</div>
+					<div class="border-t border-slate-200 px-6 py-4 dark:border-slate-800 md:border-l md:border-t-0">
+						Door-to-door
+					</div>
+					<div class="border-t border-slate-200 px-6 py-4 dark:border-slate-800 md:border-l md:border-t-0">
+						Depot-to-depot
+					</div>
+					<div class="border-t border-slate-200 px-6 py-4 dark:border-slate-800 md:border-l md:border-t-0">
+						Difference
+					</div>
+					<div class="border-t border-slate-200 px-6 py-4 dark:border-slate-800 md:border-l md:border-t-0">
+						Transit
+					</div>
+				</div>
+				{
+					priceExamples.map((example) => (
+						<div class="grid border-b border-slate-200 last:border-b-0 dark:border-slate-800 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.75fr)_repeat(3,minmax(0,0.62fr))_minmax(0,0.8fr)]">
+							<p class="px-6 py-5 text-sm font-semibold text-slate-900 dark:text-white">
+								{example.route}
+							</p>
+							<p class="border-t border-slate-200 px-6 py-5 text-sm text-slate-600 dark:border-slate-800 dark:text-slate-400 md:border-l md:border-t-0">
+								{example.vehicle}
+							</p>
+							<p class="border-t border-slate-200 px-6 py-5 text-sm text-slate-600 dark:border-slate-800 dark:text-slate-400 md:border-l md:border-t-0">
+								{example.door}
+							</p>
+							<p class="border-t border-slate-200 px-6 py-5 text-sm text-slate-600 dark:border-slate-800 dark:text-slate-400 md:border-l md:border-t-0">
+								{example.depot}
+							</p>
+							<p class="border-t border-slate-200 px-6 py-5 text-sm font-semibold text-emerald-700 dark:border-slate-800 dark:text-emerald-400 md:border-l md:border-t-0">
+								{example.difference}
+							</p>
+							<p class="border-t border-slate-200 px-6 py-5 text-sm text-slate-600 dark:border-slate-800 dark:text-slate-400 md:border-l md:border-t-0">
+								{example.transit}
+							</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-slate-50 py-24 dark:bg-slate-950/40">
+		<div class="mx-auto box-border w-full max-w-6xl px-6">
+			<div
+				class="grid gap-12 rounded-[2rem] border border-slate-200 bg-white px-6 py-8 shadow-sm dark:border-slate-800 dark:bg-slate-900/75 md:px-8 md:py-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start"
+			>
+				<div class="motion-rise">
+					<p class="section-kicker">Handover Details</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						Door-to-door still needs a practical handover point.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						Large transport trucks cannot always stop safely at the exact driveway or apartment
+						entrance. If needed, the driver and customer may work out a nearby safe meeting point
+						closer to pickup or delivery.
+					</p>
+				</div>
+
+				<div class="motion-rise motion-rise-delay-1 rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 dark:border-slate-800 dark:bg-slate-950/40 md:p-8">
+					<h3 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
+						What Moveroo needs for a clear quote
+					</h3>
+					<ul class="mt-6 grid gap-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+						{quoteDetails.map((item) => (
+							<li class="flex items-start gap-3">
+								<span class="mt-1.5 h-2.5 w-2.5 rounded-full bg-emerald-500" aria-hidden="true" />
+								<span>{item}</span>
+							</li>
+						))}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="border-y border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900">
+		<div class="mx-auto box-border w-full max-w-6xl px-6">
+			<div class="motion-rise max-w-3xl">
+				<p class="section-kicker">Related Pages</p>
+				<h2
+					class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+				>
+					Planning more than the handover?
+				</h2>
+				<p class="mt-6 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+					These pages can help if you are comparing the broader vehicle move or coordinating the
+					car with a household relocation.
+				</p>
+			</div>
+
+			<div class="motion-rise motion-rise-delay-1 mt-10 grid gap-5 md:grid-cols-3">
+				{
+					relatedServices.map((item) => (
+						<article class="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/40">
+							<h3 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
+								{item.title}
+							</h3>
+							<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+								{item.text}
+							</p>
+							<a
+								href={item.href}
+								class="site-text-action mt-5 gap-2 text-sm font-semibold text-emerald-700 transition hover:text-emerald-900 dark:text-emerald-400 dark:hover:text-emerald-300"
+							>
+								<span>{item.cta}</span>
+								<span aria-hidden="true">&rarr;</span>
+							</a>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-slate-50 py-24 dark:bg-slate-900" id="faq">
+		<div class="mx-auto box-border w-full max-w-6xl px-6">
+			<div
+				class="grid gap-12 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-start lg:gap-16"
+			>
+				<div class="motion-rise lg:sticky lg:top-28">
+					<p class="section-kicker">FAQ</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						Door-to-door and depot questions.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						These are the questions worth answering before you choose the option in your quote.
+					</p>
+				</div>
+
+				<div class="motion-rise motion-rise-delay-1 grid gap-4">
+					{
+						faqItems.map((faq) => (
+							<details class="group rounded-[1.5rem] border border-slate-200 bg-white px-6 py-5 shadow-sm dark:border-slate-800 dark:bg-slate-950/55">
+								<summary class="flex cursor-pointer list-none items-start justify-between gap-6">
+									<h3 class="text-lg font-semibold leading-relaxed text-slate-900 dark:text-white">
+										{faq.question}
+									</h3>
+									<span class="mt-1 text-2xl leading-none text-emerald-600 transition group-open:rotate-45 dark:text-emerald-400">
+										+
+									</span>
+								</summary>
+								<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+									{faq.answer}
+								</p>
+							</details>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<QuoteCta
+		title="Want door-to-door and depot options checked?"
+		subtitle="Share the pickup and delivery suburbs, vehicle details, timing and whether you want door-to-door or depot options checked."
+		ctaPrimaryLabel="Start a vehicle transport quote"
+		ctaPrimaryHref={site.destinations.vehicleQuote}
+		ctaSecondaryLabel="Request a callback"
+		ctaSecondaryHref={site.destinations.contactPage}
+	/>
+</Layout>

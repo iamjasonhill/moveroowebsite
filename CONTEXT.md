@@ -148,6 +148,18 @@ Preferred personal-items wording style for car transport pages: "If you want to 
 
 Door-to-door and depot-to-depot should be explained as practical car transport choices. Door-to-door is always available. Depot-to-depot is always cheaper than door-to-door within the same carrier's quote options, but the overall cheapest option can still differ between carriers. For example, Carrier 1's depot-to-depot option may be cheaper than Carrier 1's door-to-door option, while Carrier 2's depot-to-depot price may also be cheaper than Carrier 1's door-to-door price. Explain this plainly without making the comparison sound like a negotiable discount.
 
+The `/door-to-door-vs-depot-car-transport/` page should sit under vehicle transport as a support/comparison page. Preferred SEO title direction: "Door-to-door vs depot car transport | Moveroo". Preferred H1 direction: "Door-to-door or depot car transport: which option makes sense?" The page should help customers choose between service types before selecting a quote option; it should not replace `/interstate-car-transport/` as the broader vehicle transport hub.
+
+Door-to-door car transport means the carrier collects and delivers the vehicle as close as practical to the requested pickup and delivery addresses. It may be a home, workplace, or nearby safe meeting point if the truck cannot safely access the exact address. In some regional areas, door-to-door may mean meeting the carrier at a practical nearby location rather than the truck coming to the exact driveway. Public copy should explain that the quote should make the service type clear before booking.
+
+Depot-to-depot car transport means the customer drops the vehicle at the carrier's nominated depot and collects it from the destination depot. The quote should show the specific depot suburbs because depot locations are carrier-specific and may not be close to the pickup or delivery suburb the customer entered.
+
+The door-to-door vs depot page should explain that door-to-door usually suits customers who cannot easily get to a depot, are short on time, need a simpler handover, have regional depot access issues, are working around flights, work, family, settlement, or other timing, or are moving a car as part of a bigger household move. Avoid calling it "premium" or "best"; it is the easier option when the extra cost makes sense.
+
+The door-to-door vs depot page should explain that depot-to-depot usually suits customers who can comfortably get the vehicle to and from the depot, want the lower-cost option from that carrier, have someone available at both ends, are not relying on address pickup or delivery, and are happy to work around the depot suburbs shown in the quote. Also explain that depot-to-depot is not automatically better if the depot trip creates extra cost, time, rideshare or taxi hassle, or another person's help is needed.
+
+For door-to-door access, keep public copy light. Do not imply Moveroo collects a detailed street-access checklist during the quote request. The exact handover point is sometimes worked out between the driver and customer, especially if the truck cannot safely stop at the exact address. Moveroo can explain the service type in the quote, but small access details may be confirmed closer to pickup or delivery.
+
 Before the door-to-door vs depot-to-depot example table, include a brief plain-English explanation that depot-to-depot is cheaper within the same carrier's quote options, but the cheapest overall quote can still depend on which carrier is available for the route.
 
 The `/interstate-car-transport/` page should include a "Compare the carrier options before you choose" section. Explain that Moveroo can show more than one carrier option where available, and those options can differ by price, pickup/delivery type, transit time, and carrier requirements. A lower price is not always the better choice if the transit time is much longer. The customer's quote details need to be accurate before comparing options.
@@ -175,6 +187,10 @@ Each door-to-door vs depot-to-depot table row should compare options from the sa
 Use three door-to-door vs depot-to-depot examples where suitable data exists. Show an anonymised route, including suburbs when useful or relevant, broad vehicle type such as sedan/SUV/ute where available, door-to-door price, depot-to-depot price, and difference. Do not show customer-identifying details, and do not show carrier names unless explicitly approved.
 
 Carrier names should be hidden in public door-to-door vs depot-to-depot examples. Use carrier identity internally only to confirm the comparison is within the same carrier's quote options.
+
+The door-to-door vs depot page should use fresh door-to-door vs depot-to-depot examples, not the same three examples already used on `/interstate-car-transport/`. Choose a realistic spread of differences rather than only the largest price gaps, so the table feels credible and does not create unrealistic savings expectations.
+
+Door-to-door vs depot copy should avoid "guaranteed cheapest", "always cheaper" without the same-carrier qualifier, "door-to-door means your driveway", "instant quote", "all carriers offer depot-to-depot", "every route has multiple options", and "save $X" framing. Safer wording includes "within the same carrier's quote options", "where available", "as close as practical", "the depot suburbs shown in the quote", "examples only", and "compare price, transit time and the work involved".
 
 The `/interstate-car-transport/` page should become the main public SEO/service hub for interstate car transport. The existing `/moving-cars/` page remains a broader or legacy vehicle service page and should support the new hub through natural internal linking. Any public wording that explains the relationship between Moving Cars and Moveroo should be reviewed carefully for human tone before publishing.
 
