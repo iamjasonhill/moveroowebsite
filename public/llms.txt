@@ -45,6 +45,7 @@ Vehicle transport coordination across Australia. Whether you're moving interstat
 - Interstate car transport
 - Car transport
 - Door-to-door and depot-to-depot option comparison
+- Non-running and non-drivable car transport
 - Motorcycle transport
 - Boat transport
 - Enclosed transport options
@@ -60,6 +61,7 @@ Vehicle transport coordination across Australia. Whether you're moving interstat
 - [Combined Household + Vehicle Relocation](https://moveroo.com.au/household-vehicle-relocation/)
 - [Interstate Car Transport](https://moveroo.com.au/interstate-car-transport/)
 - [Door-to-Door vs Depot Car Transport](https://moveroo.com.au/door-to-door-vs-depot-car-transport/)
+- [Non-Running Car Transport](https://moveroo.com.au/non-running-car-transport/)
 - [Vehicle Transport Quote](https://quotes.moveroo.com.au/quote/vehicle)
 - [Moving Cars](https://moveroo.com.au/moving-cars/)
 - [How Moveroo Protects Your Move](https://moveroo.com.au/how-moveroo-protects-your-move/)

@@ -40,7 +40,7 @@ const serviceTracks = [
 			"Moves where vehicles need to stay aligned with household timelines",
 		],
 		usuallyIncludes: [
-			"Door-to-door and depot options for running and non-running vehicles",
+			"Door-to-door transport for non-drivable cars, plus depot options where the vehicle can be driven",
 			"Dealer, auction, relocation and fleet movement support",
 			"Condition reporting, service notes and national carrier coordination",
 		],
@@ -129,6 +129,12 @@ const chooserNotes = [
 		text: "If the vehicle quote includes address pickup and depot options, compare the depot suburbs, the work involved and the transit time before choosing.",
 		href: "/door-to-door-vs-depot-car-transport/",
 		linkLabel: "Read the door/depot guide",
+	},
+	{
+		label: "Use non-running guidance when the car cannot be driven",
+		text: "If the car does not start, roll, steer or brake properly, include those details before pricing is checked.",
+		href: "/non-running-car-transport/",
+		linkLabel: "Read the non-running car guide",
 	},
 ];
 
@@ -567,6 +573,13 @@ const structuredData = {
 													href="/door-to-door-vs-depot-car-transport/"
 												>
 													<span>Compare door-to-door and depot options</span>
+													<span aria-hidden="true">&rarr;</span>
+												</a>
+												<a
+													class="site-text-action gap-2 text-sm font-semibold text-slate-600 transition hover:text-slate-950 dark:text-slate-400 dark:hover:text-white"
+													href="/non-running-car-transport/"
+												>
+													<span>Move a car that cannot be driven</span>
 													<span aria-hidden="true">&rarr;</span>
 												</a>
 											</div>

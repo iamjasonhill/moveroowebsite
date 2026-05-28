@@ -1,0 +1,529 @@
+---
+import Layout from "../layouts/Layout.astro";
+import QuoteCta from "../components/sections/QuoteCta.astro";
+import { site } from "../config/site";
+
+const publishedAt = new Date("2026-05-28T00:00:00+10:00");
+const updatedAt = publishedAt;
+
+const pageTitle = "Non-Running Car Transport | Moveroo";
+const pageDescription =
+	"Need to move a non-running car? Moveroo helps check carrier options for cars that cannot be driven, including damaged, unsafe and project cars.";
+
+const conditionTypes = [
+	{
+		label: "Will not start",
+		title: "It may still roll and steer",
+		text: "Some cars will not start but can still be safely moved if the wheels, steering, brakes and access all work.",
+	},
+	{
+		label: "Cannot be driven",
+		title: "It may need a different loading plan",
+		text: "A damaged or unsafe car may need door-to-door transport even if it technically starts.",
+	},
+	{
+		label: "Hard to move",
+		title: "The details matter early",
+		text: "Locked wheels, no keys, no brakes, flat tyres, low clearance or visible damage can change which carrier options are suitable.",
+	},
+];
+
+const quoteDetails = [
+	"Whether the car starts",
+	"Whether it rolls",
+	"Whether it steers",
+	"Whether the brakes work",
+	"Whether keys are available",
+	"Flat tyres, locked wheels or visible damage",
+	"Low clearance, modifications or anything unusual",
+	"Where the car is parked now",
+];
+
+const scenarios = [
+	"Auction cars bought interstate",
+	"Project cars or long-sitting vehicles",
+	"Damaged cars going to a repairer",
+	"Unregistered cars that cannot be driven safely",
+	"Cars that start but are not safe to drive",
+	"Vehicles being moved from a workshop, yard or private property",
+];
+
+const accessDetails = [
+	"Basement or multi-storey car parks",
+	"Narrow or steep driveways",
+	"Workshop or auction yard access",
+	"Rural properties or unsealed access",
+	"Cars parked nose-in with limited room around them",
+	"Any location where a larger carrier may struggle to load safely",
+];
+
+const relatedServices = [
+	{
+		title: "Interstate car transport",
+		text: "Start here if the car can be driven and you want to compare the broader interstate car transport options.",
+		href: "/interstate-car-transport/",
+		cta: "Compare car transport",
+	},
+	{
+		title: "Door-to-door vs depot",
+		text: "Useful for drivable cars. Non-drivable car transport is usually door-to-door because the car cannot be driven to or from a depot.",
+		href: "/door-to-door-vs-depot-car-transport/",
+		cta: "Compare drivable options",
+	},
+	{
+		title: "Household and vehicle move",
+		text: "If the car move is part of a larger household relocation, this explains how the timing can be planned together.",
+		href: "/household-vehicle-relocation/",
+		cta: "Plan both together",
+	},
+];
+
+const faqItems = [
+	{
+		question: "Can Moveroo help move a car that does not run?",
+		answer:
+			"Some carriers can move non-running cars, but not every carrier can take every non-running vehicle. The quote request needs to explain whether the car starts, rolls, steers and brakes so suitable options can be checked before pricing.",
+	},
+	{
+		question: "Is this the same as towing or roadside assistance?",
+		answer:
+			"No. Moveroo is not a tow truck or roadside recovery service. This page is for planned car transport, such as auction cars, project cars, damaged vehicles or cars being moved to a repairer.",
+	},
+	{
+		question: "What details should I include in the quote request?",
+		answer:
+			"Include whether the car starts, rolls, steers and brakes, whether keys are available, whether any tyres are flat or wheels are locked, and where the car is parked now.",
+	},
+	{
+		question: "Can a non-drivable car go depot-to-depot?",
+		answer:
+			"Non-drivable car transport is usually door-to-door because the car cannot be driven to or from a depot. If the vehicle can be driven, depot options may be worth comparing separately.",
+	},
+	{
+		question: "Does a non-running car cost more to transport?",
+		answer:
+			"It can. Non-running transport may need different equipment, more time or a different loading plan. The price depends on what the car can still do and where it needs to be picked up and delivered.",
+	},
+	{
+		question: "What if the car has no keys, flat tyres or locked wheels?",
+		answer:
+			"Include that in the quote request. Those details can affect whether a carrier can load the car safely and whether the job needs extra review before pricing.",
+	},
+	{
+		question: "Can Moveroo help with auction, damaged or project cars?",
+		answer:
+			"Yes, those are common reasons to check non-running or non-drivable transport. If an unregistered car can still be driven like normal, it is usually treated as a standard car transport job instead.",
+	},
+];
+
+const structuredData = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "WebPage",
+			"@id": "https://moveroo.com.au/non-running-car-transport/",
+			url: "https://moveroo.com.au/non-running-car-transport/",
+			name: pageTitle,
+			description: pageDescription,
+			inLanguage: "en-AU",
+			datePublished: publishedAt.toISOString(),
+			dateModified: updatedAt.toISOString(),
+			isPartOf: {
+				"@id": "https://moveroo.com.au/#website",
+			},
+			about: {
+				"@id": "https://moveroo.com.au/non-running-car-transport/#service",
+			},
+		},
+		{
+			"@type": "Service",
+			"@id": "https://moveroo.com.au/non-running-car-transport/#service",
+			name: "Non-running car transport coordination",
+			serviceType: "Non-running car transport",
+			description: pageDescription,
+			provider: {
+				"@id": "https://moveroo.com.au/#organization",
+			},
+			areaServed: {
+				"@type": "Country",
+				name: "Australia",
+			},
+		},
+		{
+			"@type": "FAQPage",
+			"@id": "https://moveroo.com.au/non-running-car-transport/#faq",
+			mainEntity: faqItems.map((faq) => ({
+				"@type": "Question",
+				name: faq.question,
+				acceptedAnswer: {
+					"@type": "Answer",
+					text: faq.answer,
+				},
+			})),
+		},
+	],
+};
+---
+
+<Layout
+	title={pageTitle}
+	description={pageDescription}
+	canonical="https://moveroo.com.au/non-running-car-transport/"
+	ogImage="https://moveroo.com.au/og-moving-cars.png"
+>
+	<Fragment slot="head">
+		<meta property="article:published_time" content={publishedAt.toISOString()} />
+		<meta property="article:modified_time" content={updatedAt.toISOString()} />
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+	</Fragment>
+
+	<section class="relative overflow-hidden bg-slate-950 py-20 text-white md:py-32">
+		<div
+			class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.22),_transparent_30%),linear-gradient(135deg,_#041f1d_0%,_#0f172a_48%,_#111827_100%)]"
+		>
+		</div>
+		<div class="route-grid absolute inset-0 opacity-25"></div>
+
+		<div class="relative mx-auto box-border w-full max-w-6xl px-6">
+			<div class="grid gap-14 lg:grid-cols-[minmax(0,1.02fr)_minmax(22rem,0.98fr)] lg:items-center">
+				<div class="motion-rise w-full min-w-0 max-w-full">
+					<p class="section-kicker text-emerald-300">Non-running car transport</p>
+					<h1
+						class="section-title mt-6 max-w-4xl text-4xl font-semibold leading-[1.02] text-balance md:text-7xl"
+					>
+						Moving a car that can't be driven
+					</h1>
+					<p class="mt-7 max-w-2xl text-lg leading-relaxed text-slate-300 md:text-xl">
+						Moveroo can help check carrier options for non-running, damaged, unsafe or project
+						cars, as long as the loading details are clear before pricing.
+					</p>
+
+					<div class="motion-rise motion-rise-delay-1 mt-10 grid w-full gap-3 sm:flex sm:flex-wrap sm:gap-4">
+						<a
+							class="inline-flex min-h-12 items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-center text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-950/30 transition hover:bg-emerald-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300 sm:min-h-0"
+							href={site.destinations.vehicleQuote}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Start a vehicle transport quote
+						</a>
+						<a
+							class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/20 px-6 py-3 text-center text-sm font-semibold text-white transition hover:border-emerald-300 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300 sm:min-h-0"
+							href={site.destinations.contactPage}
+						>
+							Request a callback
+						</a>
+					</div>
+				</div>
+
+				<div
+					class="motion-rise motion-rise-delay-2 min-w-0 rounded-[2rem] border border-white/10 bg-white/8 p-6 shadow-[0_30px_80px_-40px_rgba(2,6,23,0.8)] backdrop-blur-sm md:p-8"
+				>
+					<p class="section-kicker text-emerald-300">Tell us early</p>
+					<h2 class="mt-5 text-3xl font-semibold tracking-tight text-white">
+						The carrier needs to know how the car can be loaded.
+					</h2>
+					<ul class="mt-6 grid gap-3 text-sm leading-relaxed text-slate-300">
+						<li class="flex items-start gap-3">
+							<span class="mt-1.5 h-2.5 w-2.5 rounded-full bg-emerald-400" aria-hidden="true" />
+							<span>Does it start, roll, steer and brake?</span>
+						</li>
+						<li class="flex items-start gap-3">
+							<span class="mt-1.5 h-2.5 w-2.5 rounded-full bg-emerald-400" aria-hidden="true" />
+							<span>Are keys available and are the wheels unlocked?</span>
+						</li>
+						<li class="flex items-start gap-3">
+							<span class="mt-1.5 h-2.5 w-2.5 rounded-full bg-emerald-400" aria-hidden="true" />
+							<span>Is the car parked somewhere a carrier can safely access?</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="border-b border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900">
+		<div class="mx-auto box-border w-full max-w-6xl px-6">
+			<div class="motion-rise max-w-3xl">
+				<p class="section-kicker">What Counts</p>
+				<h2
+					class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+				>
+					Non-running can mean a few different things.
+				</h2>
+				<p class="mt-6 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+					A car that will not start is different from a car with locked wheels, no keys, no
+					brakes or damage that affects loading. The more accurate the details are, the easier
+					it is for Moveroo to check the right carrier option.
+				</p>
+			</div>
+
+			<div class="motion-rise motion-rise-delay-1 mt-10 grid gap-5 md:grid-cols-3">
+				{
+					conditionTypes.map((item) => (
+						<article class="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/40">
+							<p class="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-700 dark:text-emerald-400">
+								{item.label}
+							</p>
+							<h3 class="mt-4 text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
+								{item.title}
+							</h3>
+							<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+								{item.text}
+							</p>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-slate-50 py-24 dark:bg-slate-950/40">
+		<div class="mx-auto box-border w-full max-w-6xl px-6">
+			<div
+				class="grid gap-12 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-start lg:gap-16"
+			>
+				<div class="motion-rise lg:sticky lg:top-28">
+					<p class="section-kicker">Quote Details</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						Share what the car can still do.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						Tell us in the quote request if the car does not run, roll, steer or brake. Those
+						details help Moveroo check suitable carrier options before we present the price to
+						you.
+					</p>
+				</div>
+
+				<div class="motion-rise motion-rise-delay-1 grid gap-3 md:grid-cols-2">
+					{
+						quoteDetails.map((item) => (
+							<div class="flex items-start gap-3 rounded-[1.25rem] border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/75">
+								<span class="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full bg-emerald-500" aria-hidden="true" />
+								<span class="text-sm leading-relaxed text-slate-700 dark:text-slate-300 md:text-base">
+									{item}
+								</span>
+							</div>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="border-y border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900">
+		<div class="mx-auto box-border w-full max-w-6xl px-6">
+			<div
+				class="grid gap-12 rounded-[2rem] border border-slate-200 bg-slate-50 px-6 py-8 shadow-sm dark:border-slate-800 dark:bg-slate-950/40 md:px-8 md:py-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start"
+			>
+				<div class="motion-rise">
+					<p class="section-kicker">Not Roadside Recovery</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						This is planned transport, not a tow truck callout.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						Moveroo is not a roadside assistance or emergency towing service. This page is for
+						cars that need planned transport from one place to another, with the loading
+						requirements checked before pricing.
+					</p>
+				</div>
+
+				<div class="motion-rise motion-rise-delay-1 rounded-[1.75rem] border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900/75 md:p-8">
+					<h3 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
+						Scenarios where this can be relevant
+					</h3>
+					<ul class="mt-6 grid gap-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+						{
+							scenarios.map((item) => (
+								<li class="flex items-start gap-3">
+									<span class="mt-1.5 h-2.5 w-2.5 rounded-full bg-emerald-500" aria-hidden="true" />
+									<span>{item}</span>
+								</li>
+							))
+						}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-slate-50 py-24 dark:bg-slate-950/40">
+		<div class="mx-auto box-border w-full max-w-6xl px-6">
+			<div
+				class="grid gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-start lg:gap-16"
+			>
+				<div class="motion-rise lg:sticky lg:top-28">
+					<p class="section-kicker">Access Matters</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						Where the car is parked can change the transport plan.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						Because the car cannot be driven, the pickup point matters. You do not need to solve
+						the loading plan yourself, but Moveroo does need to know about access problems early.
+					</p>
+				</div>
+
+				<div class="motion-rise motion-rise-delay-1 grid gap-5 md:grid-cols-2">
+					{
+						accessDetails.map((item) => (
+							<article class="rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/75">
+								<p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300 md:text-base">
+									{item}
+								</p>
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="border-y border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900">
+		<div class="mx-auto box-border w-full max-w-6xl px-6">
+			<div
+				class="grid gap-12 rounded-[2rem] border border-slate-200 bg-slate-50 px-6 py-8 shadow-sm dark:border-slate-800 dark:bg-slate-950/40 md:px-8 md:py-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start"
+			>
+				<div class="motion-rise">
+					<p class="section-kicker">Door-to-door</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						Non-drivable transport is usually door-to-door.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						A non-drivable car cannot be driven to or from a depot, so the transport usually needs
+						to be planned around where the car is now and where it needs to go.
+					</p>
+				</div>
+
+				<div class="motion-rise motion-rise-delay-1 rounded-[1.75rem] border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900/75 md:p-8">
+					<h3 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
+						If the car can be driven
+					</h3>
+					<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+						If the vehicle can be driven safely, depot options may be worth comparing. The{" "}
+						<a
+							href="/door-to-door-vs-depot-car-transport/"
+							class="font-semibold text-emerald-700 underline decoration-emerald-300 underline-offset-4 transition hover:text-emerald-900 dark:text-emerald-400 dark:decoration-emerald-600 dark:hover:text-emerald-300"
+						>
+							door-to-door vs depot car transport page
+						</a>
+						{" "}explains that comparison for drivable vehicles.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-slate-50 py-24 dark:bg-slate-950/40">
+		<div class="mx-auto box-border w-full max-w-6xl px-6">
+			<div class="motion-rise max-w-3xl">
+				<p class="section-kicker">Price Factors</p>
+				<h2
+					class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+				>
+					There is no standard non-running surcharge.
+				</h2>
+				<p class="mt-6 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+					Non-running transport can cost more than standard car transport because the carrier may
+					need different equipment, more time, or a different loading plan. The price depends on
+					what the car can still do and where it needs to be picked up and delivered.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="border-y border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900">
+		<div class="mx-auto box-border w-full max-w-6xl px-6">
+			<div class="motion-rise max-w-3xl">
+				<p class="section-kicker">Related Pages</p>
+				<h2
+					class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+				>
+					Need help with the wider car move?
+				</h2>
+				<p class="mt-6 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+					These pages can help if the car can be driven, the move is interstate, or the vehicle is
+					part of a larger household relocation.
+				</p>
+			</div>
+
+			<div class="motion-rise motion-rise-delay-1 mt-10 grid gap-5 md:grid-cols-3">
+				{
+					relatedServices.map((item) => (
+						<article class="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/40">
+							<h3 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
+								{item.title}
+							</h3>
+							<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+								{item.text}
+							</p>
+							<a
+								href={item.href}
+								class="site-text-action mt-5 gap-2 text-sm font-semibold text-emerald-700 transition hover:text-emerald-900 dark:text-emerald-400 dark:hover:text-emerald-300"
+							>
+								<span>{item.cta}</span>
+								<span aria-hidden="true">&rarr;</span>
+							</a>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-slate-50 py-24 dark:bg-slate-900" id="faq">
+		<div class="mx-auto box-border w-full max-w-6xl px-6">
+			<div
+				class="grid gap-12 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-start lg:gap-16"
+			>
+				<div class="motion-rise lg:sticky lg:top-28">
+					<p class="section-kicker">FAQ</p>
+					<h2
+						class="section-title mt-6 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+					>
+						Non-running car transport questions.
+					</h2>
+					<p class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
+						The best quote starts with a clear description of what the car can and cannot do.
+					</p>
+				</div>
+
+				<div class="motion-rise motion-rise-delay-1 grid gap-4">
+					{
+						faqItems.map((faq) => (
+							<details class="group rounded-[1.5rem] border border-slate-200 bg-white px-6 py-5 shadow-sm dark:border-slate-800 dark:bg-slate-950/55">
+								<summary class="flex cursor-pointer list-none items-start justify-between gap-6">
+									<h3 class="text-lg font-semibold leading-relaxed text-slate-900 dark:text-white">
+										{faq.question}
+									</h3>
+									<span class="mt-1 text-2xl leading-none text-emerald-600 transition group-open:rotate-45 dark:text-emerald-400">
+										+
+									</span>
+								</summary>
+								<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+									{faq.answer}
+								</p>
+							</details>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<QuoteCta
+		title="Ready to check non-running car transport options?"
+		subtitle="Include whether the car starts, rolls, steers and brakes, plus where it is parked now. Those details help Moveroo check suitable carrier options before pricing."
+		ctaPrimaryLabel="Start a vehicle transport quote"
+		ctaPrimaryHref={site.destinations.vehicleQuote}
+		ctaSecondaryLabel="Request a callback"
+		ctaSecondaryHref={site.destinations.contactPage}
+	/>
+</Layout>

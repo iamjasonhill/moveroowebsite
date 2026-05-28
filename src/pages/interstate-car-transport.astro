@@ -64,7 +64,9 @@ const priceExamples = [
 const supportCards = [
 	{
 		title: "Non-running cars",
-		text: "If the vehicle does not run, roll or steer, include that in the quote request. It affects which carriers can take the job and how the vehicle can be loaded.",
+		text: "If the vehicle does not run, roll or steer, include that in the quote request. The non-running car transport page explains what details matter before pricing.",
+		href: "/non-running-car-transport/",
+		cta: "Read the non-running guide",
 	},
 	{
 		title: "Personal items",
@@ -269,6 +271,15 @@ const structuredData = {
 								<p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
 									{item.text}
 								</p>
+								{item.href && (
+									<a
+										href={item.href}
+										class="site-text-action mt-5 gap-2 text-sm font-semibold text-emerald-700 transition hover:text-emerald-900 dark:text-emerald-400 dark:hover:text-emerald-300"
+									>
+										<span>{item.cta}</span>
+										<span aria-hidden="true">&rarr;</span>
+									</a>
+								)}
 							</article>
 						))
 					}
