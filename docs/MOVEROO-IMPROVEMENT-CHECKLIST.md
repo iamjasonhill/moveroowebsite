@@ -75,7 +75,12 @@ Use this as the shared backlog across future chats. Items marked **Access needed
   - Internal linking completed: linked from household removals, interstate removalists, backloading removals, services, protection page, footer/service discovery, sitemap, and `llms.txt`.
   - Prelaunch review completed: copy, SEO Champion/GSC evidence, schema, internal links, compliance wording, CTA flow, mobile compatibility, local route status, `llms.txt`, footer discovery, and build checks.
   - SEO Champion request logged: `0f80e63e-b1e8-43ee-8e5b-6018cc78e7fa`.
-- [ ] Add a non-running vehicle transport page or section.
+- [x] Add a non-running vehicle transport page or section.
+  - Live: `/non-running-car-transport/` is published from `main`.
+  - Completed in repo: the page explains non-running and non-drivable car transport, what details matter before pricing, planned transport vs towing/roadside recovery, door-to-door expectations, access constraints, price-factor caveats, and FAQs.
+  - Internal linking completed: linked from interstate car transport, Moving Cars, door-to-door vs depot, services, footer/service discovery, sitemap, and `llms.txt`.
+  - Prelaunch review completed: copy, SEO Champion/GSC evidence, schema, internal links, compliance wording, CTA flow, mobile compatibility, local route status, and build checks.
+  - SEO Champion request logged: `e26ba2cb-60db-46b6-8744-cdd896a33cd8`.
 - [ ] Add a motorcycle transport page or section.
 - [x] Add door-to-door vs depot vehicle transport content.
   - Live: `/door-to-door-vs-depot-car-transport/` is published from `main`.
@@ -144,7 +149,7 @@ Use this as the shared backlog across future chats. Items marked **Access needed
 - [ ] Use the competitor-informed page priority order before creating new SEO pages.
   - Completed priority hub: interstate removalists.
   - Completed priority hub: storage coordination.
-  - Remaining priority hubs: non-running vehicle transport and motorcycle transport.
+  - Remaining priority hub: motorcycle transport.
 - [ ] Define route-page quality rules before building route pages.
   - Route pages should include useful route-specific context, realistic timing/booking constraints, internal links to the correct hub, and real examples where available. Do not publish thin route templates.
 - [ ] Build core city pages:
