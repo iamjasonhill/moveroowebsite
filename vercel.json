@@ -2,6 +2,11 @@
 	"trailingSlash": true,
 	"redirects": [
 		{
+			"source": "/api/v1/agent/manifest",
+			"destination": "/api/v1/agent/manifest/",
+			"permanent": false
+		},
+		{
 			"source": "/sitemap.xml",
 			"destination": "/sitemap-index.xml",
 			"permanent": true
