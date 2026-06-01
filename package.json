@@ -31,6 +31,8 @@
 		"@astrojs/rss": "^4.0.18",
 		"@astrojs/sitemap": "^3.6.0",
 		"@astrojs/vercel": "^9.0.3",
+		"@jdevalk/astro-seo-graph": "^1.4.1",
+		"@jdevalk/seo-graph-core": "^0.6.2",
 		"@sendgrid/mail": "^8.1.6",
 		"@tailwindcss/vite": "^4.1.15",
 		"astro": "^5.14.8",
