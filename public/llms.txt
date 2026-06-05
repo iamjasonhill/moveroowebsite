@@ -50,6 +50,14 @@ Vehicle transport coordination across Australia. Whether you're moving interstat
 - Boat transport
 - Enclosed transport options
 
+### Provider Signup
+Provider-facing information for removalists, vehicle carriers, motorcycle and specialty transport providers, non-running vehicle carriers, and storage and/or packing partners that may want Moveroo work. Leads are free for providers, there is no cost per quote, and Moveroo does not take a cut from the provider's quoted job price.
+
+- Provider application
+- Provider payment terms
+- Provider login for approved providers
+- Quote requests matched to provider routes, equipment, availability and inbox guards
+
 ## Key Pages
 
 - [Home](https://moveroo.com.au/)
@@ -65,6 +73,10 @@ Vehicle transport coordination across Australia. Whether you're moving interstat
 - [Vehicle Transport Quote](https://quotes.moveroo.com.au/quote/vehicle)
 - [Moving Cars](https://moveroo.com.au/moving-cars/)
 - [How Moveroo Protects Your Move](https://moveroo.com.au/how-moveroo-protects-your-move/)
+- [Become a Moveroo Provider](https://moveroo.com.au/providers/)
+- [Provider Application](https://quotes.moveroo.com.au/providers/apply)
+- [Provider Payment Terms](https://removalist.net/providers/payment-terms)
+- [Provider Login](https://removalist.net/provider/login)
 - [Contact Us](https://moveroo.com.au/contact/)
 - [Book Your Move](https://quotes.moveroo.com.au/booking/create)
 

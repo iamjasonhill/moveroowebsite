@@ -280,6 +280,22 @@ Avoid guarantee-based claims. Do not say Moveroo guarantees partner performance,
 
 Use "vetted transport partners" as the preferred public term. Avoid blanket claims such as "verified partners", "licensed partners", "fully insured partners", or "trusted partners" unless the relevant evidence and standard are documented.
 
+### Provider Signup Program
+
+The `/providers/` page is the canonical public signup page for providers who want to receive Moveroo work. It should speak to removalists, vehicle carriers, motorcycle and specialty transport providers, non-running vehicle carriers, and storage and/or packing partners. The page can also invite adjacent providers to apply if they move, store, or pack something that does not fit those categories neatly.
+
+Provider-facing copy can state that leads are free, there is no cost per quote, no minimum quote target, and no weekly or monthly quote quota.
+
+Provider-facing copy can state that if a provider quotes `$1,000` for a job, they receive `$1,000`; Moveroo does not take a cut from that quote. Keep payment timing and handling linked to provider payment terms rather than overexplaining it in benefit cards.
+
+Providers can set guards so work they do not want, such as high-rise jobs, small jobs, certain regions, job sizes, or access types, does not keep landing in their inbox. This can be supported manually or through provider tooling, but public copy should treat it as a real provider preference.
+
+Provider signup copy can say that once a provider is approved, leads start coming through automatically and the provider can reply via inbox or use the provider dashboard.
+
+Moveroo can describe its customer sales support as included at no cost to providers. Preferred framing: Moveroo helps customers understand their options and choose a service that makes sense for the job; providers do not pay extra for that sales support.
+
+Moveroo can state that job details are checked with the customer when a quote is sent to the provider and checked again before the work is booked.
+
 ### Deposit Model
 
 Once a collection date is confirmed and a suitable provider is allocated, the customer pays a 25% deposit to Moveroo to secure the booking.

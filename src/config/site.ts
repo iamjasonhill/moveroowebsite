@@ -7,6 +7,9 @@ export const site = {
 		contactPage: "/contact/",
 		contactWorkspace: "https://quotes.moveroo.com.au/contact",
 		bookingPage: "https://quotes.moveroo.com.au/booking/create",
+		providerApply: "https://quotes.moveroo.com.au/providers/apply",
+		providerPaymentTerms: "https://removalist.net/providers/payment-terms",
+		providerLogin: "https://removalist.net/provider/login",
 	},
 	analytics: {
 		siteKey: "moveroo",
@@ -59,6 +62,36 @@ export const site = {
 					lead_type: "booking",
 					quote_host: "quotes.moveroo.com.au",
 					handoff_event_name: "booking_click",
+				},
+			},
+			{
+				href: "https://quotes.moveroo.com.au/providers/apply",
+				eventName: "provider_apply_click",
+				params: {
+					interaction_type: "provider_application_handoff",
+					lead_type: "provider_application",
+					quote_host: "quotes.moveroo.com.au",
+					handoff_event_name: "provider_apply_click",
+				},
+			},
+			{
+				href: "https://removalist.net/providers/payment-terms",
+				eventName: "provider_payment_terms_click",
+				params: {
+					interaction_type: "provider_terms_handoff",
+					lead_type: "provider_application",
+					quote_host: "removalist.net",
+					handoff_event_name: "provider_payment_terms_click",
+				},
+			},
+			{
+				href: "https://removalist.net/provider/login",
+				eventName: "provider_login_click",
+				params: {
+					interaction_type: "provider_login_handoff",
+					lead_type: "provider_login",
+					quote_host: "removalist.net",
+					handoff_event_name: "provider_login_click",
 				},
 			},
 			{

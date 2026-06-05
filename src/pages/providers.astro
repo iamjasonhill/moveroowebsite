@@ -1,0 +1,521 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { site } from "../config/site";
+
+const publishedAt = new Date("2026-06-05T00:00:00+10:00");
+const updatedAt = publishedAt;
+
+const pageTitle = "Become a Moveroo Provider | Free Leads for Transport Partners";
+const pageDescription =
+	"Apply to receive Moveroo work requests that match your routes, equipment and availability. Leads are free, and providers keep the price they quote.";
+const canonical = "https://moveroo.com.au/providers/";
+
+const providerTypes = [
+	{
+		label: "Furniture removalists",
+		text: "Household moves, apartment moves, interstate moves, backload options and jobs that need clear access notes.",
+	},
+	{
+		label: "Vehicle carriers",
+		text: "Car transport, depot and door-to-door collections or deliveries, dealer movements, auctions and relocation work.",
+	},
+	{
+		label: "Specialty transport",
+		text: "Motorcycles, caravans, trailers, boats, non-running vehicles and freight that needs the right equipment.",
+	},
+	{
+		label: "Storage and packing partners",
+		text: "Packing support, temporary storage, staged redelivery and jobs where timing needs extra coordination.",
+	},
+];
+
+const workSteps = [
+	{
+		title: "Moveroo checks the customer's job",
+		text: "We look at pickup and delivery details, dates, inventory or vehicle information, access notes and timing.",
+	},
+	{
+		title: "Providers who match the job are asked to quote",
+		text: "If the job suits your routes, equipment and availability, we may ask you to quote or confirm availability.",
+	},
+	{
+		title: "The customer chooses how to book",
+		text: "Moveroo talks the customer through the option before the job is booked.",
+	},
+	{
+		title: "You get the job details",
+		text: "Once the job is booked, you receive the details you need to complete the work and keep the customer updated.",
+	},
+];
+
+const valuePoints = [
+	{
+		label: "Free leads",
+		text: "Moveroo does not charge you to receive leads or send quotes.",
+	},
+	{
+		label: "No cut from your quote",
+		text: "If you quote $1,000 for a job, you receive $1,000. Moveroo does not take a cut from that quote.",
+		linkLabel: "Read provider payment terms",
+		linkUrl: site.destinations.providerPaymentTerms,
+	},
+	{
+		label: "Help winning the booking",
+		text: "Moveroo helps customers understand their options and choose a service that makes sense for the job. You do not pay extra for that sales support.",
+	},
+	{
+		label: "Work that matches what you do",
+		text: "We look at route, timing, capacity, access notes and availability before asking you to quote. You can set guards so work you do not want, such as high-rise jobs, small jobs or certain regions, does not keep landing in your inbox.",
+	},
+	{
+		label: "Clearer job details",
+		text: "Moveroo checks the job with the customer when the quote is sent to you, then checks it again before the work is booked.",
+	},
+];
+
+const expectations = [
+	"Quote jobs you can do well.",
+	"Say no to work that does not suit your routes, timing, equipment or capacity.",
+	"Keep pickup, delivery, payment and timing updates clear.",
+	"Tell Moveroo early if access, inventory, route or capacity changes.",
+	"Keep the customer informed before pickup and through delivery.",
+];
+
+const onboardingSteps = [
+	{
+		title: "Apply",
+		text: "Tell us your service areas, equipment, contact details and the work you want to quote.",
+	},
+	{
+		title: "Review",
+		text: "Moveroo checks where you can help, what to keep out of your inbox and whether we are likely to have work for you.",
+	},
+	{
+		title: "Confirm details",
+		text: "If it makes sense to move ahead, we collect any remaining business and payment details.",
+	},
+	{
+		title: "Start quoting",
+		text: "Once approved, leads start coming through automatically. Reply via your inbox or log into your provider dashboard.",
+	},
+];
+
+const faqItems = [
+	{
+		question: "Are Moveroo leads free for providers?",
+		answer:
+			"Yes. There is no cost per lead and no cost per quote. You can quote the jobs you want without paying Moveroo to receive or respond to the lead.",
+	},
+	{
+		question: "Does Moveroo take a fee from my quoted job price?",
+		answer:
+			"No. If you quote $1,000 for a job, you receive $1,000. Moveroo does not take a cut from that quote.",
+	},
+	{
+		question: "Do I have to quote every job Moveroo sends?",
+		answer:
+			"No. Quote the jobs you want to win and say no to the jobs you do not want. You can also block regions, job sizes or access types you are not interested in.",
+	},
+	{
+		question: "What types of providers can apply?",
+		answer:
+			"Removalists, vehicle carriers, motorcycle and specialty transport providers, non-running vehicle carriers, and storage and/or packing partners can apply. If you move, store or pack something else, apply anyway and tell us what you do.",
+	},
+	{
+		question: "When will I receive customer and job details?",
+		answer:
+			"You receive the details needed to quote or confirm availability. Moveroo checks the job with the customer when the quote is sent to you, then checks it again before the work is booked.",
+	},
+	{
+		question: "Where can I read the payment terms?",
+		answer:
+			"You can read the provider payment terms before applying. Moveroo will confirm how payment works for any job you book through us.",
+	},
+];
+
+const structuredData = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "WebPage",
+			"@id": `${canonical}#webpage`,
+			url: canonical,
+			name: pageTitle,
+			description: pageDescription,
+			inLanguage: "en-AU",
+			datePublished: publishedAt.toISOString(),
+			dateModified: updatedAt.toISOString(),
+			isPartOf: {
+				"@id": "https://moveroo.com.au/#website",
+			},
+			about: {
+				"@id": "https://moveroo.com.au/providers/#provider-program",
+			},
+		},
+		{
+			"@type": "Thing",
+			"@id": "https://moveroo.com.au/providers/#provider-program",
+			name: "Moveroo provider signup",
+			description:
+				"Provider-facing information for transport partners that may want Moveroo work requests that match what they do.",
+		},
+		{
+			"@type": "FAQPage",
+			"@id": "https://moveroo.com.au/providers/#faq",
+			mainEntity: faqItems.map((faq) => ({
+				"@type": "Question",
+				name: faq.question,
+				acceptedAnswer: {
+					"@type": "Answer",
+					text: faq.answer,
+				},
+			})),
+		},
+	],
+};
+---
+
+<Layout title={pageTitle} description={pageDescription} canonical={canonical}>
+	<Fragment slot="head">
+		<meta property="article:published_time" content={publishedAt.toISOString()} />
+		<meta property="article:modified_time" content={updatedAt.toISOString()} />
+		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+	</Fragment>
+
+	<section class="relative overflow-hidden bg-slate-950 py-20 text-white md:py-28">
+		<div
+			class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.2),_transparent_32%),linear-gradient(135deg,_#052e2b_0%,_#0f172a_50%,_#111827_100%)]"
+		>
+		</div>
+		<div class="route-grid absolute inset-0 opacity-25"></div>
+
+		<div
+			class="relative mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-[minmax(0,1fr)_24rem] lg:items-center"
+		>
+			<div class="motion-rise">
+				<p class="section-kicker text-emerald-300">Moveroo providers</p>
+				<h1
+					class="section-title mt-6 max-w-4xl text-5xl font-semibold leading-[0.95] text-balance md:text-7xl"
+				>
+					Become a Moveroo provider.
+				</h1>
+				<p class="mt-7 max-w-3xl text-lg leading-relaxed text-slate-300 md:text-xl">
+					Receive work requests for moving, vehicle transport, storage, packing and specialty
+					freight. Leads are free, and Moveroo does not take a fee from your quoted job price.
+				</p>
+				<div class="mt-9 flex flex-wrap gap-4">
+					<a
+						class="inline-flex min-h-12 items-center justify-center rounded-lg bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-950/30 transition hover:bg-emerald-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
+						href={site.destinations.providerApply}
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Apply to become a Moveroo provider
+					</a>
+					<a
+						class="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-emerald-300 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
+						href={site.destinations.providerLogin}
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Provider login
+					</a>
+				</div>
+			</div>
+
+			<aside
+				class="motion-rise motion-rise-delay-1 rounded-lg border border-white/10 bg-white/8 p-6 backdrop-blur-sm"
+			>
+				<p class="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-300">
+					Be paid what you quote
+				</p>
+				<p class="mt-5 text-4xl font-semibold tracking-tight text-white">$1,000 quoted</p>
+				<p class="mt-3 text-base leading-relaxed text-slate-300">$0 taken by Moveroo</p>
+				<p class="mt-5 text-sm leading-relaxed text-slate-400">
+					Quote $1,000 for a job and you receive $1,000. Payment timing and handling still follow
+					the applicable provider payment terms.
+				</p>
+			</aside>
+		</div>
+	</section>
+
+	<section class="border-b border-slate-200 bg-white py-20 dark:border-slate-800 dark:bg-slate-900">
+		<div class="mx-auto max-w-6xl px-6">
+			<div class="max-w-3xl">
+				<p class="section-kicker">Who should apply</p>
+				<h2
+					class="section-title mt-5 text-4xl font-semibold text-slate-900 dark:text-white md:text-5xl"
+				>
+					Transport partners who know their work, quote clearly and communicate well.
+				</h2>
+				<p class="mt-5 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+					Moveroo works with a broad range of transport partners, then sends work that lines up with
+					the routes, timing and details you can support.
+				</p>
+			</div>
+
+			<div class="mt-10 grid gap-4 md:grid-cols-2">
+				{
+					providerTypes.map((type) => (
+						<article class="rounded-lg border border-slate-200 bg-slate-50 p-6 dark:border-slate-800 dark:bg-slate-950/45">
+							<h3 class="text-xl font-semibold text-slate-900 dark:text-white">{type.label}</h3>
+							<p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+								{type.text}
+							</p>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-slate-50 py-20 dark:bg-slate-950/40">
+		<div
+			class="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-start"
+		>
+			<div class="lg:sticky lg:top-28">
+				<p class="section-kicker">How work is sent</p>
+				<h2 class="section-title mt-5 text-4xl font-semibold text-slate-900 dark:text-white">
+					Quote the work you actually want to win.
+				</h2>
+				<p class="mt-5 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+					There is no cost per quote, no minimum quote target and no weekly or monthly quota. Quote
+					the jobs you want, say no to anything you are not interested in, and block regions, job
+					sizes or work types you do not want sent through.
+				</p>
+			</div>
+
+			<ol class="grid gap-4">
+				{
+					workSteps.map((step, index) => (
+						<li class="grid gap-4 rounded-lg border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900/75 sm:grid-cols-[3rem_minmax(0,1fr)]">
+							<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-emerald-100 text-lg font-semibold text-emerald-800 dark:bg-emerald-400/15 dark:text-emerald-300">
+								{index + 1}
+							</div>
+							<div>
+								<h3 class="text-xl font-semibold text-slate-900 dark:text-white">{step.title}</h3>
+								<p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+									{step.text}
+								</p>
+							</div>
+						</li>
+					))
+				}
+			</ol>
+		</div>
+	</section>
+
+	<section class="border-y border-slate-200 bg-white py-20 dark:border-slate-800 dark:bg-slate-900">
+		<div class="mx-auto max-w-6xl px-6">
+			<div class="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
+				<div>
+					<p class="section-kicker">Why providers work with Moveroo</p>
+					<h2 class="section-title mt-5 text-4xl font-semibold text-slate-900 dark:text-white">
+						A simpler way to receive jobs that match the work you do.
+					</h2>
+				</div>
+				<div class="grid gap-4 sm:grid-cols-2">
+					{
+						valuePoints.map((point) => (
+							<article class="rounded-lg border border-slate-200 p-5 dark:border-slate-800">
+								<h3 class="text-lg font-semibold text-slate-900 dark:text-white">{point.label}</h3>
+								<p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+									{point.text}
+								</p>
+								{point.linkUrl && point.linkLabel && (
+									<a
+										class="mt-4 inline-flex text-sm font-semibold text-emerald-700 transition hover:text-emerald-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500 dark:text-emerald-300 dark:hover:text-emerald-200"
+										href={point.linkUrl}
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										{point.linkLabel}
+									</a>
+								)}
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-slate-950 py-20 text-white">
+		<div
+			class="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-start"
+		>
+			<div>
+				<p class="section-kicker text-emerald-300">What Moveroo expects</p>
+				<h2 class="section-title mt-5 text-4xl font-semibold">
+					Good jobs start with honest quoting.
+				</h2>
+				<p class="mt-5 text-base leading-relaxed text-slate-300">
+					Moveroo works best with transport partners who are upfront about the jobs they want, the
+					jobs they do not want and anything that could change after the details are checked.
+				</p>
+			</div>
+			<ul class="grid gap-3">
+				{
+					expectations.map((item) => (
+						<li class="flex gap-3 rounded-lg border border-white/10 bg-white/5 p-4 text-sm leading-relaxed text-slate-300">
+							<span
+								class="mt-1 h-2.5 w-2.5 flex-none rounded-full bg-emerald-400"
+								aria-hidden="true"
+							/>
+							<span>{item}</span>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</section>
+
+	<section class="bg-white py-20 dark:bg-slate-900">
+		<div
+			class="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-start"
+		>
+			<div>
+				<p class="section-kicker">Payment basics</p>
+				<h2 class="section-title mt-5 text-4xl font-semibold text-slate-900 dark:text-white">
+					Moveroo does not take a cut from your quote.
+				</h2>
+				<p class="mt-5 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+					Leads are free. Moveroo does not take a fee from the job price you quote. Payment timing,
+					invoice handling and job-specific payment details are covered in the provider payment
+					terms.
+				</p>
+				<a
+					class="mt-7 inline-flex min-h-12 items-center justify-center rounded-lg border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-800 transition hover:border-emerald-500 hover:text-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500 dark:border-slate-700 dark:text-slate-200 dark:hover:border-emerald-400 dark:hover:text-emerald-300"
+					href={site.destinations.providerPaymentTerms}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Read provider payment terms
+				</a>
+			</div>
+
+			<div
+				class="rounded-lg border border-slate-200 bg-slate-50 p-6 dark:border-slate-800 dark:bg-slate-950/45"
+			>
+				<p
+					class="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-700 dark:text-emerald-300"
+				>
+					For example
+				</p>
+				<dl class="mt-6 grid gap-4">
+					<div
+						class="flex flex-col gap-2 border-b border-slate-200 pb-4 dark:border-slate-800 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+					>
+						<dt class="text-sm text-slate-600 dark:text-slate-400">Your quote</dt>
+						<dd class="text-2xl font-semibold text-slate-900 dark:text-white">$1,000</dd>
+					</div>
+					<div
+						class="flex flex-col gap-2 border-b border-slate-200 pb-4 dark:border-slate-800 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+					>
+						<dt class="text-sm text-slate-600 dark:text-slate-400">Taken by Moveroo</dt>
+						<dd class="text-2xl font-semibold text-slate-900 dark:text-white">$0</dd>
+					</div>
+					<div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+						<dt class="text-sm text-slate-600 dark:text-slate-400">Your quote after that</dt>
+						<dd class="text-2xl font-semibold text-emerald-700 dark:text-emerald-300">$1,000</dd>
+					</div>
+				</dl>
+			</div>
+		</div>
+	</section>
+
+	<section
+		class="border-y border-slate-200 bg-slate-50 py-20 dark:border-slate-800 dark:bg-slate-950/40"
+	>
+		<div class="mx-auto max-w-6xl px-6">
+			<div class="max-w-3xl">
+				<p class="section-kicker">Sign up to begin</p>
+				<h2 class="section-title mt-5 text-4xl font-semibold text-slate-900 dark:text-white">
+					Apply once, then we work out what to send you.
+				</h2>
+				<p class="mt-5 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+					The application gives Moveroo enough information to understand your routes, equipment and
+					job preferences. From there, we can decide what to send you and what to keep out of your
+					inbox.
+				</p>
+			</div>
+			<div class="mt-10 grid gap-4 md:grid-cols-4">
+				{
+					onboardingSteps.map((step, index) => (
+						<article class="rounded-lg border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900/75">
+							<p class="text-sm font-semibold text-emerald-700 dark:text-emerald-300">
+								Step {index + 1}
+							</p>
+							<h3 class="mt-3 text-xl font-semibold text-slate-900 dark:text-white">
+								{step.title}
+							</h3>
+							<p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+								{step.text}
+							</p>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section id="faq" class="bg-white py-20 dark:bg-slate-900">
+		<div
+			class="mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]"
+		>
+			<div>
+				<p class="section-kicker">FAQ</p>
+				<h2 class="section-title mt-5 text-4xl font-semibold text-slate-900 dark:text-white">
+					Questions providers usually ask before applying.
+				</h2>
+			</div>
+			<div class="grid gap-4">
+				{
+					faqItems.map((faq) => (
+						<article class="rounded-lg border border-slate-200 p-6 dark:border-slate-800">
+							<h3 class="text-xl font-semibold text-slate-900 dark:text-white">{faq.question}</h3>
+							<p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+								{faq.answer}
+							</p>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-emerald-700 py-16 text-white dark:bg-emerald-800">
+		<div
+			class="mx-auto flex max-w-6xl flex-col gap-8 px-6 md:flex-row md:items-center md:justify-between"
+		>
+			<div class="max-w-2xl">
+				<p class="section-kicker text-emerald-100">Next step</p>
+				<h2 class="section-title mt-4 text-4xl font-semibold">
+					Apply to become a Moveroo provider.
+				</h2>
+				<p class="mt-4 text-base leading-relaxed text-emerald-50">
+					Send your details through the provider application. Already approved providers can use the
+					provider login.
+				</p>
+			</div>
+			<div class="flex flex-col gap-3 sm:flex-row md:flex-col lg:flex-row">
+				<a
+					class="inline-flex min-h-12 items-center justify-center rounded-lg bg-white px-6 py-3 text-sm font-semibold text-emerald-900 transition hover:bg-emerald-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+					href={site.destinations.providerApply}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Apply now
+				</a>
+				<a
+					class="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/40 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+					href={site.destinations.providerLogin}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Provider login
+				</a>
+			</div>
+		</div>
+	</section>
+</Layout>
