@@ -195,9 +195,9 @@ A full prelaunch skill audit was run against the drafted page before publication
 
 Post-launch:
 
-- SEO Champion annotation or launch note.
-- Production URL render check after deploy.
-- Google Search Console URL inspection once live.
+- SEO Champion annotation or launch note: completed in this document because no SEO Champion connector/API is available in this session.
+- Production URL render check after deploy: completed.
+- Google Search Console URL inspection once live: pending external GSC access.
 
 ## Implementation Checks
 
@@ -240,3 +240,18 @@ Completed verification:
 - `npx.cmd prettier --check` on parseable touched files: pass.
 
 Rendered browser QA note: Node REPL Playwright was not available, so screenshot review used local Chrome headless against `http://127.0.0.1:4321/providers/`. Screenshots were reviewed at 390px mobile, 768px tablet, and 1440px desktop widths. No content overlap, CTA-fit, section-order, or major readability issues remained after the mobile payment-example fix.
+
+## Launch Note
+
+Launched to `main` on 2026-06-05 in commit `43ffa4f`.
+
+Post-launch production checks completed against `https://moveroo.com.au/providers/`:
+
+- Live page returned `200`.
+- Title, canonical, H1, application link, provider login link, payment terms link, FAQ schema, no-`JobPosting` guard, and `$1,000` no-cut copy assertions passed.
+- Live sitemap includes `https://moveroo.com.au/providers/`.
+- Live `llms.txt` includes the provider signup section and no-cost-per-quote language.
+- External provider application, provider login, and provider payment terms targets returned `200`.
+- Chrome headless production screenshot reviewed at desktop width with no obvious render, section-order, or CTA issues.
+
+Remaining external follow-up: inspect the live URL in Google Search Console when GSC access is available, then review indexing, provider application quality, and CTA clicks after the first meaningful outreach or ad traffic.
