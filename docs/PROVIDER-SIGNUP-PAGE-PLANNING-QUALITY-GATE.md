@@ -195,9 +195,10 @@ A full prelaunch skill audit was run against the drafted page before publication
 
 Post-launch:
 
-- SEO Champion annotation or launch note: completed in this document because no SEO Champion connector/API is available in this session.
+- SEO Champion inspection: completed through the data hub read APIs on 2026-06-06.
+- SEO Champion annotation API write: attempted, but tokenized write access was not available from this session. The documented `POST /api/v1/seo-champion/page-launch/annotations` endpoint returned `404`, and `POST /api/annotations` redirected to the web login while tokenized `GET /api/annotations` worked.
 - Production URL render check after deploy: completed.
-- Google Search Console URL inspection once live: pending external GSC access.
+- Google Search Console evidence check: completed through SEO Champion's indexing/query monitor. Direct GSC URL Inspection API submission was not exposed in this session.
 
 ## Implementation Checks
 
@@ -255,3 +256,27 @@ Post-launch production checks completed against `https://moveroo.com.au/provider
 - Chrome headless production screenshot reviewed at desktop width with no obvious render, section-order, or CTA issues.
 
 Remaining external follow-up: inspect the live URL in Google Search Console when GSC access is available, then review indexing, provider application quality, and CTA clicks after the first meaningful outreach or ad traffic.
+
+## SEO Champion Inspection
+
+Checked on 2026-06-06 using `SEO_CHAMPION_DATA_HUB_BASE_URL=https://seo-champion-data-hub.vercel.app` and the available read token.
+
+Endpoints used:
+
+- `/api/domains/moveroo.com.au/prelaunch-page-brief?url=https%3A%2F%2Fmoveroo.com.au%2Fproviders%2F&limit=20`
+- `/api/domains/moveroo.com.au/indexing-query-monitor?url=https%3A%2F%2Fmoveroo.com.au%2Fproviders%2F&limit=20`
+- `/api/domains/moveroo.com.au/ga4-cta-performance?url=https%3A%2F%2Fmoveroo.com.au%2Fproviders%2F&limit=20`
+- `/api/domains/moveroo.com.au/internal-link-candidates?url=https%3A%2F%2Fmoveroo.com.au%2Fproviders%2F&limit=20`
+- `/api/domains/moveroo.com.au/cannibalisation?url=https%3A%2F%2Fmoveroo.com.au%2Fproviders%2F&limit=20`
+
+Results:
+
+- Prelaunch brief: no existing search evidence and no existing traffic evidence for `https://moveroo.com.au/providers/`.
+- Indexing/query monitor: no priority inventory row yet, no query/page pairs, no review queries, and no review pages for the provider URL.
+- Current Moveroo inventory buckets: `indexed_and_active: 7`, `indexed_but_dead: 17`, `important_not_visible: 5`, `sitemap_only: 1`, `orphan_candidate: 0`, `analytics_noise: 1`, `operational_url: 415`, `canonical_conflict: 0`, `blocked_or_noindex: 0`.
+- Launch monitoring: six existing active records, but no provider-page record because annotation write access was not available.
+- GA4/CTA performance: GA4 source is connected and current through 2026-06-04, with latest successful refresh at `2026-06-05T17:25:40.752+00:00`; no provider landing-page row yet because the page launched after the latest available GA4 data.
+- Internal-link candidates: no candidate/source rows for the provider URL yet.
+- Cannibalisation: no multi-page query risk, mixed-intent page risk, review queries, or review pages for the provider URL.
+
+Interpretation: the provider page is a new canonical provider-signup hub with no current SEO conflict in SEO Champion. It should be monitored for initial indexing, provider-signup query mapping, GA4 landing-page pickup, provider CTA clicks, Bing pickup, and whether outreach/ad traffic routes to this URL.
