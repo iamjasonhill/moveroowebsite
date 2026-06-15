@@ -1,0 +1,221 @@
+{
+	"source_system": "site-repo-moveroo-subdomain-handoff",
+	"contract_version": 1,
+	"hostnames": ["quotes.moveroo.com.au"],
+	"property_slug": "moveroo-com-au",
+	"surface_slug": "moveroo-quotes-household-v1",
+	"surface_type": "quote",
+	"canonical_role": "primary",
+	"canonical_hostname": "quotes.moveroo.com.au",
+	"brand": {
+		"display_name": "Moveroo",
+		"brand_key": "moveroo",
+		"mark_text": "M",
+		"tagline": "Move with confidence"
+	},
+	"copy": {
+		"eyebrow": "Moveroo moving and transport quotes",
+		"headline": "Start one coordinated move",
+		"subheading": "Tell us about the household move, vehicle transport, or extra freight you need and we will shape the right quote path.",
+		"primary_cta_label": "Start your moving quote",
+		"secondary_cta_label": "Contact Moveroo",
+		"footer_blurb": "Moveroo coordinates household moves, vehicle transport, and specialty freight through one clearer quote and booking path.",
+		"contact_page": {
+			"hero_heading": "Contact Moveroo",
+			"hero_subheading": "Send the details and the team will help you choose the right quote, booking, or support path.",
+			"quote_section_heading": "Need a price first?",
+			"quote_section_body": "Start with the quote path that matches the main job. You can add vehicle or support details as needed.",
+			"quote_primary_cta_label": "Start your moving quote"
+		}
+	},
+	"theme": {
+		"theme_key": "moveroo",
+		"mode": "light",
+		"fonts": {
+			"body_family": "Inter, Arial, sans-serif",
+			"heading_family": "Inter, Arial, sans-serif"
+		},
+		"colors": {
+			"accent": "#00bb7f",
+			"accent_strong": "#047857",
+			"background": "#f0fdfa",
+			"surface": "#ffffff",
+			"text": "#0f172a",
+			"muted_text": "#475569",
+			"border": "#99f6e4",
+			"header_background": "#052e2b",
+			"header_border": "#00bb7f",
+			"header_text": "#ecfdf5",
+			"header_muted_text": "#a7f3d0",
+			"header_link": "#f8fafc",
+			"footer_background": "#041f1d",
+			"footer_border": "#00bb7f",
+			"footer_text": "#d1fae5",
+			"footer_muted_text": "#a7f3d0",
+			"footer_link": "#d1fae5",
+			"hero_gradient_start": "#052e2b",
+			"hero_gradient_mid": "#0f172a",
+			"hero_gradient_end": "#00bb7f",
+			"hero_text": "#ffffff"
+		},
+		"radius_scale": "0.75rem",
+		"shadow_style": "soft",
+		"exact_tokens": {
+			"primary_cta": {
+				"background": "#00bb7f",
+				"text": "#052e2b",
+				"border": "#00bb7f",
+				"hover_background": "#10b981",
+				"hover_text": "#052e2b"
+			},
+			"secondary_cta": {
+				"background": "#052e2b",
+				"text": "#ffffff",
+				"border": "#00bb7f",
+				"hover_background": "#041f1d",
+				"hover_text": "#ffffff"
+			},
+			"dark_card": {
+				"background": "#052e2b",
+				"text": "#f8fafc",
+				"muted_text": "#a7f3d0",
+				"border": "#00bb7f"
+			},
+			"selected_choice": {
+				"background": "#ecfdf5",
+				"text": "#052e2b",
+				"border": "#00bb7f"
+			},
+			"field_focus": {
+				"border": "#00bb7f",
+				"ring": "rgba(0, 187, 127, 0.24)"
+			},
+			"progress": {
+				"fill": "#00bb7f",
+				"track": "#99f6e4",
+				"current_step_border": "#00bb7f"
+			},
+			"notice": {
+				"background": "#ecfdf5",
+				"text": "#052e2b",
+				"border": "#99f6e4"
+			}
+		}
+	},
+	"navigation": {
+		"show_household_quote_link": true,
+		"show_vehicle_quote_link": true,
+		"show_booking_link": true,
+		"show_contact_link": true,
+		"show_customer_portal_link": true,
+		"show_customer_portal_in_header": false,
+		"show_provider_login_link": false,
+		"show_admin_link": false
+	},
+	"navigation_intent": {
+		"primary_journey": "household_quote",
+		"secondary_journeys": ["vehicle_quote", "booking", "contact", "customer_portal"],
+		"link_prominence": {
+			"household_quote": "primary",
+			"vehicle_quote": "secondary",
+			"booking": "secondary",
+			"contact": "secondary",
+			"customer_portal": "footer_only"
+		}
+	},
+	"behavior": {
+		"show_phone_publicly": true,
+		"show_email_publicly": true,
+		"prefer_contact_page_over_direct_contact": false,
+		"allow_customer_portal_links": true,
+		"allow_provider_login_links": false,
+		"allow_admin_links": false
+	},
+	"links": {
+		"primary_cta_route": "quote.rebuild.index",
+		"household_quote_url": "/quote/household",
+		"vehicle_quote_url": "/quote/vehicle",
+		"booking_url": "/booking/create",
+		"contact_url": "/contact",
+		"customer_portal_url": "/customer/login",
+		"support_url": "/contact"
+	},
+	"contact": {
+		"public_phone": "+61721432557",
+		"public_phone_display": "+61 7 2143 2557",
+		"public_phone_href": "tel:+61721432557",
+		"public_email": "removals@moveroo.com.au",
+		"public_email_href": "mailto:removals@moveroo.com.au"
+	},
+	"analytics": {
+		"status": "linked",
+		"runtime_context_key": "quotes.moveroo.com.au",
+		"property_slug": "moveroo-com-au",
+		"site_key": "moveroo",
+		"journey_type": "mixed_quote",
+		"ga4": {
+			"measurement_id": "G-9F3Y80LEQL"
+		},
+		"event_contract": {
+			"key": "moveroo-full-funnel-v1",
+			"version": "v1",
+			"rollout_status": "verified"
+		}
+	},
+	"visual_identity": {
+		"status": "approved",
+		"source_hostname": "moveroo.com.au",
+		"font_pairing": {
+			"heading": "inter",
+			"body": "inter"
+		},
+		"colors": {
+			"primary": "#052e2b",
+			"accent": "#00bb7f",
+			"accent_strong": "#047857",
+			"background": "#f0fdfa",
+			"surface": "#ffffff",
+			"text": "#0f172a",
+			"muted_text": "#475569",
+			"hero_text": "#ffffff",
+			"border": "#99f6e4"
+		},
+		"style": {
+			"visual_profile": "moveroo_central_quote",
+			"hero_treatment": "dark_teal_coordination_shell",
+			"button_treatment": "emerald_primary_cta",
+			"secondary_button_treatment": "deep_teal_secondary_cta",
+			"card_treatment": "light_form_cards_with_emerald_focus",
+			"logo_treatment": "source_mark_preferred"
+		},
+		"motifs": ["coordinated_move", "household_vehicle_freight", "route_system"],
+		"motif_policy": "Use route, coordination, or transport motifs outside form fields only; never behind inputs, validation text, or step controls."
+	},
+	"surface_design": {
+		"status": "approved",
+		"preferred_mode": "light",
+		"composition_profile": "standard_imported_household_quote",
+		"surface_density": "compact",
+		"compatible_visual_profiles": ["moveroo_central_quote", "standard_imported_quote"],
+		"mobile_priority": "first_form_step",
+		"evidence": [
+			{
+				"field": "canonical_hostname",
+				"value": "quotes.moveroo.com.au",
+				"source_url": "src/config/site.ts",
+				"source_type": "repo_config",
+				"confidence": "high"
+			},
+			{
+				"field": "brand_tokens",
+				"value": "deep teal and emerald Moveroo central quote hub",
+				"source_url": "src/styles/global.css",
+				"source_type": "repo_style_review",
+				"confidence": "high"
+			}
+		]
+	},
+	"provenance": {
+		"change_ref": "MM-moveroo.com.au repo-owned handoff"
+	}
+}
