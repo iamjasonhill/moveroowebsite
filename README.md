@@ -27,7 +27,9 @@ npm run dev
 npm run build
 npm run check
 npm run check:seo
+npm run check:indexnow
 npm run seo:audit
+npm run indexnow:dry-run -- --url=https://moveroo.com.au/
 ```
 
 Useful supporting commands:
@@ -36,6 +38,10 @@ Useful supporting commands:
 - `npm run seo:crawl`
 - `npm run lint`
 - `npm run format:check`
+
+IndexNow pilot documentation lives in
+[docs/indexnow-pilot.md](docs/indexnow-pilot.md). Dry-run is safe by default;
+live submissions require explicit approval.
 
 ## Site Shape
 
@@ -64,6 +70,8 @@ Copy `.env.example` and set the real values when needed:
 - `PUBLIC_GA_ANONYMIZE_IP`
 - `SENDGRID_API_KEY`
 - `SENDGRID_FROM_EMAIL`
+- `INDEXNOW_KEY`
+- `INDEXNOW_ENDPOINT`
 
 `SENDGRID_API_KEY` is required in the production Vercel environment for the cancellation form at `/cancellation/` to send email to `removals@moveroo.com.au`.
 

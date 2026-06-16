@@ -16,3 +16,10 @@ Repo tracking note for Bossman, Fleet, and Paperclip review.
 - Decision: keep `/moving-cars/` as an active vehicle-transport intent page (not de-prioritized), because the URL and current page structure already align to vehicle transport journeys.
 - Implemented narrowing: tightened page title, meta description, hero H1, and intro wording to lead with direct car-transport intent while retaining the existing "Moving Cars now inside Moveroo" context.
 - Deferred by design: no broad content rewrite, no sitewide SEO changes, and no non-page analytics/warehouse scope.
+
+## 2026-06-17 - IndexNow Pilot Setup
+
+- Scope: first repo-side IndexNow pilot for `moveroo.com.au`, coordinated from SEO Champion issues #81 and #88.
+- Decision: routine IndexNow belongs in this website repo/deploy pipeline; SEO Champion owns readiness/proof audit and recommendations.
+- Implemented dry-run-first scripts, build-time public key-file generation from `INDEXNOW_KEY`, and repo documentation in `docs/indexnow-pilot.md`.
+- Guardrail: no live IndexNow submission should run without explicit approval and a tiny reviewed URL set.
