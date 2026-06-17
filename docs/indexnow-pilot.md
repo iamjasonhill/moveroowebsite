@@ -45,6 +45,11 @@ public/{INDEXNOW_KEY}.txt
 
 Generated key files are ignored by git.
 
+Status update, 2026-06-17: `INDEXNOW_KEY` and `INDEXNOW_ENDPOINT` are configured
+in Vercel Production for `moveroowebsite`. The key value is not stored in the
+repo. The next production deploy should generate the public key file during the
+build step.
+
 ## Dry Run
 
 Dry-run mode is the default and redacts key material in output.
