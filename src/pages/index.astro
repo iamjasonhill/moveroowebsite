@@ -71,7 +71,7 @@ const homepageSignals = [
 
 const publishedAt = new Date("2024-01-22T03:43:43+10:00");
 const metaDescription =
-	"Moveroo coordinates household moves, vehicle transport and specialty freight across Australia with clear quotes, support and trusted moving partners.";
+	"Moveroo coordinates household moves, vehicle transport and specialty freight across Australia with clear quotes, planning support and trusted moving partners.";
 
 const buildTime = new Date();
 const publishedIso = publishedAt.toISOString();
@@ -280,17 +280,15 @@ const structuredData = {
 										<span>{track.linkLabel}</span>
 										<span aria-hidden="true">→</span>
 									</a>
-									{
-										track.learnHref && (
-											<a
-												href={track.learnHref}
-												class="site-text-action mt-3 gap-2 text-sm font-semibold text-slate-600 transition hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200"
-											>
-												<span>{track.learnLabel}</span>
-												<span aria-hidden="true">→</span>
-											</a>
-										)
-									}
+									{track.learnHref && (
+										<a
+											href={track.learnHref}
+											class="site-text-action mt-3 gap-2 text-sm font-semibold text-slate-600 transition hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200"
+										>
+											<span>{track.learnLabel}</span>
+											<span aria-hidden="true">→</span>
+										</a>
+									)}
 								</div>
 							</article>
 						))
