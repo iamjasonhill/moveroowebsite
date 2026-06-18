@@ -1,0 +1,36 @@
+{
+	"schema": "bossman-site-manifest.v1",
+	"domain": "moveroo.com.au",
+	"brandName": "Moveroo Australia",
+	"productionUrl": "https://moveroo.com.au",
+	"repo": "iamjasonhill/moveroowebsite",
+	"platform": "astro",
+	"deployTarget": "Vercel",
+	"localPath": "/Users/jasonhill/Projects/Business/websites/MM-moveroo.com.au",
+	"owner": "site-repo",
+	"quoteTargets": [
+		"https://quotes.moveroo.com.au/booking/create",
+		"https://quotes.moveroo.com.au/contact",
+		"https://quotes.moveroo.com.au/contact%60",
+		"https://quotes.moveroo.com.au/embed/vehicle-assistant/v1/loader.js",
+		"https://quotes.moveroo.com.au/quote/household",
+		"https://quotes.moveroo.com.au/quote/vehicle"
+	],
+	"legalPages": ["/privacy-policy/", "/terms-and-conditions-transport/", "/terms-of-use/"],
+	"search": {
+		"status": "not-applicable"
+	},
+	"standards": {
+		"legalPages": "moveroo-aligned",
+		"imageQuality": "brand-pass-required",
+		"languageQuality": "basic-hygiene-required",
+		"search": "not-applicable",
+		"quoteLinkSecurity": "quote-subdomain-required",
+		"astroBuild": "static-astro"
+	},
+	"evidence": {
+		"brandTokens": "brand/tokens.json"
+	},
+	"notes": "Bossman site manifest for repo-owned implementation truth. Bossman imports this as evidence but does not overwrite accepted truth without review.",
+	"updatedAt": "2026-06-18"
+}
