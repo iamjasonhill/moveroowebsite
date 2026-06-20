@@ -11,7 +11,6 @@
 	"quoteTargets": [
 		"https://quotes.moveroo.com.au/booking/create",
 		"https://quotes.moveroo.com.au/contact",
-		"https://quotes.moveroo.com.au/contact%60",
 		"https://quotes.moveroo.com.au/embed/vehicle-assistant/v1/loader.js",
 		"https://quotes.moveroo.com.au/quote/household",
 		"https://quotes.moveroo.com.au/quote/vehicle"
