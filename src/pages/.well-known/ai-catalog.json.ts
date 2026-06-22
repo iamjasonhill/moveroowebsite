@@ -22,6 +22,12 @@ export const GET: APIRoute = () => {
 				url: "https://moveroo.com.au/okf/index.md",
 			},
 			{
+				identifier: "urn:ai:moveroo.com.au:agent-skills:index",
+				displayName: "Moveroo Australia Agent Skills Index",
+				type: "application/json",
+				url: "https://moveroo.com.au/.well-known/agent-skills/index.json",
+			},
+			{
 				identifier: "urn:ai:moveroo.com.au:quote:household",
 				displayName: "Household Quote",
 				type: "text/html",

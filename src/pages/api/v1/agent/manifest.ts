@@ -111,6 +111,18 @@ const manifest = {
 				purpose: "LLM-oriented site summary.",
 			},
 			{
+				path: "/.well-known/agent-skills/index.json",
+				purpose: "Well-known Agent Skills discovery index.",
+			},
+			{
+				path: "/.well-known/ai-catalog.json",
+				purpose: "Agent-readable resource catalog.",
+			},
+			{
+				path: "/okf/index.md",
+				purpose: "Open Knowledge Format markdown index.",
+			},
+			{
 				path: "/rss.xml",
 				purpose: "RSS feed.",
 			},

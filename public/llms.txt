@@ -2,13 +2,54 @@
 
 > Moveroo helps Australians compare and coordinate household moves, interstate removals and vehicle transport through suitable removalist and transport providers.
 
-## About Moveroo
+## Important Pages
 
-Moveroo helps Australians coordinate home moves and vehicle transport across the country. We collect the details that affect the job, compare suitable options and explain the next steps before booking.
+- [Home](https://moveroo.com.au/): Main Moveroo public website entry point.
+- [Services](https://moveroo.com.au/services/): Overview of household removals, vehicle transport and combined relocation support.
+- [Household Removals](https://moveroo.com.au/household-removals/): Primary household moving service page.
+- [Interstate Removalists](https://moveroo.com.au/interstate-removalists/): Interstate move coordination and option comparison.
+- [Removals and Storage](https://moveroo.com.au/removals-and-storage/): Moving and storage timing support.
+- [Backloading Removals](https://moveroo.com.au/backloading-removals/): Flexible backload option guidance.
+- [Household and Vehicle Relocation](https://moveroo.com.au/household-vehicle-relocation/): Coordinating a household move with car or motorcycle transport.
+- [Interstate Car Transport](https://moveroo.com.au/interstate-car-transport/): Vehicle transport hub for interstate car moves.
+- [Door-to-Door vs Depot Car Transport](https://moveroo.com.au/door-to-door-vs-depot-car-transport/): Service-type comparison for car transport handoffs.
+- [Non-Running Car Transport](https://moveroo.com.au/non-running-car-transport/): Guidance for vehicles that do not run, roll or steer.
+- [How Moveroo Protects Your Move](https://moveroo.com.au/how-moveroo-protects-your-move/): Quote clarity, cover questions and process guidance.
 
-## Services
+## Quote And Conversion Surfaces
+
+- [Household Quote](https://quotes.moveroo.com.au/quote/household): Main household move quote handoff.
+- [Vehicle Transport Quote](https://quotes.moveroo.com.au/quote/vehicle): Main vehicle transport quote handoff.
+- [Booking Workspace](https://quotes.moveroo.com.au/booking/create): Booking continuation surface for customers.
+- [Contact Workspace](https://quotes.moveroo.com.au/contact): Quoting-system contact workspace.
+- [Customer Contact Page](https://moveroo.com.au/contact/): Public callback and contact page.
+
+## Legal And Trust Pages
+
+- [Privacy Policy](https://moveroo.com.au/privacy-policy/): Privacy and personal information handling.
+- [Terms of Use](https://moveroo.com.au/terms-of-use/): Website terms.
+- [Transport Terms](https://moveroo.com.au/terms-and-conditions-transport/): Transport service terms.
+- [Cancellation Policy](https://moveroo.com.au/cancellation/): Customer cancellation request information.
+- [Trust and Protection](https://moveroo.com.au/how-moveroo-protects-your-move/): Quote clarity, responsibility and cover questions.
+
+## Agent Resources
+
+- [XML Sitemap](https://moveroo.com.au/sitemap-index.xml): Canonical crawlable URL inventory.
+- [HTML Sitemap](https://moveroo.com.au/sitemap/): Human-readable sitemap page.
+- [robots.txt](https://moveroo.com.au/robots.txt): Crawler access and AI crawler guidance.
+- [Open Knowledge Format Index](https://moveroo.com.au/okf/index.md): Markdown knowledge index for agents.
+- [AI Resource Catalog](https://moveroo.com.au/.well-known/ai-catalog.json): Machine-readable resource catalog.
+- [Agent Skills Index](https://moveroo.com.au/.well-known/agent-skills/index.json): Well-known agent skill discovery index.
+- [Public Agent Manifest](https://moveroo.com.au/api/v1/agent/manifest/): Public site manifest and safe exposure boundaries.
+
+## Ownership Notes
+
+This public website is a static Astro site deployed on Vercel. The owning repository is `iamjasonhill/moveroowebsite`. Bossman is the source of truth for fleet standards and current evidence. Public content, agent-readable files, metadata and quote-handoff links are editable in the website repository.
+
+## Service Notes
 
 ### Household Removals
+
 Professional moving support for homes and apartments. Get a quote for your route, timing, inventory and access needs.
 
 - Interstate moving
@@ -17,6 +58,7 @@ Professional moving support for homes and apartments. Get a quote for your route
 - Storage solutions
 
 ### Removals and Storage
+
 Moving and storage support when pickup, settlement, lease and redelivery dates do not line up. Moveroo can help check storage options through removalists or storage partners where provider fit supports it.
 
 - Storage between pickup and redelivery
@@ -24,6 +66,7 @@ Moving and storage support when pickup, settlement, lease and redelivery dates d
 - Settlement, rental key handback and staged delivery timing
 
 ### Interstate Removalists
+
 Interstate removalist coordination for moves where dates, inventory, access and timing constraints need to be checked before booking.
 
 - Backload option or dedicated move comparison
@@ -32,6 +75,7 @@ Interstate removalist coordination for moves where dates, inventory, access and 
 - Household move plus vehicle timing where needed
 
 ### Combined Household + Vehicle Relocation
+
 Planning support when a home move also includes a car, motorcycle or extra vehicle. Tell Moveroo when the household move and vehicle transport belong to the same relocation so timing, access and handoffs can be coordinated together.
 
 - Household move plus vehicle transport
@@ -40,6 +84,7 @@ Planning support when a home move also includes a car, motorcycle or extra vehic
 - One coordinated brief for multiple moving parts
 
 ### Vehicle Transport
+
 Vehicle transport coordination across Australia. Whether you're moving interstate or buying a car from another city, we help match the job to a suitable transport option.
 
 - Interstate car transport
@@ -51,6 +96,7 @@ Vehicle transport coordination across Australia. Whether you're moving interstat
 - Enclosed transport options
 
 ### Provider Signup
+
 Provider-facing information for removalists, vehicle carriers, motorcycle and specialty transport providers, non-running vehicle carriers, and storage and/or packing partners that may want Moveroo work. Leads are free for providers, there is no cost per quote, and Moveroo does not take a cut from the provider's quoted job price.
 
 - Provider application
@@ -60,25 +106,11 @@ Provider-facing information for removalists, vehicle carriers, motorcycle and sp
 
 ## Key Pages
 
-- [Home](https://moveroo.com.au/)
-- [Get a Moving Quote](https://quotes.moveroo.com.au/quote/household)
-- [Household Removals](https://moveroo.com.au/household-removals/)
-- [Interstate Removalists](https://moveroo.com.au/interstate-removalists/)
-- [Removals and Storage](https://moveroo.com.au/removals-and-storage/)
-- [Backloading Removals](https://moveroo.com.au/backloading-removals/)
-- [Combined Household + Vehicle Relocation](https://moveroo.com.au/household-vehicle-relocation/)
-- [Interstate Car Transport](https://moveroo.com.au/interstate-car-transport/)
-- [Door-to-Door vs Depot Car Transport](https://moveroo.com.au/door-to-door-vs-depot-car-transport/)
-- [Non-Running Car Transport](https://moveroo.com.au/non-running-car-transport/)
-- [Vehicle Transport Quote](https://quotes.moveroo.com.au/quote/vehicle)
-- [Moving Cars](https://moveroo.com.au/moving-cars/)
-- [How Moveroo Protects Your Move](https://moveroo.com.au/how-moveroo-protects-your-move/)
-- [Become a Moveroo Provider](https://moveroo.com.au/providers/)
-- [Provider Application](https://quotes.moveroo.com.au/providers/apply)
-- [Provider Payment Terms](https://removalist.net/providers/payment-terms)
-- [Provider Login](https://removalist.net/provider/login)
-- [Contact Us](https://moveroo.com.au/contact/)
-- [Book Your Move](https://quotes.moveroo.com.au/booking/create)
+- [Become a Moveroo Provider](https://moveroo.com.au/providers/): Provider-facing information for removalists and vehicle carriers.
+- [Provider Application](https://quotes.moveroo.com.au/providers/apply): Provider application handoff.
+- [Provider Payment Terms](https://removalist.net/providers/payment-terms): Provider payment terms.
+- [Provider Login](https://removalist.net/provider/login): Provider login surface.
+- [Moving Cars](https://moveroo.com.au/moving-cars/): Broader vehicle transport support page.
 
 ## Contact
 
@@ -96,13 +128,17 @@ Provider-facing information for removalists, vehicle carriers, motorcycle and sp
 ## Frequently Asked Questions
 
 ### How do I get a moving quote?
+
 Visit our [quote page](https://quotes.moveroo.com.au/quote/household) and enter your move details. We'll review the route, timing, inventory and service needs so the quote can reflect the actual job.
 
 ### Do you transport vehicles interstate?
+
 Yes, we offer vehicle transport services across all Australian states and territories. Get a [vehicle transport quote](https://quotes.moveroo.com.au/quote/vehicle) to see pricing.
 
 ### How do you choose transport partners?
+
 Moveroo works with moving and transport partners that fit the job type, route, timing and service needs. We review partner suitability and can explain the planned service before booking.
 
 ### What areas do you service?
+
 We service all major cities and regional areas across Australia, including Sydney, Melbourne, Brisbane, Perth, Adelaide, Hobart, Darwin, and Canberra.
