@@ -1,5 +1,4 @@
 import rss from "@astrojs/rss";
-import { site } from "../config/site";
 
 const items = [
 	{
@@ -24,11 +23,6 @@ const items = [
 		description:
 			"Vehicle transport guidance, quote flow, and delivery planning for moving cars with Moveroo.",
 		link: "/moving-cars/",
-	},
-	{
-		title: "Contact",
-		description: "Contact pathways for Moveroo quote support and planning help.",
-		link: site.destinations.contactPage,
 	},
 ];
 

@@ -21,8 +21,7 @@
 - [Household Quote](https://quotes.moveroo.com.au/quote/household): Main household move quote handoff.
 - [Vehicle Transport Quote](https://quotes.moveroo.com.au/quote/vehicle): Main vehicle transport quote handoff.
 - [Booking Workspace](https://quotes.moveroo.com.au/booking/create): Booking continuation surface for customers.
-- [Contact Workspace](https://quotes.moveroo.com.au/contact): Quoting-system contact workspace.
-- [Customer Contact Page](https://moveroo.com.au/contact/): Public callback and contact page.
+- [Contact Workspace](https://quotes.moveroo.com.au/contact): Canonical callback and contact workspace.
 
 ## Legal And Trust Pages
 

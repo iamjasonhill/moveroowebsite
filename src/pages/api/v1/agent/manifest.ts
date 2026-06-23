@@ -73,8 +73,8 @@ const manifest = {
 				purpose: "Trust, process and move-protection explainer.",
 			},
 			{
-				path: "/contact/",
-				purpose: "Canonical customer contact page.",
+				path: "https://quotes.moveroo.com.au/contact",
+				purpose: "Canonical customer contact workspace.",
 			},
 			{
 				path: "/cancellation/",

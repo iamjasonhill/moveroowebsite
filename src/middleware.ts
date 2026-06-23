@@ -15,7 +15,7 @@ const homepageMarkdown = `# Moveroo Australia
 
 - [Start a household quote](https://quotes.moveroo.com.au/quote/household): Share route, timing, inventory and access details for a household move.
 - [Start a vehicle transport quote](https://quotes.moveroo.com.au/quote/vehicle): Share pickup and delivery suburbs, vehicle details, running condition and timing.
-- [Request a callback](https://moveroo.com.au/contact/): Ask the Moveroo team to follow up.
+- [Request a callback](https://quotes.moveroo.com.au/contact): Ask the Moveroo team to follow up.
 - [Book your move](https://quotes.moveroo.com.au/booking/create): Continue a booking through the quoting system.
 
 ## Key Public Pages

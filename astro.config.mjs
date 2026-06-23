@@ -47,6 +47,7 @@ export default defineConfig({
 				!page.includes("/template-dark") &&
 				!page.includes("/template-light") &&
 				!page.includes("/design") &&
+				!page.includes("/contact") &&
 				!page.includes("/contact-moveroo") &&
 				!page.includes("/contact-au") &&
 				!page.includes("/contact-page") &&
