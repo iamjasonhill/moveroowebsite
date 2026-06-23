@@ -19,12 +19,6 @@ Before finishing controlled site work, answer Bossman's repo handoff checklist:
 - If public output changed for SEO, content, conversion, brand, trust, technical health, or agentic visibility, was a Site Improvement Experiment created or attached?
 - Was baseline evidence captured or explicitly marked missing?
 
-This repository allows trusted direct contributions from Jason, Konrad, and
-their agents.
-
-Konrad and agent-specific operating guidance lives in
-`docs/KONRAD-CODEX-INSTRUCTIONS.md`.
-
 ## Core Rule
 
 Direct pushes to `main` are allowed when the change is clear, scoped, and
