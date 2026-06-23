@@ -12,23 +12,28 @@
 			"permanent": true
 		},
 		{
+			"source": "/contact/",
+			"destination": "https://quotes.moveroo.com.au/contact",
+			"permanent": true
+		},
+		{
 			"source": "/contact-moveroo/",
-			"destination": "/contact/",
+			"destination": "https://quotes.moveroo.com.au/contact",
 			"permanent": true
 		},
 		{
 			"source": "/contact-au/",
-			"destination": "/contact/",
+			"destination": "https://quotes.moveroo.com.au/contact",
 			"permanent": true
 		},
 		{
 			"source": "/contact-page/",
-			"destination": "/contact/",
+			"destination": "https://quotes.moveroo.com.au/contact",
 			"permanent": true
 		},
 		{
 			"source": "/contact-us/",
-			"destination": "/contact/",
+			"destination": "https://quotes.moveroo.com.au/contact",
 			"permanent": true
 		},
 		{
