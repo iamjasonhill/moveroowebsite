@@ -2,7 +2,7 @@
 
 Date: 2026-06-17
 
-SEO Champion tracking:
+Legacy SEO Champion tracking:
 
 - Parent decision: `iamjasonhill/seo-champion-data-hub#81`
 - Site-repo standard: `iamjasonhill/seo-champion-data-hub#86`
@@ -11,44 +11,34 @@ SEO Champion tracking:
 
 ## Position
 
-This repository is the pilot for repo-owned IndexNow on `moveroo.com.au`.
+This repository started as the pilot for repo-owned IndexNow on `moveroo.com.au`.
+It now follows the fleet standard owned by Bossman.
 
 Routine IndexNow belongs here, in the owning website repository and deployment
-pipeline. SEO Champion should audit readiness/proof and recommend submissions;
-it should not own routine submissions for this site.
+pipeline. Bossman owns the readiness registry and the site manifests; this repo
+hosts the key file and performs bounded production-deploy submissions.
 
-No live submission should run without explicit approval.
+Routine production deploys are approved for automatic IndexNow submission.
+Preview and local builds must skip submission unless explicitly forced.
 
 ## Environment
 
-Set these in Vercel production only after the key has been generated and
-approved:
+`INDEXNOW_ENDPOINT` may be set in Vercel production, but the default endpoint is
+the fleet standard:
 
 ```bash
-INDEXNOW_KEY=indexnow-moveroo-<approved-random-value>
 INDEXNOW_ENDPOINT=https://api.indexnow.org/indexnow
 ```
 
-The key must:
-
-- start with `indexnow-`
-- be 8-128 characters
-- contain only letters, numbers, and dashes
-- never be committed to the repo
-
-The build runs `scripts/indexnow-prepare-key.mjs` before `astro build`. When
-`INDEXNOW_KEY` is present, it writes a public root key file:
+The Bossman-approved key is committed as a public root file:
 
 ```text
-public/{INDEXNOW_KEY}.txt
+public/indexnow-moveroo-com-au-6bbd81d738ab734655fcc158.txt
 ```
 
-Generated key files are ignored by git.
-
-Status update, 2026-06-17: `INDEXNOW_KEY` and `INDEXNOW_ENDPOINT` are configured
-in Vercel Production for `moveroowebsite`. The key value is not stored in the
-repo. The next production deploy should generate the public key file during the
-build step.
+The build runs `astro build` and then `scripts/indexnow-submit.mjs --auto`.
+Auto mode only submits during production deploys and uses sitemap URLs from the
+fresh build output.
 
 ## Dry Run
 
@@ -87,13 +77,12 @@ Generated proof files go under `indexnow-proofs/` and are ignored by git.
 
 Live mode posts to the configured IndexNow endpoint.
 
-Use live mode only after:
+Manual live mode should only be used after:
 
 1. the production key file is publicly reachable
 2. the URL list has been reviewed
 3. preview, staging, API, noindex, non-canonical, and private URLs have been
    excluded
-4. Jason has explicitly approved the live submission
 
 Example, after approval:
 
@@ -145,20 +134,17 @@ The script blocks:
 - `/api/` routes
 - template routes
 
-Operators must also avoid:
+The script also avoids:
 
 - preview and staging URLs
 - noindex pages
 - private/admin URLs
 - old historical URLs that have not changed since IndexNow was enabled
-- whole-site resubmission on every deploy
+- non-HTTPS URLs
+- other hosts
 
-## First Pilot Plan
+## Bossman Verification
 
-1. Keep this setup dry-run only until the Vercel production key is configured.
-2. Pick a tiny URL set after the next real public content change.
-3. Run dry-run mode and inspect the redacted payload.
-4. Confirm the generated key file is reachable in production.
-5. Ask for explicit approval before the first live submission.
-6. Run live mode for the reviewed URL set only.
-7. Attach or summarize the proof back to SEO Champion issue `#88`.
+Bossman records this host as `submissionApproved=true`. After deployment, verify
+readiness through Bossman's IndexNow readiness check. A verified key file plus
+approved submission status should surface as `submit_ready`.

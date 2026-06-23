@@ -18,7 +18,6 @@ pnpm-debug.log*
 .env
 .env.*
 !.env.example
-public/indexnow-*.txt
 indexnow-proofs/
 
 # OS files
