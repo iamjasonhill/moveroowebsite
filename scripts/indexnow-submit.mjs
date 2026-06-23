@@ -1,283 +1,240 @@
+#!/usr/bin/env node
 import crypto from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
-import { execFile } from "node:child_process";
-import { promisify } from "node:util";
 import { fileURLToPath } from "node:url";
 
-const run = promisify(execFile);
 const __filename = fileURLToPath(import.meta.url);
 const root = path.resolve(path.dirname(__filename), "..");
-const DEFAULT_SITE_URL = process.env.PUBLIC_SITE_URL ?? "https://moveroo.com.au";
-const DEFAULT_ENDPOINT = process.env.INDEXNOW_ENDPOINT ?? "https://api.indexnow.org/indexnow";
-const SAFE_TRIGGERS = new Set([
-	"deploy_changed_urls",
-	"migration_cutover",
-	"critical_url_fix",
-	"manual_review",
-]);
+const endpoint = process.env.INDEXNOW_ENDPOINT || "https://api.indexnow.org/indexnow";
+const batchSize = 10000;
 
-function parseArgs(argv) {
-	const options = {
-		mode: "dry_run",
-		urls: [],
-		files: [],
-		changedSince: null,
-		trigger: "manual_review",
-		proofDir: "indexnow-proofs",
-		writeProof: false,
-		deploymentId: process.env.VERCEL_DEPLOYMENT_ID ?? process.env.VERCEL_URL ?? null,
-		commit: process.env.VERCEL_GIT_COMMIT_SHA ?? null,
-	};
-
-	for (let index = 0; index < argv.length; index += 1) {
-		const arg = argv[index];
-		const nextValue = () => {
-			const value = argv[index + 1];
-			if (!value || value.startsWith("--")) {
-				throw new Error(`${arg} requires a value.`);
-			}
-			index += 1;
-			return value;
-		};
-
-		if (arg === "--live") options.mode = "live";
-		else if (arg === "--dry-run") options.mode = "dry_run";
-		else if (arg === "--write-proof") options.writeProof = true;
-		else if (arg === "--url") options.urls.push(nextValue());
-		else if (arg.startsWith("--url=")) options.urls.push(arg.slice("--url=".length));
-		else if (arg === "--file") options.files.push(nextValue());
-		else if (arg.startsWith("--file=")) options.files.push(arg.slice("--file=".length));
-		else if (arg === "--changed-since") options.changedSince = nextValue();
-		else if (arg.startsWith("--changed-since=")) {
-			options.changedSince = arg.slice("--changed-since=".length);
-		} else if (arg === "--trigger") options.trigger = nextValue();
-		else if (arg.startsWith("--trigger=")) options.trigger = arg.slice("--trigger=".length);
-		else if (arg === "--proof-dir") options.proofDir = nextValue();
-		else if (arg.startsWith("--proof-dir=")) options.proofDir = arg.slice("--proof-dir=".length);
-		else {
-			throw new Error(`Unknown argument: ${arg}`);
-		}
-	}
-
-	return options;
+function argSet() {
+	return new Set(process.argv.slice(2));
 }
 
-function validateKey(key, mode) {
-	if (!key && mode === "live") {
-		throw new Error("INDEXNOW_KEY is required for live submissions.");
-	}
-
-	if (!key) {
-		return "indexnow-dry-run-key";
-	}
-
-	if (!/^[A-Za-z0-9-]{8,128}$/.test(key)) {
-		throw new Error(
-			"INDEXNOW_KEY must be 8-128 characters and contain only letters, numbers, or dashes."
-		);
-	}
-
-	if (!key.startsWith("indexnow-")) {
-		throw new Error("INDEXNOW_KEY must start with indexnow- for this repo.");
-	}
-
-	return key;
+async function readJson(file) {
+	return JSON.parse(await fs.readFile(file, "utf8"));
 }
 
-function canonicalSiteUrl() {
-	const url = new URL(DEFAULT_SITE_URL);
+async function exists(file) {
+	try {
+		await fs.access(file);
+		return true;
+	} catch {
+		return false;
+	}
+}
+
+function normalizeSiteUrl(value) {
+	const url = new URL(value);
 	url.hash = "";
 	url.search = "";
 	return url.toString().replace(/\/$/, "");
 }
 
-function normalizeUrl(value) {
-	const site = canonicalSiteUrl();
-	const siteUrl = new URL(site);
-	const parsed = new URL(value, `${site}/`);
-	parsed.hash = "";
-	parsed.search = "";
-
-	if (parsed.protocol !== "https:") {
-		throw new Error(`IndexNow URL must be https: ${value}`);
-	}
-
-	if (parsed.hostname !== siteUrl.hostname) {
-		throw new Error(`IndexNow URL host must be ${siteUrl.hostname}: ${value}`);
-	}
-
-	if (parsed.pathname.includes("/template-") || parsed.pathname.startsWith("/api/")) {
-		throw new Error(`IndexNow URL is excluded by repo policy: ${value}`);
-	}
-
-	if (!path.extname(parsed.pathname) && !parsed.pathname.endsWith("/")) {
-		parsed.pathname = `${parsed.pathname}/`;
-	}
-
-	return parsed.toString();
+function siteUrlFromManifest(manifest) {
+	return (
+		process.env.PUBLIC_SITE_URL ||
+		manifest.productionUrl ||
+		manifest.site?.canonicalUrl ||
+		(manifest.domain ? "https://" + manifest.domain : null) ||
+		(manifest.site?.domain ? "https://" + manifest.site.domain : null) ||
+		(manifest.indexNow?.keyFileUrl ? new URL(manifest.indexNow.keyFileUrl).origin : null)
+	);
 }
 
-function routeFromPagePath(filePath) {
-	const normalized = filePath.replaceAll("\\", "/");
-
-	if (!normalized.startsWith("src/pages/")) return null;
-	if (normalized.startsWith("src/pages/api/")) return null;
-	if (!/\.(astro|md|mdx)$/.test(normalized)) return null;
-	if (normalized.includes("/template-") || normalized.endsWith("/404.astro")) return null;
-
-	const relative = normalized.replace(/^src\/pages\//, "").replace(/\.(astro|md|mdx)$/, "");
-
-	if (relative === "index") return "/";
-
-	return `/${relative}/`;
-}
-
-async function urlsFromFiles(files) {
-	const urls = [];
-
-	for (const file of files) {
-		const content = await fs.readFile(path.resolve(root, file), "utf8");
-		urls.push(
-			...content
-				.split(/\r?\n/)
-				.map((line) => line.trim())
-				.filter(Boolean)
+function validateKey(key) {
+	if (!/^[A-Za-z0-9_-]{8,128}$/.test(key)) {
+		throw new Error(
+			"IndexNow key must be 8-128 characters and contain only letters, numbers, underscores, or dashes."
 		);
+	}
+	return key;
+}
+
+function extractLocs(xml) {
+	return Array.from(xml.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/gi), (match) => match[1].trim());
+}
+
+async function readSitemapUrlLocs(distDir, siteUrl, file) {
+	const xml = await fs.readFile(file, "utf8");
+	const locs = extractLocs(xml);
+	const urls = [];
+	const nested = [];
+
+	for (const loc of locs) {
+		if (/\.xml(?:$|[?#])/i.test(loc)) {
+			nested.push(loc);
+		} else {
+			urls.push(loc);
+		}
+	}
+
+	for (const nestedLoc of nested) {
+		const nestedUrl = new URL(nestedLoc, siteUrl + "/");
+		const nestedPath = path.join(distDir, path.basename(nestedUrl.pathname));
+		if (await exists(nestedPath)) {
+			urls.push(...(await readSitemapUrlLocs(distDir, siteUrl, nestedPath)));
+		}
 	}
 
 	return urls;
 }
 
-async function changedFilesSince(ref) {
-	const { stdout } = await run("git", ["diff", "--name-only", `${ref}...HEAD`], { cwd: root });
-	return stdout
-		.split(/\r?\n/)
-		.map((line) => line.trim())
-		.filter(Boolean);
+async function findDistDirs() {
+	const dirs = [path.join(root, "dist"), path.join(root, "dist", "client")];
+	const existing = [];
+
+	for (const dir of dirs) {
+		if (await exists(dir)) {
+			existing.push(dir);
+		}
+	}
+
+	return existing;
 }
 
-async function urlsFromChangedPages(ref) {
-	const files = await changedFilesSince(ref);
-	return files.map(routeFromPagePath).filter(Boolean);
+async function sitemapUrls(siteUrl) {
+	const candidates = [
+		"sitemap-index.xml",
+		"sitemap.xml",
+		"sitemaps.xml",
+		"sitemap_index.xml",
+		"sitemap-0.xml",
+	];
+
+	for (const distDir of await findDistDirs()) {
+		for (const candidate of candidates) {
+			const file = path.join(distDir, candidate);
+			if (await exists(file)) {
+				return readSitemapUrlLocs(distDir, siteUrl, file);
+			}
+		}
+	}
+
+	throw new Error("No sitemap XML file found in dist. Run the Astro build first.");
+}
+
+function normalizeUrls(rawUrls, siteUrl) {
+	const site = new URL(siteUrl);
+	const urls = [];
+
+	for (const raw of rawUrls) {
+		const url = new URL(raw, siteUrl + "/");
+		url.hash = "";
+		url.search = "";
+
+		if (url.protocol !== "https:") continue;
+		if (url.hostname !== site.hostname) continue;
+		if (url.pathname.startsWith("/api/")) continue;
+		if (url.pathname.includes("/template-")) continue;
+
+		urls.push(url.toString());
+	}
+
+	return Array.from(new Set(urls)).sort();
+}
+
+function chunk(values, size) {
+	const chunks = [];
+	for (let index = 0; index < values.length; index += size) {
+		chunks.push(values.slice(index, index + size));
+	}
+	return chunks;
 }
 
 function sha256(value) {
 	return crypto.createHash("sha256").update(value).digest("hex");
 }
 
-function redactPayload(payload) {
-	return {
-		...payload,
-		key: "[redacted]",
-		keyLocation: "[redacted]",
-	};
-}
+async function submit({ host, key, keyLocation, urls, dryRun }) {
+	const batches = chunk(urls, batchSize);
+	const results = [];
 
-async function writeProof({ proofDir, proof }) {
-	const outputDir = path.resolve(root, proofDir);
-	await fs.mkdir(outputDir, { recursive: true });
-	const fileName = `${new Date().toISOString().replace(/[:.]/g, "-")}-indexnow-proof.json`;
-	const filePath = path.join(outputDir, fileName);
-	await fs.writeFile(filePath, `${JSON.stringify(proof, null, 2)}\n`);
-	return filePath;
-}
+	for (const [index, urlList] of batches.entries()) {
+		const payload = { host, key, keyLocation, urlList };
 
-async function submitPayload(endpoint, payload) {
-	const response = await fetch(endpoint, {
-		method: "POST",
-		headers: { "content-type": "application/json; charset=utf-8" },
-		body: JSON.stringify(payload),
-	});
+		if (dryRun) {
+			results.push({
+				batch: index + 1,
+				urlCount: urlList.length,
+				httpStatus: null,
+				status: "dry_run",
+			});
+			continue;
+		}
 
-	return {
-		httpStatus: response.status,
-		body: await response.text().catch(() => ""),
-	};
+		const response = await fetch(endpoint, {
+			method: "POST",
+			headers: { "content-type": "application/json; charset=utf-8" },
+			body: JSON.stringify(payload),
+		});
+
+		results.push({
+			batch: index + 1,
+			urlCount: urlList.length,
+			httpStatus: response.status,
+			status:
+				response.status === 200
+					? "submitted"
+					: response.status === 202
+						? "accepted_pending_key_validation"
+						: "failed",
+		});
+	}
+
+	return results;
 }
 
 async function main() {
-	const options = parseArgs(process.argv.slice(2));
+	const args = argSet();
+	const auto = args.has("--auto");
+	const dryRun = args.has("--dry-run") || (!args.has("--live") && !auto);
+	const force = args.has("--force") || process.env.INDEXNOW_FORCE === "true";
+	const isProductionDeploy =
+		process.env.VERCEL_ENV === "production" ||
+		(process.env.NETLIFY === "true" && process.env.CONTEXT === "production");
 
-	if (!SAFE_TRIGGERS.has(options.trigger)) {
-		throw new Error(`Unsupported trigger "${options.trigger}".`);
+	if (auto && !isProductionDeploy && !force) {
+		console.log("IndexNow auto-submit skipped outside production deploy.");
+		return;
 	}
 
-	const key = validateKey(process.env.INDEXNOW_KEY?.trim(), options.mode);
-	const site = canonicalSiteUrl();
-	const siteHost = new URL(site).hostname;
-	const keyLocation = process.env.INDEXNOW_KEY_LOCATION ?? `${site}/${key}.txt`;
-	const rawUrls = [
-		...options.urls,
-		...(await urlsFromFiles(options.files)),
-		...(options.changedSince ? await urlsFromChangedPages(options.changedSince) : []),
-	];
-	const urlList = Array.from(new Set(rawUrls.map(normalizeUrl))).sort();
+	const manifest = await readJson(path.join(root, "bossman-site-manifest.json"));
+	const siteUrl = normalizeSiteUrl(siteUrlFromManifest(manifest));
+	const host = new URL(siteUrl).hostname;
+	const indexNow = manifest.indexNow || {};
+	const key = validateKey((indexNow.key || process.env.INDEXNOW_KEY || "").trim());
+	const keyLocation =
+		process.env.INDEXNOW_KEY_LOCATION || indexNow.keyFileUrl || siteUrl + "/" + key + ".txt";
+	const urls = normalizeUrls(await sitemapUrls(siteUrl), siteUrl);
 
-	if (urlList.length === 0) {
-		throw new Error("No IndexNow URLs provided. Use --url, --file, or --changed-since.");
+	if (urls.length === 0) {
+		throw new Error("No same-host HTTPS sitemap URLs found for IndexNow submission.");
 	}
 
-	if (urlList.length > 10000) {
-		throw new Error("IndexNow POST batches must not exceed 10,000 URLs.");
-	}
-
-	const payload = {
-		host: siteHost,
-		key,
-		keyLocation,
-		urlList,
-	};
-	const submittedAt = new Date().toISOString();
+	const results = await submit({ host, key, keyLocation, urls, dryRun });
+	const failed = results.filter((result) => result.status === "failed");
 	const proof = {
-		schema: "indexnow-submission-proof-v1",
-		domain: siteHost,
-		deploymentId: options.deploymentId,
-		commit: options.commit,
-		submittedAt,
-		endpoint: DEFAULT_ENDPOINT,
+		schema: "indexnow-auto-submit-proof-v1",
+		domain: host,
+		mode: dryRun ? "dry_run" : "live",
+		trigger: auto ? "production_deploy" : "manual",
+		urlCount: urls.length,
+		batchCount: results.length,
+		urlsSha256: sha256(urls.join("\n")),
+		endpoint,
 		keyLocation: "[redacted]",
-		mode: options.mode,
-		trigger: options.trigger,
-		urlCount: urlList.length,
-		urlsSha256: sha256(urlList.join("\n")),
-		status: "dry_run",
-		httpStatus: null,
-		failureReason: null,
+		deploymentId: process.env.VERCEL_DEPLOYMENT_ID || process.env.VERCEL_URL || null,
+		commit: process.env.VERCEL_GIT_COMMIT_SHA || null,
+		submittedAt: new Date().toISOString(),
+		results,
 	};
 
-	if (options.mode === "live") {
-		const result = await submitPayload(DEFAULT_ENDPOINT, payload);
-		proof.httpStatus = result.httpStatus;
+	console.log(JSON.stringify(proof, null, 2));
 
-		if (result.httpStatus === 200) {
-			proof.status = "submitted";
-		} else if (result.httpStatus === 202) {
-			proof.status = "accepted_pending_key_validation";
-		} else {
-			proof.status = "failed";
-			proof.failureReason = `IndexNow returned HTTP ${result.httpStatus}`;
-		}
-	}
-
-	let proofPath = null;
-	if (options.writeProof) {
-		proofPath = await writeProof({ proofDir: options.proofDir, proof });
-	}
-
-	console.log(
-		JSON.stringify(
-			{
-				payload: redactPayload(payload),
-				proof,
-				proofPath,
-			},
-			null,
-			2
-		)
-	);
-
-	if (proof.status === "failed") {
+	if (failed.length > 0) {
 		process.exitCode = 1;
 	}
 }
