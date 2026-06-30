@@ -33,6 +33,7 @@ export const GET: APIRoute = () => {
 				type: "text/html",
 				url: "https://quotes.moveroo.com.au/quote/household",
 				capabilityManifest: "https://quotes.moveroo.com.au/quote-capability.json",
+				humanGuide: "https://quotes.moveroo.com.au/agents",
 				publicAgentApi: "https://quotes.moveroo.com.au/api/v1/household-quotes/assistant/submit",
 			},
 			{
@@ -41,6 +42,7 @@ export const GET: APIRoute = () => {
 				type: "text/html",
 				url: "https://quotes.moveroo.com.au/quote/vehicle",
 				capabilityManifest: "https://quotes.moveroo.com.au/quote-capability.json",
+				humanGuide: "https://quotes.moveroo.com.au/agents",
 			},
 			{
 				identifier: "urn:ai:moveroo.com.au:quote:contact",
@@ -48,6 +50,7 @@ export const GET: APIRoute = () => {
 				type: "text/html",
 				url: "https://quotes.moveroo.com.au/contact",
 				capabilityManifest: "https://quotes.moveroo.com.au/quote-capability.json",
+				humanGuide: "https://quotes.moveroo.com.au/agents",
 			},
 		],
 	};

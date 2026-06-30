@@ -23,6 +23,7 @@
 - [Contact Workspace](https://quotes.moveroo.com.au/contact): Canonical callback and contact workspace.
 - [Quote Capability Manifest](https://quotes.moveroo.com.au/quote-capability.json): Machine-readable quote capability contract for agents.
 - [Quote AI Catalog](https://quotes.moveroo.com.au/.well-known/ai-catalog.json): Well-known quote capability discovery document.
+- [Human Agent Guide](https://quotes.moveroo.com.au/agents): Plain-English guide for using the public household quote API safely.
 
 Household quote requests can be submitted by public agents through `https://quotes.moveroo.com.au/api/v1/household-quotes/assistant/submit` when the customer has asked for a quote and consent is included in the payload. Vehicle quotes are browser-handoff only until a public vehicle API contract is advertised by the quote host.
 

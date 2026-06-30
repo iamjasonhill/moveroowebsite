@@ -159,8 +159,11 @@ const manifest = {
 				publicAgentApi: {
 					method: "POST",
 					url: "https://quotes.moveroo.com.au/api/v1/household-quotes/assistant/submit",
+					hostAware: true,
+					requiresTenant: false,
 					requiresCustomerConsent: true,
 					capabilityManifest: "https://quotes.moveroo.com.au/quote-capability.json",
+					humanGuide: "https://quotes.moveroo.com.au/agents",
 				},
 			},
 			{
@@ -169,10 +172,12 @@ const manifest = {
 				quoteType: "vehicle",
 				publicAgentApi: null,
 				capabilityManifest: "https://quotes.moveroo.com.au/quote-capability.json",
+				humanGuide: "https://quotes.moveroo.com.au/agents",
 			},
 			{
 				label: "Contact workspace",
 				url: site.destinations.contactWorkspace,
+				humanGuide: "https://quotes.moveroo.com.au/agents",
 			},
 		],
 	},
