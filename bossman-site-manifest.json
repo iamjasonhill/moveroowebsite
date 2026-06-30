@@ -9,9 +9,7 @@
 	"localPath": "/Users/jasonhill/Projects/Business/websites/MM-moveroo.com.au",
 	"owner": "site-repo",
 	"quoteTargets": [
-		"https://quotes.moveroo.com.au/booking/create",
 		"https://quotes.moveroo.com.au/contact",
-		"https://quotes.moveroo.com.au/embed/vehicle-assistant/v1/loader.js",
 		"https://quotes.moveroo.com.au/quote/household",
 		"https://quotes.moveroo.com.au/quote/vehicle"
 	],
@@ -31,7 +29,23 @@
 		"brandTokens": "brand/tokens.json"
 	},
 	"notes": "Bossman site manifest for repo-owned implementation truth. Bossman imports this as evidence but does not overwrite accepted truth without review.",
-	"updatedAt": "2026-06-23",
+	"quoteCapability": {
+		"host": "https://quotes.moveroo.com.au",
+		"llmsTxt": "https://quotes.moveroo.com.au/llms.txt",
+		"aiCatalog": "https://quotes.moveroo.com.au/.well-known/ai-catalog.json",
+		"manifest": "https://quotes.moveroo.com.au/quote-capability.json",
+		"householdPublicAgentApi": {
+			"method": "POST",
+			"url": "https://quotes.moveroo.com.au/api/v1/household-quotes/assistant/submit",
+			"requiresCustomerConsent": true,
+			"ready": true
+		},
+		"vehiclePublicAgentApi": {
+			"ready": false,
+			"handoffUrl": "https://quotes.moveroo.com.au/quote/vehicle"
+		}
+	},
+	"updatedAt": "2026-06-30",
 	"indexNow": {
 		"status": "auto",
 		"submissionApproved": true,

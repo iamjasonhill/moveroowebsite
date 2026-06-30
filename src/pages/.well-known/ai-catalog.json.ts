@@ -32,12 +32,22 @@ export const GET: APIRoute = () => {
 				displayName: "Household Quote",
 				type: "text/html",
 				url: "https://quotes.moveroo.com.au/quote/household",
+				capabilityManifest: "https://quotes.moveroo.com.au/quote-capability.json",
+				publicAgentApi: "https://quotes.moveroo.com.au/api/v1/household-quotes/assistant/submit",
 			},
 			{
 				identifier: "urn:ai:moveroo.com.au:quote:vehicle",
 				displayName: "Vehicle Quote",
 				type: "text/html",
 				url: "https://quotes.moveroo.com.au/quote/vehicle",
+				capabilityManifest: "https://quotes.moveroo.com.au/quote-capability.json",
+			},
+			{
+				identifier: "urn:ai:moveroo.com.au:quote:contact",
+				displayName: "Quote Contact Workspace",
+				type: "text/html",
+				url: "https://quotes.moveroo.com.au/contact",
+				capabilityManifest: "https://quotes.moveroo.com.au/quote-capability.json",
 			},
 		],
 	};

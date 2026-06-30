@@ -155,18 +155,24 @@ const manifest = {
 			{
 				label: "Household quote",
 				url: site.destinations.householdQuote,
+				quoteType: "household",
+				publicAgentApi: {
+					method: "POST",
+					url: "https://quotes.moveroo.com.au/api/v1/household-quotes/assistant/submit",
+					requiresCustomerConsent: true,
+					capabilityManifest: "https://quotes.moveroo.com.au/quote-capability.json",
+				},
 			},
 			{
 				label: "Vehicle quote",
 				url: site.destinations.vehicleQuote,
+				quoteType: "vehicle",
+				publicAgentApi: null,
+				capabilityManifest: "https://quotes.moveroo.com.au/quote-capability.json",
 			},
 			{
 				label: "Contact workspace",
 				url: site.destinations.contactWorkspace,
-			},
-			{
-				label: "Booking workspace",
-				url: site.destinations.bookingPage,
 			},
 		],
 	},

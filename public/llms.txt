@@ -20,8 +20,11 @@
 
 - [Household Quote](https://quotes.moveroo.com.au/quote/household): Main household move quote handoff.
 - [Vehicle Transport Quote](https://quotes.moveroo.com.au/quote/vehicle): Main vehicle transport quote handoff.
-- [Booking Workspace](https://quotes.moveroo.com.au/booking/create): Booking continuation surface for customers.
 - [Contact Workspace](https://quotes.moveroo.com.au/contact): Canonical callback and contact workspace.
+- [Quote Capability Manifest](https://quotes.moveroo.com.au/quote-capability.json): Machine-readable quote capability contract for agents.
+- [Quote AI Catalog](https://quotes.moveroo.com.au/.well-known/ai-catalog.json): Well-known quote capability discovery document.
+
+Household quote requests can be submitted by public agents through `https://quotes.moveroo.com.au/api/v1/household-quotes/assistant/submit` when the customer has asked for a quote and consent is included in the payload. Vehicle quotes are browser-handoff only until a public vehicle API contract is advertised by the quote host.
 
 ## Legal And Trust Pages
 
