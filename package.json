@@ -12,7 +12,7 @@
 		"preview": "astro preview",
 		"astro": "astro",
 		"check": "astro check",
-		"check:contract": "node ./scripts/check-contract.mjs",
+		"check:contract": "node ./scripts/check-contract.mjs && node scripts/check-agent-discovery.mjs",
 		"check:content": "node scripts/check-content-safety.mjs",
 		"check:indexnow": "node scripts/check-indexnow.mjs",
 		"check:seo": "node scripts/check-seo.mjs",
@@ -28,7 +28,8 @@
 		"seo:crawl": "node scripts/seo-audit.mjs crawl",
 		"seo:status": "node scripts/seo-audit.mjs status",
 		"seo:list": "node scripts/seo-audit.mjs list",
-		"prepare": "husky"
+		"prepare": "husky",
+		"check:agent-discovery": "node scripts/check-agent-discovery.mjs"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.6",
