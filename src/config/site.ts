@@ -18,8 +18,8 @@ export const site = {
 				href: "https://quotes.moveroo.com.au/quote/household",
 				eventName: "quote_household_click",
 				params: {
-					interaction_type: "quote_handoff",
-					lead_type: "quote",
+					interaction_type: "quote",
+					lead_type: "household_quote",
 					quote_type: "household",
 					quote_host: "quotes.moveroo.com.au",
 					handoff_event_name: "quote_household_click",
@@ -29,39 +29,32 @@ export const site = {
 				href: "https://quotes.moveroo.com.au/quote/vehicle",
 				eventName: "quote_vehicle_click",
 				params: {
-					interaction_type: "quote_handoff",
-					lead_type: "quote",
+					interaction_type: "quote",
+					lead_type: "vehicle_quote",
 					quote_type: "vehicle",
 					quote_host: "quotes.moveroo.com.au",
 					handoff_event_name: "quote_vehicle_click",
 				},
 			},
 			{
-				href: "https://quotes.moveroo.com.au/contact",
-				eventName: "callback_request_click",
-				params: {
-					interaction_type: "callback",
-					lead_type: "callback",
-					quote_host: "quotes.moveroo.com.au",
-					handoff_event_name: "callback_request_click",
-				},
-			},
-			{
-				href: "https://quotes.moveroo.com.au/contact",
-				eventName: "callback_page_click",
-				params: {
-					interaction_type: "callback",
-					lead_type: "callback",
-				},
-			},
-			{
 				href: "https://quotes.moveroo.com.au/booking/create",
-				eventName: "booking_click",
+				eventName: "booking_household_click",
 				params: {
 					interaction_type: "booking",
 					lead_type: "booking",
+					quote_type: "household",
 					quote_host: "quotes.moveroo.com.au",
-					handoff_event_name: "booking_click",
+					handoff_event_name: "booking_household_click",
+				},
+			},
+			{
+				href: "https://quotes.moveroo.com.au/contact",
+				eventName: "contact_intent_click",
+				params: {
+					interaction_type: "contact",
+					lead_type: "contact",
+					quote_host: "quotes.moveroo.com.au",
+					handoff_event_name: "contact_intent_click",
 				},
 			},
 			{
