@@ -417,7 +417,20 @@ const footerSignals = ["Household relocations", "Vehicle transport", "Nationwide
 						<ol class="flex flex-wrap items-center gap-2">
 							{resolvedBreadcrumbs.map((item, index) => (
 								<li class="flex items-center gap-2">
-									{index > 0 && <span class="text-slate-400 dark:text-slate-500">/</span>}
+									{index > 0 && (
+										<svg
+											aria-hidden="true"
+											class="h-3 w-3 text-slate-400 dark:text-slate-500"
+											viewBox="0 0 16 16"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										>
+											<path d="m6 3 5 5-5 5" />
+										</svg>
+									)}
 									{index < resolvedBreadcrumbs.length - 1 ? (
 										<a
 											href={item.url}
