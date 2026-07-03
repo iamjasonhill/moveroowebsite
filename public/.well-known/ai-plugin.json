@@ -1,0 +1,20 @@
+{
+	"schema_version": "v1",
+	"name_for_human": "Moveroo public quote API",
+	"name_for_model": "moveroo_public_quote_api",
+	"description_for_human": "Host-aware public quote and callback API for customer-authorised Moveroo quote requests.",
+	"description_for_model": "Use the OpenAPI document and quote capability manifest to submit only customer-authorised household quote, vehicle quote, and callback requests. Omit tenant for public host-aware submissions unless Moveroo has supplied a tenant slug.",
+	"auth": {
+		"type": "none"
+	},
+	"api": {
+		"type": "openapi",
+		"url": "https://quotes.moveroo.com.au/openapi.json",
+		"is_user_authenticated": false
+	},
+	"logo_url": "https://quotes.moveroo.com.au/favicon.ico",
+	"contact_email": "removals@moveroo.com.au",
+	"legal_info_url": "https://quotes.moveroo.com.au/agents",
+	"capability_url": "https://quotes.moveroo.com.au/quote-capability.json",
+	"agent_examples_url": "https://quotes.moveroo.com.au/agents/examples"
+}
