@@ -15,7 +15,7 @@ const robotsRoute = fs.readFileSync(new URL("../src/pages/robots.txt.ts", import
 const vercelConfig = JSON.parse(
 	fs.readFileSync(new URL("../vercel.json", import.meta.url), "utf8")
 );
-const llmsText = fs.readFileSync(new URL("../public/llms.txt", import.meta.url), "utf8");
+const llmsTextRoute = fs.readFileSync(new URL("../src/pages/llms.txt.ts", import.meta.url), "utf8");
 
 assert(packageJson.scripts.check, "package.json is missing the check script");
 assert(packageJson.scripts["check:seo"], "package.json is missing the check:seo script");
@@ -28,8 +28,8 @@ assert(
 	"vercel.json redirect inventory looks unexpectedly small"
 );
 assert(
-	llmsText.includes("Moveroo Australia"),
-	"public/llms.txt no longer identifies the Moveroo brand clearly"
+	llmsTextRoute.includes("Moveroo Australia"),
+	"llms.txt route no longer identifies the Moveroo brand clearly"
 );
 
 if (failures.length > 0) {
