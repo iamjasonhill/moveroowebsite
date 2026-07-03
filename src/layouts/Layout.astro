@@ -58,6 +58,8 @@ const generateBreadcrumbs = (): BreadcrumbItem[] => {
 	return items;
 };
 
+const resolvedBreadcrumbs = generateBreadcrumbs();
+
 // Base schema for Organization and WebSite (shared across all pages)
 const baseSchema = {
 	"@context": "https://schema.org",
@@ -99,7 +101,7 @@ const baseSchema = {
 		{
 			"@type": "BreadcrumbList",
 			"@id": `https://moveroo.com.au${currentPath}#breadcrumb`,
-			itemListElement: generateBreadcrumbs().map((item, index) => ({
+			itemListElement: resolvedBreadcrumbs.map((item, index) => ({
 				"@type": "ListItem",
 				position: index + 1,
 				name: item.name,
@@ -406,6 +408,34 @@ const footerSignals = ["Household relocations", "Vehicle transport", "Nationwide
 			</div>
 		</header>
 		<main id="main-content" class="flex-1 bg-white dark:bg-slate-900 transition-colors">
+			{
+				resolvedBreadcrumbs.length > 1 && (
+					<nav
+						aria-label="Breadcrumb"
+						class="mx-auto flex max-w-6xl px-6 pt-6 text-sm font-medium text-slate-600 dark:text-slate-300"
+					>
+						<ol class="flex flex-wrap items-center gap-2">
+							{resolvedBreadcrumbs.map((item, index) => (
+								<li class="flex items-center gap-2">
+									{index > 0 && <span class="text-slate-400 dark:text-slate-500">/</span>}
+									{index < resolvedBreadcrumbs.length - 1 ? (
+										<a
+											href={item.url}
+											class="text-emerald-700 underline-offset-4 hover:underline dark:text-emerald-300"
+										>
+											{item.name}
+										</a>
+									) : (
+										<span aria-current="page" class="text-slate-900 dark:text-white">
+											{item.name}
+										</span>
+									)}
+								</li>
+							))}
+						</ol>
+					</nav>
+				)
+			}
 			<slot />
 		</main>
 		<footer class="site-footer border-t">
