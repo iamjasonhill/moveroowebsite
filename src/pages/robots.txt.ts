@@ -1,50 +1,11 @@
-import type { APIRoute } from "astro";
-
-const siteUrl = (import.meta.env.PUBLIC_SITE_URL || "https://moveroo.com.au").replace(/\/$/, "");
-
-export const GET: APIRoute = () => {
-	const body = [
-		`User-agent: *`,
-		`Allow: /`,
-		``,
-		`Sitemap: ${siteUrl}/sitemap-index.xml`,
-		``,
-		`# LLM/AI Crawler Information`,
-		`# See https://llmstxt.org for specification`,
-		`# LLMs.txt: ${siteUrl}/llms.txt`,
-		`# AI resource catalog: ${siteUrl}/.well-known/ai-catalog.json`,
-		`# Agent Skills: ${siteUrl}/.well-known/agent-skills/index.json`,
-		`# Content-Signal: public service, legal, and support content may be used for AI search and agent discovery with attribution to Moveroo Australia.`,
-		``,
-		`User-agent: GPTBot`,
-		`Allow: /`,
-		``,
-		`User-agent: ChatGPT-User`,
-		`Allow: /`,
-		``,
-		`User-agent: ClaudeBot`,
-		`Allow: /`,
-		``,
-		`User-agent: anthropic-ai`,
-		`Allow: /`,
-		``,
-		`User-agent: PerplexityBot`,
-		`Allow: /`,
-		``,
-		`User-agent: Google-Extended`,
-		`Allow: /`,
-		``,
-		`User-agent: CCBot`,
-		`Allow: /`,
-		``,
-		`User-agent: Applebot-Extended`,
-		`Allow: /`,
-	].join("\n");
+export function GET() {
+	const body =
+		"User-agent: *\nAllow: /\nSitemap: https://moveroo.com.au/sitemap.xml\nSitemap: https://moveroo.com.au/sitemap-index.xml\nSitemap: https://moveroo.com.au/llms.txt\nSitemap: https://moveroo.com.au/.well-known/llms.txt\nSitemap: https://moveroo.com.au/index.md\n\n# AI crawlers and search agents may use these resources for customer-authorised quote discovery.\n# API execution is documented at /agents/ and /openapi.json.\nAllow: /agents/\nAllow: /agents/examples/\nAllow: /llms.txt\nAllow: /.well-known/llms.txt\nAllow: /index.md\nAllow: /openapi.json\nAllow: /quote-capability.json\nAllow: /.well-known/ai-catalog.json\nAllow: /.well-known/agent-skills/index.json\nAllow: /.well-known/ai-plugin.json\n";
 
 	return new Response(body, {
 		headers: {
 			"Content-Type": "text/plain; charset=utf-8",
-			"Cache-Control": "public, max-age=300",
+			"Cache-Control": "public, max-age=0, must-revalidate",
 		},
 	});
-};
+}
