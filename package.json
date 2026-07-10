@@ -6,6 +6,9 @@
 	"author": "Moveroo Australia",
 	"license": "UNLICENSED",
 	"private": true,
+	"engines": {
+		"node": "22.x"
+	},
 	"scripts": {
 		"dev": "astro dev",
 		"build": "astro build",
@@ -34,13 +37,12 @@
 	"dependencies": {
 		"@astrojs/check": "^0.9.6",
 		"@astrojs/rss": "^4.0.18",
-		"@astrojs/sitemap": "^3.6.0",
-		"@astrojs/vercel": "^9.0.3",
-		"@jdevalk/astro-seo-graph": "^1.4.1",
-		"@jdevalk/seo-graph-core": "^0.6.2",
+		"@astrojs/vercel": "^11.0.2",
+		"@jdevalk/astro-seo-graph": "^2.2.0",
+		"@jdevalk/seo-graph-core": "^0.7.0",
 		"@sendgrid/mail": "^8.1.6",
 		"@tailwindcss/vite": "^4.1.15",
-		"astro": "^5.14.8",
+		"astro": "^7.0.7",
 		"dotenv": "^17.2.3",
 		"tailwindcss": "^4.1.15",
 		"typescript": "^5.9.3"
