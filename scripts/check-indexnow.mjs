@@ -18,8 +18,8 @@ const submitScript = read("scripts/indexnow-submit.mjs");
 
 assert(
 	packageJson.scripts.build?.includes("astro build") &&
-		packageJson.scripts.build?.includes("node ./scripts/indexnow-submit.mjs --auto"),
-	"build script should run IndexNow auto-submit after Astro build"
+		!packageJson.scripts.build?.includes("node ./scripts/indexnow-submit.mjs --auto"),
+	"build script must not auto-submit IndexNow batches"
 );
 assert(packageJson.scripts["indexnow:dry-run"], "missing indexnow:dry-run script");
 assert(packageJson.scripts["indexnow:submit"], "missing indexnow:submit script");
@@ -36,8 +36,8 @@ assert(
 	"auto-submit must not fail production deploys"
 );
 assert(
-	workflowDoc.includes("Routine production deploys are approved"),
-	"workflow doc should document approved routine deploy submissions"
+	workflowDoc.includes("Normal production builds do not submit IndexNow URLs"),
+	"workflow doc should document Bossman-owned submission"
 );
 
 if (failures.length) {

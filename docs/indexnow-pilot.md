@@ -14,12 +14,13 @@ Legacy SEO Champion tracking:
 This repository started as the pilot for repo-owned IndexNow on `moveroo.com.au`.
 It now follows the fleet standard owned by Bossman.
 
-Routine IndexNow belongs here, in the owning website repository and deployment
-pipeline. Bossman owns the readiness registry and the site manifests; this repo
-hosts the key file and performs bounded production-deploy submissions.
+Bossman owns the readiness registry, site manifests, and streaming submission
+queue. This repository hosts the key file and preserves bounded dry-run and
+explicit manual proof paths.
 
-Routine production deploys are approved for automatic IndexNow submission.
-Preview and local builds must skip submission unless explicitly forced.
+Normal production builds do not submit IndexNow URLs. Preview and local builds
+also do not submit. Live submission remains a provider write and must run
+through an approved Bossman workflow or receive explicit human approval.
 
 ## Environment
 
@@ -36,9 +37,9 @@ The Bossman-approved key is committed as a public root file:
 public/indexnow-moveroo-com-au-6bbd81d738ab734655fcc158.txt
 ```
 
-The build runs `astro build` and then `scripts/indexnow-submit.mjs --auto`.
-Auto mode only submits during production deploys and uses sitemap URLs from the
-fresh build output.
+The build runs `astro build` only. Bossman owns routine streaming submissions;
+the repo scripts remain available for dry-run proof and explicitly approved
+manual submissions.
 
 ## Dry Run
 
@@ -147,4 +148,5 @@ The script also avoids:
 
 Bossman records this host as `submissionApproved=true`. After deployment, verify
 readiness through Bossman's IndexNow readiness check. A verified key file plus
-approved submission status should surface as `submit_ready`.
+approved submission status should surface as `submit_ready`; that readiness does
+not re-enable repo-side batch submission during builds.
