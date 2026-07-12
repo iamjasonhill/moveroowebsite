@@ -1,0 +1,45 @@
+{
+	"schemaVersion": 1,
+	"brand": {
+		"stableKey": "moveroo",
+		"displayName": "Moveroo"
+	},
+	"tokens": {
+		"path": "brand/tokens.json"
+	},
+	"assets": [
+		{
+			"id": "moveroo-wordmark",
+			"roles": ["primary-logo"],
+			"lifecycle": "active",
+			"exports": [{ "path": "src/layouts/Layout.astro", "format": "code" }]
+		},
+		{
+			"id": "moveroo-browser-icons",
+			"roles": ["favicon", "apple-touch-icon"],
+			"lifecycle": "active",
+			"exports": [
+				{ "path": "public/favicon.svg", "format": "svg" },
+				{ "path": "public/favicon.ico", "format": "ico" },
+				{ "path": "public/favicon-16x16.png", "format": "png", "width": 16, "height": 16 },
+				{ "path": "public/favicon-32x32.png", "format": "png", "width": 32, "height": 32 },
+				{ "path": "public/apple-touch-icon.png", "format": "png", "width": 180, "height": 180 }
+			]
+		},
+		{
+			"id": "moveroo-app-icons",
+			"roles": ["app-icon-192", "app-icon-512"],
+			"lifecycle": "active",
+			"exports": [
+				{ "path": "public/icon-192.png", "format": "png", "width": 192, "height": 192 },
+				{ "path": "public/icon-512.png", "format": "png", "width": 512, "height": 512 }
+			]
+		},
+		{
+			"id": "moveroo-social-default",
+			"roles": ["social-default"],
+			"lifecycle": "active",
+			"exports": [{ "path": "public/og-image.png", "format": "png", "width": 1200, "height": 630 }]
+		}
+	]
+}
