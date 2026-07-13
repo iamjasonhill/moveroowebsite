@@ -40,6 +40,16 @@
 			"roles": ["social-default"],
 			"lifecycle": "active",
 			"exports": [{ "path": "public/og-image.png", "format": "png", "width": 1200, "height": 630 }]
+		},
+		{
+			"id": "moveroo-content-scale-system",
+			"roles": ["page-image-system"],
+			"lifecycle": "active",
+			"exports": [
+				{ "path": "src/data/brand-images.ts", "format": "code" },
+				{ "path": "public/brand/routes", "format": "directory" },
+				{ "path": "brand/social", "format": "directory" }
+			]
 		}
 	]
 }

@@ -19,6 +19,8 @@
 		"check:content": "node scripts/check-content-safety.mjs",
 		"check:indexnow": "node scripts/check-indexnow.mjs",
 		"check:seo": "node scripts/check-seo.mjs",
+		"check:brand-kit": "node scripts/check-brand-kit.mjs",
+		"brand:generate": "node scripts/generate-brand-kit-assets.mjs",
 		"indexnow:prepare-key": "node scripts/indexnow-prepare-key.mjs",
 		"indexnow:dry-run": "node ./scripts/indexnow-submit.mjs --dry-run",
 		"indexnow:submit": "node ./scripts/indexnow-submit.mjs --live --force",
