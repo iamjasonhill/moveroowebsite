@@ -1,7 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import BrandImage from "../components/BrandImage.astro";
 import QuoteCta from "../components/sections/QuoteCta.astro";
 import { site } from "../config/site";
+import { brandImageLaneForServiceLane } from "../data/brand-images";
 
 const lastModified = new Date("2026-05-24T00:00:00+10:00");
 
@@ -494,6 +496,7 @@ const structuredData = {
 										<p class="mt-5 max-w-2xl text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
 											{track.description}
 										</p>
+										<BrandImage lane={brandImageLaneForServiceLane(track.analyticsLane)} />
 										<div class="mt-8 grid gap-4 md:grid-cols-2">
 											<div class="rounded-[1.5rem] border border-slate-200 bg-white px-5 py-5 dark:border-slate-800 dark:bg-slate-900/70">
 												<p class="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-700 dark:text-emerald-400">

@@ -11,14 +11,11 @@ Existing public assets:
 - `public/og-image.png`
 - `public/manifest.json`
 
-Current gaps:
+Current coverage:
 
-- no PNG favicon set for small browser surfaces
-- no Apple touch icon
-- no 192px / 512px app icons for stronger manifest coverage
-- no maskable icon for install surfaces
-- only one shared OG image across the whole site
-- no page-specific social images for key public pages
+- browser, Apple-touch, raster app, and maskable icons are present
+- default and key page-specific social images are present
+- the content-scale system provides household, vehicle, and specialty page imagery plus reusable landscape, square, and portrait social templates
 
 ## Priority 1: SEO And Visibility Assets
 
@@ -149,12 +146,12 @@ Page roles:
 
 These are not required for indexing, but they will improve brand feel and should be created after the SEO/visibility pack.
 
-Recommended assets:
+Current assets:
 
-- homepage hero image or illustration
-- household move image
-- vehicle transport image
-- specialty / storage image
+- household move image system entry
+- vehicle transport image system entry
+- specialty / combined move image system entry
+- reusable landscape, square, and portrait social templates
 
 Preferred direction:
 

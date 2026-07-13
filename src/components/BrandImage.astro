@@ -1,0 +1,24 @@
+---
+import { brandImages, type BrandImageLane } from "../data/brand-images";
+
+interface Props {
+	lane: BrandImageLane;
+}
+
+const { lane } = Astro.props;
+const image = brandImages[lane];
+---
+
+<figure
+	class="mt-7 overflow-hidden rounded-[1.5rem] border border-slate-200 bg-slate-950 dark:border-slate-800"
+>
+	<img
+		src={image.src}
+		alt={image.alt}
+		width="1200"
+		height="630"
+		loading="lazy"
+		decoding="async"
+		class="block h-auto w-full"
+	/>
+</figure>
