@@ -2,9 +2,10 @@
 import Layout from "../layouts/Layout.astro";
 import QuoteCta from "../components/sections/QuoteCta.astro";
 import { site } from "../config/site";
+import { routeLastModified } from "../data/route-publication-dates.mjs";
 
 const publishedAt = new Date("2026-05-12T00:00:00+10:00");
-const updatedAt = new Date("2026-07-21T00:00:00+10:00");
+const updatedAt = new Date(routeLastModified["/household-vehicle-relocation/"]);
 
 const heroSignals = [
 	"Household inventory",
