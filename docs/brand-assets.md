@@ -124,7 +124,6 @@ Recommended assets:
 - `public/og-home.png`
 - `public/og-services.png`
 - `public/og-moving-cars.png`
-- `public/og-contact.png`
 
 Target spec:
 
@@ -140,7 +139,6 @@ Page roles:
 - `og-home.png`: broad brand promise
 - `og-services.png`: service map / route chooser
 - `og-moving-cars.png`: vehicle-first transport lane
-- `og-contact.png`: callback and support path
 
 ## Priority 2: Reusable Site Imagery
 

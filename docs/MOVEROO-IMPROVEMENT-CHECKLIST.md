@@ -8,18 +8,15 @@ Use this as the shared backlog across future chats. Items marked **Access needed
 
 ## 0. Immediate Triage
 
-- [x] Fix or verify the `/api/cancellation` production route.
-  - Completed in repo: removed the `vercel.json` redirect that sent `/api/cancellation` to `/`.
+- [x] Retire the marketing-site `/api/cancellation` contact route.
+  - Cancellation support now hands off to `https://quotes.moveroo.com.au/contact`; the marketing site keeps policy guidance only.
   - Access still needed: production/Vercel routing verification after deployment.
 - [x] Review all insurance/cover language for compliance.
   - Completed in repo: public copy uses narrower cover-pathway and provider-supplied-cover language, and `npm run check:content` scans public/source surfaces for risky public insurance, trust, and partner-claim phrases.
   - Access still needed: legal/compliance sign-off on final wording.
 - [x] Update `public/llms.txt` so quote and booking URLs match `src/config/site.ts`.
-- [x] Add spam protection and safer HTML escaping to the cancellation email endpoint.
-  - Completed in repo: added a honeypot field, server-side field limits, email validation, safer subject handling, and HTML escaping.
-  - Future option: add Turnstile/reCAPTCHA or rate limiting if spam continues.
-- [ ] Confirm SendGrid environment variables are configured in production.
-  - Access needed: Vercel/env access or deployment owner confirmation.
+- [x] Retire the former cancellation email endpoint and its SendGrid dependency.
+  - Cancellation support now uses the approved contact workspace, so the marketing repo no longer needs SendGrid credentials or a local customer-contact endpoint.
 
 ## 1. Trust And Risk-Reduction Content
 
@@ -106,9 +103,9 @@ Use this as the shared backlog across future chats. Items marked **Access needed
 - [x] Use intent-specific CTAs:
   - [x] "Check what applies to my move"
   - [x] "Start your quote"
-  - [x] "Request a callback"
-  - [x] "Call 07 2143 2557"
-- [x] Add a sticky mobile CTA bar with call, quote, and callback actions.
+  - [x] "Request support"
+  - [x] "Open contact workspace"
+- [x] Add a sticky mobile CTA bar with household quote, vehicle quote, and contact actions.
 - [ ] Add a "how Moveroo compares quote options" module.
   - Explain price, dates, provider fit, access fit, inventory/vehicle requirements, and available cover/terms information without implying the cheapest option is always best.
 - [ ] Consider embedding the first step of the quote flow on the main site.
@@ -197,11 +194,10 @@ Use this as the shared backlog across future chats. Items marked **Access needed
 
 - [x] Track all CTA clicks, not only household and vehicle quote links.
   - Completed in repo: GA4 link tracking now includes quote, callback/contact, booking, phone, and email click types with link metadata.
-- [x] Track phone taps.
+- [x] Retire direct phone and email click tracking from the marketing site.
 - [x] Track callback/contact clicks.
 - [x] Track booking clicks.
-- [x] Track cancellation form starts, submissions, and errors.
-  - Completed in repo: cancellation form tracks start, submit, success, API error, and network error events.
+- [x] Route cancellation support through the tracked contact-workspace handoff.
 - [x] Track service-lane clicks.
   - Completed in repo: homepage and services service-lane links emit `service_lane_click` with lane, surface, link text, URL, and page path.
 - [x] Track FAQ opens.
@@ -355,7 +351,7 @@ Use this as the shared backlog across future chats. Items marked **Access needed
 - [x] Add a check for stale quote domains.
   - Completed in repo: added `npm run check:content` to scan repo files for the old `removalists.moveroo.com.au` quote domain.
 - [ ] Add tests or checks for critical redirects.
-- [ ] Add a cancellation form smoke test.
+- [x] Add a regression check that the retired cancellation form/API cannot return.
 - [ ] Remove unused starter assets if confirmed unused.
 - [ ] Archive old crawl snapshots or move them out of the active working tree if they become noisy.
 - [ ] Resolve Astro check hints where worthwhile.
@@ -432,9 +428,9 @@ The following access or inputs would unlock the next layer of work:
 
 ## Suggested Work Order
 
-1. Immediate triage: cancellation route, insurance language, `llms.txt`, SendGrid, spam protection.
+1. Immediate triage: portal-only cancellation support, insurance language, and `llms.txt`.
 2. Trust foundation: build the protection page and link it into core conversion paths.
-3. Conversion instrumentation: track all key CTAs, phone taps, and quote handoffs.
+3. Conversion instrumentation: track approved quote, booking, and contact-workspace handoffs.
 4. Service architecture: combined moves, backloading, dedicated moves, vehicle sub-services.
 5. Proof: verified reviews, case studies, route examples, measurable operating claims.
 6. SEO expansion: city, route, cost, checklist, and glossary content.

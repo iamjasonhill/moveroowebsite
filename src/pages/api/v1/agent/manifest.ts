@@ -78,7 +78,7 @@ const manifest = {
 			},
 			{
 				path: "/cancellation/",
-				purpose: "Customer cancellation request page.",
+				purpose: "Cancellation policy and approved contact-workspace handoff.",
 			},
 			{
 				path: "/terms-of-use/",
@@ -138,17 +138,6 @@ const manifest = {
 				purpose: "Agent-readable manifest for discovering exposed surfaces.",
 				authentication: "none",
 				canonicalPath: "/api/v1/agent/manifest/",
-			},
-			{
-				method: "POST",
-				path: "/api/cancellation",
-				purpose: "Customer cancellation request submission.",
-				authentication: "none",
-				requestBody: {
-					contentType: "application/json",
-					fields: ["name", "email", "phone", "bookingReference", "reason", "company"],
-					notes: "company is a honeypot field and should be left empty.",
-				},
 			},
 		],
 		externalHandoffs: [
