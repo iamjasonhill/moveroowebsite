@@ -4,7 +4,7 @@ import QuoteCta from "../components/sections/QuoteCta.astro";
 import { site } from "../config/site";
 
 const publishedAt = new Date("2026-05-12T00:00:00+10:00");
-const updatedAt = publishedAt;
+const updatedAt = new Date("2026-07-21T00:00:00+10:00");
 
 const heroSignals = [
 	"Household inventory",
@@ -229,8 +229,8 @@ const structuredData = {
 						<div class="border-b border-white/10 px-6 py-5 md:px-8">
 							<p class="section-kicker text-emerald-300">How to route it</p>
 							<p class="mt-2 text-sm leading-relaxed text-slate-300">
-								If people, furniture and a vehicle are involved, tell Moveroo so the household
-								move and vehicle transport can be planned around the same dates.
+								If people, furniture and a vehicle are involved, tell Moveroo so the household move
+								and vehicle transport can be planned around the same dates.
 							</p>
 						</div>
 						<div class="route-grid px-6 py-6 md:px-8 md:py-8">
@@ -308,6 +308,17 @@ const structuredData = {
 				<p class="mt-6 text-base leading-relaxed text-slate-600 dark:text-slate-400">
 					The quote should match what is being moved. If the car or motorcycle has its own transport
 					details, use the vehicle quote too and tell Moveroo both parts belong to the same move.
+				</p>
+				<p class="mt-5 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+					If the household move is the main part, start by working out the rooms, access and timing
+					on the{" "}
+					<a
+						href="/household-removals/"
+						class="font-semibold text-emerald-700 underline decoration-emerald-300 underline-offset-4 transition hover:text-emerald-900 dark:text-emerald-400 dark:decoration-emerald-600 dark:hover:text-emerald-300"
+					>
+						plan the household removal
+					</a>
+					{" "}page, then add the vehicle details and any dates that need to line up.
 				</p>
 				<p class="mt-5 text-base leading-relaxed text-slate-600 dark:text-slate-400">
 					If the vehicle is the main thing being moved, start with{" "}
