@@ -68,12 +68,8 @@ Copy `.env.example` and set the real values when needed:
 - `PUBLIC_GA_TAG_URL`
 - `PUBLIC_GA_SEND_PAGE_VIEW`
 - `PUBLIC_GA_ANONYMIZE_IP`
-- `SENDGRID_API_KEY`
-- `SENDGRID_FROM_EMAIL`
 - `INDEXNOW_KEY`
 - `INDEXNOW_ENDPOINT`
-
-`SENDGRID_API_KEY` is required in the production Vercel environment for the cancellation form at `/cancellation/` to send email to `removals@moveroo.com.au`.
 
 ## Notes
 

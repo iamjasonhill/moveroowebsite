@@ -87,22 +87,6 @@ export const site = {
 					handoff_event_name: "provider_login_click",
 				},
 			},
-			{
-				href: "tel:+61721432557",
-				eventName: "phone_click",
-				params: {
-					interaction_type: "phone",
-					lead_type: "call",
-				},
-			},
-			{
-				href: "mailto:removals@moveroo.com.au",
-				eventName: "email_click",
-				params: {
-					interaction_type: "email",
-					lead_type: "email",
-				},
-			},
 		],
 	},
 } as const;

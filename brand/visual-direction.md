@@ -16,7 +16,7 @@ The quote subdomain should feel like the central Moveroo workspace, not a fleet-
 - Use a dark teal header, footer, hero, and progress frame where it improves balance.
 - Keep typing-heavy form panels light and readable.
 - Use emerald for primary CTAs, active steps, progress, selected choices, field focus, and validation emphasis.
-- Use the shared public contact buttons: `tel:+61721432557` and `removals@moveroo.com.au`.
+- Route public support through the shared `/contact` workspace; do not publish direct phone or email channels on the marketing site.
 - Do not place route, road, logistics, or brand motifs behind inputs or validation states.
 
 ## Legacy Host Note

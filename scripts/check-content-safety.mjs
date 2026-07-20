@@ -75,6 +75,13 @@ const riskyPublicCopyPatterns = [
 	},
 ];
 
+const directBusinessContactPatterns = [
+	{ label: "direct telephone link", pattern: /href=["']tel:/i },
+	{ label: "direct email link", pattern: /href=["']mailto:/i },
+	{ label: "Moveroo public phone number", pattern: /(?:\+61\s*7|07)\s*2143\s*2557/i },
+	{ label: "Moveroo public email address", pattern: /removals@moveroo\.com\.au/i },
+];
+
 async function collectFiles(directory) {
 	const entries = await fs.readdir(directory, { withFileTypes: true });
 	const files = [];
@@ -129,6 +136,7 @@ function findMatches({ filePath, content, patterns }) {
 async function main() {
 	const files = await collectFiles(root);
 	const failures = [];
+	const approvedContactUrl = "https://quotes.moveroo.com.au/contact";
 
 	for (const filePath of files) {
 		const content = await fs.readFile(filePath, "utf8");
@@ -151,7 +159,89 @@ async function main() {
 					patterns: riskyPublicCopyPatterns,
 				})
 			);
+
+			failures.push(
+				...findMatches({
+					filePath,
+					content,
+					patterns: directBusinessContactPatterns,
+				})
+			);
 		}
+	}
+
+	const contactAliases = ["contact", "contact-us", "contact-moveroo", "contact-au", "contact-page"];
+	for (const alias of contactAliases) {
+		const aliasFile = `src/pages/${alias}.astro`;
+		const content = await fs.readFile(path.join(root, aliasFile), "utf8");
+		if (!content.includes(`Astro.redirect("${approvedContactUrl}", 301)`)) {
+			failures.push({
+				file: aliasFile,
+				line: 1,
+				label: "approved contact redirect",
+				text: `Expected a permanent redirect to ${approvedContactUrl}`,
+			});
+		}
+	}
+
+	const vercel = JSON.parse(await fs.readFile(path.join(root, "vercel.json"), "utf8"));
+	for (const source of contactAliases.map((alias) => `/${alias}/`)) {
+		const redirect = vercel.redirects?.find((candidate) => candidate.source === source);
+		if (redirect?.destination !== approvedContactUrl || redirect?.permanent !== true) {
+			failures.push({
+				file: "vercel.json",
+				line: 1,
+				label: "approved contact redirect",
+				text: `${source} must permanently redirect to ${approvedContactUrl}`,
+			});
+		}
+	}
+
+	const cancellationPage = await fs.readFile(
+		path.join(root, "src/pages/cancellation.astro"),
+		"utf8"
+	);
+	if (/\b<form\b|\/api\/cancellation/i.test(cancellationPage)) {
+		failures.push({
+			file: "src/pages/cancellation.astro",
+			line: 1,
+			label: "portal-only cancellation contact",
+			text: "Cancellation support must hand off to the approved contact workspace.",
+		});
+	}
+	try {
+		await fs.access(path.join(root, "src/pages/api/cancellation.ts"));
+		failures.push({
+			file: "src/pages/api/cancellation.ts",
+			line: 1,
+			label: "retired local contact endpoint",
+			text: "The marketing site must not expose a local cancellation contact API.",
+		});
+	} catch (error) {
+		if (error?.code !== "ENOENT") throw error;
+	}
+	const agentManifest = await fs.readFile(
+		path.join(root, "src/pages/api/v1/agent/manifest.ts"),
+		"utf8"
+	);
+	if (agentManifest.includes("/api/cancellation")) {
+		failures.push({
+			file: "src/pages/api/v1/agent/manifest.ts",
+			line: 1,
+			label: "retired local contact endpoint",
+			text: "Agent discovery must not advertise the retired cancellation contact API.",
+		});
+	}
+	try {
+		await fs.access(path.join(root, "public/og-contact.png"));
+		failures.push({
+			file: "public/og-contact.png",
+			line: 1,
+			label: "retired direct-contact artwork",
+			text: "The former phone-number artwork must not be publicly deployable.",
+		});
+	} catch (error) {
+		if (error?.code !== "ENOENT") throw error;
 	}
 
 	if (failures.length > 0) {
