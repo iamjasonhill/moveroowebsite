@@ -4,6 +4,8 @@ import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import vercel from "@astrojs/vercel";
 
+import { routeLastModified } from "./src/data/route-publication-dates.mjs";
+
 /** @param {string} page */
 const sitemapFilter = (page) =>
 	!page.includes("/template-dark") &&
@@ -34,11 +36,14 @@ const serverSitemap = {
 				.filter(({ type, pathname }) => type === "page" && pathname && pathname !== "/404")
 				.map(({ pathname }) => {
 					const normalizedPath = pathname === "/" ? "/" : `${pathname?.replace(/\/$/, "")}/`;
-					return new URL(normalizedPath, "https://moveroo.com.au").href;
+					return {
+						url: new URL(normalizedPath, "https://moveroo.com.au").href,
+						lastModified: routeLastModified[normalizedPath],
+					};
 				})
-				.filter(sitemapFilter)
-				.sort();
-			const sitemap = `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">${urls.map((url) => `<url><loc>${url}</loc></url>`).join("")}</urlset>`;
+				.filter(({ url }) => sitemapFilter(url))
+				.sort((left, right) => left.url.localeCompare(right.url));
+			const sitemap = `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">${urls.map(({ url, lastModified }) => `<url><loc>${url}</loc>${lastModified ? `<lastmod>${lastModified}</lastmod>` : ""}</url>`).join("")}</urlset>`;
 			const index = `<?xml version="1.0" encoding="UTF-8"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>https://moveroo.com.au/sitemap-0.xml</loc></sitemap></sitemapindex>`;
 
 			await fs.writeFile(path.join(outputDir, "sitemap-0.xml"), sitemap);
