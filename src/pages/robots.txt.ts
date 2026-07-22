@@ -4,9 +4,6 @@ export function GET() {
 Allow: /
 Sitemap: ${siteUrl}/sitemap.xml
 Sitemap: ${siteUrl}/sitemap-index.xml
-Sitemap: ${siteUrl}/llms.txt
-Sitemap: ${siteUrl}/.well-known/llms.txt
-Sitemap: ${siteUrl}/index.md
 
 # AI crawlers and search agents may use these resources for customer-authorised quote discovery.
 # API execution is documented at /agents/ and /openapi.json.

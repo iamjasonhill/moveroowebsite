@@ -11,6 +11,7 @@ const sitemapFilter = (page) =>
 	!page.includes("/template-dark") &&
 	!page.includes("/template-light") &&
 	!page.includes("/design") &&
+	!page.includes("/agents/examples") &&
 	!page.includes("/contact") &&
 	!page.includes("/contact-moveroo") &&
 	!page.includes("/contact-au") &&

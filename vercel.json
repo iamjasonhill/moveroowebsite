@@ -12,6 +12,11 @@
 			"permanent": true
 		},
 		{
+			"source": "/agents/examples/",
+			"destination": "https://quotes.moveroo.com.au/agents/examples",
+			"permanent": true
+		},
+		{
 			"source": "/contact/",
 			"destination": "https://quotes.moveroo.com.au/contact",
 			"permanent": true

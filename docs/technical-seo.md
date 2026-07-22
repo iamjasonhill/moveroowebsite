@@ -52,6 +52,7 @@ Current known exclusions:
 - `/design/`
 - `/template-light/`
 - `/template-dark/`
+- `/agents/examples/` (permanent redirect to the canonical quote-host examples)
 
 ## Robots And Crawl Guidance
 
@@ -62,7 +63,7 @@ Current known exclusions:
 Current note:
 
 - `robots.txt` is served by `src/pages/robots.txt.ts`
-- current rules allow full crawl access and point crawlers to `/sitemap-index.xml`
+- current rules allow full crawl access and advertise only the XML sitemap outputs
 
 ## Metadata Rules
 
@@ -95,3 +96,4 @@ Current note:
 - `design` page exists as an internal review surface and is intentionally `noindex`
 - `template-light` and `template-dark` exist as showcase pages and are intentionally `noindex`
 - legal pages are allowed to stay public and indexable
+- `/agents/examples/` permanently redirects to `https://quotes.moveroo.com.au/agents/examples`, which owns the canonical examples
