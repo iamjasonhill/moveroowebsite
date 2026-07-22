@@ -13,7 +13,7 @@ Quote system: https://quotes.moveroo.com.au/
 ## Key Pages
 - [Homepage](https://moveroo.com.au/): Main site entry point for Moveroo Australia services.
 - [Agent/API documentation](https://moveroo.com.au/agents/): Human-readable guide for approved AI assistants and developers.
-- [Agent/API examples](https://moveroo.com.au/agents/examples/): Example quote, vehicle, and callback payloads.
+- [Agent/API examples](https://quotes.moveroo.com.au/agents/examples): Canonical quote, vehicle, and callback payloads.
 - [XML sitemap](https://moveroo.com.au/sitemap.xml): Crawlable page inventory for search engines and agents.
 - [Privacy policy](https://moveroo.com.au/privacy-policy/): Privacy and data-handling policy.
 - [Terms and conditions](https://moveroo.com.au/terms-and-conditions-transport/): Site and service terms.

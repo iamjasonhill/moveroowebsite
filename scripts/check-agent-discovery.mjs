@@ -11,6 +11,7 @@ const required = {
 	vehicleQuote: "https://quotes.moveroo.com.au/quote/vehicle",
 	openApi: "https://quotes.moveroo.com.au/openapi.json",
 	quoteCapability: "https://quotes.moveroo.com.au/quote-capability.json",
+	examples: "https://quotes.moveroo.com.au/agents/examples",
 	householdPublicAgentApi: "https://quotes.moveroo.com.au/api/v1/household-quotes/assistant/submit",
 	vehiclePublicAgentApi: "https://quotes.moveroo.com.au/api/v1/vehicle-quotes/assistant/submit",
 	callbackPublicAgentApi: "https://quotes.moveroo.com.au/api/v1/callbacks/assistant/request",
@@ -41,6 +42,27 @@ const haystack = searchableFiles
 for (const [label, value] of Object.entries(required)) {
 	if (!haystack.includes(value)) {
 		console.error(`Agent discovery missing ${label}: ${value}`);
+		failed = true;
+	}
+}
+
+const retiredLocalExamplesUrl = "https://moveroo.com.au/agents/examples/";
+if (haystack.includes(retiredLocalExamplesUrl)) {
+	console.error(
+		`Agent discovery still advertises retired local examples: ${retiredLocalExamplesUrl}`
+	);
+	failed = true;
+}
+
+for (const file of [
+	"src/pages/index.md.ts",
+	"src/pages/llms.txt.ts",
+	"src/pages/.well-known/llms.txt.ts",
+	"src/pages/.well-known/agent-skills/index.json.ts",
+]) {
+	const contents = fs.readFileSync(path.join(root, file), "utf8");
+	if (!contents.includes(required.examples)) {
+		console.error(`Agent discovery file does not use canonical examples URL: ${file}`);
 		failed = true;
 	}
 }

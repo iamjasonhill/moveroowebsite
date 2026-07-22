@@ -3,6 +3,32 @@
 Use this file as the append-only log of technical SEO checks over time.
 Each entry should record the date, commit, environment checked, headline scores, key findings, and what changed.
 
+## 2026-07-22
+
+- Commit: local verification before handoff; not committed in this task
+- Environment: local source and build verification
+- Scope: robots sitemap declarations and canonical ownership of agent/API examples
+
+### Baseline Findings
+
+- `robots.txt` advertised three non-sitemap resources through `Sitemap:` directives
+- `/agents/examples/` duplicated examples owned by the quote host and remained in the marketing sitemap
+- agent-readable marketing surfaces linked to the duplicate local examples page
+
+### Changes In This Pass
+
+- retained only XML sitemap declarations in `robots.txt`
+- converted `/agents/examples/` to a permanent redirect to the canonical quote-host examples
+- excluded the redirect route from generated sitemap output
+- changed agent-readable discovery surfaces to link directly to the canonical quote-host examples
+- added regression checks covering the robots declarations, redirect, sitemap exclusion, and retired URL
+
+### Authority And Follow-Up
+
+- no Site Improvement Experiment was created because this was an agreed standards repair, not an experiment
+- no production deployment or provider write was performed in this local pass
+- production redirect and sitemap output remain to be verified after an authorised deployment
+
 ## 2026-03-23 14:53:23 AEST
 
 - Commit: `22dffe7`
