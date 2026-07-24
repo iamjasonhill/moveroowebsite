@@ -201,6 +201,22 @@ async function main() {
 		path.join(root, "src/pages/cancellation.astro"),
 		"utf8"
 	);
+	const cancellationRefundDetailsUrl = "https://removalist.net/cancellation/refund-details";
+	const siteConfig = await fs.readFile(path.join(root, "src/config/site.ts"), "utf8");
+	const cancellationDestinationReferences = cancellationPage.match(
+		/site\.destinations\.cancellationRefundDetails/g
+	)?.length;
+	if (
+		!siteConfig.includes(`cancellationRefundDetails: "${cancellationRefundDetailsUrl}"`) ||
+		cancellationDestinationReferences !== 2
+	) {
+		failures.push({
+			file: "src/pages/cancellation.astro",
+			line: 1,
+			label: "secure cancellation refund details handoff",
+			text: `Cancellation support must hand off to ${cancellationRefundDetailsUrl}`,
+		});
+	}
 	if (/\b<form\b|\/api\/cancellation/i.test(cancellationPage)) {
 		failures.push({
 			file: "src/pages/cancellation.astro",

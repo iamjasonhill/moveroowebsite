@@ -6,6 +6,7 @@ export const site = {
 		vehicleQuote: "https://quotes.moveroo.com.au/quote/vehicle",
 		contactPage: "https://quotes.moveroo.com.au/contact",
 		contactWorkspace: "https://quotes.moveroo.com.au/contact",
+		cancellationRefundDetails: "https://removalist.net/cancellation/refund-details",
 		bookingPage: "https://quotes.moveroo.com.au/booking/create",
 		providerApply: "https://quotes.moveroo.com.au/providers/apply",
 		providerPaymentTerms: "https://removalist.net/providers/payment-terms",

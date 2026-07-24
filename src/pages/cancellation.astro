@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { site } from "../config/site";
 
-const lastModified = new Date("2026-07-20T00:00:00.000Z");
+const lastModified = new Date("2026-07-24T00:00:00.000Z");
 
 const policyItems = [
 	{
@@ -30,7 +30,7 @@ const policyItems = [
 
 <Layout
 	title="Cancellation Policy and Support | Moveroo"
-	description="Review Moveroo cancellation and refund guidance, then use the secure Moveroo contact workspace to request a cancellation or booking change."
+	description="Review Moveroo cancellation and refund guidance, then use the secure cancellation and refund details form to send your request."
 	canonical="https://moveroo.com.au/cancellation/"
 >
 	<Fragment slot="head">
@@ -46,15 +46,15 @@ const policyItems = [
 		<div class="relative mx-auto max-w-5xl px-6">
 			<p class="section-kicker text-emerald-300">Cancellation support</p>
 			<h1 class="section-title mt-6 max-w-4xl text-4xl font-semibold text-white md:text-6xl">
-				Cancel or update a move through the secure contact workspace
+				Cancel or update a move through the secure details form
 			</h1>
 			<p class="mt-6 max-w-3xl text-base leading-relaxed text-slate-300 md:text-lg">
 				Review the main cancellation and refund rules below. When you are ready, send the booking
-				details through Moveroo's approved contact workspace so the team can review the request.
+				and refund details through Moveroo's secure form so the team can review the request.
 			</p>
 			<div class="mt-8 flex flex-wrap gap-4">
 				<a
-					href={site.destinations.contactPage}
+					href={site.destinations.cancellationRefundDetails}
 					target="_blank"
 					rel="noopener noreferrer"
 					class="inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-400"
@@ -91,7 +91,7 @@ const policyItems = [
 						<li>Include any timing or refund details the team should check.</li>
 					</ul>
 					<a
-						href={site.destinations.contactPage}
+						href={site.destinations.cancellationRefundDetails}
 						target="_blank"
 						rel="noopener noreferrer"
 						class="mt-6 inline-flex items-center justify-center rounded-full bg-emerald-600 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-500"
